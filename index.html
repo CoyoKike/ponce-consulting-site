@@ -48,6 +48,8 @@
   /* the dusk fades out at the top and bottom of its section, so no hard line shows where one section meets the next */
   .dim-left::after, .dim-right::after, .dim-center::after { -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 14%, #000 86%, rgba(0,0,0,0) 100%); mask-image:linear-gradient(180deg, rgba(0,0,0,0) 0%, #000 14%, #000 86%, rgba(0,0,0,0) 100%); }
   .copy-scrim p { opacity:.92; }
+  .credits { position:relative; z-index:10; display:flex; flex-wrap:wrap; gap:6px 18px; justify-content:center; padding:14px 24px 18px; background:#0d0d10; font:400 11px Inter,sans-serif; color:rgba(245,241,234,.45); text-align:center; }
+  .credits a { color:rgba(240,216,168,.7); text-decoration:underline; text-underline-offset:2px; }
   .lead-scrim { padding:14px 18px; margin-left:-18px; border-radius:14px; background:rgba(10,10,13,.42); box-shadow:0 0 0 1px rgba(245,241,234,.06), 0 18px 40px rgba(0,0,0,.18); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
   .md\:text-right .lead-scrim { margin-left:auto; margin-right:-18px; }
   .code-caret { animation:blink 1s steps(2,start) infinite; }
@@ -1224,6 +1226,10 @@
 
   </div>
 </section>
+<footer class="credits" aria-label="Image credits">
+  <span>Paintings by José María Velasco, Joaquín Clausell and Saturnino Herrán, public domain, via Wikimedia Commons.</span>
+  <span>Cardón photo by <a href="https://commons.wikimedia.org/wiki/File:Cardon_cactus_by_Velasco_1887.jpg" target="_blank" rel="noopener">Chiswick Chap</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</span>
+</footer>
 
 <script>
 /* =====================================================================
@@ -3109,6 +3115,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     'Technology should work for you.':'La tecnología debería trabajar para ti.', "Let's":'Vamos a', 'build it':'construirlo', 'together.':'juntos.',
     "Independent consulting for nonprofits: web apps, automation, reporting, and the data behind them. Salesforce and Microsoft when they fit, custom solutions for your needs when they don't. Available for projects and ongoing support.":
       'Consultoría independiente para organizaciones sin fines de lucro: aplicaciones web, automatización, reportes y los datos detrás de ellos. Salesforce y Microsoft cuando encajan, soluciones a la medida de tus necesidades cuando no. Disponible para proyectos y apoyo continuo.',
+    'Paintings by José María Velasco, Joaquín Clausell and Saturnino Herrán, public domain, via Wikimedia Commons.':'Pinturas de José María Velasco, Joaquín Clausell y Saturnino Herrán, dominio público, vía Wikimedia Commons.', 'Cardón photo by':'Foto del cardón por', 'Image credits':'Créditos de las imágenes',
     'Salesforce Certified Administrator':'Administrador certificado de Salesforce', 'Issued 2024':'Otorgada en 2024',
     'PhD candidate in Artificial Intelligence, University of the Cumberlands':'Candidato a doctor en Inteligencia Artificial, University of the Cumberlands', 'MBA, University of the People':'MBA, University of the People', 'BS Psychology, UNAM':'Licenciatura en Psicología, UNAM',
     // attributes
