@@ -797,7 +797,7 @@
         </div>
         <div class="stack-row">
           <div class="stack-cat">AI &amp; automation</div>
-          <div class="stack-items"><b>Local AI automation</b>, Microsoft Foundry Local, Claude API, MCP servers, VAPI voice agents, speech to text, translation apps, reading and extracting documents, note generation</div>
+          <div class="stack-items"><b>Local AI automation</b>, Microsoft Foundry Local, Claude API, MCP servers, voice agents, speech to text, translation apps, reading and extracting documents, note generation</div>
         </div>
         <div class="stack-row">
           <div class="stack-cat">Reporting &amp; data</div>
@@ -1649,11 +1649,11 @@ gsap.from('#meal-tray', { scrollTrigger:{ trigger:'#meals', start:'top 18%' }, o
     + 'box-shadow:0 0 50px 14px rgba(232,176,75,.4);pointer-events:auto;cursor:pointer;will-change:transform;';
   blast.appendChild(lid);
 
-  const TOOLS = ['Apex','Flow','LWC','SOQL','Power Automate','Power BI','Azure','Python','Graph API','SFDX','Vapi','FormAssembly','Digital forms','Document extraction'];
+  const TOOLS = ['Apex','Flow','LWC','SOQL','Power Automate','Power BI','Azure','Python','Graph API','SFDX','Voice agents','FormAssembly','Digital forms','Document extraction'];
   // orb families → theme colors
   const CAT = { Apex:'sf', Flow:'sf', LWC:'sf', SOQL:'sf', SFDX:'sf', FormAssembly:'sf',
     'Power Automate':'ms', 'Power BI':'ms', Azure:'ms', 'Graph API':'ms', SharePoint:'ms', 'MS Foundry':'ms', 'MS Forms':'ms', Dashboards:'ms',
-    Vapi:'ai', 'Local AI':'ai', 'Claude API':'ai', Translation:'ai', 'Document extraction':'ai' };
+    'Voice agents':'ai', 'Local AI':'ai', 'Claude API':'ai', Translation:'ai', 'Document extraction':'ai' };
   const COL = { sf:  { a:'#fff3d6', b:'#f0c878', c:'#e8b04b', g:'232,176,75',  name:'Salesforce' },
                 ms:  { a:'#eef8f1', b:'#a9d6b8', c:'#7fae8f', g:'127,174,143', name:'Microsoft' },
                 ai:  { a:'#fdeee6', b:'#f0b096', c:'#d98a6a', g:'217,138,106', name:'Artificial Intelligence' },
@@ -2352,8 +2352,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     'Python': 'The glue that moves and checks data between systems that were never designed to talk to each other.',
     'Graph API': 'Reading and updating SharePoint, Outlook and Teams from automations.',
     'SFDX': 'A safe, repeatable way to move Salesforce changes from testing to live.',
-    'Vapi': 'A voice assistant that answers routine calls, takes the details, and passes anything unusual to a person.',
-    'VAPI': 'A voice assistant that answers routine calls, takes the details, and passes anything unusual to a person.',
+    'Voice agents': 'A voice assistant that answers routine calls, takes the details, and passes anything unusual to a person.',
     'Local AI': 'AI that runs on the computer in the room, so nothing is sent out to the internet.',
     'MS Foundry': 'An app that records a visit, turns it into text and drafts the note, all on the machine itself.',
     'Dashboards': 'Live dashboards leaders open themselves instead of waiting for a report.',
@@ -2416,7 +2415,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
         if (typeof window.addStackTools === 'function') {
           window.addStackTools(['Local AI', 'MS Foundry', 'Dashboards', 'SharePoint',
                                 'FormAssembly', 'Zapier', 'n8n', 'Make', 'No API? Still fine',
-                                'Claude API', 'VAPI', 'Translation', 'HIPAA']);
+                                'Claude API', 'Translation', 'HIPAA']);
         }
       } else {
         chips.forEach(c => { c.classList.remove('in'); c.style.opacity = '0'; c.style.transform = 'translateY(8px)'; });
@@ -3051,12 +3050,12 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     'Artificial Intelligence':'Inteligencia artificial', 'Automation and data':'Automatización y datos', 'See the rest of the stack':'Ver el resto de las herramientas', 'Hide the rest':'Ocultar el resto',
     'Apex & LWC':'Apex y LWC', ', Flow, SOQL, SFDX, reports & dashboards, integrations, certified admin':', Flow, SOQL, SFDX, reportes y tableros, integraciones, administrador certificado',
     'AI & automation':'IA y automatización', 'Local AI automation':'Automatización con IA local',
-    ', Microsoft Foundry Local, Claude API, MCP servers, VAPI voice agents, speech to text, translation apps, reading and extracting documents, note generation':', Microsoft Foundry Local, API de Claude, servidores MCP, agentes de voz VAPI, voz a texto, aplicaciones de traducción, lectura y extracción de documentos, generación de notas',
+    ', Microsoft Foundry Local, Claude API, MCP servers, voice agents, speech to text, translation apps, reading and extracting documents, note generation':', Microsoft Foundry Local, API de Claude, servidores MCP, agentes de voz, voz a texto, aplicaciones de traducción, lectura y extracción de documentos, generación de notas',
     'Reporting & data':'Reportes y datos', 'Live dashboards':'Tableros en vivo', ', Power BI, Tableau, databases and data modeling, moving data between systems, charts people can read':', Power BI, Tableau, bases de datos y modelado de datos, mover datos entre sistemas, gráficas que la gente entiende',
     'Platforms & integration':'Plataformas e integración', ', SharePoint as a database, Microsoft Graph, connecting systems to each other, web apps shared by several organizations, systems with no way to connect, automatic data entry':', SharePoint como base de datos, Microsoft Graph, conectar sistemas entre sí, aplicaciones web compartidas por varias organizaciones, sistemas sin forma de conectarse, captura automática de datos',
     'Forms & no-code':'Formularios y sin código', 'Paper forms to digital':'De formularios en papel a digitales', ', FormAssembly, MS Forms, Zapier, Make, n8n, webhooks':', FormAssembly, MS Forms, Zapier, Make, n8n, webhooks',
     'Security':'Seguridad', 'Only the right people see the data':'Solo las personas correctas ven los datos', ', a record of every change, health data handled properly, your data stays in your own systems':', un registro de cada cambio, datos de salud manejados como se debe, tus datos se quedan en tus propios sistemas',
-    'Digital forms':'Formularios digitales', 'Document extraction':'Extracción de documentos', 'Local AI':'IA local', 'Dashboards':'Tableros', 'Translation':'Traducción', 'No API? Still fine':'¿Sin API? No hay problema',
+    'Digital forms':'Formularios digitales', 'Voice agents':'Agentes de voz', 'Document extraction':'Extracción de documentos', 'Local AI':'IA local', 'Dashboards':'Tableros', 'Translation':'Traducción', 'No API? Still fine':'¿Sin API? No hay problema',
     // orb examples
     'Custom code inside Salesforce that keeps thousands of records up to date overnight, with nobody typing.':'Código a la medida dentro de Salesforce que mantiene miles de registros al día durante la noche, sin que nadie teclee.',
     'Salesforce automations that replaced a weekly copy-and-paste chore.':'Automatizaciones de Salesforce que reemplazaron una tarea semanal de copiar y pegar.',
