@@ -307,6 +307,7 @@
     box-shadow:0 14px 34px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.12) inset; opacity:0; transform:translateY(16px); pointer-events:none; transition:opacity .35s ease, transform .35s ease, filter .2s ease; text-shadow:none; }
   .assist-fab.show { opacity:1; transform:none; pointer-events:auto; }
   .assist-fab:hover { filter:brightness(1.06); }
+  @media (max-width:640px){ #meals { padding-bottom:110px; } #food-blast { -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,0) 96%); mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,0) 96%); } }
   @media (max-width:640px){ .assist-fab span { display:none; } .assist-fab { padding:16px; right:16px; bottom:16px; } header > div > div > .lang-sw { display:none; } }
 
   @media (prefers-reduced-motion:reduce){ .assist-cta, .assist-fab { animation:none; } }
@@ -1375,7 +1376,7 @@ gsap.registerPlugin(ScrollTrigger);
    so the page reveals one chapter at a time (hero excluded — it has a scroll-story) */
 (function(){
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce) return;
+  if (reduce || matchMedia('(pointer:coarse)').matches || innerWidth < 900) return;   // touch screens keep their native scroll
   // 'work' is left out on purpose: its dashboard is taller than the viewport
   const ids = ['consumers','caregivers','meals','reports','savings','closing'];
   let timer = null, snapping = false;
@@ -1639,7 +1640,7 @@ gsap.from('#meal-tray', { scrollTrigger:{ trigger:'#meals', start:'top 18%' }, o
 
   // nucleus sits off-center (toward the upper-right) rather than dead-center
   const OFF = { x:0, y:0 };
-  function setOffset(){ const r=blast.getBoundingClientRect(); if(innerWidth<=640){ OFF.x = 0; OFF.y = r.height*0.2; } else { OFF.x = -r.width*0.08; OFF.y = -r.height*0.06; } }
+  function setOffset(){ const r=blast.getBoundingClientRect(); if(innerWidth<=640){ OFF.x = 0; OFF.y = r.height*0.04; } else { OFF.x = -r.width*0.08; OFF.y = -r.height*0.06; } }
   setOffset(); addEventListener('resize', setOffset);
 
   const lid = document.createElement('div');
@@ -2025,7 +2026,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const ctx = cv.getContext('2d');
   const layer = document.createElement('canvas'), lctx = layer.getContext('2d');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let W, H, DPR = Math.min(window.devicePixelRatio || 1, 1.4);
+  let W, H, DPR = Math.min(window.devicePixelRatio || 1, innerWidth < 768 ? 1 : 1.4);   // phones get a lighter canvas
 
   const R = 200;
   const REVEAL = 'fire';   // 'fire' burns the old painting away; 'ripple' is the water wavefront
