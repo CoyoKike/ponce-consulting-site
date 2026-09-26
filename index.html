@@ -60,6 +60,16 @@
   .lt-tabs button.on { color:#f0d8a8; background:rgba(232,176,75,.08); }
   .lt-tabs button.on::after { content:''; position:absolute; left:8px; right:8px; bottom:-1px; height:2px; border-radius:2px; background:linear-gradient(90deg,#c9962f,#f6d99a); }
   .lt-panes { position:relative; height:284px; }
+  @media (min-width:1024px){ #code-wrap > div { zoom:1.22; } }
+  @media (min-width:1400px){ #code-wrap > div { zoom:1.42; } }
+  /* the flow steps explain themselves on hover or tap */
+  #lt-flow .f-node { cursor:pointer; transition:filter .25s ease; }
+  #lt-flow .f-node:hover, #lt-flow .f-node.hot { filter:drop-shadow(0 0 7px rgba(232,176,75,.75)); }
+  #lt-flow .f-links path { transition:stroke .25s ease, stroke-width .25s ease; }
+  #lt-flow .f-links path.hot { stroke:#e8b04b; stroke-width:2.2; }
+  .f-cap { position:absolute; left:10px; right:10px; bottom:8px; padding:7px 11px; border-radius:8px; background:rgba(10,12,18,.88); border:1px solid rgba(232,176,75,.28); font:400 10.5px Inter,sans-serif; line-height:1.4; color:#e6dfd0; opacity:0; transform:translateY(4px); transition:opacity .25s ease, transform .25s ease; pointer-events:none; }
+  .f-cap.on { opacity:1; transform:none; }
+  .f-cap b { color:#f0d8a8; font-weight:600; }
   .lt-pane { position:absolute; inset:0; opacity:0; pointer-events:none; transform:translateX(12px); transition:opacity .35s ease, transform .35s ease; }
   .lt-pane.on { opacity:1; pointer-events:auto; transform:none; }
   .lt-pane[data-pane="code"] { display:flex; flex-direction:column; }
@@ -309,6 +319,8 @@
   .assist-fab:hover { filter:brightness(1.06); }
   @media (max-width:640px){ #meals { padding-bottom:40px; } #meals > .grid { min-height:0; padding-bottom:0; } #meals .stack-right { display:none !important; }
     #food-blast { position:relative; inset:auto; top:auto; bottom:auto; height:470px; margin-top:-10px; } .e-label { font-size:10.5px !important; top:-28px !important; } #food-blast { -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,0) 96%); mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,0) 96%); } }
+  .m-reveal { opacity:0; transform:translateY(14px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+  .m-reveal.in { opacity:1; transform:none; }
   @media (max-width:640px){ .assist-fab span { display:none; } .assist-fab { padding:16px; right:16px; bottom:16px; } header > div > div > .lang-sw { display:none; } }
 
   @media (prefers-reduced-motion:reduce){ .assist-cta, .assist-fab { animation:none; } }
@@ -1099,6 +1111,7 @@
               <circle id="f-pulse" r="4" fill="#f6d99a" opacity="0" style="filter:drop-shadow(0 0 6px rgba(232,176,75,.9))"/>
               <g id="f-badge" opacity="0"><rect x="286" y="14" width="118" height="42" rx="8" fill="rgba(14,13,11,.85)" stroke="rgba(232,176,75,.35)"/><text x="345" y="31" text-anchor="middle" font-family="Cormorant Garamond,serif" font-weight="600" font-size="17" fill="#f5f1ea"><tspan id="f-runs">0</tspan> runs</text><text x="345" y="46" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" letter-spacing=".12em" fill="#7fae8f">THIS WEEK · 0 FAILED</text></g>
             </svg>
+            <div class="f-cap" id="f-cap"></div>
           </div>
           <!-- pane 3: the digest email that writes itself -->
           <div class="lt-pane" data-pane="mail">
@@ -1416,8 +1429,9 @@ gsap.to('#scroll-hint',{ scrollTrigger:{ trigger:'#hero', start:'top top', end:'
 /* award-winning text reveal: number + title scale up, fired AFTER the burn settles.
    Sections are vertically centered, so the text is always on screen here. */
 function reveal(section, dir){
+  if (innerWidth < 768) return;   // phones: the block fades in as one (see below), no staged reveal
   const sel = '#'+section, org = (dir<0?'right':'left')+' center';
-  gsap.timeline({ scrollTrigger:{ trigger:sel, start: innerWidth < 768 ? 'top 75%' : 'top 50%' } })
+  gsap.timeline({ scrollTrigger:{ trigger:sel, start:'top 50%' } })
     .from(sel+' span', { opacity:0, y:24, duration:0.8, ease:'power2.out' })
     .from(sel+' .stat-num', { opacity:0, scale:0.5, y:40, transformOrigin:org, duration:1.5, ease:'expo.out' }, '-=0.45')
     .from(sel+' h2', { opacity:0, scale:0.66, y:36, transformOrigin:org, duration:1.4, ease:'expo.out' }, '-=1.1')
@@ -1967,6 +1981,31 @@ gsap.from('#meal-tray', { scrollTrigger:{ trigger:'#meals', start:'top 18%' }, o
       .to(bits, { opacity:1, y:0, duration:.45, stagger:.22, ease:'power2.out' })
       .call(() => { status.textContent = 'Sent · 6:00 AM · 14 recipients'; dot.style.background = '#7fae8f'; dot.style.boxShadow = '0 0 8px rgba(127,174,143,.6)'; }, null, '+=.5');
   }
+  // hover or tap a step: it lights up with its links, and a line explains it; the windows stop rotating while you look
+  (function(){
+    const STEPS = [
+      ['Start', 'A form comes in. That is the trigger. Nobody has to press anything.'],
+      ['Create record', 'A client record is created. If the email already exists, the record is updated instead of duplicated.'],
+      ['Urgent?', 'The flow reads the need. Housing counts as urgent and takes the fast lane.'],
+      ['Assign', 'Urgent cases go straight to the crisis team, with a two-hour response window.'],
+      ['Queue for intake', 'Everything else is shared out evenly among three caseworkers.'],
+      ['Notify', 'The assigned person gets a Teams message and a text, right away.'],
+      ['Log to dashboard', 'Every step is written to a SharePoint list, so the dashboard and the audit trail update themselves.']
+    ];
+    const LINKS = [['fl1'], ['fl1','fl2'], ['fl2','fl3','fl4'], ['fl3','fl5'], ['fl4'], ['fl5','fl6'], ['fl6']];
+    const cap = document.getElementById('f-cap'), nodes = Array.from(document.querySelectorAll('#lt-flow .f-node'));
+    let pinned = -1;
+    function light(i){
+      nodes.forEach((n, k) => n.classList.toggle('hot', k === i));
+      document.querySelectorAll('#lt-flow .f-links path').forEach(l => l.classList.toggle('hot', i >= 0 && LINKS[i].includes(l.id)));
+      if (i >= 0) { cap.innerHTML = '<b>' + STEPS[i][0] + '</b> · ' + STEPS[i][1]; cap.classList.add('on'); } else cap.classList.remove('on');
+    }
+    nodes.forEach((n, i) => {
+      n.addEventListener('pointerenter', () => { clearTimeout(cycleTimer); cycleTimer = null; light(i); });
+      n.addEventListener('pointerleave', () => { light(pinned); if (!cycleTimer) cycle('mail', 12000); });
+      n.addEventListener('click', e => { e.stopPropagation(); pinned = pinned === i ? -1 : i; light(pinned); clearTimeout(cycleTimer); cycleTimer = null; if (pinned < 0) cycle('mail', 12000); });
+    });
+  })();
   function cycle(next, delay){ clearTimeout(cycleTimer); cycleTimer = setTimeout(() => { showPane(next); cycle(next === 'code' ? 'flow' : next === 'flow' ? 'mail' : 'code', next === 'code' ? 7000 : 7500); }, delay); }
   tabs.forEach(t => t.addEventListener('click', () => { showPane(t.dataset.pane); cycle(t.dataset.pane === 'code' ? 'flow' : t.dataset.pane === 'flow' ? 'mail' : 'code', 16000); }));
   // hand-off from the code sequence: once deployed, the laptop starts rotating windows
@@ -2017,7 +2056,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   if (!sec) return;
   const inner = sec.querySelector(':scope > div');
   if (!inner) return;
-  if (innerWidth < 768) { gsap.fromTo(inner, { opacity: 0 }, { opacity: 1, duration: .9, ease: 'power2.out', scrollTrigger: { trigger: sec, start: 'top 85%', once: true } }); return; }
+  if (innerWidth < 768) { inner.classList.add('m-reveal'); new IntersectionObserver((es, io) => { if (es.some(e => e.isIntersecting)) { inner.classList.add('in'); io.disconnect(); } }, { threshold: 0.08 }).observe(sec); return; }
   gsap.fromTo(inner, { opacity: 0 }, {
     opacity: 1, ease: 'power2.out',
     scrollTrigger: { trigger: sec, start: 'top 50%', end: 'top 20%', scrub: 0.5 }
@@ -3116,7 +3155,15 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     'sessions':'sesiones', 'on time':'a tiempo', '▲ 2.1 pts':'▲ 2.1 pts', 'open follow-ups':'seguimientos abiertos', 'Two neighborhoods drove most of the growth:':'Dos barrios impulsaron la mayor parte del crecimiento:', 'and':'y',
     '. The full dashboard is attached, and the data never leaves your systems.':'. El tablero completo va adjunto, y los datos nunca salen de tus sistemas.', 'Drafting…':'Redactando…', 'Scheduled · Mondays 6:00 AM':'Programado · lunes 6:00 AM',
     'Sent · 6:00 AM · 14 recipients':'Enviado · 6:00 AM · 14 destinatarios',
-    'Start':'Inicio', 'Form submitted · Intake':'Formulario enviado · Ingreso', 'Create record':'Crear registro', 'Client · dedupe on email':'Cliente · sin duplicados por correo', 'Urgent?':'¿Urgente?', 'need = housing':'necesidad = vivienda',
+    'Start':'Inicio', 'Form submitted · Intake':'Formulario enviado · Ingreso',
+    'A form comes in. That is the trigger. Nobody has to press anything.':'Llega un formulario. Ese es el disparador. Nadie tiene que oprimir nada.',
+    'A client record is created. If the email already exists, the record is updated instead of duplicated.':'Se crea un registro del cliente. Si el correo ya existe, el registro se actualiza en lugar de duplicarse.',
+    'The flow reads the need. Housing counts as urgent and takes the fast lane.':'El flujo lee la necesidad. Vivienda cuenta como urgente y toma la vía rápida.',
+    'Urgent cases go straight to the crisis team, with a two-hour response window.':'Los casos urgentes van directo al equipo de crisis, con dos horas para responder.',
+    'Everything else is shared out evenly among three caseworkers.':'Todo lo demás se reparte por igual entre tres trabajadores sociales.',
+    'The assigned person gets a Teams message and a text, right away.':'La persona asignada recibe un mensaje de Teams y un texto, de inmediato.',
+    'Every step is written to a SharePoint list, so the dashboard and the audit trail update themselves.':'Cada paso se escribe en una lista de SharePoint, así que el tablero y el registro de auditoría se actualizan solos.',
+    'Create record':'Crear registro', 'Urgent?':'¿Urgente?', 'Assign':'Asignar', 'Queue for intake':'Poner en cola de ingreso', 'Notify':'Notificar', 'Log to dashboard':'Registrar en el tablero', 'Create record':'Crear registro', 'Client · dedupe on email':'Cliente · sin duplicados por correo', 'Urgent?':'¿Urgente?', 'need = housing':'necesidad = vivienda',
     'yes':'sí', 'no':'no', 'Notify':'Notificar', 'Crisis team · SLA 2h':'Equipo de crisis · SLA 2h', 'Teams + SMS':'Teams + SMS', 'Queue for intake':'Poner en cola de ingreso', 'Assign':'Asignar', 'round robin · 3 caseworkers':'por turnos · 3 trabajadores sociales',
     'Log to dashboard':'Registrar en el tablero', 'SharePoint list · audit trail':'Lista de SharePoint · registro de auditoría', 'THIS WEEK · 0 FAILED':'ESTA SEMANA · 0 FALLAS',
     // VI
