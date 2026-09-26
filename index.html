@@ -307,7 +307,8 @@
     box-shadow:0 14px 34px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.12) inset; opacity:0; transform:translateY(16px); pointer-events:none; transition:opacity .35s ease, transform .35s ease, filter .2s ease; text-shadow:none; }
   .assist-fab.show { opacity:1; transform:none; pointer-events:auto; }
   .assist-fab:hover { filter:brightness(1.06); }
-  @media (max-width:640px){ #meals { padding-bottom:110px; } .e-label { font-size:10.5px !important; top:-28px !important; } #food-blast { -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,0) 96%); mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,0) 96%); } }
+  @media (max-width:640px){ #meals { padding-bottom:40px; } #meals > .grid { min-height:0; padding-bottom:0; } #meals .stack-right { display:none !important; }
+    #food-blast { position:relative; inset:auto; top:auto; bottom:auto; height:470px; margin-top:-10px; } .e-label { font-size:10.5px !important; top:-28px !important; } #food-blast { -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,0) 96%); mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,0) 96%); } }
   @media (max-width:640px){ .assist-fab span { display:none; } .assist-fab { padding:16px; right:16px; bottom:16px; } header > div > div > .lang-sw { display:none; } }
 
   @media (prefers-reduced-motion:reduce){ .assist-cta, .assist-fab { animation:none; } }
@@ -818,7 +819,7 @@
         </div>
       </div>
     </div>
-    <div class="grid place-items-center">
+    <div class="grid place-items-center stack-right">
       <svg viewBox="0 0 320 320" class="w-3/4 max-w-[380px] overflow-visible" id="meal-svg" aria-hidden="true">
         <defs>
           <radialGradient id="core" cx="42%" cy="38%" r="68%">
@@ -1716,6 +1717,7 @@ gsap.from('#meal-tray', { scrollTrigger:{ trigger:'#meals', start:'top 18%' }, o
 
   // "See the rest of the stack" sends these into orbit alongside the first twelve
   window.addStackTools = function(labels){
+    if (innerWidth <= 640) return;   // on phones the ledger lists them; the atom stays uncrowded
     labels.forEach(label => {
       if (electrons.some(e => e.label === label)) return;
       const i = electrons.length;
