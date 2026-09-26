@@ -1591,7 +1591,7 @@ document.querySelectorAll('[data-stat]').forEach(el => {
   // intro: fly in, settle, count up
   gsap.set(cards, { transformOrigin:'50% 100%' });
   ScrollTrigger.create({ trigger: innerWidth < 768 ? '#fan' : '#consumers', start: innerWidth < 768 ? 'top 80%' : 'top 18%', once:true, onEnter:() => {
-    if (innerWidth < 768) { gsap.set(cards, { opacity:1 }); place(false); }
+    if (innerWidth < 768) { place(false); gsap.from(cards, { y:'+=60', opacity:0, scale:0.92, duration:0.9, stagger:0.12, ease:'expo.out' }); }   // phones: rise straight into place
     else {
       gsap.fromTo(cards, { y:90, opacity:0, scale:0.8 },
         { opacity:1, duration:0.9, stagger:0.12, ease:'expo.out', onComplete:() => place(true) });
