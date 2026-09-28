@@ -3024,8 +3024,17 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     try { mr = new MediaRecorder(recStream, mime ? { mimeType: mime } : undefined); } catch (e) { status.textContent = t('micSnag'); return; }
     listening = true; btn.classList.add('on'); orbState('listening'); status.textContent = t('listening');
     recChunks = []; mr.ondataavailable = e => { if (e.data && e.data.size) recChunks.push(e.data); };
-    let spoke = false, silentSince = 0, floor = 0.012; const t0 = performance.now();
+    let spoke = false, silentSince = 0, floor = 0.012, lastPartial = 0, partialBusy = false; const t0 = performance.now();
     mr.start(250);
+    // words appear while the visitor is still talking: every couple of seconds the clip so far is transcribed and shown
+    const partial = async () => {
+      if (partialBusy || !recChunks.length) return; partialBusy = true;
+      try { const blob = new Blob(recChunks, { type: mr && mr.mimeType || 'audio/mp4' });
+        const r = await fetch(RELAY_URL + '/stt?partial=1&email=' + encodeURIComponent(email.value.trim()) + '&lang=' + LANG, { method: 'POST', headers: { 'Content-Type': blob.type || 'application/octet-stream' }, body: blob });
+        const d = await r.json(); const text = ((d && d.text) || '').trim();
+        if (listening && text && text.length >= (input.value || '').trim().length - 8) { input.value = text; grow(); } }
+      catch (e) {} finally { partialBusy = false; }
+    };
     const tick = () => {
       if (!listening || !mr) return;
       const l = micLevel(), now = performance.now();
@@ -3034,6 +3043,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
       orb.style.setProperty('--s', (1 + lv * .42).toFixed(3)); orb.style.setProperty('--g', (lv * 40).toFixed(0) + 'px'); orb.style.setProperty('--ga', (.18 + lv * .5).toFixed(2));
       if (l > th) { spoke = true; silentSince = 0; }
       else if (spoke) { silentSince = silentSince || now; if (now - silentSince > 1700) { stopRec(false); return; } }
+      if (spoke && now - lastPartial > 2200) { lastPartial = now; partial(); }
       if (now - t0 > 60000) { stopRec(!spoke); return; }
       vadRaf = requestAnimationFrame(tick);
     };
