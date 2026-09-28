@@ -2892,7 +2892,9 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   // phones: the microphone must start inside the tap, the greeting is shown rather than spoken, and one audio element is unlocked by that tap for later replies
   const MOBILE = matchMedia('(pointer:coarse)').matches;
   let player = null;
-  function unlockAudio(){ if (player) return; player = new Audio(); player.setAttribute('playsinline', ''); try { player.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA='; player.play().catch(() => {}); } catch (e) {} }
+  function unlockAudio(){
+    try { actx = actx || new (window.AudioContext || window.webkitAudioContext)(); if (actx.state === 'suspended') actx.resume(); const b = actx.createBuffer(1, 1, 22050); const src = actx.createBufferSource(); src.buffer = b; src.connect(actx.destination); src.start(0); } catch (e) {}
+    if (player) return; player = new Audio(); player.setAttribute('playsinline', ''); try { player.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA='; player.play().catch(() => {}); } catch (e) {} }
   if (window.speechSynthesis) { try { speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices(); } catch (e) {} }
   const btn = document.getElementById('vm-btn'), input = document.getElementById('vm-text'), status = document.getElementById('vm-status'), send = document.getElementById('vm-send'), log = document.getElementById('vm-log');
   const messages = []; let rec = null, listening = false, greeted = false, busy = false, done = false, session = Math.random().toString(36).slice(2);
@@ -2954,7 +2956,19 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   document.addEventListener('visibilitychange', () => { if (document.hidden) { lastWasVoice = false; if (listening) stopListening(); } });
 
   function add(role, text, cls){ const el = document.createElement('div'); el.className = 'vm-msg ' + (role === 'user' ? 'u' : 'a') + (cls ? ' ' + cls : ''); el.textContent = text; log.appendChild(el); log.classList.add('on'); log.scrollTop = log.scrollHeight; return el; }
+  // phones: decode the clip and play it inside the audio context that also holds the microphone
+  async function playViaContext(src, done){
+    let fin = false; const f = () => { if (!fin) { fin = true; cancelAnimationFrame(meterRaf); orbState(null); done && done(); } };
+    try {
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)(); if (actx.state === 'suspended') await actx.resume();
+      const bytes = await (await fetch(src)).arrayBuffer();
+      const buf = await new Promise((res, rej) => actx.decodeAudioData(bytes, res, rej));
+      const node = actx.createBufferSource(); node.buffer = buf; const an = actx.createAnalyser(); an.fftSize = 1024; node.connect(an); an.connect(actx.destination);
+      node.onended = f; orbState('speaking'); meterLoop(an, 3); node.start(0); setTimeout(f, Math.min(20000, buf.duration * 1000 + 800));
+    } catch (e) { f(); }
+  }
   function playAudio(src, done){
+    if (MOBILE) return playViaContext(src, done);
     try { const a = player || new Audio(); a.src = src; let fin = false; const f = () => { if (!fin) { fin = true; cancelAnimationFrame(meterRaf); orbState(null); done && done(); } }; a.onended = f; a.onerror = f; orbState('speaking'); meterAudio(a); a.play().then(() => setTimeout(f, 20000)).catch(f); }
     catch (e) { done && done(); }
   }
@@ -2979,6 +2993,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     speakBrowser(text, done);
   }
   function playClip(key, done){
+    if (MOBILE) return playViaContext(CLIPS[key], done);
     try { const a = player || new Audio(); a.src = CLIPS[key]; let fin = false; const f = () => { if (!fin) { fin = true; cancelAnimationFrame(meterRaf); orbState(null); done && done(); } }; a.onended = f; a.onerror = f; orbState('speaking'); meterAudio(a); a.play().then(() => setTimeout(f, 12000)).catch(f); }
     catch (e) { done && done(); }
   }
@@ -3008,7 +3023,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   const REC_OK = MOBILE && !!(navigator.mediaDevices && window.MediaRecorder);
   let recStream = null, recAn = null, mr = null, recChunks = [], vadRaf = 0;
   async function ensureMic(){
-    if (recStream) return true;
+    if (recStream) { const tr = recStream.getAudioTracks()[0]; if (tr && tr.readyState === 'live' && !tr.muted) { if (actx && actx.state === 'suspended') { try { await actx.resume(); } catch (e) {} } return true; } try { recStream.getTracks().forEach(t => t.stop()); } catch (e) {} recStream = null; }
     try {
       actx = actx || new (window.AudioContext || window.webkitAudioContext)(); if (actx.state === 'suspended') await actx.resume();
       recStream = await navigator.mediaDevices.getUserMedia({ audio: true });
