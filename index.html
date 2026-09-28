@@ -252,7 +252,10 @@
   .vm-input::placeholder { color:rgba(245,241,234,.45); }
   .vm-input:focus { border-color:rgba(232,176,75,.7); }
   .vm-send { flex:none; padding:0 18px; height:46px; border-radius:999px; border:none; background:var(--gold); color:#0d1014; font:600 14px Inter,sans-serif; cursor:pointer; transition:transform .15s ease, filter .2s ease; }
-  .vm-orb-wrap { display:grid; place-items:center; padding:6px 0 22px; }
+  .vm-orb-wrap { display:grid; place-items:center; padding:6px 0 22px; cursor:pointer; -webkit-tap-highlight-color:transparent; outline:none; }
+  .vm-orb-wrap:hover .vm-orb { transform:scale(1.04); }
+  .vm-orb-wrap.nudge .vm-orb .halo { border-color:rgba(246,217,154,.7); animation:orbRipple 1.6s ease-out infinite; }
+  #vm-btn { display:none; }
   .vm-orb { position:relative; width:168px; height:168px; border-radius:50%; transform:scale(var(--s,1)); transition:transform .09s linear; animation:orbBreathe 3.6s ease-in-out infinite;
     filter:drop-shadow(0 22px 40px rgba(0,0,0,.5)) drop-shadow(0 0 calc(14px + var(--g,0px)) rgba(232,176,75,var(--ga,.22))); }
   .vm-orb > .sheen, .vm-orb > .glass, .vm-orb > .spec { position:absolute; border-radius:50%; }
@@ -1221,7 +1224,7 @@
           <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"/>
         </filter>
       </defs></svg>
-      <div class="vm-orb-wrap"><div class="vm-orb" id="vm-orb" aria-hidden="true">
+      <div class="vm-orb-wrap" id="vm-orb-wrap" role="button" tabindex="0" aria-label="Talk"><div class="vm-orb" id="vm-orb" aria-hidden="true">
         <span class="halo h1"></span><span class="halo h2"></span>
         <span class="liquid"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i><i class="b5"></i></span>
         <span class="sheen"></span><span class="glass"></span><span class="spec"></span><span class="ring"></span>
@@ -2847,19 +2850,19 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   // ---- languages: interface text, greeting, speech recognition, and the voice ----
   const T = {
     en: { title:'Talk to my assistant', enterEmail:'To get started, please enter your email.', emailLabel:'Your email', next:'Next', send:'Send', sendMessage:'Send message',
-      typeHere:'Tap the mic and talk, or type here', plainHere:'What do you need help with?', addEmail:'Please add your email first, so Enrique can reply.',
-      tapMic:'Tap the mic and tell me what you need, or type it.', oneMoment:'One moment…', listening:'Listening. Pause when you are done, or tap the mic to stop.',
-      nothing:'Nothing came through. Try again, or type.', tapWhenReady:'Tap the mic when you are ready, or type below.', micBlocked:'Microphone access was blocked. You can type instead.',
+      typeHere:'Or type here', plainHere:'What do you need help with?', addEmail:'Please add your email first, so Enrique can reply.',
+      tapMic:'Tap the bubble to start talking, or type below.', oneMoment:'One moment…', listening:'Listening. Pause when you are done, or tap the bubble to stop.',
+      nothing:'Nothing came through. Try again, or type.', tapWhenReady:'Tap the bubble when you are ready, or type below.', micBlocked:'Microphone access was blocked. You can type instead.',
       micSnag:'Voice capture hit a snag. You can type instead.', micFail:'Could not start the microphone. You can type instead.', noVoice:'This browser cannot capture voice. Type your message instead.',
-      stillHere:'Still here when you are. Type or tap the mic to continue.', leaveMsg:'Leave a short message and Enrique will reply by email.', leaveTitle:'Leave a message',
+      stillHere:'Still here when you are. Tap the bubble or type to continue.', leaveMsg:'Leave a short message and Enrique will reply by email.', leaveTitle:'Leave a message',
       sent:'Sent. Enrique will get back to you as soon as he can.', again:'Could you say that again?', mailSubject:'Message from the website', replyTo:'Reply to',
       greeting:"Hi, this is Enrique's assistant. What's your name? And in your own words, what do you need help with?", sr:'en-US' },
     es: { title:'Habla con mi asistente', enterEmail:'Para empezar, escribe tu correo.', emailLabel:'Tu correo', next:'Siguiente', send:'Enviar', sendMessage:'Enviar mensaje',
-      typeHere:'Toca el micrófono y habla, o escribe aquí', plainHere:'¿En qué necesitas ayuda?', addEmail:'Primero escribe tu correo, para que Enrique pueda responderte.',
-      tapMic:'Toca el micrófono y dime qué necesitas, o escríbelo.', oneMoment:'Un momento…', listening:'Escuchando. Haz una pausa cuando termines, o toca el micrófono para parar.',
-      nothing:'No se escuchó nada. Intenta otra vez, o escribe.', tapWhenReady:'Toca el micrófono cuando estés listo, o escribe abajo.', micBlocked:'El acceso al micrófono fue bloqueado. Puedes escribir.',
+      typeHere:'O escribe aquí', plainHere:'¿En qué necesitas ayuda?', addEmail:'Primero escribe tu correo, para que Enrique pueda responderte.',
+      tapMic:'Toca la burbuja para empezar a hablar, o escribe abajo.', oneMoment:'Un momento…', listening:'Escuchando. Haz una pausa cuando termines, o toca la burbuja para parar.',
+      nothing:'No se escuchó nada. Intenta otra vez, o escribe.', tapWhenReady:'Toca la burbuja cuando estés listo, o escribe abajo.', micBlocked:'El acceso al micrófono fue bloqueado. Puedes escribir.',
       micSnag:'Hubo un problema con la voz. Puedes escribir.', micFail:'No se pudo iniciar el micrófono. Puedes escribir.', noVoice:'Este navegador no puede capturar voz. Escribe tu mensaje.',
-      stillHere:'Aquí sigo. Escribe o toca el micrófono para continuar.', leaveMsg:'Deja un mensaje corto y Enrique te responderá por correo.', leaveTitle:'Deja un mensaje',
+      stillHere:'Aquí sigo. Toca la burbuja o escribe para continuar.', leaveMsg:'Deja un mensaje corto y Enrique te responderá por correo.', leaveTitle:'Deja un mensaje',
       sent:'Enviado. Enrique te responderá lo antes posible.', again:'¿Puedes repetirlo?', mailSubject:'Mensaje desde el sitio web', replyTo:'Responder a',
       greeting:'Hola, soy el asistente de Enrique. ¿Cómo te llamas? Y con tus propias palabras, ¿en qué necesitas ayuda?', sr:'es-MX' }
   };
@@ -2994,13 +2997,15 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     rec.onresult = e => { let interim = ''; for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) finalText += r[0].transcript.trim() + ' '; else interim += r[0].transcript; } input.value = (finalText + interim).trim(); grow(); armSilence(); };
     rec.onstart = () => { listening = true; btn.classList.add('on'); orbState('listening'); if (MOBILE) fakeMeter(); else meterMic(); status.textContent = t('listening'); hardStop = setTimeout(() => { try { rec.stop(); } catch (e) {} }, 60000); };
     rec.onend = () => { clearTimeout(silence); clearTimeout(hardStop); listening = false; btn.classList.remove('on'); stopMicMeter(); orbState(null); if (input.value.trim()) { emptyListens = 0; submit(); } else { emptyListens++; status.textContent = emptyListens >= 2 ? t('tapWhenReady') : t('nothing'); if (emptyListens >= 2) lastWasVoice = false; } };
-    rec.onerror = e => { listening = false; btn.classList.remove('on'); stopMicMeter(); orbState(null); status.textContent = e.error === 'not-allowed' ? t('micBlocked') : t('micSnag'); };
-    try { rec.start(); } catch (err) { status.textContent = t('micFail'); }
+    rec.onerror = e => { listening = false; btn.classList.remove('on'); stopMicMeter(); orbState(null); if (MOBILE && greeted && (e.error === 'not-allowed' || e.error === 'aborted')) { status.textContent = t('tapMic'); orbWrap.classList.add('nudge'); return; } status.textContent = e.error === 'not-allowed' ? t('micBlocked') : t('micSnag'); };
+    try { rec.start(); } catch (err) { if (MOBILE && greeted) { status.textContent = t('tapMic'); orbWrap.classList.add('nudge'); } else status.textContent = t('micFail'); }
   }
   if (!SR) { btn.disabled = true; btn.style.opacity = .4; status.textContent = t('noVoice'); }
   btn.addEventListener('click', () => { if (!SR || done || busy) return; if (listening) { rec.stop(); return; } if (!haveEmail()) return; touch(); emptyListens = 0; unlockAudio();
-    if (MOBILE) { if (!greeted) { greet(true, () => { status.textContent = t('tapMic'); btn.classList.add('nudge'); }); } else { btn.classList.remove('nudge'); listen(); } }
-    else greet(true, listen); });
+    orbWrap.classList.remove('nudge'); greet(true, listen); });
+  const orbWrap = document.getElementById('vm-orb-wrap');
+  orbWrap.addEventListener('click', () => btn.click());
+  orbWrap.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); } });
   input.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit(); } });
   const grow = () => { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 132) + 'px'; };
   input.addEventListener('input', grow);
@@ -3028,7 +3033,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
       if (userTurns >= MAX_TURNS && !data.done) { add('assistant', data.reply); messages.push({ role: 'assistant', content: data.reply }); busy = false; send.disabled = false; goPlain(''); return; }
       const reply = data.reply || t('again'); add('assistant', reply); messages.push({ role: 'assistant', content: reply });
       const wantVoice = lastWasVoice;
-      const after = () => { if (data.done) return; if (MOBILE) { if (lastWasVoice) status.textContent = t('tapMic'); return; } if (SR && !listening && lastWasVoice) setTimeout(listen, 300); };
+      const after = () => { if (data.done) return; if (SR && !listening && lastWasVoice) setTimeout(listen, 300); };
       if (wantVoice && data.audio) playAudio('data:' + (data.audioType || 'audio/wav') + ';base64,' + data.audio, after); else if (wantVoice && LANG !== 'en') speakBrowser(reply, after); else after();
       if (data.done) { await fetch(RELAY_URL + '/finish', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ session, messages, lead: data.lead, email: email.value.trim(), lang: LANG }) }).catch(() => {}); finish(); }
     } catch (err) { typing.remove(); messages.pop(); busy = false; send.disabled = false; goPlain(text); return; }
