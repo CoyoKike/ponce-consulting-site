@@ -2850,7 +2850,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   // ---- languages: interface text, greeting, speech recognition, and the voice ----
   const T = {
     en: { title:'Talk to my assistant', enterEmail:'To get started, please enter your email.', emailLabel:'Your email', next:'Next', send:'Send', sendMessage:'Send message',
-      typeHere:'Or type here', plainHere:'What do you need help with?', addEmail:'Please add your email first, so Enrique can reply.',
+      typeHere:'Or type here', listeningHint:'Listening… your words appear when you pause', plainHere:'What do you need help with?', addEmail:'Please add your email first, so Enrique can reply.',
       tapMic:'Tap the bubble to start talking, or type below.', oneMoment:'One moment…', listening:'Listening. Pause when you are done, or tap the bubble to stop.',
       nothing:'Nothing came through. Try again, or type.', tapWhenReady:'Tap the bubble when you are ready, or type below.', micBlocked:'Microphone access was blocked. You can type instead.',
       micSnag:'Voice capture hit a snag. You can type instead.', micFail:'Could not start the microphone. You can type instead.', noVoice:'This browser cannot capture voice. Type your message instead.',
@@ -2858,7 +2858,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
       sent:'Sent. Enrique will get back to you as soon as he can.', again:'Could you say that again?', mailSubject:'Message from the website', replyTo:'Reply to',
       greeting:"Hi, this is Enrique's assistant. What's your name? And in your own words, what do you need help with?", sr:'en-US' },
     es: { title:'Habla con mi asistente', enterEmail:'Para empezar, escribe tu correo.', emailLabel:'Tu correo', next:'Siguiente', send:'Enviar', sendMessage:'Enviar mensaje',
-      typeHere:'O escribe aquí', plainHere:'¿En qué necesitas ayuda?', addEmail:'Primero escribe tu correo, para que Enrique pueda responderte.',
+      typeHere:'O escribe aquí', listeningHint:'Escuchando… tus palabras aparecen cuando haces una pausa', plainHere:'¿En qué necesitas ayuda?', addEmail:'Primero escribe tu correo, para que Enrique pueda responderte.',
       tapMic:'Toca la burbuja para empezar a hablar, o escribe abajo.', oneMoment:'Un momento…', listening:'Escuchando. Haz una pausa cuando termines, o toca la burbuja para parar.',
       nothing:'No se escuchó nada. Intenta otra vez, o escribe.', tapWhenReady:'Toca la burbuja cuando estés listo, o escribe abajo.', micBlocked:'El acceso al micrófono fue bloqueado. Puedes escribir.',
       micSnag:'Hubo un problema con la voz. Puedes escribir.', micFail:'No se pudo iniciar el micrófono. Puedes escribir.', noVoice:'Este navegador no puede capturar voz. Escribe tu mensaje.',
@@ -3023,18 +3023,11 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     const mime = ['audio/mp4', 'audio/webm;codecs=opus', 'audio/webm'].find(m => MediaRecorder.isTypeSupported(m)) || '';
     try { mr = new MediaRecorder(recStream, mime ? { mimeType: mime } : undefined); } catch (e) { status.textContent = t('micSnag'); return; }
     listening = true; btn.classList.add('on'); orbState('listening'); status.textContent = t('listening');
+    input.placeholder = t('listeningHint');
     recChunks = []; mr.ondataavailable = e => { if (e.data && e.data.size) recChunks.push(e.data); };
-    let spoke = false, silentSince = 0, floor = 0.012, lastPartial = 0, partialBusy = false; const t0 = performance.now();
+    let spoke = false, silentSince = 0, floor = 0.012; const t0 = performance.now();
     mr.start(250);
-    // words appear while the visitor is still talking: every couple of seconds the clip so far is transcribed and shown
-    const partial = async () => {
-      if (partialBusy || !recChunks.length) return; partialBusy = true;
-      try { const blob = new Blob(recChunks, { type: mr && mr.mimeType || 'audio/mp4' });
-        const r = await fetch(RELAY_URL + '/stt?partial=1&email=' + encodeURIComponent(email.value.trim()) + '&lang=' + LANG, { method: 'POST', headers: { 'Content-Type': blob.type || 'application/octet-stream' }, body: blob });
-        const d = await r.json(); const text = ((d && d.text) || '').trim();
-        if (listening && text && text.length >= (input.value || '').trim().length - 8) { input.value = text; grow(); } }
-      catch (e) {} finally { partialBusy = false; }
-    };
+    // one transcription per utterance: sending the clip while it is still being recorded cut people off on phones
     const tick = () => {
       if (!listening || !mr) return;
       const l = micLevel(), now = performance.now();
@@ -3042,8 +3035,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
       const th = Math.max(0.03, floor * 2.2), lv = Math.min(1, l * 6);
       orb.style.setProperty('--s', (1 + lv * .42).toFixed(3)); orb.style.setProperty('--g', (lv * 40).toFixed(0) + 'px'); orb.style.setProperty('--ga', (.18 + lv * .5).toFixed(2));
       if (l > th) { spoke = true; silentSince = 0; }
-      else if (spoke) { silentSince = silentSince || now; if (now - silentSince > 1700) { stopRec(false); return; } }
-      if (spoke && now - lastPartial > 2200) { lastPartial = now; partial(); }
+      else if (spoke) { silentSince = silentSince || now; if (now - silentSince > 2300) { stopRec(false); return; } }
       if (now - t0 > 60000) { stopRec(!spoke); return; }
       vadRaf = requestAnimationFrame(tick);
     };
