@@ -2950,8 +2950,8 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     finish();
   });
   let lastTouch = Date.now();
-  function touch(){ lastTouch = Date.now(); clearTimeout(idleTimer); idleTimer = setTimeout(() => { if (listening && rec) { try { rec.stop(); } catch (e) {} } lastWasVoice = false; if (!done) status.textContent = t('stillHere'); }, IDLE_MS); }
-  document.addEventListener('visibilitychange', () => { if (document.hidden) { lastWasVoice = false; if (listening && rec) { try { rec.stop(); } catch (e) {} } } });
+  function touch(){ lastTouch = Date.now(); clearTimeout(idleTimer); idleTimer = setTimeout(() => { if (listening) stopListening(); lastWasVoice = false; if (!done) status.textContent = t('stillHere'); }, IDLE_MS); }
+  document.addEventListener('visibilitychange', () => { if (document.hidden) { lastWasVoice = false; if (listening) stopListening(); } });
 
   function add(role, text, cls){ const el = document.createElement('div'); el.className = 'vm-msg ' + (role === 'user' ? 'u' : 'a') + (cls ? ' ' + cls : ''); el.textContent = text; log.appendChild(el); log.classList.add('on'); log.scrollTop = log.scrollHeight; return el; }
   function playAudio(src, done){
@@ -3000,9 +3000,69 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     rec.onerror = e => { listening = false; btn.classList.remove('on'); stopMicMeter(); orbState(null); if (MOBILE && greeted && (e.error === 'not-allowed' || e.error === 'aborted')) { status.textContent = t('tapMic'); orbWrap.classList.add('nudge'); return; } status.textContent = e.error === 'not-allowed' ? t('micBlocked') : t('micSnag'); };
     try { rec.start(); } catch (err) { if (MOBILE && greeted) { status.textContent = t('tapMic'); orbWrap.classList.add('nudge'); } else status.textContent = t('micFail'); }
   }
-  if (!SR) { btn.disabled = true; btn.style.opacity = .4; status.textContent = t('noVoice'); }
-  btn.addEventListener('click', () => { if (!SR || done || busy) return; if (listening) { rec.stop(); return; } if (!haveEmail()) return; touch(); emptyListens = 0; unlockAudio();
-    orbWrap.classList.remove('nudge'); greet(true, listen); });
+
+  // ---- phones: hands-free voice through a recorder ----
+  // Phone browsers only open speech recognition inside a tap, so a hands-free conversation cannot use it.
+  // Instead the microphone stays open (one permission), each thing the visitor says is recorded until they pause,
+  // and the relay turns it into text. The bubble still stops and restarts it.
+  const REC_OK = MOBILE && !!(navigator.mediaDevices && window.MediaRecorder);
+  let recStream = null, recAn = null, mr = null, recChunks = [], vadRaf = 0;
+  async function ensureMic(){
+    if (recStream) return true;
+    try {
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)(); if (actx.state === 'suspended') await actx.resume();
+      recStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const src = actx.createMediaStreamSource(recStream); recAn = actx.createAnalyser(); recAn.fftSize = 1024; src.connect(recAn);
+      return true;
+    } catch (e) { return false; }
+  }
+  function micLevel(){ const buf = new Uint8Array(recAn.fftSize); recAn.getByteTimeDomainData(buf); let sum = 0; for (let i = 0; i < buf.length; i++) { const v = (buf[i] - 128) / 128; sum += v * v; } return Math.sqrt(sum / buf.length); }
+  async function listenRec(){
+    if (listening || busy || done) return;
+    if (!(await ensureMic())) { status.textContent = t('micBlocked'); return; }
+    const mime = ['audio/mp4', 'audio/webm;codecs=opus', 'audio/webm'].find(m => MediaRecorder.isTypeSupported(m)) || '';
+    try { mr = new MediaRecorder(recStream, mime ? { mimeType: mime } : undefined); } catch (e) { status.textContent = t('micSnag'); return; }
+    listening = true; btn.classList.add('on'); orbState('listening'); status.textContent = t('listening');
+    recChunks = []; mr.ondataavailable = e => { if (e.data && e.data.size) recChunks.push(e.data); };
+    let spoke = false, silentSince = 0, floor = 0.012; const t0 = performance.now();
+    mr.start(250);
+    const tick = () => {
+      if (!listening || !mr) return;
+      const l = micLevel(), now = performance.now();
+      if (now - t0 < 500) floor = Math.max(floor, l * 1.6);          // the room's own noise, measured while the visitor is still quiet
+      const th = Math.max(0.03, floor * 2.2), lv = Math.min(1, l * 6);
+      orb.style.setProperty('--s', (1 + lv * .42).toFixed(3)); orb.style.setProperty('--g', (lv * 40).toFixed(0) + 'px'); orb.style.setProperty('--ga', (.18 + lv * .5).toFixed(2));
+      if (l > th) { spoke = true; silentSince = 0; }
+      else if (spoke) { silentSince = silentSince || now; if (now - silentSince > 1700) { stopRec(false); return; } }
+      if (now - t0 > 60000) { stopRec(!spoke); return; }
+      vadRaf = requestAnimationFrame(tick);
+    };
+    vadRaf = requestAnimationFrame(tick);
+  }
+  function stopRec(discard){
+    if (!mr) return;
+    cancelAnimationFrame(vadRaf); listening = false; btn.classList.remove('on'); orbState(null);
+    const r_ = mr; mr = null;
+    r_.onstop = async () => {
+      if (discard || !recChunks.length) { emptyListens++; status.textContent = emptyListens >= 2 ? t('tapWhenReady') : t('nothing'); if (emptyListens < 2 && !discard) setTimeout(startListening, 400); return; }
+      const blob = new Blob(recChunks, { type: r_.mimeType || 'audio/mp4' });
+      status.textContent = t('oneMoment'); orbState('thinking');
+      try {
+        const r = await fetch(RELAY_URL + '/stt?email=' + encodeURIComponent(email.value.trim()) + '&lang=' + LANG, { method: 'POST', headers: { 'Content-Type': blob.type || 'application/octet-stream' }, body: blob });
+        const d = await r.json(); orbState(null);
+        if (d && d.fallback) { goPlain(''); return; }
+        const text = ((d && d.text) || '').trim();
+        if (!text) { emptyListens++; status.textContent = emptyListens >= 2 ? t('tapWhenReady') : t('nothing'); if (emptyListens < 2) setTimeout(startListening, 400); return; }
+        input.value = text; grow(); emptyListens = 0; lastWasVoice = true; submit();
+      } catch (e) { orbState(null); status.textContent = t('micSnag'); }
+    };
+    try { r_.stop(); } catch (e) { r_.onstop(); }
+  }
+  const startListening = () => { if (REC_OK) listenRec(); else listen(); };
+  const stopListening = () => { if (mr) stopRec(true); else if (rec) { try { rec.stop(); } catch (e) {} } };
+  if (!SR && !REC_OK) { btn.disabled = true; btn.style.opacity = .4; status.textContent = t('noVoice'); }
+  btn.addEventListener('click', () => { if ((!SR && !REC_OK) || done || busy) return; if (listening) { stopListening(); return; } if (!haveEmail()) return; touch(); emptyListens = 0; unlockAudio();
+    orbWrap.classList.remove('nudge'); greet(true, startListening); });
   const orbWrap = document.getElementById('vm-orb-wrap');
   orbWrap.addEventListener('click', () => btn.click());
   orbWrap.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); } });
@@ -3033,7 +3093,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
       if (userTurns >= MAX_TURNS && !data.done) { add('assistant', data.reply); messages.push({ role: 'assistant', content: data.reply }); busy = false; send.disabled = false; goPlain(''); return; }
       const reply = data.reply || t('again'); add('assistant', reply); messages.push({ role: 'assistant', content: reply });
       const wantVoice = lastWasVoice;
-      const after = () => { if (data.done) return; if (SR && !listening && lastWasVoice) setTimeout(listen, 300); };
+      const after = () => { if (data.done) return; if ((SR || REC_OK) && !listening && lastWasVoice) setTimeout(startListening, 300); };
       if (wantVoice && data.audio) playAudio('data:' + (data.audioType || 'audio/wav') + ';base64,' + data.audio, after); else if (wantVoice && LANG !== 'en') speakBrowser(reply, after); else after();
       if (data.done) { await fetch(RELAY_URL + '/finish', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ session, messages, lead: data.lead, email: email.value.trim(), lang: LANG }) }).catch(() => {}); finish(); }
     } catch (err) { typing.remove(); messages.pop(); busy = false; send.disabled = false; goPlain(text); return; }
