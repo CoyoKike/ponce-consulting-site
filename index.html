@@ -321,7 +321,7 @@
     #food-blast { position:relative; inset:auto; top:auto; bottom:auto; height:470px; margin-top:-10px; } .e-label { font-size:10.5px !important; top:-28px !important; } #food-blast { -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,0) 96%); mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,0) 96%); } }
   .m-reveal { opacity:0; transform:translateY(14px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
   .m-reveal.in { opacity:1; transform:none; }
-  @media (max-width:640px){ .assist-fab span { display:none; } .assist-fab { padding:16px; right:16px; bottom:16px; } header > div > div > .lang-sw { display:none; } }
+  @media (max-width:640px){ .assist-fab span { display:none; } .assist-fab { padding:16px; right:16px; bottom:16px; } header .assist-cta span { display:none !important; } header .assist-cta { padding:10px 11px; } header > div > div > .lang-sw { display:inline-flex; } }
 
   @media (prefers-reduced-motion:reduce){ .assist-cta, .assist-fab { animation:none; } }
   .notif { display:flex; gap:10px; align-items:flex-start; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:9px 11px; backdrop-filter:blur(6px); }
@@ -337,6 +337,7 @@
   .dash-pill { cursor:pointer; transition:all .25s ease; } .dash-pill:hover { opacity:1; border-color:rgba(232,176,75,.35); }
   .kpi { transition:border-color .3s ease; } .kpi:hover { border-color:rgba(232,176,75,.35); transform:translateY(-1px); }
   .map-wrap { position:relative; }
+  .map-source { font:400 10.5px Inter,sans-serif; color:#7c8798; margin-top:10px; line-height:1.4; }
   .hood path { transition:filter .3s ease, stroke .3s ease, stroke-width .3s ease; cursor:pointer; }
   .hood path:hover, .hood path.is-hot { filter:brightness(1.35) drop-shadow(0 0 6px rgba(232,176,75,.55)); stroke:#f6d99a; stroke-width:1.2; }
   .dash-panel:has(> #map-wrap) { display:flex; flex-direction:column; }
@@ -523,7 +524,7 @@
 
     <div class="flex items-center gap-3 shrink-0">
       <div class="lang-sw" role="group" aria-label="Language"><button type="button" data-l="en" class="on" lang="en">EN</button><button type="button" data-l="es" lang="es">ES</button></div>
-      <a href="mailto:EnriquePonce@PonceConsulting.onmicrosoft.com?subject=Hello" class="hidden md:inline-block px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap mr-2" style="border:1px solid rgba(232,176,75,.5);color:#f0d8a8">Send me an email</a><a href="#vm" data-assistant class="assist-cta px-4 sm:px-5 py-2.5 rounded-full text-black text-xs sm:text-[13px] font-bold whitespace-nowrap inline-flex items-center gap-2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg><span class="hidden sm:inline">Talk to my assistant</span><span class="sm:hidden">Assistant</span></a>
+      <a href="mailto:EnriquePonce@PonceConsulting.onmicrosoft.com?subject=Project%20inquiry%20from%20your%20website" class="hidden md:inline-block px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap mr-2" style="border:1px solid rgba(232,176,75,.5);color:#f0d8a8">Send me an email</a><a href="#vm" data-assistant class="assist-cta px-4 sm:px-5 py-2.5 rounded-full text-black text-xs sm:text-[13px] font-bold whitespace-nowrap inline-flex items-center gap-2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg><span class="hidden sm:inline">Talk to my assistant</span><span class="sm:hidden">Assistant</span></a>
       <button id="menu-btn" class="menu-btn lg:hidden" aria-label="Open the menu" aria-expanded="false" aria-controls="menu-panel">
         <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M1 1h14M1 6h14M1 11h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
       </button>
@@ -1012,6 +1013,7 @@
             <div class="map-attr">Basemap © Esri, HERE, Garmin, OpenStreetMap contributors</div>
             <div class="map-hint" id="map-hint">Click a neighborhood</div>
           </div>
+          <div class="map-source">Neighborhood profiles: U.S. Census Bureau, American Community Survey 2015–19, via Analyze Boston.</div>
         </div>
 
         <!-- bar list -->
@@ -1194,7 +1196,7 @@
       </div>
     </div>
     <p class="mt-5 text-sm opacity-80 leading-relaxed max-w-xl mx-auto lg:mx-0">PhD candidate in Artificial Intelligence, University of the Cumberlands<br/>MBA, University of the People<br/>BS Psychology, UNAM</p>
-    <a href="mailto:EnriquePonce@PonceConsulting.onmicrosoft.com?subject=Hello" class="mt-10 inline-block px-6 py-3 rounded-full text-sm font-semibold" style="border:1px solid rgba(232,176,75,.5);color:#f0d8a8">Send me an email</a>
+    <a href="mailto:EnriquePonce@PonceConsulting.onmicrosoft.com?subject=Project%20inquiry%20from%20your%20website" class="mt-10 inline-block px-6 py-3 rounded-full text-sm font-semibold" style="border:1px solid rgba(232,176,75,.5);color:#f0d8a8">Send me an email</a>
   </div>
   <div class="w-full max-w-md mx-auto lg:max-w-none">
     <div id="vm" class="vm text-left w-full">
@@ -3145,6 +3147,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     'WHITE':'BLANCA', 'BLACK':'NEGRA', 'HISPANIC':'HISPANA', 'ASIAN':'ASIÁTICA', 'OTHER':'OTRAS',
     'Neighborhood':'Barrio', 'Census profile · ACS 2015–19':'Perfil del censo · ACS 2015–19', 'Households':'Hogares', 'people per household':'personas por hogar', 'Age structure':'Estructura por edad',
     'Living alone':'Viven solos', "Bachelor's+":'Licenciatura o más', 'No car at home':'Sin auto en casa', 'No residential population — the islands are parkland.':'Sin población residente: las islas son parque.',
+    'Neighborhood profiles: U.S. Census Bureau, American Community Survey 2015–19, via Analyze Boston.':'Perfiles de los barrios: Oficina del Censo de EE. UU., American Community Survey 2015–19, vía Analyze Boston.',
     'Basemap © Esri, HERE, Garmin, OpenStreetMap contributors':'Mapa base © Esri, HERE, Garmin, colaboradores de OpenStreetMap', 'Jan':'Ene', 'Apr':'Abr', 'Aug':'Ago', 'Dec':'Dic',
     // V
     'How I work · V':'Cómo trabajo · V', 'Approach':'Enfoque', 'I listen first':'Primero escucho',
