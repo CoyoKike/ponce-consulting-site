@@ -244,6 +244,7 @@
   .vm-mic { width:72px; height:72px; border-radius:50%; flex:none; border:1px solid rgba(232,176,75,.55); background:rgba(232,176,75,.14); color:#f0d8a8; cursor:pointer; display:grid; place-items:center; transition:background .25s ease, color .25s ease, border-color .25s ease; }
   .vm-mic:hover { background:rgba(232,176,75,.26); }
   .vm-mic.on { background:#d98a6a; color:#0d1014; border-color:#d98a6a; animation:vmPulse 1.6s ease-out infinite; }
+  .vm-mic.nudge { animation:vmPulse 1.6s ease-out infinite; border-color:#f6d99a; }
   @keyframes vmPulse { 0% { box-shadow:0 0 0 0 rgba(217,138,106,.6); } 100% { box-shadow:0 0 0 14px rgba(217,138,106,0); } }
   .vm-grow { height:auto; min-height:46px; max-height:132px; resize:none; overflow-y:auto; line-height:1.45; padding-top:12px; padding-bottom:12px; }
   .vm-row { align-items:flex-end; }
@@ -2945,7 +2946,8 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(t('mailSubject')) + '&body=' + encodeURIComponent(text + '\n\n' + t('replyTo') + ': ' + email.value.trim());
     finish();
   });
-  function touch(){ clearTimeout(idleTimer); idleTimer = setTimeout(() => { if (listening && rec) { try { rec.stop(); } catch (e) {} } lastWasVoice = false; if (!done) status.textContent = t('stillHere'); }, IDLE_MS); }
+  let lastTouch = Date.now();
+  function touch(){ lastTouch = Date.now(); clearTimeout(idleTimer); idleTimer = setTimeout(() => { if (listening && rec) { try { rec.stop(); } catch (e) {} } lastWasVoice = false; if (!done) status.textContent = t('stillHere'); }, IDLE_MS); }
   document.addEventListener('visibilitychange', () => { if (document.hidden) { lastWasVoice = false; if (listening && rec) { try { rec.stop(); } catch (e) {} } } });
 
   function add(role, text, cls){ const el = document.createElement('div'); el.className = 'vm-msg ' + (role === 'user' ? 'u' : 'a') + (cls ? ' ' + cls : ''); el.textContent = text; log.appendChild(el); log.classList.add('on'); log.scrollTop = log.scrollHeight; return el; }
@@ -2996,7 +2998,9 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     try { rec.start(); } catch (err) { status.textContent = t('micFail'); }
   }
   if (!SR) { btn.disabled = true; btn.style.opacity = .4; status.textContent = t('noVoice'); }
-  btn.addEventListener('click', () => { if (!SR || done || busy) return; if (listening) { rec.stop(); return; } if (!haveEmail()) return; touch(); emptyListens = 0; unlockAudio(); if (MOBILE) { greet(false); listen(); } else greet(true, listen); });
+  btn.addEventListener('click', () => { if (!SR || done || busy) return; if (listening) { rec.stop(); return; } if (!haveEmail()) return; touch(); emptyListens = 0; unlockAudio();
+    if (MOBILE) { if (!greeted) { greet(true, () => { status.textContent = t('tapMic'); btn.classList.add('nudge'); }); } else { btn.classList.remove('nudge'); listen(); } }
+    else greet(true, listen); });
   input.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit(); } });
   const grow = () => { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 132) + 'px'; };
   input.addEventListener('input', grow);
@@ -3034,6 +3038,21 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   btn.addEventListener('click', () => { lastWasVoice = true; });
   input.addEventListener('input', () => { lastWasVoice = false; });
   function finish(){ done = true; box.classList.add('done'); status.textContent = t('sent'); }
+  // if they gave their email and started, but never finished, Enrique still hears about it
+  let abandonSent = false;
+  function abandon(){
+    if (abandonSent || done || !RELAY_URL) return;
+    if (!box.classList.contains('ready') && !box.classList.contains('plain')) return;
+    if (!EMAIL_OK.test(email.value.trim())) return;
+    abandonSent = true;
+    const draft = (input.value || '').trim() || (plainText.value || '').trim();
+    const payload = JSON.stringify({ session, email: email.value.trim(), messages, draft, lang: LANG });
+    try { navigator.sendBeacon(RELAY_URL + '/abandon', new Blob([payload], { type: 'text/plain' })); }
+    catch (e) { fetch(RELAY_URL + '/abandon', { method: 'POST', body: payload, keepalive: true }).catch(() => {}); }
+  }
+  addEventListener('pagehide', abandon);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) abandon(); });
+  setInterval(() => { if (!done && Date.now() - lastTouch > 4 * 60 * 1000) abandon(); }, 30000);
 })();
 </script>
 <script>
