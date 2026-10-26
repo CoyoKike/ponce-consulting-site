@@ -3257,8 +3257,8 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     finish();
   });
   let lastTouch = Date.now();
-  function touch(){ lastTouch = Date.now(); clearTimeout(idleTimer); idleTimer = setTimeout(() => { if (listening) stopListening(); lastWasVoice = false; if (!done) status.textContent = t('stillHere'); }, IDLE_MS); }
-  document.addEventListener('visibilitychange', () => { if (document.hidden) { lastWasVoice = false; if (listening) stopListening(); } });
+  function touch(){ lastTouch = Date.now(); clearTimeout(idleTimer); idleTimer = setTimeout(() => { if (listening) stopListening(true); lastWasVoice = false; if (!done) status.textContent = t('stillHere'); }, IDLE_MS); }
+  document.addEventListener('visibilitychange', () => { if (document.hidden) { lastWasVoice = false; if (listening) stopListening(true); } });
 
   function add(role, text, cls){ const el = document.createElement('div'); el.className = 'vm-msg ' + (role === 'user' ? 'u' : 'a') + (cls ? ' ' + cls : ''); el.textContent = text; log.appendChild(el); log.classList.add('on'); log.scrollTop = log.scrollHeight; return el; }
   // phones: decode the clip and play it inside the audio context that also holds the microphone
@@ -3440,7 +3440,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     else if (rec) { srHalt = true; try { rec.onend = null; rec.onresult = null; rec.abort(); } catch (err) {} listening = false; btn.classList.remove('on'); stopMicMeter(); orbState(null); }
     status.textContent = '';
   });
-  const stopListening = () => { if (mr) stopRec(true); else if (rec) { srHalt = true; try { rec.stop(); } catch (e) {} } };
+  const stopListening = (discard) => { if (mr) stopRec(!!discard); else if (rec) { srHalt = true; try { rec.stop(); } catch (e) {} } };
   if (!SR && !REC_OK) { btn.disabled = true; btn.style.opacity = .4; status.textContent = t('noVoice'); }
   btn.addEventListener('click', () => { if ((!SR && !REC_OK) || done || busy) return; if (listening) { stopListening(); return; } if (!haveEmail()) return; touch(); emptyListens = 0; unlockAudio();
     typing = false; orbWrap.classList.remove('nudge'); greet(true, startListening); });
@@ -3466,11 +3466,11 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
       location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(t('mailSubject')) + '&body=' + encodeURIComponent(text + '\n\n' + t('replyTo') + ': ' + email.value.trim());
       return;
     }
-    busy = true; send.disabled = true; orbState('thinking'); const typing = add('assistant', '…', 'typing'); status.textContent = '';
+    busy = true; send.disabled = true; orbState('thinking'); const dots = add('assistant', '…', 'typing'); status.textContent = '';
     try {
       const r = await fetch(RELAY_URL + '/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ session, messages, email: email.value.trim(), voice: lastWasVoice, lang: LANG }) });
       const data = await r.json();
-      typing.remove(); orbState(null);
+      dots.remove(); orbState(null);
       if (!r.ok || !data || data.fallback || data.error || !data.reply) { messages.pop(); busy = false; send.disabled = false; goPlain(text); return; }
       if (userTurns >= MAX_TURNS && !data.done) { add('assistant', data.reply); messages.push({ role: 'assistant', content: data.reply }); busy = false; send.disabled = false; goPlain(''); return; }
       const reply = data.reply || t('again'); add('assistant', reply); messages.push({ role: 'assistant', content: reply });
@@ -3478,7 +3478,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
       const after = () => { if (data.done) return; if ((SR || REC_OK) && !listening && lastWasVoice) setTimeout(startListening, 300); };
       if (wantVoice && data.audio) playAudio('data:' + (data.audioType || 'audio/wav') + ';base64,' + data.audio, after); else if (wantVoice && LANG !== 'en') speakBrowser(reply, after); else after();
       if (data.done) { await fetch(RELAY_URL + '/finish', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ session, messages, lead: data.lead, email: email.value.trim(), lang: LANG }) }).catch(() => {}); finish(); }
-    } catch (err) { typing.remove(); messages.pop(); busy = false; send.disabled = false; goPlain(text); return; }
+    } catch (err) { dots.remove(); messages.pop(); busy = false; send.disabled = false; goPlain(text); return; }
     busy = false; send.disabled = false;
   }
   let lastWasVoice = false;
