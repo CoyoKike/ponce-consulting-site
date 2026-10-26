@@ -3376,7 +3376,8 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     const mime = ['audio/mp4', 'audio/webm;codecs=opus', 'audio/webm'].find(m => MediaRecorder.isTypeSupported(m)) || '';
     try { mr = new MediaRecorder(recStream, mime ? { mimeType: mime } : undefined); } catch (e) { status.textContent = t('micSnag'); return; }
     listening = true; btn.classList.add('on'); orbState('listening'); status.textContent = t('listening');
-    input.value = ''; grow(); recChunks = []; mr.ondataavailable = e => { if (e.data && e.data.size) recChunks.push(e.data); };
+    if (document.activeElement !== input) { input.value = ''; grow(); }
+    recChunks = []; mr.ondataavailable = e => { if (e.data && e.data.size) recChunks.push(e.data); };
     let spoke = false, silentSince = 0, floor = 0.012, peak = 0; const t0 = performance.now(), calib = [];
     mr.start(250);
     const session = Symbol(); recSession = session; let previewBusy = false;
@@ -3388,7 +3389,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
         const clip = new Blob(recChunks, { type: mr ? mr.mimeType : 'audio/webm' });
         const r = await fetch(RELAY_URL + '/stt?preview=1&email=' + encodeURIComponent(email.value.trim()) + '&lang=' + LANG, { method: 'POST', headers: { 'Content-Type': clip.type || 'application/octet-stream' }, body: clip });
         const d = await r.json();
-        if (recSession === session && listening && d && d.text) { input.value = d.text; grow(); }
+        if (recSession === session && listening && !typing && d && d.text) { input.value = d.text; grow(); }
       } catch (e) {}
       previewBusy = false;
     }, 2500);
@@ -3428,11 +3429,21 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     try { r_.stop(); } catch (e) { r_.onstop(); }
   }
   // Whisper through the recorder wherever possible (with live previews); the browser's recognition only as a fallback
-  const startListening = () => { if (REC_OK) listenRec(); else if (SR) listen(); };
+  const startListening = () => { if (typing) return; if (REC_OK) listenRec(); else if (SR) listen(); };
+  // the visitor started typing: drop the voice turn without a word, keep their text, and stop auto-listening
+  let typing = false;
+  input.addEventListener('input', e => {
+    if (!e.isTrusted) return;
+    typing = input.value.trim().length > 0; lastWasVoice = false;
+    if (!listening) return;
+    if (mr) { recSession = null; cancelAnimationFrame(vadRaf); listening = false; btn.classList.remove('on'); orbState(null); const r_ = mr; mr = null; r_.onstop = null; try { r_.stop(); } catch (err) {} }
+    else if (rec) { srHalt = true; try { rec.onend = null; rec.onresult = null; rec.abort(); } catch (err) {} listening = false; btn.classList.remove('on'); stopMicMeter(); orbState(null); }
+    status.textContent = '';
+  });
   const stopListening = () => { if (mr) stopRec(true); else if (rec) { srHalt = true; try { rec.stop(); } catch (e) {} } };
   if (!SR && !REC_OK) { btn.disabled = true; btn.style.opacity = .4; status.textContent = t('noVoice'); }
   btn.addEventListener('click', () => { if ((!SR && !REC_OK) || done || busy) return; if (listening) { stopListening(); return; } if (!haveEmail()) return; touch(); emptyListens = 0; unlockAudio();
-    orbWrap.classList.remove('nudge'); greet(true, startListening); });
+    typing = false; orbWrap.classList.remove('nudge'); greet(true, startListening); });
   const orbWrap = document.getElementById('vm-orb-wrap');
   orbWrap.addEventListener('click', () => btn.click());
   orbWrap.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); } });
@@ -3443,6 +3454,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
 
   // ---- the conversation ----
   async function submit(){
+    typing = false;
     const text = input.value.trim(); if (!text || busy || done) return;
     if (!haveEmail()) return;
     touch(); userTurns++;
