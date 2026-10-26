@@ -1674,7 +1674,7 @@ gsap.registerPlugin(ScrollTrigger);
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce || matchMedia('(pointer:coarse)').matches || innerWidth < 900) return;   // touch screens keep their native scroll
   // 'work' is left out on purpose: its dashboard is taller than the viewport
-  const ids = ['consumers','caregivers','reports','savings','closing'];
+  const ids = ['consumers','caregivers','videos','reports','savings','closing'];
   let timer = null, snapping = false;
   function targets(){
     const vh = innerHeight, list = [];
