@@ -3201,6 +3201,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     if (player) return; player = new Audio(); player.setAttribute('playsinline', ''); try { player.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA='; player.play().catch(() => {}); } catch (e) {} }
   if (window.speechSynthesis) { try { speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices(); } catch (e) {} }
   const btn = document.getElementById('vm-btn'), input = document.getElementById('vm-text'), status = document.getElementById('vm-status'), send = document.getElementById('vm-send'), log = document.getElementById('vm-log');
+  let srHalt = false;
   const messages = []; let rec = null, listening = false, greeted = false, busy = false, done = false, session = Math.random().toString(36).slice(2);
   // ---- the orb: swells with whoever is talking ----
   const orb = document.getElementById('vm-orb');
@@ -3310,14 +3311,47 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   // ---- voice in ----
   function listen(){
     if (!SR) return;
-    rec = new SR(); rec.lang = t('sr'); rec.interimResults = true; rec.continuous = !MOBILE; let finalText = '';
-    // keep listening through natural pauses; send only after ~2 s of real silence, or at 60 s
-    let silence = null, hardStop = null; const armSilence = () => { clearTimeout(silence); silence = setTimeout(() => { try { rec.stop(); } catch (e) {} }, 2000); };
-    rec.onresult = e => { let interim = ''; for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) finalText += r[0].transcript.trim() + ' '; else interim += r[0].transcript; } input.value = (finalText + interim).trim(); grow(); armSilence(); };
-    rec.onstart = () => { listening = true; btn.classList.add('on'); orbState('listening'); if (MOBILE) fakeMeter(); else meterMic(); status.textContent = t('listening'); hardStop = setTimeout(() => { try { rec.stop(); } catch (e) {} }, 60000); };
-    rec.onend = () => { clearTimeout(silence); clearTimeout(hardStop); listening = false; btn.classList.remove('on'); stopMicMeter(); orbState(null); if (input.value.trim()) { emptyListens = 0; submit(); } else { emptyListens++; status.textContent = emptyListens >= 2 ? t('tapWhenReady') : t('nothing'); if (emptyListens >= 2) lastWasVoice = false; } };
-    rec.onerror = e => { listening = false; btn.classList.remove('on'); stopMicMeter(); orbState(null); if (MOBILE && greeted && (e.error === 'not-allowed' || e.error === 'aborted')) { status.textContent = t('tapMic'); orbWrap.classList.add('nudge'); return; } status.textContent = e.error === 'not-allowed' ? t('micBlocked') : t('micSnag'); };
-    try { rec.start(); } catch (err) { if (MOBILE && greeted) { status.textContent = t('tapMic'); orbWrap.classList.add('nudge'); } else status.textContent = t('micFail'); }
+    // words appear in the box as the visitor speaks, on every device that has speech recognition.
+    // Phones stop recognition at each short pause, so it restarts itself and keeps adding text until
+    // ~2 s of real silence (or 60 s), then sends everything at once.
+    let base = '', lastHeard = 0, ended = false, silence = null, hardStop = null; const t0 = Date.now();
+    srHalt = false;
+    const finish = () => {
+      if (ended) return; ended = true;
+      clearTimeout(silence); clearTimeout(hardStop); listening = false; btn.classList.remove('on'); stopMicMeter(); orbState(null);
+      if (input.value.trim()) { emptyListens = 0; submit(); }
+      else { emptyListens++; status.textContent = emptyListens >= 2 ? t('tapWhenReady') : t('nothing'); if (emptyListens >= 2) lastWasVoice = false; }
+    };
+    const armSilence = () => { clearTimeout(silence); silence = setTimeout(() => { srHalt = true; try { rec.stop(); } catch (e) { finish(); } }, 2000); };
+    const startOne = (first) => {
+      rec = new SR(); rec.lang = t('sr'); rec.interimResults = true; rec.continuous = !MOBILE; let finalText = '';
+      rec.onresult = e => {
+        let interim = '';
+        for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) finalText += r[0].transcript.trim() + ' '; else interim += r[0].transcript; }
+        input.value = (base + ' ' + finalText + interim).replace(/\s+/g, ' ').trim(); grow(); lastHeard = Date.now(); armSilence();
+        status.textContent = t('listening');
+      };
+      rec.onstart = () => {
+        if (!first) return;
+        listening = true; btn.classList.add('on'); orbState('listening'); if (MOBILE) fakeMeter(); else meterMic(); status.textContent = t('listening');
+        hardStop = setTimeout(() => { srHalt = true; try { rec.stop(); } catch (e) { finish(); } }, 60000);
+      };
+      rec.onend = () => {
+        base = (base + ' ' + finalText).replace(/\s+/g, ' ').trim();
+        // a phone ended on a short pause while the visitor is still mid-thought: keep going
+        if (!srHalt && MOBILE && lastHeard && Date.now() - lastHeard < 1800 && Date.now() - t0 < 60000) { try { startOne(false); return; } catch (e) {} }
+        finish();
+      };
+      rec.onerror = e => {
+        if (e.error === 'no-speech' || e.error === 'aborted') return;   // onend follows and decides
+        ended = true; clearTimeout(silence); clearTimeout(hardStop);
+        listening = false; btn.classList.remove('on'); stopMicMeter(); orbState(null);
+        if (MOBILE && greeted && e.error === 'not-allowed') { status.textContent = t('tapMic'); orbWrap.classList.add('nudge'); return; }
+        status.textContent = e.error === 'not-allowed' ? t('micBlocked') : t('micSnag');
+      };
+      rec.start();
+    };
+    try { startOne(true); } catch (err) { ended = true; if (MOBILE && greeted) { status.textContent = t('tapMic'); orbWrap.classList.add('nudge'); } else status.textContent = t('micFail'); }
   }
 
   // ---- phones: hands-free voice through a recorder ----
@@ -3380,8 +3414,9 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     };
     try { r_.stop(); } catch (e) { r_.onstop(); }
   }
-  const startListening = () => { if (REC_OK) listenRec(); else listen(); };
-  const stopListening = () => { if (mr) stopRec(true); else if (rec) { try { rec.stop(); } catch (e) {} } };
+  // live recognition wherever the browser has it (words show as you speak); the recorder only where it doesn't
+  const startListening = () => { if (SR) listen(); else if (REC_OK) listenRec(); };
+  const stopListening = () => { if (mr) stopRec(true); else if (rec) { srHalt = true; try { rec.stop(); } catch (e) {} } };
   if (!SR && !REC_OK) { btn.disabled = true; btn.style.opacity = .4; status.textContent = t('noVoice'); }
   btn.addEventListener('click', () => { if ((!SR && !REC_OK) || done || busy) return; if (listening) { stopListening(); return; } if (!haveEmail()) return; touch(); emptyListens = 0; unlockAudio();
     orbWrap.classList.remove('nudge'); greet(true, startListening); });
