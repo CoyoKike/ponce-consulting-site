@@ -489,6 +489,35 @@
     .vm-row { flex-wrap:wrap; } .vm-row #vm-text { flex:1 1 100%; order:-1; } .vm-mic { width:60px; height:60px; }
     .map-card .pp > * { max-width:100%; } .map-card .pp [class*=grid], .map-card .pp [style*=grid] { grid-auto-columns:minmax(0,1fr); }
   }
+  /* Videos: three cards in a 3D stack. Swipe, scroll sideways, use the arrows or tap a card to bring it to the front. */
+  #videos .v-head { text-align:center; max-width:880px; margin:0 auto; }
+  .vstage { position:relative; margin-top:clamp(36px,4.5vw,60px); height:calc(min(760px,80vw) * 9 / 16 + 8px); perspective:1700px; touch-action:pan-y; outline:none; }
+  .vcard { position:absolute; left:50%; top:0; margin:0; width:min(760px,80vw); aspect-ratio:16 / 9; border-radius:14px; overflow:hidden; border:1px solid rgba(245,241,234,.12); background:#f3eee2; box-shadow:0 40px 80px -30px rgba(0,0,0,.75); cursor:pointer; translate:0 var(--py,0px); transition:transform .75s cubic-bezier(.2,.75,.2,1), filter .6s ease; will-change:transform; }
+  .vcard video { display:block; width:100%; height:100%; object-fit:cover; background:#f3eee2; }
+  .vcard[data-pos="0"]  { transform:translateX(-50%) translateZ(0) rotateY(0deg) scale(1); z-index:3; }
+  .vcard[data-pos="-1"] { transform:translateX(calc(-50% - 44%)) translateZ(-260px) rotateY(16deg) scale(.86); z-index:2; filter:brightness(.45) saturate(.75); }
+  .vcard[data-pos="1"]  { transform:translateX(calc(-50% + 44%)) translateZ(-260px) rotateY(-16deg) scale(.86); z-index:2; filter:brightness(.45) saturate(.75); }
+  .vcard:not([data-pos="0"]):hover { filter:brightness(.65) saturate(.9); }
+  .vplay { position:absolute; left:18px; bottom:18px; display:inline-flex; align-items:center; gap:10px; font:600 13px/1 Inter,system-ui,sans-serif; color:#111114; background:rgba(245,241,234,.95); border-radius:999px; padding:11px 16px 11px 12px; opacity:0; transition:opacity .35s ease; pointer-events:none; text-shadow:none !important; }
+  .vcard[data-pos="0"]:not(.playing) .vplay { opacity:1; }
+  .vplay i { width:22px; height:22px; border-radius:50%; background:#111114; display:grid; place-items:center; }
+  .vplay i::after { content:""; border-left:8px solid #f5f1ea; border-top:5px solid transparent; border-bottom:5px solid transparent; margin-left:2px; }
+  .vplay .len { color:#6b665e; font-weight:500; }
+  .vbar { display:flex; align-items:center; justify-content:center; gap:22px; margin-top:28px; }
+  .varrow { width:44px; height:44px; border-radius:50%; border:1px solid rgba(245,241,234,.25); background:rgba(13,13,16,.55); color:#f5f1ea; display:grid; place-items:center; cursor:pointer; transition:border-color .25s, background .25s; }
+  .varrow:hover { border-color:#e8b04b; background:rgba(13,13,16,.8); }
+  .vdots { display:flex; gap:10px; }
+  .vdots button { width:9px; height:9px; border-radius:50%; border:0; padding:0; background:rgba(245,241,234,.35); cursor:pointer; transition:background .3s, transform .3s; }
+  .vdots button[aria-current="true"] { background:#e8b04b; transform:scale(1.25); }
+  .vcap { text-align:center; margin-top:20px; min-height:80px; }
+  .vcap .vt { font-family:var(--serif); font-size:clamp(24px,2.4vw,32px); color:#f5f1ea; }
+  .vcap .vd { font-size:15.5px; line-height:1.6; color:rgba(245,241,234,.82); margin-top:6px; }
+  @media (max-width:640px){
+    .vcard[data-pos="-1"] { transform:translateX(calc(-50% - 30%)) translateZ(-200px) rotateY(14deg) scale(.82); }
+    .vcard[data-pos="1"]  { transform:translateX(calc(-50% + 30%)) translateZ(-200px) rotateY(-14deg) scale(.82); }
+    .vplay { left:10px; bottom:10px; padding:8px 12px 8px 9px; font-size:12px; }
+  }
+  @media (prefers-reduced-motion:reduce){ .vcard { transition:none; } }
 </style>
 </head>
 <body class="overflow-x-hidden">
@@ -1049,6 +1078,42 @@
   </div>
 </section>
 
+<!-- VIDEOS -->
+<section id="videos" class="veil dim-center relative min-h-screen overflow-hidden">
+  <div class="relative z-10 min-h-screen px-6 md:px-24 max-w-[1600px] mx-auto py-24 grid content-center">
+    <div class="v-head">
+      <span class="block text-xs uppercase tracking-[0.3em] opacity-60">Videos</span>
+      <div class="stat-num text-[clamp(48px,8vw,120px)] mt-3">In motion</div>
+      <h2 class="font-serif text-[clamp(30px,4.4vw,56px)] leading-none mt-2">Three short videos of the work</h2>
+      <p class="lead-scrim mt-6 mx-auto max-w-xl font-serif italic text-lg opacity-80" style="margin-left:auto">Swipe, scroll sideways or tap a card to bring it to the front, then press play.</p>
+    </div>
+    <div class="vstage" id="vstage" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Videos">
+      <figure class="vcard" data-pos="0" aria-label="Selected work">
+        <video src="media/selected-work.mp4" poster="media/selected-work-poster.jpg" preload="none" playsinline></video>
+        <span class="vplay"><i></i><span>Play</span><span class="len">1:31</span></span>
+      </figure>
+      <figure class="vcard" data-pos="1" aria-label="AI intake">
+        <video src="media/ai-intake.mp4" poster="media/ai-intake-poster.jpg" preload="none" playsinline></video>
+        <span class="vplay"><i></i><span>Play</span><span class="len">1:19</span></span>
+      </figure>
+      <figure class="vcard" data-pos="-1" aria-label="Daily briefing">
+        <video src="media/daily-briefing-sample.mp4" poster="media/daily-briefing-poster.jpg" preload="none" playsinline></video>
+        <span class="vplay"><i></i><span>Play</span><span class="len">0:59</span></span>
+      </figure>
+    </div>
+    <div class="vbar">
+      <button type="button" class="varrow" id="vprev" aria-label="Previous video"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+      <div class="vdots" id="vdots"><button type="button" aria-label="Selected work"></button><button type="button" aria-label="AI intake"></button><button type="button" aria-label="Daily briefing"></button></div>
+      <button type="button" class="varrow" id="vnext" aria-label="Next video"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+    <div class="vcap" aria-live="polite">
+      <div class="vt" data-vt="0">Selected work</div><div class="vd" data-vd="0">Systems, data and AI for health and human services.</div>
+      <div class="vt" data-vt="1" hidden>AI intake</div><div class="vd" data-vd="1" hidden>From a conversation to a case record a person approves.</div>
+      <div class="vt" data-vt="2" hidden>Daily briefing</div><div class="vd" data-vd="2" hidden>A short morning video of what changed overnight, built from your numbers.</div>
+    </div>
+  </div>
+</section>
+
 <!-- V — PROCESS -->
 <section id="reports" class="veil dim-left relative min-h-screen overflow-hidden">
   <div class="relative z-10 grid md:grid-cols-2 items-center content-center min-h-screen px-8 md:px-24 gap-12 max-w-[1600px] mx-auto py-24 md:py-0">
@@ -1364,12 +1429,13 @@ const IMAGES = [
   "img/automation.jpg",  // automation — Herrán, La Ofrenda
   "img/cardon.jpg",      // stack — Velasco, Cardón, Estado de Oaxaca (1887)
   "img/results.jpg",     // results — Velasco, Valle de México 1877
+  "img/videos.jpg",      // videos — Velasco, The Pyramid of the Sun at Teotihuacán (1878)
   "img/process.jpg",     // process — Clausell, El bosque
   "img/value.jpg",       // value — Velasco, The Metlac Ravine
   "img/closing.jpg"      // closing — Velasco, Oaxaca Cathedral
 ];
 /* where each painting should stay centred when the screen is a different shape (0..1, x then y); the cactus crown sits high */
-const FOCUS = [[.5,.5],[.5,.5],[.5,.5],[.5,.3],[.5,.5],[.5,.5],[.5,.5],[.5,.45]];
+const FOCUS = [[.5,.5],[.5,.5],[.5,.5],[.5,.3],[.5,.5],[.5,.55],[.5,.5],[.5,.5],[.5,.45]];
 /* SCENES = palette fallbacks if any image fails — tuned to each painting's mood */
 const SCENES = [
   { sky:'#2a3a3a', glow:'#8fa088', accent:'#e8b04b' },   // Velasco — sage valley, golden light
@@ -1377,11 +1443,12 @@ const SCENES = [
   { sky:'#2a1a14', glow:'#c97a4a', accent:'#e8b04b' },   // Dr. Atl — volcanic ember
   { sky:'#2a1a24', glow:'#a06a72', accent:'#e8b04b' },   // Herrán — warm rose
   { sky:'#23301c', glow:'#7a9a6a', accent:'#e8b04b' },   // Velasco — landscape green
+  { sky:'#3a2c1c', glow:'#b08a5a', accent:'#e8b04b' },   // Velasco — Teotihuacán
   { sky:'#3a2418', glow:'#c97e4a', accent:'#d98a6a' },   // Clausell — sunset coast
   { sky:'#3a1a14', glow:'#d65f3f', accent:'#e8b04b' },   // Dr. Atl — eruption
   { sky:'#2a3a3a', glow:'#8fa088', accent:'#e8b04b' }    // Velasco — closing
 ];
-const BURN_SECTIONS = ['consumers','caregivers','meals','work','reports','savings','closing'];
+const BURN_SECTIONS = ['consumers','caregivers','meals','work','videos','reports','savings','closing'];
 
 /* =====================================================================
    SMOOTH SCROLL + GSAP
@@ -2057,7 +2124,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
 
 /* delay-reveal: each section's content stays hidden until the new painting has fully changed,
    then fades in. This prevents the next section's text appearing on the old painting. */
-['consumers','caregivers','meals','reports','savings','closing'].forEach(id => {
+['consumers','caregivers','meals','videos','reports','savings','closing'].forEach(id => {
   const sec = document.getElementById(id);
   if (!sec) return;
   const inner = sec.querySelector(':scope > div');
@@ -3165,6 +3232,13 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
    ===================================================================== */
 (function(){
   const ES = {
+    // videos section
+    'Videos':'Videos', 'In motion':'En movimiento', 'Three short videos of the work':'Tres videos cortos del trabajo',
+    'Swipe, scroll sideways or tap a card to bring it to the front, then press play.':'Desliza, desplázate de lado o toca una tarjeta para traerla al frente y luego dale play.',
+    'Selected work':'Trabajo seleccionado', 'Systems, data and AI for health and human services.':'Sistemas, datos e IA para salud y servicios humanos.',
+    'AI intake':'Admisión con IA', 'From a conversation to a case record a person approves.':'De una conversación a un expediente que una persona aprueba.',
+    'Daily briefing':'Resumen diario', 'A short morning video of what changed overnight, built from your numbers.':'Un video corto cada mañana con lo que cambió durante la noche, hecho con tus números.',
+    'Play':'Reproducir',
     // header, menu, rail
     'Enrique Ponce':'Enrique Ponce', '· Systems & Automation':'· Sistemas y automatización', 'What I do':'Qué hago', 'Automation':'Automatización', 'Skills':'Habilidades', 'Work':'Trabajo',
     'How I work':'Cómo trabajo', 'Value':'Valor', 'Contact':'Contacto', 'Home':'Inicio', 'Send me an email':'Envíame un correo', 'Talk to my assistant':'Habla con mi asistente', 'Assistant':'Asistente', 'Language':'Idioma',
@@ -3368,6 +3442,50 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   try { const q = new URLSearchParams(location.search).get('lang'); const saved = localStorage.getItem('lang'); first = q || saved || ((navigator.language || 'en').toLowerCase().startsWith('es') ? 'es' : 'en'); } catch (e) {}
   setLang(first, false);
   window.__setPageLang = code => setLang(code, true);
+})();
+</script>
+
+<script>
+// Videos: 3D card stack. The front card plays on tap; a side card comes to the front on tap, swipe, sideways scroll, arrows, dots or arrow keys.
+(() => {
+  const stage = document.getElementById('vstage'); if (!stage) return;
+  const cards = [...stage.querySelectorAll('.vcard')], dots = [...document.querySelectorAll('#vdots button')], n = cards.length;
+  const vts = [...document.querySelectorAll('#videos [data-vt]')], vds = [...document.querySelectorAll('#videos [data-vd]')];
+  let front = 0, lock = 0, x0 = null, y0 = 0, moved = false;
+  const stopAll = () => cards.forEach(c => { const v = c.querySelector('video'); v.pause(); v.controls = false; c.classList.remove('playing'); });
+  const show = (i) => {
+    front = (i + n) % n; stopAll();
+    cards.forEach((c, k) => { let d = (k - front + n) % n; if (d === n - 1) d = -1; c.dataset.pos = d; });
+    dots.forEach((b, k) => b.setAttribute('aria-current', k === front));
+    vts.forEach((e, k) => e.hidden = k !== front); vds.forEach((e, k) => e.hidden = k !== front);
+  };
+  const step = (d) => { const t = Date.now(); if (t - lock < 450) return; lock = t; show(front + d); };
+  cards.forEach((c, k) => c.addEventListener('click', () => {
+    if (moved) return;
+    if (k !== front) { show(k); return; }
+    const v = c.querySelector('video');
+    if (v.paused) { v.controls = true; v.muted = false; v.play(); c.classList.add('playing'); } else { v.pause(); }
+  }));
+  dots.forEach((b, k) => b.addEventListener('click', () => show(k)));
+  document.getElementById('vprev').addEventListener('click', () => step(-1));
+  document.getElementById('vnext').addEventListener('click', () => step(1));
+  stage.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); } if (e.key === 'ArrowRight') { e.preventDefault(); step(1); } });
+  stage.addEventListener('pointerdown', (e) => { x0 = e.clientX; y0 = e.clientY; moved = false; });
+  stage.addEventListener('pointermove', (e) => { if (x0 !== null && Math.abs(e.clientX - x0) > 10 && Math.abs(e.clientX - x0) > Math.abs(e.clientY - y0)) moved = true; });
+  stage.addEventListener('pointerup', (e) => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (moved && Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); setTimeout(() => { moved = false; }, 0); });
+  stage.addEventListener('pointercancel', () => { x0 = null; moved = false; });
+  stage.addEventListener('wheel', (e) => { const dx = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : (e.shiftKey ? e.deltaY : 0); if (Math.abs(dx) < 12) return; e.preventDefault(); e.stopPropagation(); step(dx > 0 ? 1 : -1); }, { passive: false });
+  new IntersectionObserver((es) => es.forEach(en => { if (!en.isIntersecting) stopAll(); }), { threshold: 0.15 }).observe(stage);
+  // parallax: as the section scrolls by, the side cards drift faster than the front one
+  const reduceMo = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const para = () => {
+    if (reduceMo) return;
+    const r = stage.getBoundingClientRect(), vh = innerHeight;
+    const pr = Math.max(-1.2, Math.min(1.2, (r.top + r.height / 2 - vh / 2) / vh));
+    cards.forEach(c => { const side = c.dataset.pos !== '0'; c.style.setProperty('--py', (pr * (side ? -190 : -60)).toFixed(1) + 'px'); });
+  };
+  (function loop(){ para(); requestAnimationFrame(loop); })();
+  show(0);
 })();
 </script>
 </body>
