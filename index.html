@@ -491,7 +491,7 @@
   }
   /* Videos: three cards in a 3D stack. Swipe, scroll sideways, use the arrows or tap a card to bring it to the front. */
   #videos .v-head { text-align:center; max-width:880px; margin:0 auto; }
-  .vstage { position:relative; margin-top:clamp(36px,4.5vw,60px); height:calc(min(760px,80vw) * 9 / 16 + 8px); perspective:1700px; touch-action:pan-y; outline:none; }
+  .vstage { transform-style:preserve-3d; position:relative; margin-top:clamp(36px,4.5vw,60px); height:calc(min(760px,80vw) * 9 / 16 + 8px); perspective:1700px; touch-action:pan-y; outline:none; }
   .vcard { position:absolute; left:50%; top:0; margin:0; width:min(760px,80vw); aspect-ratio:16 / 9; border-radius:14px; overflow:hidden; border:1px solid rgba(245,241,234,.12); background:#f3eee2; box-shadow:0 40px 80px -30px rgba(0,0,0,.75); cursor:pointer; translate:0 var(--py,0px); transition:transform .75s cubic-bezier(.2,.75,.2,1), filter .6s ease; will-change:transform; }
   .vcard video { display:block; width:100%; height:100%; object-fit:cover; background:#f3eee2; }
   .vcard[data-pos="0"]  { transform:translateX(-50%) translateZ(0) rotateY(0deg) scale(1); z-index:3; }
@@ -3449,9 +3449,13 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   const reduceMo = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const para = () => {
     if (reduceMo) return;
-    const r = stage.getBoundingClientRect(), vh = innerHeight;
-    const pr = Math.max(-1.2, Math.min(1.2, (r.top + r.height / 2 - vh / 2) / vh));
-    cards.forEach(c => { const side = c.dataset.pos !== '0'; c.style.setProperty('--py', (pr * (side ? -190 : -60)).toFixed(1) + 'px'); });
+    // progress of the whole section through the screen: -1 entering at the bottom, +1 leaving at the top
+    const sec = document.getElementById('videos').getBoundingClientRect(), vh = innerHeight;
+    const pr = Math.max(-1, Math.min(1, ((vh - sec.top) / (vh + sec.height)) * 2 - 1));
+    const k = innerWidth < 768 ? 0.6 : 1;
+    stage.style.translate = '0 ' + (-pr * 150 * k).toFixed(1) + 'px';            // the stack drifts against the painting
+    stage.style.transform = 'rotateX(' + (pr * 6).toFixed(2) + 'deg)';           // and tilts a little as it passes
+    cards.forEach(c => { const side = c.dataset.pos !== '0'; c.style.setProperty('--py', (-pr * (side ? 140 : 30) * k).toFixed(1) + 'px'); });
   };
   (function loop(){ para(); requestAnimationFrame(loop); })();
   show(0);
