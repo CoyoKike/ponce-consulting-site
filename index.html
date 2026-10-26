@@ -1721,10 +1721,10 @@ gsap.from('#meal-tray', { scrollTrigger:{ trigger:'#meals', start:'top 18%' }, o
   window.__orbFamily = famOf;
   function orbHTML(label){
     const c = famOf(label);
-    return '<span class="e-dot" style="display:block;width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 40% 36%, '+c.a+' 0%, '+c.b+' 30%, '+c.c+' 52%, rgba('+c.g+',.25) 74%, rgba('+c.g+',0) 100%);box-shadow:0 0 18px 5px rgba('+c.g+',.45);"></span>'
+    return '<span class="e-dot" style="display:block;width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 40% 36%, '+c.a+' 0%, '+c.b+' 30%, '+c.c+' 52%, rgba('+c.g+',.25) 74%, rgba('+c.g+',0) 100%);box-shadow:0 0 0 3px rgba(10,8,6,.38), 0 0 18px 5px rgba('+c.g+',.5);"></span>'
       + '<span class="e-ring" style="position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;border:1.5px solid rgba('+c.g+',.55);opacity:.75;pointer-events:none;"></span>'
       + '<span class="e-ping" style="position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;border:1.5px solid rgba('+c.g+',.9);pointer-events:none;animation:orbPing 4.4s ease-out infinite;animation-delay:'+(Math.random()*4.4).toFixed(2)+'s"></span>'
-      + '<span class="e-label" style="position:absolute;left:50%;top:-34px;transform:translateX(-50%);white-space:nowrap;font:600 12px Inter,sans-serif;letter-spacing:.3px;color:#fdf6e8;text-shadow:0 1px 10px rgba(0,0,0,.9);background:rgba(20,16,11,.55);border:1px solid rgba('+c.g+',.35);backdrop-filter:blur(4px);padding:3px 11px;border-radius:12px;opacity:.5;transition:opacity .3s ease, border-color .3s ease;pointer-events:none">'+label+'</span>';
+      + '<span class="e-label" style="position:absolute;left:50%;top:-34px;transform:translateX(-50%);white-space:nowrap;font:600 13px Inter,sans-serif;letter-spacing:.3px;color:#fdf6e8;text-shadow:0 1px 10px rgba(0,0,0,.9);background:rgba(14,11,8,.78);border:1px solid rgba('+c.g+',.35);backdrop-filter:blur(4px);padding:4px 12px;border-radius:12px;opacity:.88;transition:opacity .3s ease, border-color .3s ease;pointer-events:none">'+label+'</span>';
   }
   const COUNT = reduce ? 6 : (innerWidth <= 640 ? 7 : TOOLS.length);   // phones show seven; 'See the rest' adds the others
 
@@ -1763,11 +1763,11 @@ gsap.from('#meal-tray', { scrollTrigger:{ trigger:'#meals', start:'top 18%' }, o
   // hover (desktop) shows a faint label; tap locks it in + enlarges
   function wireElectron(e){
     e.el.addEventListener('pointerenter', () => { e.lbl.style.opacity = 1; if(!e.active) e.hlTarget = 0.5; });
-    e.el.addEventListener('pointerleave', () => { if(!e.active){ e.lbl.style.opacity = 0.5; e.hlTarget = 0; } });
+    e.el.addEventListener('pointerleave', () => { if(!e.active){ e.lbl.style.opacity = 0.88; e.hlTarget = 0; } });
     e.el.addEventListener('click', ev => { ev.stopPropagation();
       const on = !e.active;
-      electrons.forEach(o => { o.active=false; o.hlTarget=0; o.lbl.style.opacity=0.5; o.lbl.style.borderColor=''; });
-      e.active = on; e.hlTarget = on?1:0; e.lbl.style.opacity = on?1:0.5; e.lbl.style.borderColor = on ? famOf(e.label).c : '';
+      electrons.forEach(o => { o.active=false; o.hlTarget=0; o.lbl.style.opacity=0.88; o.lbl.style.borderColor=''; });
+      e.active = on; e.hlTarget = on?1:0; e.lbl.style.opacity = on?1:0.88; e.lbl.style.borderColor = on ? famOf(e.label).c : '';
       if (typeof window.showToolExample === 'function') window.showToolExample(on ? e.label : null);
     });
   }
@@ -1834,7 +1834,8 @@ gsap.from('#meal-tray', { scrollTrigger:{ trigger:'#meals', start:'top 18%' }, o
       const R = base*orb.rf*e, rot = orb.rot + px*0.22;
       ox.save(); ox.translate(cx,cy); ox.rotate(rot);
       ox.beginPath(); ox.ellipse(0,0,R, R*orb.squash*(1+py*0.28), 0, 0, Math.PI*2);
-      ox.strokeStyle = 'rgba(214,168,98,'+(0.13*e)+')'; ox.lineWidth=0.8; ox.stroke(); ox.restore();
+      ox.globalCompositeOperation = 'source-over'; ox.strokeStyle = 'rgba(10,8,6,'+(0.28*e)+')'; ox.lineWidth=3.2; ox.stroke();
+      ox.globalCompositeOperation = 'screen'; ox.strokeStyle = 'rgba(232,186,110,'+(0.42*e)+')'; ox.lineWidth=1.4; ox.stroke(); ox.restore();
     });
     ox.globalCompositeOperation = 'source-over';
 
