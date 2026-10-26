@@ -3358,8 +3358,8 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   // Phone browsers only open speech recognition inside a tap, so a hands-free conversation cannot use it.
   // Instead the microphone stays open (one permission), each thing the visitor says is recorded until they pause,
   // and the relay turns it into text. The bubble still stops and restarts it.
-  const REC_OK = MOBILE && !!(navigator.mediaDevices && window.MediaRecorder);
-  let recStream = null, recAn = null, mr = null, recChunks = [], vadRaf = 0;
+  const REC_OK = !!(navigator.mediaDevices && window.MediaRecorder);   // every device: Whisper understands accents far better than the browser's own recognition
+  let recStream = null, recAn = null, mr = null, recChunks = [], vadRaf = 0, recSession = null;
   async function ensureMic(){
     if (recStream) { const tr = recStream.getAudioTracks()[0]; if (tr && tr.readyState === 'live' && !tr.muted) { if (actx && actx.state === 'suspended') { try { await actx.resume(); } catch (e) {} } return true; } try { recStream.getTracks().forEach(t => t.stop()); } catch (e) {} recStream = null; }
     try {
@@ -3376,9 +3376,22 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     const mime = ['audio/mp4', 'audio/webm;codecs=opus', 'audio/webm'].find(m => MediaRecorder.isTypeSupported(m)) || '';
     try { mr = new MediaRecorder(recStream, mime ? { mimeType: mime } : undefined); } catch (e) { status.textContent = t('micSnag'); return; }
     listening = true; btn.classList.add('on'); orbState('listening'); status.textContent = t('listening');
-    recChunks = []; mr.ondataavailable = e => { if (e.data && e.data.size) recChunks.push(e.data); };
+    input.value = ''; grow(); recChunks = []; mr.ondataavailable = e => { if (e.data && e.data.size) recChunks.push(e.data); };
     let spoke = false, silentSince = 0, floor = 0.012, peak = 0; const t0 = performance.now(), calib = [];
     mr.start(250);
+    const session = Symbol(); recSession = session; let previewBusy = false;
+    const previewTimer = setInterval(async () => {
+      if (recSession !== session || !listening) { clearInterval(previewTimer); return; }
+      if (!spoke || previewBusy || !recChunks.length) return;
+      previewBusy = true;
+      try {
+        const clip = new Blob(recChunks, { type: mr ? mr.mimeType : 'audio/webm' });
+        const r = await fetch(RELAY_URL + '/stt?preview=1&email=' + encodeURIComponent(email.value.trim()) + '&lang=' + LANG, { method: 'POST', headers: { 'Content-Type': clip.type || 'application/octet-stream' }, body: clip });
+        const d = await r.json();
+        if (recSession === session && listening && d && d.text) { input.value = d.text; grow(); }
+      } catch (e) {}
+      previewBusy = false;
+    }, 2500);
     const tick = () => {
       if (!listening || !mr) return;
       const l = micLevel(), now = performance.now();
@@ -3414,8 +3427,8 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     };
     try { r_.stop(); } catch (e) { r_.onstop(); }
   }
-  // live recognition wherever the browser has it (words show as you speak); the recorder only where it doesn't
-  const startListening = () => { if (SR) listen(); else if (REC_OK) listenRec(); };
+  // Whisper through the recorder wherever possible (with live previews); the browser's recognition only as a fallback
+  const startListening = () => { if (REC_OK) listenRec(); else if (SR) listen(); };
   const stopListening = () => { if (mr) stopRec(true); else if (rec) { srHalt = true; try { rec.stop(); } catch (e) {} } };
   if (!SR && !REC_OK) { btn.disabled = true; btn.style.opacity = .4; status.textContent = t('noVoice'); }
   btn.addEventListener('click', () => { if ((!SR && !REC_OK) || done || busy) return; if (listening) { stopListening(); return; } if (!haveEmail()) return; touch(); emptyListens = 0; unlockAudio();
