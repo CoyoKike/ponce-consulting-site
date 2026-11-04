@@ -4512,8 +4512,13 @@ a[data-assistant] > svg { display: none !important; }
 @media (max-width:767px){
   #work .dk-tabs { margin-top:26px; }
   #work .dk-tab { padding:8px 13px; font-size:12px; }
-  #work .dk-slide.pos-l, #work .dk-slide.pos-r { visibility:hidden; }
-  #work .dk-slide { --x:0% !important; --ry:0deg !important; --s:1 !important; }
+  /* phone: full-bleed swipe deck, the neighbours peek in from the edges like the videos */
+  #work .dk-deck { margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); overflow-x:clip; touch-action:pan-y; perspective:1200px; }
+  #work .dk-slide { width:calc(100vw - 44px); transform:translateX(calc(var(--x) + var(--drag, 0px))) translateY(var(--py)) rotateY(var(--ry)) scale(var(--s)); }
+  #work .dk-slide.pos-l { --x:-93%; --ry:16deg; }
+  #work .dk-slide.pos-r { --x:93%; --ry:-16deg; }
+  #work .dk-slide.pos-l, #work .dk-slide.pos-r { --s:.9; filter:brightness(.5) saturate(.8); }
+  #work .dk-deck.dragging .dk-slide { transition:none; }
 }
 @media (prefers-reduced-motion:reduce){ #work .dk-slide { transition:none; } }
 #work .b3-chart { display:block; width:100%; height:auto; overflow:visible; }
@@ -4561,6 +4566,25 @@ a[data-assistant] > svg { display: none !important; }
   tabs.forEach(t => t.addEventListener('click', () => show(+t.dataset.i)));
   slides.forEach(s => s.addEventListener('click', e => { if (!s.classList.contains('is-on')) { e.preventDefault(); e.stopPropagation(); show(+s.dataset.i); } }, true));
   show(0);
+  // phone: swipe left/right to move the deck (maps keep their own drag)
+  let sx = 0, sy = 0, dx = 0, mode = '';
+  deck.addEventListener('touchstart', e => {
+    if (!phone() || e.touches.length > 1 || e.target.closest('.leaflet-container')) { mode = 'off'; return; }
+    sx = e.touches[0].clientX; sy = e.touches[0].clientY; dx = 0; mode = '';
+  }, { passive: true });
+  deck.addEventListener('touchmove', e => {
+    if (mode === 'off' || mode === 'y') return;
+    const x = e.touches[0].clientX - sx, y = e.touches[0].clientY - sy;
+    if (!mode) { if (Math.abs(x) < 8 && Math.abs(y) < 8) return; mode = Math.abs(x) > Math.abs(y) ? 'x' : 'y'; if (mode === 'y') return; deck.classList.add('dragging'); }
+    dx = x; deck.style.setProperty('--drag', dx + 'px');
+  }, { passive: true });
+  const endDrag = () => {
+    if (mode !== 'x') { mode = ''; return; }
+    deck.classList.remove('dragging'); deck.style.setProperty('--drag', '0px');
+    if (Math.abs(dx) > 50) show((on + (dx < 0 ? 1 : -1) + n) % n);
+    mode = '';
+  };
+  deck.addEventListener('touchend', endDrag); deck.addEventListener('touchcancel', endDrag);
   // parallax, like the videos: the centre one straightens as it arrives, the side ones drift at their own speeds
   if (reduce) return;
   let raf = 0, idle;
