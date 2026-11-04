@@ -595,7 +595,7 @@
 <style id="exec-dash">
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 /* "My work" dashboard: light executive report, an ivory sheet over the painting. Everything is scoped under #work. */
-#work .xd { --ink:#1a1814; --ink2:#3d3830; --mute:#6b6355; --faint:#8a8275; --line:rgba(60,50,35,.12); --grid:rgba(60,50,35,.09); --gold:#9a7322; --gold2:#9a7322; --g1:#8a8275; --g2:#b9b1a3; --pad:28px;
+#work .xd { --ink:#1a1814; --ink2:#3d3830; --mute:#6b6355; --faint:#8a8275; --line:rgba(60,50,35,.12); --grid:rgba(60,50,35,.09); --gold:#9a7322; --gold2:#9a7322; --g1:#2f6b62; --g2:#a5472d; --pad:28px;
   margin-top:36px; position:relative; color:var(--ink); background:radial-gradient(130% 80% at 50% -10%, #fbf7ee 0%, #f2ece0 55%, #e7dfd0 100%);
   border:1px solid rgba(120,90,40,.18); border-radius:4px; box-shadow:0 30px 70px rgba(0,0,0,.45); font-family:Inter,system-ui,sans-serif; overflow:hidden; }
 #work .xd, #work .xd * { text-shadow:none !important; }
@@ -625,7 +625,7 @@
 #work .xd .kpi-delta.up { color:var(--gold); }
 #work .xd .kpi-delta.down { color:var(--mute); }
 #work .xk-spark { width:84px; height:22px; flex:none; overflow:visible; }
-#work .xk-spark path { fill:none; stroke:var(--g1); stroke-width:1.25; stroke-linejoin:round; stroke-linecap:round; vector-effect:non-scaling-stroke; }
+#work .xk-spark path { fill:none; stroke:var(--gold); stroke-width:1.5; stroke-linejoin:round; stroke-linecap:round; vector-effect:non-scaling-stroke; }
 #work .xk-spark circle { fill:var(--ink); }
 
 /* 12-column body rows */
@@ -678,7 +678,7 @@
 #work .xd .prog-row span:first-child { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 #work .xd .prog-row:hover, #work .xd .prog-row.hot { background:none; color:var(--ink); }
 #work .xd .prog-row .dot { width:8px; height:8px; border-radius:1px; margin-right:9px; vertical-align:0; }
-#work .xd .prog-row .pbar { height:2px; border-radius:0; background:rgba(60,50,35,.1); }
+#work .xd .prog-row .pbar { height:4px; border-radius:0; background:rgba(60,50,35,.1); }
 #work .xd .prog-row .pbar i { border-radius:0; }
 #work .xd .prog-row b { font-weight:600; color:var(--ink); text-align:right; font-variant-numeric:tabular-nums; }
 
@@ -717,7 +717,7 @@
 #work .pp-delta small { color:var(--mute); }
 #work .pp-sec { color:var(--mute); border-top-color:var(--line); }
 #work .pp-tiles { border-top-color:var(--line); }
-#work .pp-age i { border-radius:1px; background:var(--g2); box-shadow:none; }
+#work .pp-age i { border-radius:1px; background:#2f6b62; box-shadow:none; }
 #work .pp-age.is-60 i { background:var(--gold); box-shadow:none; }
 #work .pp-age b { font:600 11px Inter,sans-serif; color:var(--ink); font-variant-numeric:tabular-nums; }
 #work .pp-age span { color:var(--mute); }
@@ -731,8 +731,8 @@
 #work .xd .dash-row span { width:auto; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 #work .xd .dash-row b { width:auto; font-weight:600; color:var(--ink); text-align:right; font-variant-numeric:tabular-nums; }
 #work .xd .dash-row:hover, #work .xd .dash-row.hot { background:none; color:var(--ink); }
-#work .xd .dash-bar { height:2px; border-radius:0; background:rgba(60,50,35,.1); }
-#work .xd .dash-bar i { border-radius:0; background:var(--g1); transition:background-color .2s ease; }
+#work .xd .dash-bar { height:4px; border-radius:0; background:rgba(60,50,35,.1); }
+#work .xd .dash-bar i { border-radius:0; background:#c9a55a; transition:background-color .2s ease; }
 #work .xd .dash-row:hover .dash-bar i, #work .xd .dash-row.hot .dash-bar i, #work .xd .dash-row.sel .dash-bar i { background:var(--gold); }
 #work .xd .dash-row.sel { color:var(--gold); }
 #work .xd .dossier { margin-top:22px; padding-top:0; border-top:0; }
@@ -1514,18 +1514,18 @@ frame();
             <svg viewBox="0 0 140 140" class="donut2" aria-label="Share of deliveries by program" id="donut2">
               <circle cx="70" cy="70" r="56" fill="none" stroke="rgba(60,50,35,.1)" stroke-width="5"/>
               <circle class="seg" data-i="0" cx="70" cy="70" r="56" fill="none" stroke="#9a7322" stroke-width="5"/>
-              <circle class="seg" data-i="1" cx="70" cy="70" r="56" fill="none" stroke="#8a8275" stroke-width="5"/>
-              <circle class="seg" data-i="2" cx="70" cy="70" r="56" fill="none" stroke="#b9b1a3" stroke-width="5"/>
-              <circle class="seg" data-i="3" cx="70" cy="70" r="56" fill="none" stroke="#d3ccbf" stroke-width="5"/>
+              <circle class="seg" data-i="1" cx="70" cy="70" r="56" fill="none" stroke="#a5472d" stroke-width="5"/>
+              <circle class="seg" data-i="2" cx="70" cy="70" r="56" fill="none" stroke="#2f6b62" stroke-width="5"/>
+              <circle class="seg" data-i="3" cx="70" cy="70" r="56" fill="none" stroke="#3b4a7a" stroke-width="5"/>
               <text id="donut-val" class="xd-donut-val" x="70" y="72" text-anchor="middle">4.2k</text>
               <text id="donut-lbl" class="xd-donut-lbl" x="70" y="88" text-anchor="middle">TOTAL</text>
             </svg>
           </div>
           <div class="xd-mix" id="prog-list">
             <div class="prog-row" data-i="0"><span><i class="dot" style="background:#9a7322"></i>Case management</span><span class="pbar"><i style="background:#9a7322"></i></span><b>43%</b></div>
-            <div class="prog-row" data-i="1"><span><i class="dot" style="background:#8a8275"></i>Workshops</span><span class="pbar"><i style="background:#8a8275"></i></span><b>30%</b></div>
-            <div class="prog-row" data-i="2"><span><i class="dot" style="background:#b9b1a3"></i>Direct assistance</span><span class="pbar"><i style="background:#b9b1a3"></i></span><b>17%</b></div>
-            <div class="prog-row" data-i="3"><span><i class="dot" style="background:#d3ccbf"></i>Referrals</span><span class="pbar"><i style="background:#d3ccbf"></i></span><b>10%</b></div>
+            <div class="prog-row" data-i="1"><span><i class="dot" style="background:#a5472d"></i>Workshops</span><span class="pbar"><i style="background:#a5472d"></i></span><b>30%</b></div>
+            <div class="prog-row" data-i="2"><span><i class="dot" style="background:#2f6b62"></i>Direct assistance</span><span class="pbar"><i style="background:#2f6b62"></i></span><b>17%</b></div>
+            <div class="prog-row" data-i="3"><span><i class="dot" style="background:#3b4a7a"></i>Referrals</span><span class="pbar"><i style="background:#3b4a7a"></i></span><b>10%</b></div>
           </div>
         </div>
       </div>
@@ -1537,7 +1537,7 @@ frame();
             <div class="xd-h">Where the work happened</div>
             <div class="xd-scale">
               <span>fewer</span>
-              <i style="background:rgba(90,78,60,.10)"></i><i style="background:rgba(90,78,60,.22)"></i><i style="background:rgba(90,78,60,.36)"></i><i style="background:rgba(90,78,60,.52)"></i>
+              <i style="background:rgba(165,71,45,.12)"></i><i style="background:rgba(165,71,45,.28)"></i><i style="background:rgba(165,71,45,.45)"></i><i style="background:rgba(165,71,45,.63)"></i>
               <span>more</span>
             </div>
           </div>
@@ -3118,7 +3118,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   const dash = document.getElementById('dashboard'); if(!dash || !window.gsap) return;
   const DEMO = {"Dorchester":{"pop":126909,"age":33.4,"o60":16,"fb":33,"inc":55000,"pov":22,"rent":64,"transit":36,"ba":29,"race":[22,44,20,10,4],"hh":44301,"alone":29,"nocar":30,"ages":[12,10,3,28,31,16]},"Roxbury":{"pop":54161,"age":32.5,"o60":17,"fb":29,"inc":30500,"pov":32,"rent":78,"transit":42,"ba":23,"race":[11,50,31,4,5],"hh":19899,"alone":37,"nocar":45,"ages":[12,10,5,28,29,17]},"East Boston":{"pop":47263,"age":30.6,"o60":13,"fb":47,"inc":60500,"pov":16,"rent":72,"transit":54,"ba":29,"race":[34,2,57,5,3],"hh":16565,"alone":28,"nocar":37,"ages":[11,8,2,31,34,13]},"Mattapan":{"pop":26659,"age":36.7,"o60":18,"fb":34,"inc":56000,"pov":20,"rent":62,"transit":33,"ba":20,"race":[6,74,14,2,4],"hh":9173,"alone":28,"nocar":25,"ages":[13,12,2,21,34,18]},"Jamaica Plain":{"pop":40867,"age":34.8,"o60":17,"fb":23,"inc":97100,"pov":13,"rent":54,"transit":42,"ba":65,"race":[55,14,22,5,4],"hh":16423,"alone":32,"nocar":24,"ages":[10,6,2,33,33,17]},"South Boston":{"pop":36772,"age":31.9,"o60":13,"fb":12,"inc":111500,"pov":14,"rent":59,"transit":37,"ba":66,"race":[76,6,11,6,2],"hh":16730,"alone":35,"nocar":27,"ages":[9,4,1,46,28,13]},"Allston":{"pop":19261,"age":27.5,"o60":4,"fb":36,"inc":58100,"pov":28,"rent":88,"transit":38,"ba":75,"race":[51,6,13,25,5],"hh":6526,"alone":37,"nocar":51,"ages":[2,2,12,68,12,4]},"Brighton":{"pop":55297,"age":30.8,"o60":14,"fb":27,"inc":77600,"pov":17,"rent":77,"transit":33,"ba":68,"race":[65,4,12,15,4],"hh":22698,"alone":34,"nocar":30,"ages":[6,4,3,53,21,14]},"South End":{"pop":32571,"age":37.1,"o60":19,"fb":22,"inc":86900,"pov":20,"rent":62,"transit":26,"ba":66,"race":[55,11,14,15,4],"hh":16819,"alone":47,"nocar":40,"ages":[7,5,1,34,34,19]},"Hyde Park":{"pop":38924,"age":39.4,"o60":22,"fb":31,"inc":73000,"pov":15,"rent":40,"transit":25,"ba":28,"race":[22,46,26,2,3],"hh":13147,"alone":23,"nocar":18,"ages":[11,11,2,21,34,22]},"Roslindale":{"pop":30021,"age":39.8,"o60":20,"fb":26,"inc":84600,"pov":10,"rent":45,"transit":29,"ba":48,"race":[51,19,24,2,3],"hh":11482,"alone":29,"nocar":12,"ages":[11,9,2,21,37,20]},"Fenway":{"pop":33489,"age":26.3,"o60":7,"fb":27,"inc":41000,"pov":39,"rent":90,"transit":26,"ba":72,"race":[56,5,12,21,5],"hh":11226,"alone":54,"nocar":64,"ages":[2,1,25,54,12,7]},"West Roxbury":{"pop":33526,"age":42.8,"o60":27,"fb":24,"inc":94500,"pov":6,"rent":36,"transit":19,"ba":54,"race":[67,12,10,7,3],"hh":13933,"alone":32,"nocar":11,"ages":[12,8,1,18,33,27]},"Back Bay":{"pop":17783,"age":33.6,"o60":19,"fb":22,"inc":111200,"pov":12,"rent":69,"transit":25,"ba":85,"race":[73,4,10,11,2],"hh":9829,"alone":52,"nocar":49,"ages":[4,3,6,42,28,19]},"Charlestown":{"pop":19890,"age":35.7,"o60":17,"fb":16,"inc":127400,"pov":14,"rent":53,"transit":25,"ba":67,"race":[74,5,11,8,2],"hh":9162,"alone":39,"nocar":24,"ages":[15,5,1,28,34,17]},"Mission Hill":{"pop":17386,"age":30.1,"o60":16,"fb":30,"inc":42800,"pov":37,"rent":91,"transit":39,"ba":48,"race":[41,15,21,20,2],"hh":6687,"alone":42,"nocar":57,"ages":[4,5,8,49,18,16]},"Downtown":{"pop":18306,"age":33.5,"o60":20,"fb":36,"inc":88800,"pov":21,"rent":73,"transit":20,"ba":63,"race":[56,4,6,31,3],"hh":7942,"alone":46,"nocar":57,"ages":[6,2,13,32,27,20]},"South Boston Waterfront":{"pop":4403,"age":34.5,"o60":13,"fb":14,"inc":153500,"pov":6,"rent":72,"transit":18,"ba":82,"race":[83,2,3,10,3],"hh":2628,"alone":58,"nocar":26,"ages":[3,1,1,46,35,13]},"Beacon Hill":{"pop":9648,"age":33,"o60":17,"fb":16,"inc":110800,"pov":6,"rent":67,"transit":20,"ba":91,"race":[84,1,6,6,3],"hh":5427,"alone":51,"nocar":51,"ages":[6,3,0,47,26,17]},"North End":{"pop":8749,"age":31.1,"o60":14,"fb":12,"inc":104000,"pov":8,"rent":73,"transit":24,"ba":81,"race":[88,0,7,3,1],"hh":5086,"alone":52,"nocar":55,"ages":[4,2,0,60,21,14]},"Chinatown":{"pop":18306,"age":33.5,"o60":20,"fb":36,"inc":88800,"pov":21,"rent":73,"transit":20,"ba":63,"race":[56,4,6,31,3],"hh":7942,"alone":46,"nocar":57,"ages":[6,2,13,32,27,20],"note":"counted within Downtown"},"West End":{"pop":6619,"age":37.8,"o60":21,"fb":25,"inc":97400,"pov":14,"rent":78,"transit":22,"ba":77,"race":[67,7,13,11,3],"hh":3558,"alone":54,"nocar":58,"ages":[4,2,2,38,33,21]},"Bay Village":{"pop":18306,"age":33.5,"o60":20,"fb":36,"inc":88800,"pov":21,"rent":73,"transit":20,"ba":63,"race":[56,4,6,31,3],"hh":7942,"alone":46,"nocar":57,"ages":[6,2,13,32,27,20],"note":"counted within Downtown"},"Leather District":{"pop":18306,"age":33.5,"o60":20,"fb":36,"inc":88800,"pov":21,"rent":73,"transit":20,"ba":63,"race":[56,4,6,31,3],"hh":7942,"alone":46,"nocar":57,"ages":[6,2,13,32,27,20],"note":"counted within Downtown"},"Longwood Medical Area":{"pop":5351,"age":20.2,"o60":1,"fb":15,"inc":42400,"pov":30,"rent":90,"transit":14,"ba":83,"race":[70,5,7,14,3],"hh":269,"alone":63,"nocar":77,"ages":[0,1,49,48,1,1],"note":"counted within Longwood"}};
   const VISITS = { 'Dorchester':812, 'Roxbury':689, 'East Boston':540, 'Allston':388, 'South End':274 };
-  const RACE_C = ['#3d3830','#6b6355','#8a8275','#b9b1a3','#d8d1c4'], RACE_L = ['White','Black or African American','Hispanic or Latino','Asian','Multiracial &amp; other'];
+  const RACE_C = ['#9a7322','#a5472d','#2f6b62','#3b4a7a','#c9a55a'], RACE_L = ['White','Black or African American','Hispanic or Latino','Asian','Multiracial &amp; other'];
   const fmt = n => n.toLocaleString('en-US');
   const RANGES = {
     month:   { kpi:[4218,94,37,512],   delta:['▲ 6.4% vs last month','▲ 2.1 points','▼ 12 since Monday','▲ steady'],
@@ -3172,9 +3172,9 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   $('dz-gauges').innerHTML = GAUGES.map(([k, label]) => `<div class="dz-gauge" data-k="${k}">
       <svg viewBox="0 0 80 80">
         <circle cx="40" cy="40" r="${GR2}" fill="none" stroke="rgba(60,50,35,.1)" stroke-width="1"/>
-        <circle class="g-city" cx="40" cy="40" r="${GR2}" fill="none" stroke="#8a8275" stroke-width="1" stroke-dasharray="0 ${GC2}" transform="rotate(-90 40 40)"/>
+        <circle class="g-city" cx="40" cy="40" r="${GR2}" fill="none" stroke="#a5472d" stroke-width="1" stroke-dasharray="0 ${GC2}" transform="rotate(-90 40 40)"/>
         <circle cx="40" cy="40" r="${GR}" fill="none" stroke="rgba(60,50,35,.1)" stroke-width="4"/>
-        <circle class="g-arc" cx="40" cy="40" r="${GR}" fill="none" stroke="#3d3830" stroke-width="4" stroke-linecap="butt" stroke-dasharray="0 ${GC}" transform="rotate(-90 40 40)"/>
+        <circle class="g-arc" cx="40" cy="40" r="${GR}" fill="none" stroke="#9a7322" stroke-width="4" stroke-linecap="butt" stroke-dasharray="0 ${GC}" transform="rotate(-90 40 40)"/>
         <text class="gv" x="40" y="45" text-anchor="middle">0<tspan>%</tspan></text>
       </svg>
       <div class="gl">${label}</div><div class="gc">city <b>${BOSTON[k]}%</b></div>
@@ -3226,7 +3226,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     dz.classList.toggle('is-city', city); dz.classList.toggle('is-hood', !city);
     $('dz-eyebrow').textContent = city ? 'Who lives here · City of Boston' : (d && d.note ? 'Who lives here · ' + d.note : 'Who lives here · vs the city');
     $('dz-name').textContent = city ? 'Boston' : name;
-    if (city) silhouette(GEO, 'rgba(60,50,35,.08)', '#8a8275', 0.8); else silhouette(GEO.filter(f => f.n === name), 'rgba(154,115,34,.16)', '#9a7322', 1.6);
+    if (city) silhouette(GEO, 'rgba(165,71,45,.10)', '#a5472d', 0.8); else silhouette(GEO.filter(f => f.n === name), 'rgba(154,115,34,.16)', '#9a7322', 1.6);
     const dim = d ? 1 : .25; tilesEl.style.opacity = dim; raceEl.style.opacity = dim; $('dz-gauges').style.opacity = dim;
     if (d) {
       TILES.forEach(([k, , f, sub]) => { setNum(tilesEl.querySelector(`.tv[data-k="${k}"]`), d[k], f); tilesEl.querySelector(`.tc[data-k="${k}"]`).textContent = sub(d); });
@@ -3269,7 +3269,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
   const map = L.map('leafmap', { zoomControl:false, attributionControl:false, scrollWheelZoom:false, closePopupOnClick:false, dragging:!L.Browser.mobile, tap:false, zoomSnap:.25, minZoom:10.5, maxZoom:15, maxBounds:[[42.15,-71.35],[42.5,-70.8]], maxBoundsViscosity:.8 });
   L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', { maxNativeZoom:16, maxZoom:16 }).addTo(map);
   map.setView(HOME.center, HOME.zoom);
-  const fillFor = name => { const t = baseVisits(name) / maxV; return { fillColor:'#5a5144', fillOpacity: t ? 0.07 + t * 0.5 : 0.03, color: t ? 'rgba(60,50,35,.45)' : 'rgba(60,50,35,.2)', weight: .8 }; };
+  const fillFor = name => { const t = baseVisits(name) / maxV; return { fillColor:'#a5472d', fillOpacity: t ? 0.08 + t * 0.55 : 0.03, color: t ? 'rgba(60,50,35,.45)' : 'rgba(60,50,35,.2)', weight: .8 }; };
   const layers = {};
   let pinned = null, hovered = null;
   const styleAll = () => Object.entries(layers).forEach(([n, l]) => {
@@ -3487,7 +3487,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches && innerWidth >= 768
     const a = Math.round(cur_.a[i]), b = Math.round(cur_.b[i]), diff = a - b;
     ctip.innerHTML = `<div class="t">${pointLabel(i, true)}</div>
       <div class="r"><i style="background:#e2c27a"></i>${t.ty}<b>${fmt(a)}</b></div>
-      <div class="r"><i style="background:#b9b1a3"></i>${t.ly}<b>${fmt(b)}</b></div>
+      <div class="r"><i style="background:#a5472d"></i>${t.ly}<b>${fmt(b)}</b></div>
       <div class="d"><b>${diff >= 0 ? '+' : '−'}${fmt(Math.abs(diff))}</b> ${t.vs}</div>`;
     const r = svg.getBoundingClientRect(), sx = r.width / G.W;
     const tw = ctip.offsetWidth || 150, th = ctip.offsetHeight || 80;
