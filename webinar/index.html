@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Less Typing, More Mission | Free webinar, December 9</title>
+<meta name="description" content="Free webinar for nonprofit teams: how AI cuts data entry. Wednesday, December 9, 2026 at 11:00 AM ET.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+:root {
+  --paper: #F2EBDD; --sheet: #FBF8F1; --ink: #1F1C19; --sub: #4B4740; --muted: #8A8273;
+  --blue: #2A4FB0; --blue-d: #2445A0; --pale: #C9D3EE; --mustard: #D9A93B; --rule: #D8D1C3;
+  --err: #A8321F; --shadow: rgba(40, 30, 15, .16);
+  --serif: "Bodoni Moda", "Bodoni 72", Didot, "Times New Roman", serif;
+  --sans: Inter, "Helvetica Neue", Arial, system-ui, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper) url(bg.jpg) center top / cover fixed no-repeat; color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+a { color: var(--blue); }
+.papers { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.paper { position: absolute; height: auto; transform: translate3d(var(--x, 0px), var(--y, 0px), 0) rotate(var(--r, 0deg)); will-change: transform; filter: drop-shadow(0 10px 12px var(--shadow)); user-select: none; }
+.site { font: 600 13px/1 var(--sans); color: var(--ink); text-decoration: none; padding: 9px 12px; border: 1px solid rgba(31,28,25,.22); transition: background .15s, color .15s, border-color .15s; }
+.site:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+.site:focus-visible { outline: 3px solid var(--mustard); outline-offset: 2px; }
+.wrap { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 28px max(16px, env(safe-area-inset-right)) 56px max(16px, env(safe-area-inset-left)); }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 22px; }
+.brand { font: 800 15px/1 var(--sans); letter-spacing: -.01em; color: var(--ink); text-decoration: none; }
+.brand span { color: var(--blue); }
+.caps { font: 700 11px/1.4 var(--sans); letter-spacing: .28em; text-transform: uppercase; color: var(--muted); }
+
+.grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: clamp(28px, 5vw, 72px); align-items: start; padding-top: clamp(8px, 3vw, 40px); }
+.kicker { display: flex; align-items: center; gap: 12px; font: 700 11px/1 var(--sans); letter-spacing: .3em; text-transform: uppercase; }
+.kicker i { display: block; width: 34px; height: 6px; background: linear-gradient(90deg, #3d5fbc 50%, var(--blue-d) 50%); }
+h1 { margin: 20px 0 0; font: 800 clamp(40px, 6vw, 76px)/.98 var(--sans); letter-spacing: -.035em; text-wrap: balance; }
+h1 .dot { color: var(--blue); }
+.lede { margin: 18px 0 0; font: italic 400 clamp(21px, 2.3vw, 30px)/1.28 var(--serif); max-width: 24ch; }
+.when { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 0; margin: 30px 0 0; padding: 0; list-style: none; border-top: 1px solid rgba(31,28,25,.14); border-bottom: 1px solid rgba(31,28,25,.14); }
+.when li { padding: 14px 26px 14px 0; margin-right: 26px; border-right: 1px solid rgba(31,28,25,.14); }
+.when li:last-child { border-right: 0; margin-right: 0; }
+.when b { display: block; margin-top: 6px; font: 700 clamp(16px, 1.5vw, 19px)/1.2 var(--sans); letter-spacing: -.01em; }
+.body { margin: 26px 0 0; max-width: 50ch; font: 400 clamp(15px, 1.2vw, 17px)/1.62 var(--sans); color: var(--sub); text-wrap: pretty; }
+h2 { margin: 40px 0 0; font: 800 clamp(20px, 2vw, 26px)/1.1 var(--sans); letter-spacing: -.02em; }
+.agenda { list-style: none; margin: 16px 0 0; padding: 0; max-width: 520px; }
+.agenda li { display: grid; grid-template-columns: 46px minmax(0, 1fr); align-items: baseline; padding: 11px 0; border-top: 1px solid rgba(31,28,25,.12); font: 500 16px/1.35 var(--sans); }
+.agenda li:last-child { border-bottom: 1px solid rgba(31,28,25,.12); }
+.agenda .n { font: 500 21px/1 var(--serif); color: var(--blue); font-variant-numeric: lining-nums; }
+.result { display: flex; align-items: center; gap: 20px; margin: 34px 0 0; padding: 20px 22px; max-width: 520px; background: var(--sheet); box-shadow: 0 6px 14px var(--shadow); }
+.result .big { font: 800 clamp(44px, 5vw, 62px)/1 var(--sans); letter-spacing: -.04em; color: var(--blue); font-variant-numeric: tabular-nums; }
+.result p { margin: 0; font: 400 15px/1.5 var(--sans); color: var(--sub); }
+.result p b { color: var(--ink); font: 700 clamp(18px, 1.7vw, 22px)/1.2 var(--sans); letter-spacing: -.01em; }
+.host { margin: 34px 0 0; max-width: 50ch; font: 400 15px/1.6 var(--sans); color: var(--sub); }
+.host b { color: var(--ink); }
+
+/* form card */
+.card { position: relative; background: var(--sheet); box-shadow: 0 14px 34px var(--shadow); padding: clamp(22px, 2.6vw, 34px); }
+.card::before { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 8px; background: linear-gradient(90deg, #3d5fbc 50%, var(--blue-d) 50%); }
+.crane { display: block; width: min(190px, 46%); margin: -74px -18px -6px auto; filter: drop-shadow(0 10px 14px var(--shadow)); pointer-events: none; }
+.card h2 { margin: 0; font-size: clamp(22px, 2.2vw, 28px); }
+.card .sub { margin: 8px 0 0; font: 400 14px/1.5 var(--sans); color: var(--sub); }
+form { margin: 20px 0 0; display: grid; gap: 14px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+label { display: grid; gap: 6px; font: 600 13px/1.2 var(--sans); color: var(--ink); }
+label .opt { font-weight: 400; color: var(--muted); }
+input, textarea { width: 100%; padding: 12px 12px; font: 400 16px/1.3 var(--sans); color: var(--ink); background: #fff; border: 1px solid var(--rule); border-radius: 0; outline: none; transition: border-color .15s, box-shadow .15s; }
+textarea { min-height: 84px; resize: vertical; }
+input:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(42,79,176,.18); }
+input[aria-invalid="true"] { border-color: var(--err); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+button { margin-top: 4px; padding: 15px 18px; font: 700 16px/1 var(--sans); letter-spacing: -.005em; color: #fff; background: var(--blue); border: 0; cursor: pointer; transition: background .15s, transform .05s; }
+button:hover { background: var(--blue-d); }
+button:active { transform: translateY(1px); }
+button:focus-visible { outline: 3px solid var(--mustard); outline-offset: 2px; }
+button[disabled] { opacity: .6; cursor: default; }
+.fine { margin: 2px 0 0; font: 400 12px/1.5 var(--sans); color: var(--muted); }
+.msg { margin: 0; padding: 12px 14px; font: 500 14px/1.45 var(--sans); }
+.msg.err { color: var(--err); background: #F7E4DF; }
+.done { display: none; text-align: left; }
+.done.is-on { display: block; }
+.done img { width: 54px; height: auto; display: block; margin-bottom: 14px; }
+.done h2 { font-size: clamp(24px, 2.4vw, 30px); }
+.done p { margin: 10px 0 0; font: 400 15px/1.6 var(--sans); color: var(--sub); }
+.foot { margin-top: 56px; padding-top: 18px; border-top: 1px solid rgba(31,28,25,.14); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font: 400 13px/1.5 var(--sans); color: var(--muted); }
+
+/* motion on the left column */
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes draw { from { width: 0; } }
+@keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-9px) rotate(-2.5deg); } }
+.left > * { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+.left > :nth-child(1) { animation-delay: .05s; } .left > :nth-child(2) { animation-delay: .15s; }
+.left > :nth-child(3) { animation-delay: .3s; }  .left > :nth-child(4) { animation-delay: .45s; }
+.left > :nth-child(5) { animation-delay: .6s; }  .left > :nth-child(6) { animation-delay: .75s; }
+.left > :nth-child(7) { animation-delay: .9s; }  .left > :nth-child(8) { animation-delay: 1.05s; }
+.left > :nth-child(9) { animation-delay: 1.15s; }
+.kicker i { animation: draw .9s .2s cubic-bezier(.2,.7,.2,1) both; }
+h1 .dot { animation: blink .7s 1s steps(1) 4; }
+.crane { animation: float 6s ease-in-out infinite; }
+.bars { display: grid; gap: 10px; margin: 18px 0 0; max-width: 520px; }
+.bar { display: grid; grid-template-columns: 62px minmax(0, 1fr) 104px; align-items: center; gap: 12px; }
+.bar b { font: 700 14px/1 var(--sans); font-variant-numeric: tabular-nums; }
+.bar .track { display: block; height: 14px; }
+.bar i { display: block; height: 14px; width: 0; background: linear-gradient(90deg, #e2b955 50%, var(--mustard) 50%); transition: width 1.3s cubic-bezier(.2,.7,.2,1); }
+.bar.after i { background: linear-gradient(90deg, #3d5fbc 50%, var(--blue-d) 50%); transition-delay: .35s; }
+.bars.in .bar i { width: var(--w); }
+.agenda li { opacity: 0; transform: translateX(-16px); transition: opacity .6s, transform .6s cubic-bezier(.2,.7,.2,1); }
+.agenda.in li { opacity: 1; transform: none; }
+.agenda.in li:nth-child(2) { transition-delay: .12s; } .agenda.in li:nth-child(3) { transition-delay: .24s; } .agenda.in li:nth-child(4) { transition-delay: .36s; } .agenda.in li:nth-child(5) { transition-delay: .48s; }
+
+@media (max-width: 1420px) { .paper { opacity: .5; scale: .8; } .paper.far { display: none; } }
+@media (max-width: 860px) {
+  .papers { display: none; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .card { order: 2; margin-top: 46px; }
+  .when { grid-template-columns: 1fr; }
+  .when li { border-right: 0; margin-right: 0; padding-right: 0; border-bottom: 1px solid rgba(31,28,25,.1); }
+  .when li:last-child { border-bottom: 0; }
+  .crane { width: 150px; margin-top: -66px; }
+}
+@media (max-width: 420px) { .row { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } .agenda li { opacity: 1; transform: none; } .bar i { width: var(--w); } }
+</style>
+</head>
+<body>
+<div class="papers" aria-hidden="true">
+  <img class="paper" src="img/star_mustard.png" alt="" data-speed=".34" data-depth="26" style="top:15vh;left:3.2vw;width:112px;--r:12deg">
+  <img class="paper" src="img/cloud_blue.png" alt="" data-speed=".22" data-depth="14" style="top:7vh;right:2.2vw;width:170px;--r:-4deg">
+  <img class="paper" src="img/cloud_white.png" alt="" data-speed=".14" data-depth="10" style="top:60vh;left:1.2vw;width:190px;--r:3deg">
+  <img class="paper" src="img/crane_blue.png" alt="" data-speed=".46" data-depth="34" style="top:82vh;right:3vw;width:150px;--r:-8deg">
+  <img class="paper far" src="img/bubble_white.png" alt="" data-speed=".28" data-depth="18" style="top:118vh;left:5vw;width:150px;--r:-6deg">
+  <img class="paper far" src="img/person_mustard.png" alt="" data-speed=".2" data-depth="12" style="top:132vh;right:5.5vw;width:84px;--r:6deg">
+</div>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="https://ponceconsulting.org/">Ponce<span>.</span>Consulting</a>
+    <a class="site" href="https://ponceconsulting.org/">ponceconsulting.org <span aria-hidden="true">&rarr;</span></a>
+  </header>
+
+  <main class="grid">
+    <section class="left">
+      <div class="kicker"><i></i>Free webinar &middot; For nonprofit teams</div>
+      <h1>Less Typing, More Mission<span class="dot">.</span></h1>
+      <p class="lede">How AI cuts data entry for nonprofit teams.</p>
+
+      <ul class="when">
+        <li><span class="caps">Date</span><b>Wednesday, December 9, 2026</b></li>
+        <li><span class="caps">Time</span><b>11:00 AM Eastern</b></li>
+        <li><span class="caps">Where</span><b>Online</b></li>
+      </ul>
+
+      <p class="body">A real case study from a nonprofit team.</p>
+
+      <div class="result">
+        <div class="big"><span id="pct">80</span>%</div>
+        <p><b>Less time documenting.</b></p>
+      </div>
+
+      <div class="bars" aria-label="Minutes spent documenting one visit: before 30 to 60, after 6 to 12">
+        <div class="bar"><span class="caps">Before</span><span class="track"><i style="--w:100%"></i></span><b>30 to 60 min</b></div>
+        <div class="bar after"><span class="caps">After</span><span class="track"><i style="--w:20%"></i></span><b>6 to 12 min</b></div>
+      </div>
+
+      <h2>What we will cover</h2>
+      <ol class="agenda">
+        <li><span class="n">01</span><span>What AI is really good at</span></li>
+        <li><span class="n">02</span><span>How this solution works</span></li>
+        <li><span class="n">03</span><span>How it fits your current systems</span></li>
+        <li><span class="n">04</span><span>Ethical AI options</span></li>
+        <li><span class="n">05</span><span>How to apply it to your organization</span></li>
+      </ol>
+    </section>
+
+    <aside class="card" aria-labelledby="reg-title">
+      <img class="crane" src="img/cover.png" alt="">
+      <div id="formbox">
+        <h2 id="reg-title">Register for the webinar</h2>
+        <p class="sub">It is free. We will email you the link to join.</p>
+        <form id="reg" novalidate>
+          <div class="row">
+            <label>First name<input name="firstName" autocomplete="given-name" required maxlength="80"></label>
+            <label>Last name<input name="lastName" autocomplete="family-name" required maxlength="80"></label>
+          </div>
+          <label>Work email<input name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160"></label>
+          <label>Organization<input name="organization" autocomplete="organization" required maxlength="160"></label>
+          <label>Your role<input name="role" autocomplete="organization-title" required maxlength="120"></label>
+          <label><span>What would you like covered? <span class="opt">(optional)</span></span><textarea name="question" maxlength="1000"></textarea></label>
+          <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <p class="msg err" id="err" role="alert" hidden></p>
+          <button type="submit" id="go">Register</button>
+          <p class="fine">We use your details only to send you the webinar link and follow up about this event.</p>
+        </form>
+      </div>
+      <div class="done" id="done" role="status" aria-live="polite">
+        <img src="img/check_blue.png" alt="">
+        <h2>You are registered.</h2>
+        <p>Thank you<span id="who"></span>. We will email the link to join before Wednesday, December 9 at 11:00 AM Eastern.</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <span><a href="https://ponceconsulting.org/">ponceconsulting.org</a> · Ponce Consulting · Boston, MA</span>
+    <span>Questions? <a href="mailto:enrique@ponceconsulting.org">enrique@ponceconsulting.org</a></span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pct = document.getElementById('pct');
+  function count() {
+    if (still) return;
+    var t0 = null;
+    requestAnimationFrame(function step(ts) {
+      if (!t0) t0 = ts;
+      var k = Math.min(1, (ts - t0) / 1400), e = 1 - Math.pow(1 - k, 3);
+      pct.textContent = Math.round(80 * e);
+      if (k < 1) requestAnimationFrame(step);
+    });
+  }
+  var seen = new IntersectionObserver(function (es) {
+    es.forEach(function (x) {
+      if (!x.isIntersecting) return;
+      x.target.classList.add('in');
+      if (x.target.classList.contains('result')) count();
+      seen.unobserve(x.target);
+    });
+  }, { threshold: .35 });
+  document.querySelectorAll('.result, .bars, .agenda').forEach(function (el) { seen.observe(el); });
+
+  // parallax: the paper pieces drift at different speeds as the page scrolls and lean toward the pointer
+  var papers = [].slice.call(document.querySelectorAll('.paper')), mx = 0, my = 0, tick = false;
+  function place() {
+    tick = false;
+    var y = window.scrollY || 0;
+    papers.forEach(function (el) {
+      var d = parseFloat(el.dataset.depth) || 0;
+      el.style.setProperty('--x', (mx * d).toFixed(1) + 'px');
+      el.style.setProperty('--y', (-y * (parseFloat(el.dataset.speed) || 0) + my * d).toFixed(1) + 'px');
+    });
+  }
+  function ask() { if (!tick) { tick = true; requestAnimationFrame(place); } }
+  if (!still && papers.length) {
+    window.addEventListener('scroll', ask, { passive: true });
+    window.addEventListener('pointermove', function (e) { mx = e.clientX / window.innerWidth - .5; my = e.clientY / window.innerHeight - .5; ask(); }, { passive: true });
+    place();
+  }
+})();
+</script>
+<script>
+(function () {
+  // Where registrations are sent. Empty = not connected yet (local preview only).
+  var REGISTER_URL = 'https://site-receptionist.site-receptionist.workers.dev/register';
+  var CAMPAIGN = 'Less Typing, More Mission (2026-12-09)';
+
+  var form = document.getElementById('reg'), err = document.getElementById('err'), go = document.getElementById('go');
+  function fail(text) { err.textContent = text; err.hidden = false; go.disabled = false; go.textContent = 'Register'; }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    err.hidden = true;
+    var f = new FormData(form), data = {}, bad = null;
+    f.forEach(function (v, k) { data[k] = String(v).trim(); });
+    ['firstName', 'lastName', 'email', 'organization', 'role'].forEach(function (k) {
+      var el = form.elements[k], ok = !!data[k] && (k !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data[k]));
+      el.setAttribute('aria-invalid', ok ? 'false' : 'true');
+      if (!ok && !bad) bad = el;
+    });
+    if (bad) { bad.focus(); return fail(bad.name === 'email' && data.email ? 'Please check the email address.' : 'Please fill in the highlighted fields.'); }
+    if (data.website) return done(data);               // spam trap: pretend success, send nothing
+    delete data.website;
+    var q = new URLSearchParams(location.search);
+    data.campaign = CAMPAIGN;
+    data.source = q.get('utm_source') || q.get('src') || '';
+    data.page = location.origin + location.pathname;
+    go.disabled = true; go.textContent = 'Sending…';
+    if (!REGISTER_URL) return fail('Preview only: the form is not connected yet, so nothing was saved.');
+    fetch(REGISTER_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json().catch(function () { return {}; }); })
+      .then(function () { done(data); })
+      .catch(function () { fail('Something went wrong and your registration was not saved. Please try again, or email enrique@ponceconsulting.org.'); });
+  });
+
+  function done(data) {
+    document.getElementById('who').textContent = data.firstName ? ', ' + data.firstName : '';
+    document.getElementById('formbox').style.display = 'none';
+    document.getElementById('done').classList.add('is-on');
+  }
+})();
+</script>
+</body>
+</html>
