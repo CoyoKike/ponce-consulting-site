@@ -20,7 +20,7 @@
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--paper) url(bg.jpg) center top / cover fixed no-repeat; color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--paper) url(/webinar/bg.jpg) center top / cover fixed no-repeat; color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
 a { color: var(--blue); }
 .papers { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
 .paper { position: absolute; height: auto; transform: translate3d(var(--x, 0px), var(--y, 0px), 0) rotate(var(--r, 0deg)); will-change: transform; filter: drop-shadow(0 10px 12px var(--shadow)); user-select: none; }
@@ -127,12 +127,12 @@ h1 .dot { animation: blink .7s 1s steps(1) 4; }
 </head>
 <body>
 <div class="papers" aria-hidden="true">
-  <img class="paper" src="img/star_mustard.png" alt="" data-speed=".34" data-depth="26" style="top:15vh;left:3.2vw;width:112px;--r:12deg">
-  <img class="paper" src="img/cloud_blue.png" alt="" data-speed=".22" data-depth="14" style="top:7vh;right:2.2vw;width:170px;--r:-4deg">
-  <img class="paper" src="img/cloud_white.png" alt="" data-speed=".14" data-depth="10" style="top:60vh;left:1.2vw;width:190px;--r:3deg">
-  <img class="paper" src="img/crane_blue.png" alt="" data-speed=".46" data-depth="34" style="top:82vh;right:3vw;width:150px;--r:-8deg">
-  <img class="paper far" src="img/bubble_white.png" alt="" data-speed=".28" data-depth="18" style="top:118vh;left:5vw;width:150px;--r:-6deg">
-  <img class="paper far" src="img/person_mustard.png" alt="" data-speed=".2" data-depth="12" style="top:132vh;right:5.5vw;width:84px;--r:6deg">
+  <img class="paper" src="/webinar/img/star_mustard.png" alt="" data-speed=".34" data-depth="26" style="top:15vh;left:3.2vw;width:112px;--r:12deg">
+  <img class="paper" src="/webinar/img/cloud_blue.png" alt="" data-speed=".22" data-depth="14" style="top:7vh;right:2.2vw;width:170px;--r:-4deg">
+  <img class="paper" src="/webinar/img/cloud_white.png" alt="" data-speed=".14" data-depth="10" style="top:60vh;left:1.2vw;width:190px;--r:3deg">
+  <img class="paper" src="/webinar/img/crane_blue.png" alt="" data-speed=".46" data-depth="34" style="top:82vh;right:3vw;width:150px;--r:-8deg">
+  <img class="paper far" src="/webinar/img/bubble_white.png" alt="" data-speed=".28" data-depth="18" style="top:118vh;left:5vw;width:150px;--r:-6deg">
+  <img class="paper far" src="/webinar/img/person_mustard.png" alt="" data-speed=".2" data-depth="12" style="top:132vh;right:5.5vw;width:84px;--r:6deg">
 </div>
 <div class="wrap">
   <header class="top">
@@ -175,7 +175,7 @@ h1 .dot { animation: blink .7s 1s steps(1) 4; }
     </section>
 
     <aside class="card" aria-labelledby="reg-title">
-      <img class="crane" src="img/cover.png" alt="">
+      <img class="crane" src="/webinar/img/cover.png" alt="">
       <div id="formbox">
         <h2 id="reg-title">Register for the webinar</h2>
         <p class="sub">It is free.</p>
@@ -195,7 +195,7 @@ h1 .dot { animation: blink .7s 1s steps(1) 4; }
         </form>
       </div>
       <div class="done" id="done" role="status" aria-live="polite">
-        <img src="img/check_blue.png" alt="">
+        <img src="/webinar/img/check_blue.png" alt="">
         <h2>You are registered.</h2>
         <p>Thank you<span id="who"></span>. We just emailed you the link to join. See you Wednesday, December 9 at 11:00 AM Eastern.</p>
       </div>
