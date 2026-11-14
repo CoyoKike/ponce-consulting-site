@@ -6,14 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Adela Quintero · Boston Real Estate</title>
   <meta name="description" content="Adela Quintero, Boston real estate advisor. Beacon Hill, Back Bay, the South End and the North Shore, in English and Spanish.">
-  <meta name="theme-color" content="#f3eee6">
+  <meta name="theme-color" content="#17140f">
   <link rel="preload" href="assets/fonts/bodoni.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/hanken.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/img/hero-1280.webp" as="image" media="(max-width: 1280px)">
-  <link rel="preload" href="assets/img/hero.webp" as="image" media="(min-width: 1281px)">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script>document.documentElement.classList.add('js')</script>
   <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js" } }</script>
 </head>
 <body>
 
@@ -33,7 +32,7 @@
       <span class="nav__word">Adela Quintero</span>
     </a>
     <nav class="nav__links" aria-label="Main">
-      <a href="#listings" data-es="Propiedades">Listings</a>
+      <a href="#walk" data-es="Propiedades">Listings</a>
       <a href="#residence" data-es="Destacada">Featured</a>
       <a href="#neighborhoods" data-es="Barrios">Neighborhoods</a>
       <a href="#about" data-es="Sobre mí">About</a>
@@ -47,7 +46,7 @@
   </header>
 
   <div class="menu" aria-hidden="true">
-    <a href="#listings" data-es="Propiedades">Listings</a>
+    <a href="#walk" data-es="Propiedades">Listings</a>
     <a href="#residence" data-es="Destacada">Featured</a>
     <a href="#neighborhoods" data-es="Barrios">Neighborhoods</a>
     <a href="#about" data-es="Sobre mí">About</a>
@@ -57,35 +56,73 @@
 
   <main>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero__media">
-        <img src="assets/img/hero.webp" srcset="assets/img/hero-1280.webp 1280w, assets/img/hero.webp 2400w" sizes="100vw" alt="Autumn leaves on a brick lane of Beacon Hill townhouses">
-      </div>
-      <div class="hero__shade"></div>
-      <div class="hero__inner">
-        <p class="eyebrow hero__eyebrow"><span class="dot"></span><span data-es="Boston · North Shore · Desde 2011">Boston · North Shore · Since 2011</span></p>
-        <h1 class="hero__title">
-          <span class="line"><span data-es="Boston,">Boston,</span></span>
-          <span class="line"><em data-es="bienvenido a casa.">come home.</em></span>
-        </h1>
-        <div class="hero__foot">
-          <p class="hero__lede" data-es="Asesoría inmobiliaria para casas con historia — en inglés y en español. Compro, vendo y negocio como si fuera mi propia llave.">Real estate advice for homes with a story, in English and Spanish. I buy, sell and negotiate as if it were my own key.</p>
-          <div class="hero__ctas">
-            <a class="btn btn--light magnetic" href="#listings"><span data-es="Ver propiedades">See listings</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn--ghost magnetic" href="#sell" data-es="¿Cuánto vale mi casa?">What's my home worth?</a>
-          </div>
-        </div>
-      </div>
-      <div class="hero__scroll" aria-hidden="true"><span data-es="Desliza">Scroll</span><i></i></div>
-    </section>
+    <!-- THE WALK HOME: a 3D lane at dusk, scroll to walk it -->
+    <section class="walk" id="walk">
+      <div class="walk__stage">
+        <canvas class="walk__canvas" aria-hidden="true"></canvas>
+        <div class="walk__fallback" aria-hidden="true"><img src="assets/img/hero-1280.webp" alt=""></div>
+        <div class="walk__vignette" aria-hidden="true"></div>
+        <div class="walk__shade" aria-hidden="true"></div>
 
-    <!-- STATS -->
-    <section class="stats" aria-label="Track record">
-      <div class="stat"><b class="count" data-to="612" data-pre="$" data-suf="M">$612M</b><span data-es="en ventas cerradas">in closed sales</span></div>
-      <div class="stat"><b class="count" data-to="340" data-suf="+">340+</b><span data-es="familias en su nueva casa">families moved home</span></div>
-      <div class="stat"><b class="count" data-to="101.4" data-dec="1" data-suf="%">101.4%</b><span data-es="del precio de lista, en promedio">of list price, on average</span></div>
-      <div class="stat"><b class="count" data-to="9">9</b><span data-es="días promedio en el mercado">median days on market</span></div>
+        <div class="stop stop--hero" data-at="0">
+          <p class="eyebrow eyebrow--light"><span class="dot"></span><span data-es="Boston · North Shore · inglés y español">Boston · North Shore · English &amp; Spanish</span></p>
+          <h1 class="hero__title">
+            <span class="line"><span class="chars" data-es="Boston,">Boston,</span></span>
+            <span class="line"><em class="chars" data-es="bienvenido.">come home.</em></span>
+          </h1>
+          <p class="hero__lede" data-es="Camina conmigo por la calle. Las casas encendidas están a la venta.">Take a walk with me. The houses with their lights on are for sale.</p>
+          <div class="hero__cue"><i></i><span data-es="Desliza para caminar">Scroll to walk</span></div>
+        </div>
+
+        <article class="stop stop--home" data-at="1" data-i="0">
+          <div class="home__img"><img src="assets/img/acorn-1280.webp" alt="Brick townhouses along a cobblestone lane"></div>
+          <div class="home__body">
+            <span class="tag tag--new" data-es="Recién listada">Just listed</span>
+            <h2 class="home__name">Chestnut <em>Street</em></h2>
+            <p class="home__place">Beacon Hill</p>
+            <p class="home__line" data-es="Una casa neoclásica con terraza en el techo y una cava bajo la escalera.">A Greek Revival townhouse with a roof deck and a wine room under the stairs.</p>
+            <div class="home__foot"><p class="home__price">$4,850,000</p><button class="link" type="button" data-es="Ver la casa →">See the home →</button></div>
+          </div>
+        </article>
+        <article class="stop stop--home" data-at="2" data-i="1">
+          <div class="home__img"><img src="assets/img/backbay-1280.webp" alt="Brick building with a slate mansard roof"></div>
+          <div class="home__body">
+            <span class="tag" data-es="Penthouse">Penthouse</span>
+            <h2 class="home__name">Commonwealth <em>Avenue</em></h2>
+            <p class="home__place">Back Bay</p>
+            <p class="home__line" data-es="Un piso completo bajo una mansarda restaurada, con el río en cada ventana.">A full floor under a restored mansard, with the river in every window.</p>
+            <div class="home__foot"><p class="home__price">$3,295,000</p><button class="link" type="button" data-es="Ver la casa →">See the home →</button></div>
+          </div>
+        </article>
+        <article class="stop stop--home" data-at="3" data-i="2">
+          <div class="home__img"><img src="assets/img/southend-1280.webp" alt="Row of red brick bowfront townhouses"></div>
+          <div class="home__body">
+            <span class="tag tag--pending" data-es="Bajo acuerdo">Under agreement</span>
+            <h2 class="home__name">Union <em>Park</em></h2>
+            <p class="home__place">South End</p>
+            <p class="home__line" data-es="Frente al parque, con molduras originales y un jardín que mira al sur.">On the park, with original plaster and a garden that faces south.</p>
+            <div class="home__foot"><p class="home__price">$5,400,000</p><button class="link" type="button" data-es="Ver la casa →">See the home →</button></div>
+          </div>
+        </article>
+        <article class="stop stop--home" data-at="4" data-i="3">
+          <div class="home__img"><img src="assets/img/colonial-1280.webp" alt="White Federal colonial house with black shutters"></div>
+          <div class="home__body">
+            <span class="tag" data-es="Histórica">Historic</span>
+            <h2 class="home__name">Front <em>Street</em></h2>
+            <p class="home__place">Marblehead</p>
+            <p class="home__line" data-es="Una casa federal a dos cuadras del puerto, con nueve chimeneas y mirador.">A Federal colonial two blocks from the harbor, with nine fireplaces and a widow's walk.</p>
+            <div class="home__foot"><p class="home__price">$2,975,000</p><button class="link" type="button" data-es="Ver la casa →">See the home →</button></div>
+          </div>
+        </article>
+
+        <div class="stop stop--door" data-at="5">
+          <h2 class="door__title" data-es="La próxima puerta <em>es la tuya.</em>">The next door <em>is yours.</em></h2>
+          <p data-es="La mitad de mis ventas nunca salen al mercado. Cuéntame qué buscas.">Half of my sales never reach the open market. Tell me what you're looking for.</p>
+        </div>
+
+        <div class="walk__dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="walk__flash" aria-hidden="true"></div>
+      </div>
     </section>
 
     <!-- MARQUEE -->
@@ -96,84 +133,6 @@
       </div>
     </div>
 
-    <!-- LISTINGS -->
-    <section class="listings" id="listings">
-      <div class="listings__pin">
-        <div class="listings__head">
-          <p class="eyebrow"><span class="num">01</span><span data-es="Propiedades actuales">Current listings</span></p>
-          <h2 class="h2 reveal-lines" data-es="Seis casas. <em>Seis historias.</em>">Six homes. <em>Six stories.</em></h2>
-          <p class="listings__note" data-es="Desliza para recorrerlas. Toca una para ver los detalles.">Scroll through them. Tap one for the details.</p>
-          <div class="listings__progress" aria-hidden="true"><i></i></div>
-        </div>
-        <div class="listings__track">
-          <article class="card" data-cursor="view" tabindex="0" data-i="0">
-            <div class="card__img"><img loading="lazy" src="assets/img/acorn-1280.webp" alt="Brick townhouses along a cobblestone lane"></div>
-            <div class="card__meta">
-              <span class="tag tag--new" data-es="Recién listada">Just listed</span>
-              <h3>Chestnut Street</h3>
-              <p class="card__place">Beacon Hill</p>
-              <p class="card__facts"><span>4 <small data-es="hab">bd</small></span><span>3.5 <small data-es="baños">ba</small></span><span>3,180 <small>sf</small></span></p>
-              <p class="card__price">$4,850,000</p>
-            </div>
-          </article>
-          <article class="card" data-cursor="view" tabindex="0" data-i="1">
-            <div class="card__img"><img loading="lazy" src="assets/img/backbay-1280.webp" alt="Brick building with a slate mansard roof"></div>
-            <div class="card__meta">
-              <span class="tag" data-es="Penthouse">Penthouse</span>
-              <h3>Commonwealth Avenue</h3>
-              <p class="card__place">Back Bay</p>
-              <p class="card__facts"><span>3 <small data-es="hab">bd</small></span><span>3 <small data-es="baños">ba</small></span><span>2,460 <small>sf</small></span></p>
-              <p class="card__price">$3,295,000</p>
-            </div>
-          </article>
-          <article class="card" data-cursor="view" tabindex="0" data-i="2">
-            <div class="card__img"><img loading="lazy" src="assets/img/southend-1280.webp" alt="Row of red brick bowfront townhouses"></div>
-            <div class="card__meta">
-              <span class="tag tag--pending" data-es="Bajo acuerdo">Under agreement</span>
-              <h3>Union Park</h3>
-              <p class="card__place">South End</p>
-              <p class="card__facts"><span>5 <small data-es="hab">bd</small></span><span>4 <small data-es="baños">ba</small></span><span>3,900 <small>sf</small></span></p>
-              <p class="card__price">$5,400,000</p>
-            </div>
-          </article>
-          <article class="card" data-cursor="view" tabindex="0" data-i="3">
-            <div class="card__img"><img loading="lazy" src="assets/img/colonial-1280.webp" alt="White Federal colonial house with black shutters"></div>
-            <div class="card__meta">
-              <span class="tag" data-es="Histórica · 1792">Historic · 1792</span>
-              <h3>Front Street</h3>
-              <p class="card__place">Marblehead</p>
-              <p class="card__facts"><span>5 <small data-es="hab">bd</small></span><span>3.5 <small data-es="baños">ba</small></span><span>4,120 <small>sf</small></span></p>
-              <p class="card__price">$2,975,000</p>
-            </div>
-          </article>
-          <article class="card" data-cursor="view" tabindex="0" data-i="4">
-            <div class="card__img"><img loading="lazy" src="assets/img/stone-1280.webp" alt="Stone shingle-style house on the water's edge"></div>
-            <div class="card__meta">
-              <span class="tag tag--new" data-es="Frente al mar">Waterfront</span>
-              <h3>Ocean Point</h3>
-              <p class="card__place">Nahant</p>
-              <p class="card__facts"><span>6 <small data-es="hab">bd</small></span><span>5 <small data-es="baños">ba</small></span><span>5,800 <small>sf</small></span></p>
-              <p class="card__price">$6,750,000</p>
-            </div>
-          </article>
-          <article class="card" data-cursor="view" tabindex="0" data-i="5">
-            <div class="card__img"><img loading="lazy" src="assets/img/dock-1280.webp" alt="White house with a private dock on the bay"></div>
-            <div class="card__meta">
-              <span class="tag tag--sold" data-es="Vendida · 104% de lista">Sold · 104% of list</span>
-              <h3>Bay Road</h3>
-              <p class="card__place">Duxbury</p>
-              <p class="card__facts"><span>4 <small data-es="hab">bd</small></span><span>4 <small data-es="baños">ba</small></span><span>3,640 <small>sf</small></span></p>
-              <p class="card__price">$3,850,000</p>
-            </div>
-          </article>
-          <div class="card card--end">
-            <p data-es="¿No ves la tuya? La mitad de mis ventas nunca salen al mercado.">Don't see yours? Half of my sales never reach the open market.</p>
-            <a class="btn btn--dark magnetic" href="#contact" data-es="Acceso privado">Private access</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- SIGNATURE RESIDENCE -->
     <section class="residence" id="residence">
       <div class="residence__stage">
@@ -181,44 +140,20 @@
           <img loading="lazy" src="assets/img/dusk.webp" srcset="assets/img/dusk-1280.webp 1280w, assets/img/dusk.webp 2400w" sizes="100vw" alt="A cedar house with warm lights on at dusk">
         </div>
         <div class="residence__caption">
-          <p class="eyebrow eyebrow--light"><span class="num">02</span><span data-es="Residencia destacada">Signature residence</span></p>
+          <p class="eyebrow eyebrow--light"><span data-es="Residencia destacada">Signature residence</span></p>
           <h2 class="residence__title" data-es="La Casa <em>Farol</em>">The Lantern <em>House</em></h2>
-          <p class="residence__where">Wellesley, Massachusetts · $3,495,000</p>
+          <p class="residence__where">Wellesley, Massachusetts</p>
         </div>
       </div>
 
       <div class="residence__body">
-        <div class="residence__text">
-          <p class="lead reveal-lines" data-es="Cedro, vidrio y una chimenea de piedra que ancla toda la casa. Diseñada para que la luz de la tarde la recorra de punta a punta.">Cedar, glass and a stone fireplace that anchors the whole house. Built so the late light runs through it end to end.</p>
-          <dl class="specs">
-            <div><dt data-es="Habitaciones">Bedrooms</dt><dd>5</dd></div>
-            <div><dt data-es="Baños">Baths</dt><dd>4.5</dd></div>
-            <div><dt data-es="Superficie">Interior</dt><dd>4,860 sf</dd></div>
-            <div><dt data-es="Terreno">Lot</dt><dd>1.2 ac</dd></div>
-            <div><dt data-es="Construida">Built</dt><dd>2019</dd></div>
-            <div><dt data-es="Escuelas">Schools</dt><dd>Wellesley</dd></div>
-          </dl>
-        </div>
-
-        <div class="calc" aria-labelledby="calc-title">
-          <p class="calc__title" id="calc-title" data-es="Tu pago mensual estimado">Your estimated monthly payment</p>
-          <p class="calc__out"><span class="calc__amt">$17,604</span><small data-es="/mes">/mo</small></p>
-          <label class="calc__row"><span data-es="Pago inicial">Down payment</span><b class="calc__v" data-v="down">20%</b>
-            <input type="range" min="5" max="50" step="1" value="20" data-k="down"></label>
-          <label class="calc__row"><span data-es="Tasa de interés">Interest rate</span><b class="calc__v" data-v="rate">6.25%</b>
-            <input type="range" min="3" max="9" step="0.125" value="6.25" data-k="rate"></label>
-          <div class="calc__terms" role="radiogroup" aria-label="Loan term">
-            <button type="button" class="on" data-term="30" data-es="30 años">30 years</button>
-            <button type="button" data-term="15" data-es="15 años">15 years</button>
-          </div>
-          <p class="calc__fine" data-es="Incluye impuesto predial estimado de Wellesley. No es una oferta de préstamo.">Includes estimated Wellesley property tax. Not a loan offer.</p>
-        </div>
+        <p class="lead reveal" data-es="Cedro, vidrio y una chimenea de piedra que ancla toda la casa. Diseñada para que la luz de la tarde la recorra de punta a punta.">Cedar, glass and a stone fireplace that anchors the whole house. Built so the late light runs through it end to end.</p>
       </div>
 
       <div class="gallery" aria-label="Interiors">
         <figure class="g g--a"><div class="g__in"><img loading="lazy" src="assets/img/kitchen-1280.webp" alt="Kitchen with a stone island and fluted cabinets"></div><figcaption data-es="Cocina de chef">Chef's kitchen</figcaption></figure>
-        <figure class="g g--b"><div class="g__in"><img loading="lazy" src="assets/img/living-1280.webp" alt="Living room with a black fireplace and wood-framed windows"></div><figcaption data-es="Sala · techo de 5 metros">Great room · 16-foot ceiling</figcaption></figure>
-        <figure class="g g--c"><div class="g__in"><img loading="lazy" src="assets/img/dining-1280.webp" alt="Open dining room with a long oak table"></div><figcaption data-es="Comedor para doce">Dining for twelve</figcaption></figure>
+        <figure class="g g--b"><div class="g__in"><img loading="lazy" src="assets/img/living-1280.webp" alt="Living room with a black fireplace and wood-framed windows"></div><figcaption data-es="La sala">The great room</figcaption></figure>
+        <figure class="g g--c"><div class="g__in"><img loading="lazy" src="assets/img/dining-1280.webp" alt="Open dining room with a long oak table"></div><figcaption data-es="El comedor">Dining room</figcaption></figure>
         <figure class="g g--d"><div class="g__in"><img loading="lazy" src="assets/img/sunroom-1280.webp" alt="Sunroom with plants and a round table"></div><figcaption data-es="Solárium">Sunroom</figcaption></figure>
         <figure class="g g--e"><div class="g__in"><img loading="lazy" src="assets/img/bedroom-1280.webp" alt="Primary bedroom with tall windows"></div><figcaption data-es="Suite principal">Primary suite</figcaption></figure>
       </div>
@@ -230,17 +165,17 @@
     <!-- NEIGHBORHOODS -->
     <section class="hoods" id="neighborhoods">
       <div class="hoods__head">
-        <p class="eyebrow"><span class="num">03</span><span data-es="Barrios">Neighborhoods</span></p>
-        <h2 class="h2 reveal-lines" data-es="Conozco cada <em>cuadra.</em>">I know every <em>block.</em></h2>
+        <p class="eyebrow"><span data-es="Barrios">Neighborhoods</span></p>
+        <h2 class="h2 reveal" data-es="Conozco cada <em>cuadra.</em>">I know every <em>block.</em></h2>
       </div>
       <ul class="hoods__list">
-        <li data-img="acorn"><span class="hoods__n">Beacon Hill</span><span class="hoods__d" data-es="Faroles de gas y adoquines">Gas lamps and cobblestones</span><span class="hoods__p"><small data-es="Mediana">Median</small>$1.95M</span></li>
-        <li data-img="backbay"><span class="hoods__n">Back Bay</span><span class="hoods__d" data-es="Mansardas sobre Commonwealth">Mansards on Commonwealth</span><span class="hoods__p"><small data-es="Mediana">Median</small>$1.70M</span></li>
-        <li data-img="southend"><span class="hoods__n">South End</span><span class="hoods__d" data-es="Fachadas de ladrillo y parques">Bowfronts and garden squares</span><span class="hoods__p"><small data-es="Mediana">Median</small>$1.45M</span></li>
-        <li data-img="parlor"><span class="hoods__n">Jamaica Plain</span><span class="hoods__d" data-es="El estanque, el arboreto, la familia">The Pond, the Arboretum, family</span><span class="hoods__p"><small data-es="Mediana">Median</small>$985K</span></li>
-        <li data-img="harbor"><span class="hoods__n">East Boston</span><span class="hoods__d" data-es="La mejor vista de la ciudad">The best view of the city</span><span class="hoods__p"><small data-es="Mediana">Median</small>$790K</span></li>
-        <li data-img="colonial"><span class="hoods__n">Marblehead</span><span class="hoods__d" data-es="Puerto, velas y casas de 1700">Harbor, sails and 1700s homes</span><span class="hoods__p"><small data-es="Mediana">Median</small>$1.35M</span></li>
-        <li data-img="nahant"><span class="hoods__n">Nahant</span><span class="hoods__d" data-es="Una isla a 20 minutos">An island 20 minutes out</span><span class="hoods__p"><small data-es="Mediana">Median</small>$1.10M</span></li>
+        <li data-img="acorn"><span class="hoods__n">Beacon Hill</span><span class="hoods__d" data-es="Faroles de gas y adoquines">Gas lamps and cobblestones</span></li>
+        <li data-img="backbay"><span class="hoods__n">Back Bay</span><span class="hoods__d" data-es="Mansardas sobre Commonwealth">Mansards on Commonwealth</span></li>
+        <li data-img="southend"><span class="hoods__n">South End</span><span class="hoods__d" data-es="Fachadas de ladrillo y parques">Bowfronts and garden squares</span></li>
+        <li data-img="parlor"><span class="hoods__n">Jamaica Plain</span><span class="hoods__d" data-es="El estanque, el arboreto, la familia">The Pond, the Arboretum, family</span></li>
+        <li data-img="harbor"><span class="hoods__n">East Boston</span><span class="hoods__d" data-es="La mejor vista de la ciudad">The best view of the city</span></li>
+        <li data-img="colonial"><span class="hoods__n">Marblehead</span><span class="hoods__d" data-es="Puerto, velas y casas coloniales">Harbor, sails and colonial houses</span></li>
+        <li data-img="nahant"><span class="hoods__n">Nahant</span><span class="hoods__d" data-es="Una isla a veinte minutos">An island twenty minutes out</span></li>
       </ul>
       <div class="hoods__float" aria-hidden="true"><img alt="" src="assets/img/acorn-1280.webp"></div>
     </section>
@@ -252,51 +187,46 @@
         <p class="about__sig">Adela Quintero</p>
       </div>
       <div class="about__text">
-        <p class="eyebrow"><span class="num">04</span><span data-es="Sobre mí">About</span></p>
-        <h2 class="h2 reveal-lines" data-es="Mi mamá limpiaba casas en Back Bay. <em>Hoy las vendo.</em>">My mother cleaned houses in Back Bay. <em>Now I sell them.</em></h2>
-        <p data-es="Crecí en East Boston, hija de una familia colombiana que ahorró doce años para su primera llave. Por eso trato cada compra como lo que es: la decisión más grande de una familia.">I grew up in East Boston, the daughter of a Colombian family that saved for twelve years for its first key. So I treat every purchase as what it is: the biggest decision a family makes.</p>
-        <p data-es="Quince años después, he vendido más de $600 millones en casas, de estudios en Eastie a casas frente al mar en Nahant. El trato es el mismo.">Fifteen years later I have sold more than $600 million in homes, from studios in Eastie to waterfront houses in Nahant. The care is the same.</p>
-        <ul class="creds">
-          <li data-es="Top 1% de agentes en Massachusetts">Top 1% of agents in Massachusetts</li>
-          <li data-es="Certified Luxury Home Marketing Specialist">Certified Luxury Home Marketing Specialist</li>
-          <li data-es="Bilingüe · inglés y español">Bilingual · English and Spanish</li>
-        </ul>
+        <p class="eyebrow"><span data-es="Sobre mí">About</span></p>
+        <h2 class="h2 reveal" data-es="Mi mamá limpiaba casas en Back Bay. <em>Hoy las vendo.</em>">My mother cleaned houses in Back Bay. <em>Now I sell them.</em></h2>
+        <p class="reveal" data-es="Crecí en East Boston, hija de una familia colombiana que ahorró años para su primera llave. Por eso trato cada compra como lo que es: la decisión más grande de una familia.">I grew up in East Boston, in a Colombian family that saved for years for its first key. So I treat every purchase as what it is: the biggest decision a family makes.</p>
+        <p class="reveal" data-es="Hoy vendo desde estudios en Eastie hasta casas frente al mar en Nahant. El trato es el mismo.">Today I sell everything from studios in Eastie to waterfront houses in Nahant. The care is the same.</p>
       </div>
     </section>
 
-    <!-- SELL / PROCESS -->
+    <!-- SELL -->
     <section class="sell" id="sell">
       <div class="sell__head">
-        <p class="eyebrow eyebrow--light"><span class="num">05</span><span data-es="Para vendedores">For sellers</span></p>
-        <h2 class="h2 h2--light reveal-lines" data-es="Cómo vendo <em>por más.</em>">How I sell <em>for more.</em></h2>
+        <p class="eyebrow eyebrow--light"><span data-es="Para vendedores">For sellers</span></p>
+        <h2 class="h2 h2--light reveal" data-es="Cómo vendo <em>por más.</em>">How I sell <em>for more.</em></h2>
       </div>
       <ol class="steps">
-        <li class="step"><span class="step__n">01</span><h3 data-es="Precio con datos">Price from data</h3><p data-es="Un análisis cuadra por cuadra, no un promedio del código postal. Sabes lo que vale tu casa antes de firmar nada.">A block-by-block study, not a zip-code average. You know what your home is worth before you sign anything.</p></li>
-        <li class="step"><span class="step__n">02</span><h3 data-es="Prepararla para brillar">Ready it to shine</h3><p data-es="Puesta en escena, pintores y jardineros de confianza. Pago yo por adelantado; tú pagas al cerrar.">Staging, painters and gardeners I trust. I pay up front; you pay at closing.</p></li>
-        <li class="step"><span class="step__n">03</span><h3 data-es="Contarla bien">Tell its story</h3><p data-es="Fotografía de arquitectura, video al atardecer y una campaña privada a mis 4,000 compradores antes de salir al mercado.">Architectural photography, dusk video and a private preview to my 4,000 buyers before it goes public.</p></li>
-        <li class="step"><span class="step__n">04</span><h3 data-es="Negociar sin miedo">Negotiate without fear</h3><p data-es="Ofertas múltiples, plazos claros y yo en cada llamada. Hasta que tengas la llave del siguiente capítulo.">Multiple offers, clear deadlines and me on every call. Until you have the key to the next chapter.</p></li>
+        <li class="step"><span class="step__n">I</span><h3 data-es="Precio con datos">Price from data</h3><p data-es="Un análisis cuadra por cuadra, no un promedio del código postal.">A block-by-block study, not a zip-code average.</p></li>
+        <li class="step"><span class="step__n">II</span><h3 data-es="Prepararla para brillar">Ready it to shine</h3><p data-es="Puesta en escena, pintores y jardineros de confianza. Pago yo por adelantado.">Staging, painters and gardeners I trust. I pay up front.</p></li>
+        <li class="step"><span class="step__n">III</span><h3 data-es="Contarla bien">Tell its story</h3><p data-es="Fotografía de arquitectura, video al atardecer y una preventa privada a mis compradores.">Architectural photos, dusk video and a private preview to my buyers.</p></li>
+        <li class="step"><span class="step__n">IV</span><h3 data-es="Negociar sin miedo">Negotiate without fear</h3><p data-es="Ofertas múltiples, plazos claros y yo en cada llamada.">Multiple offers, clear deadlines and me on every call.</p></li>
       </ol>
 
       <form class="value" novalidate>
         <div class="value__copy">
           <h3 data-es="¿Cuánto vale tu casa hoy?">What is your home worth today?</h3>
-          <p data-es="Recibe un estimado personal en 24 horas. Sin compromiso, sin llamadas de robots.">Get a personal estimate within 24 hours. No obligation, no robocalls.</p>
+          <p data-es="Recibe un estimado personal mañana. Sin compromiso.">Get a personal estimate tomorrow. No obligation.</p>
         </div>
         <div class="value__fields">
           <label><span class="sr" data-es="Dirección">Address</span><input name="address" required autocomplete="street-address" placeholder="Street address, city" data-es-ph="Dirección, ciudad"></label>
           <label><span class="sr">Email</span><input name="email" type="email" required autocomplete="email" placeholder="Email" data-es-ph="Correo"></label>
           <button class="btn btn--light magnetic" type="submit" data-es="Pedir estimado">Get my estimate</button>
         </div>
-        <p class="value__ok" role="status" hidden data-es="Gracias. Adela te escribirá mañana con tu estimado.">Thank you. Adela will write tomorrow with your estimate.</p>
+        <p class="value__ok" role="status" hidden data-es="Gracias. Adela te escribirá mañana.">Thank you. Adela will write tomorrow.</p>
       </form>
     </section>
 
     <!-- TESTIMONIALS -->
     <section class="quotes" aria-label="Client words">
-      <p class="eyebrow"><span class="num">06</span><span data-es="Clientes">Clients</span></p>
+      <p class="eyebrow"><span data-es="Clientes">Clients</span></p>
       <div class="quotes__stage">
         <blockquote class="quote is-on">
-          <p data-es="“Teníamos tres ofertas en cinco días. Adela nos llamaba después de cada visita, incluso un domingo a las diez de la noche.”">“We had three offers in five days. Adela called after every showing, even at ten on a Sunday night.”</p>
+          <p data-es="“Adela nos llamaba después de cada visita, incluso un domingo a las diez de la noche.”">“Adela called after every showing, even at ten on a Sunday night.”</p>
           <footer>Marcus &amp; Lena · <span data-es="vendieron en el South End">sold in the South End</span></footer>
         </blockquote>
         <blockquote class="quote">
@@ -315,12 +245,12 @@
     <section class="contact" id="contact">
       <div class="contact__bg"><img loading="lazy" src="assets/img/skyline.webp" srcset="assets/img/skyline-1280.webp 1280w, assets/img/skyline.webp 2400w" sizes="100vw" alt="Boston skyline at night reflected in the Charles River"></div>
       <div class="contact__inner">
-        <h2 class="contact__title reveal-lines" data-es="Encontremos <em>la tuya.</em>">Let's find <em>yours.</em></h2>
+        <h2 class="contact__title reveal" data-es="Encontremos <em>la tuya.</em>">Let's find <em>yours.</em></h2>
         <div class="contact__grid">
           <div class="contact__info">
             <a class="contact__big" href="tel:+16175550142">(617) 555-0142</a>
             <p data-es="Texto o WhatsApp, en inglés o español.">Text or WhatsApp, in English or Spanish.</p>
-            <address>Quintero Residences<br>210 Newbury Street<br>Boston, MA 02116</address>
+            <address>Quintero Residences<br>Newbury Street<br>Boston, Massachusetts</address>
           </div>
           <form class="contact__form" novalidate>
             <div class="seg" role="radiogroup" aria-label="I want to">
@@ -342,22 +272,21 @@
   <footer class="foot">
     <p class="foot__word" aria-hidden="true">Quintero</p>
     <div class="foot__row">
-      <p>© 2026 Quintero Residences · <span data-es="Licencia MA">MA License</span> #9000000</p>
+      <p>© 2026 Quintero Residences</p>
       <p class="foot__eho"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7M6 10v9h12v-9M9 14h6M9 17h6"/></svg><span data-es="Igualdad de oportunidades de vivienda">Equal Housing Opportunity</span></p>
       <a href="#top" data-es="Volver arriba ↑">Back to top ↑</a>
     </div>
   </footer>
 
-  <dialog class="sheet" aria-label="Listing details">
+  <dialog class="sheet" aria-label="Home details">
     <button class="sheet__x" type="button" aria-label="Close">×</button>
     <div class="sheet__img"><img alt=""></div>
     <div class="sheet__body">
       <span class="tag sheet__tag"></span>
       <h3 class="sheet__name"></h3>
       <p class="sheet__place"></p>
-      <p class="sheet__price"></p>
       <p class="sheet__desc"></p>
-      <p class="sheet__facts"></p>
+      <p class="sheet__price"></p>
       <a class="btn btn--dark" href="#contact" data-es="Pedir una visita">Request a showing</a>
     </div>
   </dialog>
