@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="darkreader-lock">
+<title>HADAL | Private submersible descents</title>
+<meta name="description" content="Private submersible descents to 6,000 meters. Four guests, one pilot, nine hours.">
+<meta name="theme-color" content="#050a0e">
+<link rel="preload" href="img/hero.webp" as="image">
+<link rel="preload" href="img/sperm.webp" as="image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%23050a0e%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2211%22 fill=%22none%22 stroke=%22%23e8eef0%22 stroke-width=%222%22/%3E%3Ccircle cx=%2216%22 cy=%2220%22 r=%224%22 fill=%22%23f26a3d%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<div class="loader" aria-hidden="true">
+  <div class="loader-word">HADAL</div>
+  <div class="loader-count"><span id="loadPct">0</span>%</div>
+</div>
+
+<canvas id="snow" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <a class="brand press" href="#top" aria-label="HADAL home">
+    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="21" r="5" fill="currentColor"/></svg>
+    <span>HADAL</span>
+  </a>
+  <nav class="nav-links" aria-label="Main">
+    <a href="#descent">Descent</a>
+    <a href="#seafloor">Sea floor</a>
+    <a href="#vessel">Vessel</a>
+    <a href="#dives">Dives</a>
+    <a href="#pressure">Pressure</a>
+  </nav>
+  <a class="btn btn-accent btn-sm press" href="#book">Reserve a seat</a>
+</header>
+
+<aside class="gauge" aria-label="Depth gauge">
+  <div class="gauge-track"><div class="gauge-fill"></div><div class="gauge-dot"></div></div>
+  <dl class="gauge-read">
+    <div><dt>Depth</dt><dd><span id="gDepth">0</span> m</dd></div>
+    <div><dt>Pressure</dt><dd><span id="gAtm">1</span> atm</dd></div>
+    <div><dt>Water</dt><dd><span id="gTemp">26</span> °C</dd></div>
+    <div><dt>Sunlight</dt><dd><span id="gLight">100</span>%</dd></div>
+  </dl>
+</aside>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-media">
+      <img src="img/hero.webp" alt="A humpback whale swimming just under the surface" width="2400" height="1338">
+    </div>
+    <div class="hero-shade"></div>
+    <canvas class="spheres" id="heroSpheres" aria-hidden="true"></canvas>
+    <div class="hero-copy">
+      <h1 class="hero-title"><span class="line">Go below</span><span class="line">the light.</span></h1>
+      <p class="hero-sub">Private submersible descents to 6,000 meters. Four guests, one pilot, nine hours.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-accent press" href="#book">Reserve a seat</a>
+        <a class="btn btn-ghost press" href="#descent">See the descent</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="statement">
+    <p class="statement-text" id="statement">Sunlight stops at about 200 meters. Below that line is most of the living space on Earth, and almost nobody has seen it with their own eyes. We take four people at a time.</p>
+  </section>
+
+  <!-- DESCENT (pinned, layered fly-through) -->
+  <section class="descent" id="descent">
+    <div class="descent-stage">
+      <article class="zone" data-zone="0">
+        <div class="zone-media"><img src="img/sperm.webp" alt="A sperm whale and her calf swimming under sunlit water" width="2560" height="1440"></div>
+        <div class="zone-num">200 m</div>
+        <div class="zone-copy"><span class="zone-range">0 to 200 m</span><h2>Sunlight zone</h2><p>Sperm whales rest near the surface between dives. Every color is still visible.</p><span class="zone-cap">Sperm whale, mother and calf</span></div>
+      </article>
+      <article class="zone" data-zone="1">
+        <div class="zone-media"><img src="img/lion8.webp" alt="A lion's mane jellyfish trailing long tentacles in dark green water" width="2560" height="1696"></div>
+        <div class="zone-num">1,000 m</div>
+        <div class="zone-copy"><span class="zone-range">200 to 1,000 m</span><h2>Twilight zone</h2><p>Red light is gone. Everything turns blue, then dark blue. Jellyfish drift here by the thousands.</p><span class="zone-cap">Lion's mane jellyfish</span></div>
+      </article>
+      <article class="zone zone-dark" data-zone="2">
+        <div class="zone-media zone-void"></div>
+        <div class="zone-subject"><img src="img/marrus.webp" alt="A glowing siphonophore floating in black water" width="1400" height="1986"></div>
+        <div class="zone-torch" aria-hidden="true"></div>
+        <div class="zone-num">4,000 m</div>
+        <div class="zone-copy"><span class="zone-range">1,000 to 4,000 m</span><h2>Midnight zone</h2><p>No sunlight reaches this depth. Most animals here make their own light. Move your mouse to aim the lights.</p><span class="zone-cap">Siphonophore, Marrus orthocanna</span></div>
+      </article>
+      <article class="zone" data-zone="3">
+        <div class="zone-media"><img src="img/smoker.webp" alt="A black smoker vent releasing dark mineral fluid on the sea floor" width="2048" height="1536"></div>
+        <canvas class="vent-heat" aria-hidden="true"></canvas>
+        <div class="zone-num">6,000 m</div>
+        <div class="zone-copy"><span class="zone-range">4,000 to 6,000 m</span><h2>Abyss</h2><p>Black smoker vents pour out water at 400 °C. Whole communities live off them without any sunlight.</p><span class="zone-cap">Black smoker, Mid-Atlantic Ridge</span></div>
+      </article>
+      <canvas class="bokeh" aria-hidden="true"></canvas>
+      <div class="descent-hint" aria-hidden="true">Click anywhere to ping sonar</div>
+    </div>
+  </section>
+
+  <!-- SEA FLOOR (3D scan of a whale skeleton, flown over on scroll) -->
+  <section class="fall" id="seafloor" aria-label="Whale fall on the sea floor">
+    <div class="fall-stage">
+      <canvas class="fall-canvas" aria-hidden="true"></canvas>
+      <div class="fall-intro">
+        <span class="zone-range">6,000 m, on the sea floor</span>
+        <h2 class="fall-title"><span class="vl"><span>Whale</span></span><span class="vl"><span>fall</span></span></h2>
+        <p class="body">When a whale dies, its body sinks to the bottom. The skeleton can feed life down here for decades.</p>
+      </div>
+      <ol class="fall-steps">
+        <li><span class="fall-n">01</span><b>Scavengers</b><p>Sleeper sharks, hagfish and crabs strip the soft tissue. This takes months, up to about two years.</p></li>
+        <li><span class="fall-n">02</span><b>Bone eaters</b><p>Worms with no mouth and no gut, called Osedax, root into the bones to reach the fat inside.</p></li>
+        <li><span class="fall-n">03</span><b>Fifty years or more</b><p>Bacteria break down the oil left in the bones. Mussels, clams and snails live off them for decades.</p></li>
+      </ol>
+      <div class="fall-drag" aria-hidden="true"><i></i>Drag to turn the scan</div>
+      <p class="fall-credit">Real 3D scan of a fossil whale, 6 to 9 million years old, Cerro Ballena, Chile. Smithsonian Institution, CC0.</p>
+      <div class="fall-loading" aria-hidden="true">Loading 3D scan</div>
+    </div>
+  </section>
+
+  <!-- VESSEL (pinned porthole reveal) -->
+  <section class="vessel" id="vessel">
+    <div class="vessel-stage">
+      <div class="vessel-porthole">
+        <div class="vessel-frame">
+          <img src="img/lf_float.webp" alt="The submersible Limiting Factor just under the surface" width="2400" height="1250">
+          <button class="hot" type="button" style="left:47.5%;top:52%" aria-label="Robotic arm" data-label="Robotic arm" data-text="Picks up rocks and animals from the sea floor and brings them up in a basket."><span class="hot-dot"></span></button>
+          <button class="hot" type="button" style="left:55.7%;top:70%" aria-label="Viewport" data-label="Viewports" data-text="Three acrylic viewports, 18 cm thick, one for each guest seat."><span class="hot-dot"></span></button>
+          <button class="hot" type="button" style="left:34.4%;top:81%" aria-label="Drop weights" data-label="Drop weights" data-text="Steel weights take the vessel down. Releasing them brings it back up."><span class="hot-dot"></span></button>
+          <button class="hot" type="button" style="left:4.5%;top:27%" aria-label="Thrusters" data-label="Thrusters" data-text="Ten electric thrusters. Top speed is 3 knots, about walking pace."><span class="hot-dot"></span></button>
+        </div>
+      </div>
+      <div class="porthole-ring" aria-hidden="true"></div>
+      <div class="vessel-shade"></div>
+      <div class="vessel-copy">
+        <h2 class="h2 vessel-title"><span class="vl"><span>A titanium sphere</span></span><span class="vl"><span>for four guests</span></span><span class="vl"><span>and a pilot.</span></span></h2>
+        <p class="body">The crew sits inside a 2.1 meter sphere with three viewports. Click the orange dots to see the parts of the vessel.</p>
+      </div>
+      <figure class="escort press-card">
+        <div class="escort-img"><img src="img/alvin.webp" alt="A white submersible lit up in deep blue water" width="2560" height="1920" loading="lazy"></div>
+        <figcaption>A second submersible follows every dive and lights the sea floor ahead of you.</figcaption>
+      </figure>
+      <div class="specs">
+        <div class="spec press"><i class="spec-glare"></i><b data-count="6000" data-fmt="comma">0</b><span>meters rated depth</span></div>
+        <div class="spec press"><i class="spec-glare"></i><b data-count="4">0</b><span>guests per descent</span></div>
+        <div class="spec press"><i class="spec-glare"></i><b data-count="9">0</b><span>hours, surface to surface</span></div>
+        <div class="spec press"><i class="spec-glare"></i><b data-count="96">0</b><span>hours of emergency life support</span></div>
+      </div>
+    </div>
+    <div class="hot-card" role="status" aria-live="polite"><b></b><span></span></div>
+  </section>
+
+  <!-- DIVES (horizontal pan) -->
+  <section class="dives" id="dives">
+    <div class="dives-head"><h2 class="h2">Recent dives</h2></div>
+    <div class="dives-track">
+      <figure class="dive press-card"><div class="dive-img"><img src="img/calf.webp" alt="Humpback whale and calf near the surface" loading="lazy"></div><figcaption><b>Humpback whale and calf</b><span>Hawaii, 12 m</span></figcaption></figure>
+      <figure class="dive press-card"><div class="dive-img"><img src="img/sharks.webp" alt="Whale sharks in blue water" loading="lazy"></div><figcaption><b>Whale sharks</b><span>Philippines, 9 m</span></figcaption></figure>
+      <figure class="dive press-card"><div class="dive-img"><img src="img/iceplanet.webp" alt="A jellyfish under Antarctic sea ice" loading="lazy"></div><figcaption><b>Jellyfish under sea ice</b><span>Antarctica, 20 m</span></figcaption></figure>
+      <figure class="dive press-card"><div class="dive-img"><img src="img/lion3.webp" alt="A lion's mane jellyfish with long tentacles" loading="lazy"></div><figcaption><b>Lion's mane jellyfish</b><span>Gullmarn fjord, Sweden</span></figcaption></figure>
+      <figure class="dive press-card"><div class="dive-img"><img src="img/rov_coral.webp" alt="A remote vehicle lighting deep sea coral" loading="lazy"></div><figcaption><b>Deep sea coral</b><span>Retriever Seamount, Atlantic</span></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- PRESSURE (interactive) -->
+  <section class="pressure" id="pressure">
+    <div class="pressure-media" aria-hidden="true"><img src="img/manta.webp" alt="" width="2400" height="1601" loading="lazy"></div>
+    <div class="pressure-dark" aria-hidden="true"></div>
+    <canvas class="spheres" id="pressureSpheres" aria-hidden="true"></canvas>
+    <div class="pressure-copy">
+      <span class="pressure-eyebrow">Pressure</span>
+      <h2 class="h2 pressure-title"><span class="pl"><span>Air shrinks</span></span><span class="pl"><span>on the way down.</span></span></h2>
+      <p class="body">At 6,000 meters the water pushes about 600 times harder than at the surface. A bubble of air is squeezed to about 1/600 of its volume.</p>
+      <p class="pressure-how">Press and hold to dive. Let go to come back up.</p>
+    </div>
+    <div class="pressure-ctl">
+      <button class="pressure-btn" id="pressureBtn" type="button" aria-describedby="pressureRead">
+        <svg class="pressure-dial" viewBox="0 0 200 200" aria-hidden="true">
+          <circle class="dial-track" cx="100" cy="100" r="94" pathLength="1"></circle>
+          <circle class="dial-arc" cx="100" cy="100" r="94" pathLength="1"></circle>
+        </svg>
+        <span class="pressure-face">
+          <span class="pressure-depth"><b id="pDepth">0</b> m</span>
+          <span class="pressure-hint">Hold</span>
+        </span>
+      </button>
+      <dl class="pressure-read" id="pressureRead" aria-live="off">
+        <div><dt>Pressure</dt><dd><span id="pVal">1</span> atm</dd></div>
+        <div><dt>Bubble volume</dt><dd><span id="pVol">100</span>%</dd></div>
+        <div><dt>Light</dt><dd><span id="pLight">100</span>%</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- SURFACE BAND -->
+  <section class="surface" aria-label="Back at the surface">
+    <div class="surface-media"><img src="img/lf_pr.webp" alt="The submersible floating at dusk with its lights on after a dive" width="2400" height="1349" loading="lazy"></div>
+    <p class="surface-line"><span>Nine hours later,</span><span>back at the surface.</span></p>
+  </section>
+
+  <!-- BOOK -->
+  <section class="book" id="book">
+    <h2 class="h2 book-title">Reserve a seat</h2>
+    <ol class="trips">
+      <li class="trip press-card" data-trip="Cayman Trough, March 2027">
+        <div class="trip-when">Mar 2027</div>
+        <div class="trip-where"><b>Cayman Trough</b><span>Caribbean Sea</span></div>
+        <div class="trip-depth">5,100 m</div>
+        <div class="trip-price">$48,500</div>
+        <button class="btn btn-accent btn-sm press" type="button">Reserve</button>
+      </li>
+      <li class="trip press-card" data-trip="Mariana volcanic arc, June 2027">
+        <div class="trip-when">Jun 2027</div>
+        <div class="trip-where"><b>Mariana volcanic arc</b><span>Western Pacific</span></div>
+        <div class="trip-depth">3,800 m</div>
+        <div class="trip-price">$52,000</div>
+        <button class="btn btn-accent btn-sm press" type="button">Reserve</button>
+      </li>
+      <li class="trip press-card" data-trip="Puerto Rico Trench, October 2027">
+        <div class="trip-when">Oct 2027</div>
+        <div class="trip-where"><b>Puerto Rico Trench</b><span>Atlantic Ocean</span></div>
+        <div class="trip-depth">6,000 m</div>
+        <div class="trip-price">$61,000</div>
+        <button class="btn btn-accent btn-sm press" type="button">Reserve</button>
+      </li>
+    </ol>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-word" aria-hidden="true">HADAL</div>
+  <div class="foot-row">
+    <p>Concept site. HADAL is a fictional company; trips and prices are examples.</p>
+    <p>Photos via Wikimedia Commons: Gabriel Barathieu (sperm whales, CC BY-SA 2.0); W. Carter (lion's mane jellyfish, CC0); Kevin Raskoff (siphonophore, public domain); MARUM, University of Bremen (black smoker, CC BY 4.0); Richard Varcoe for Caladan Oceanic (submersible, CC BY-SA 4.0); Erwan Amice (Antarctic jellyfish, CC BY 4.0); NOAA Ocean Exploration, NOAA National Marine Sanctuaries, U.S. Fish and Wildlife Service, WHOI (public domain); Stanislav Stelmakhovich and Jake Gaviola (CC0). 3D scan of fossil whale MPC 678, Cerro Ballena: Smithsonian Institution (CC0).</p>
+  </div>
+</footer>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheetTitle">
+  <form class="sheet-form" id="sheetForm" novalidate>
+    <h3 id="sheetTitle">Reserve a seat</h3>
+    <p class="sheet-trip" id="sheetTrip"></p>
+    <label for="fName">Full name</label>
+    <input id="fName" name="name" autocomplete="name" required>
+    <p class="err" data-for="fName">Enter your name.</p>
+    <label for="fEmail">Email</label>
+    <input id="fEmail" name="email" type="email" autocomplete="email" required>
+    <p class="err" data-for="fEmail">Enter a valid email address.</p>
+    <label for="fSeats">Seats</label>
+    <select id="fSeats" name="seats"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+    <div class="sheet-actions">
+      <button class="btn btn-ghost press" type="button" id="sheetClose">Cancel</button>
+      <button class="btn btn-accent press" type="submit">Send request</button>
+    </div>
+  </form>
+  <div class="sheet-done" hidden>
+    <h3>Request received</h3>
+    <p>This is a demo site, so nothing was sent.</p>
+    <button class="btn btn-accent press" type="button" id="sheetOk">Close</button>
+  </div>
+</dialog>
+
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/lenis.min.js"></script>
+<script src="js/spheres.js"></script>
+<script src="js/site.js"></script>
+<script src="js/three.bundle.js" defer></script>
+<script src="js/whalefall.js" defer></script>
+<!-- ponce-portfolio-back -->
+<a href="/web-portfolio/" id="pc-back" style="position:fixed;left:14px;bottom:14px;z-index:2147483647;display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 11px;border-radius:999px;background:rgba(13,13,16,.78);border:1px solid rgba(232,176,75,.45);color:#f0d8a8;font:600 12px/1 Inter,system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:.01em;text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.35)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Portfolio</a>
+</body>
+</html>

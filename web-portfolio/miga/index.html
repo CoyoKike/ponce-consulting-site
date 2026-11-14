@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Miga · Sourdough bakery, East Austin, Texas</title>
+  <meta name="description" content="Miga is a sourdough bakery in East Austin, Texas. Stone milled flour, thirty six hours of rest, pastry laminated by hand, the first loaves out at six.">
+  <meta name="theme-color" content="#f4eee4">
+  <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/dmsans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/img/hero.webp" media="(max-width: 760px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/hero.webp" imagesrcset="assets/img/hero-1280.webp 1280w, assets/img/hero.webp 3200w" imagesizes="125vw" media="(min-width: 761px)" fetchpriority="high">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="loader" aria-hidden="true">
+    <div class="loader__word"><span class="loader__ghost">Miga</span><span class="loader__fill">Miga</span></div>
+    <p class="loader__note">Warming the oven</p>
+  </div>
+
+  <header class="nav">
+    <nav class="nav__links" aria-label="Main">
+      <a href="#story">Story</a>
+      <a href="#process">Process</a>
+      <a href="#menu">Counter</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a href="#top" class="nav__logo" aria-label="Miga, back to top">Miga</a>
+    <div class="nav__right">
+      <p class="nav__open"><span class="hours__dot"></span><span class="nav__state">Open today</span></p>
+      <a href="#reserve" class="btn btn--dark nav__cta press">Order ahead</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO: the loaf seen through the letters of the name. Scrolling flies through the i until the photo fills the screen ============ -->
+    <section class="hero" id="top" aria-label="Miga">
+      <div class="hero__stage">
+        <div class="hero__photo">
+          <picture>
+            <source media="(max-width: 760px)" srcset="assets/img/hero.webp">
+            <img src="assets/img/hero.webp" srcset="assets/img/hero-1280.webp 1280w, assets/img/hero.webp 3200w" sizes="125vw" alt="A round seeded sourdough loaf on a wooden board, with a cup of milk, a linen napkin, a knife and a small bowl of butter on a terracotta and linen table" fetchpriority="high">
+          </picture>
+        </div>
+        <canvas class="hero__dust" aria-hidden="true"></canvas>
+        <svg class="hero__mask" aria-hidden="true" focusable="false">
+          <defs>
+            <mask id="miga-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+              <rect x="0" y="0" width="100%" height="100%" fill="#fff"/>
+              <g class="hero__word"><path class="hero__letters" fill="#000" d="M818 -444 798 -414 1163 -1374Q1169 -1391 1174.0 -1395.5Q1179 -1400 1190 -1400H1466Q1469 -1400 1471.5 -1398.5Q1474 -1397 1474 -1394Q1474 -1392 1471.5 -1390.5Q1469 -1389 1464 -1388L1364 -1373Q1349 -1371 1342.5 -1360.0Q1336 -1349 1336 -1330L1426 -64Q1428 -44 1433.5 -36.5Q1439 -29 1457 -26L1550 -12Q1555 -12 1557.5 -10.5Q1560 -9 1560 -6Q1560 -4 1557.5 -2.0Q1555 0 1552 0H1092Q1087 0 1085.0 -2.0Q1083 -4 1083 -6Q1083 -9 1085.5 -10.5Q1088 -12 1093 -12L1186 -26Q1205 -29 1212.5 -37.5Q1220 -46 1220 -64L1133 -1279L1148 -1286L736 -170Q731 -157 727.5 -153.0Q724 -149 720 -149Q718 -149 715.5 -151.5Q713 -154 710.5 -158.5Q708 -163 704 -170L258 -1271L270 -1294L192 -126Q190 -90 211.0 -66.5Q232 -43 271 -32L384 -12Q389 -11 391.5 -9.5Q394 -8 394 -6Q394 -4 392.0 -2.0Q390 0 386 0H6Q3 0 1.0 -2.0Q-1 -4 -1 -6Q-1 -9 1.5 -10.0Q4 -11 8 -12L88 -31Q126 -42 149.0 -66.0Q172 -90 175 -127L252 -1273Q256 -1319 248.5 -1344.0Q241 -1369 218 -1372L135 -1383Q124 -1385 118.0 -1386.5Q112 -1388 112 -1392Q112 -1400 129 -1400H408Q418 -1400 423.5 -1395.5Q429 -1391 434 -1376Z M1897 -874V-51Q1897 -39 1903.0 -32.0Q1909 -25 1921 -22L1984 -13Q1990 -12 1992.0 -10.5Q1994 -9 1994 -6Q1994 -3 1992.0 -1.5Q1990 0 1986 0H1627Q1625 0 1623.0 -1.5Q1621 -3 1621 -6Q1621 -7 1623.0 -9.0Q1625 -11 1629 -12L1696 -22Q1709 -25 1714.5 -32.0Q1720 -39 1720 -50V-789Q1720 -794 1717.5 -797.0Q1715 -800 1708 -800H1630Q1627 -800 1625.0 -802.0Q1623 -804 1623 -806Q1623 -810 1625.0 -811.5Q1627 -813 1631 -814L1871 -881Q1879 -883 1882.0 -883.5Q1885 -884 1888 -884Q1893 -884 1895.0 -881.0Q1897 -878 1897 -874ZM1803 -1045Q1754 -1045 1723.5 -1078.5Q1693 -1112 1693 -1161Q1693 -1210 1724.5 -1243.5Q1756 -1277 1803 -1277Q1853 -1277 1884.5 -1243.0Q1916 -1209 1916 -1161Q1916 -1112 1884.0 -1078.5Q1852 -1045 1803 -1045Z M2629 -8Q2505 -45 2444.5 -69.5Q2384 -94 2364.5 -114.0Q2345 -134 2345 -158Q2345 -182 2363.5 -200.5Q2382 -219 2409 -230L2411 -238Q2334 -221 2288.5 -197.5Q2243 -174 2223.5 -143.5Q2204 -113 2204 -75Q2204 -33 2233.0 -1.5Q2262 30 2332.0 58.0Q2402 86 2527 120Q2630 146 2686.0 172.5Q2742 199 2763.5 230.5Q2785 262 2785 300Q2785 357 2754.0 396.0Q2723 435 2661.0 455.5Q2599 476 2507 476Q2333 476 2250.0 406.0Q2167 336 2167 222Q2167 162 2218.5 117.0Q2270 72 2370 55L2368 44Q2193 70 2118.5 127.5Q2044 185 2044 267Q2044 331 2092.0 382.5Q2140 434 2240.5 463.0Q2341 492 2497 492Q2701 492 2813.0 417.5Q2925 343 2925 226Q2925 168 2900.0 126.0Q2875 84 2811.0 52.0Q2747 20 2629 -8ZM2637 -835H2650Q2673 -872 2696.5 -895.0Q2720 -918 2747 -918Q2767 -918 2782.0 -901.5Q2797 -885 2812.0 -863.5Q2827 -842 2845.0 -826.0Q2863 -810 2889 -810Q2926 -810 2945.0 -832.0Q2964 -854 2964 -891Q2964 -940 2930.0 -972.0Q2896 -1004 2840 -1004Q2776 -1004 2730.0 -961.0Q2684 -918 2645 -850ZM2856 -561Q2856 -651 2809.5 -726.0Q2763 -801 2679.5 -845.5Q2596 -890 2483 -890Q2362 -890 2274.0 -844.0Q2186 -798 2138.5 -719.5Q2091 -641 2091 -542Q2091 -453 2139.0 -380.0Q2187 -307 2273.0 -263.5Q2359 -220 2471 -220Q2580 -220 2667.0 -264.0Q2754 -308 2805.0 -385.0Q2856 -462 2856 -561ZM2439 -871Q2539 -873 2603.0 -782.0Q2667 -691 2676 -540Q2685 -406 2635.5 -324.5Q2586 -243 2502 -240Q2439 -239 2387.5 -280.5Q2336 -322 2304.0 -397.0Q2272 -472 2266 -570Q2261 -658 2282.0 -725.0Q2303 -792 2344.0 -830.5Q2385 -869 2439 -871Z M3522 -92V-99L3514 -92V-694Q3514 -783 3479.0 -830.5Q3444 -878 3374 -878Q3296 -878 3260.0 -841.0Q3224 -804 3224 -764V-695Q3224 -654 3196.5 -627.5Q3169 -601 3128 -601Q3097 -601 3076.5 -621.5Q3056 -642 3056 -682Q3056 -732 3094.5 -780.0Q3133 -828 3208.5 -859.0Q3284 -890 3394 -890Q3545 -890 3618.5 -823.5Q3692 -757 3692 -639V-108Q3692 -67 3705.5 -49.5Q3719 -32 3739 -32Q3757 -32 3771.5 -43.0Q3786 -54 3788 -76Q3789 -80 3790.5 -81.0Q3792 -82 3793 -82Q3796 -82 3796.5 -81.0Q3797 -80 3797 -76Q3797 -60 3783.0 -38.0Q3769 -16 3738.0 0.5Q3707 17 3656 17Q3588 17 3555.0 -13.0Q3522 -43 3522 -92ZM3008 -192Q3008 -294 3093.0 -359.0Q3178 -424 3352 -424Q3423 -424 3469.0 -411.0Q3515 -398 3554 -379L3548 -372Q3509 -390 3466.5 -401.0Q3424 -412 3372 -412Q3282 -412 3235.0 -360.0Q3188 -308 3188 -219Q3188 -132 3232.5 -83.0Q3277 -34 3350 -34Q3400 -34 3449.0 -56.0Q3498 -78 3531 -120L3540 -114Q3496 -50 3420.0 -16.0Q3344 18 3256 18Q3145 18 3076.5 -40.5Q3008 -99 3008 -192Z"/></g>
+            </mask>
+          </defs>
+          <rect class="hero__sheet" x="0" y="0" width="100%" height="100%" mask="url(#miga-mask)"/>
+        </svg>
+        <h1 class="sr">Miga, sourdough bakery in East Austin, Texas</h1>
+        <div class="hero__copy">
+          <p class="hero__kicker"><span>Sourdough bakery</span><span>1110 E 6th Street, Austin</span></p>
+          <p class="hero__title"><span class="line">Flour, water</span> <span class="line"><em>and time.</em></span></p>
+          <div class="hero__side">
+            <p class="hero__lede">Sourdough rested for thirty six hours. Pastry laminated by hand. The first loaves come out of the oven at six.</p>
+            <div class="hero__actions">
+              <a href="#reserve" class="btn btn--dark press">Order ahead</a>
+              <a href="#menu" class="btn btn--line press">See the counter</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero__cue" aria-hidden="true"><span>Scroll into the loaf</span><i></i></div>
+        <div class="hero__land" aria-hidden="true">
+          <p class="hero__landk">Every morning</p>
+          <p class="hero__landname">Pan de <em>campo</em></p>
+          <p class="hero__landsub">Seeded sourdough, baked dark, on the board by seven</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STORY: one sentence with small photos that open inside it, then the three numbers ============ -->
+    <section class="story" id="story">
+      <div class="wrap">
+        <p class="kicker">01 · The story</p>
+        <p class="statement">
+          Three flours milled on stone <span class="pill" data-w="2.4"><img src="assets/img/flour-1280.webp" alt="" loading="lazy" decoding="async"></span>
+          a starter older than the bakery <span class="pill" data-w="2"><img src="assets/img/starter-1280.webp" alt="" loading="lazy" decoding="async"></span>
+          and a baker <span class="pill pill--round" data-w="1.1"><img src="assets/img/baker-1280.webp" alt="" loading="lazy" decoding="async"></span>
+          who lights the ovens at <em>three in the morning.</em>
+        </p>
+        <div class="story__cols">
+          <article class="fact">
+            <p class="fact__n"><span class="count" data-to="3">3</span></p>
+            <h3>Flours, milled on stone</h3>
+            <p>Wheat, rye and spelt, milled on stone in Central Texas the week we bake them.</p>
+          </article>
+          <article class="fact">
+            <p class="fact__n"><span class="count" data-to="36">36</span><small>h</small></p>
+            <h3>Hours of rest</h3>
+            <p>The starter is older than the bakery and is fed twice a day. Every dough rests thirty six hours in the cold; that is where the flavour and the open crumb come from.</p>
+          </article>
+          <article class="fact">
+            <p class="fact__n"><span class="count" data-to="6">6</span><small>AM</small></p>
+            <h3>The first loaves out</h3>
+            <p>Pastry is folded by hand with cultured butter. The ovens are lit at 3 AM and the first loaves come out at six.</p>
+          </article>
+        </div>
+        <figure class="story__wide">
+          <div class="story__wideimg"><img loading="lazy" decoding="async" src="assets/img/dough-1280.webp" alt="Hands working a ball of dough on a floured bench"></div>
+          <figcaption><span>Lucía Ferrer, head baker, shaping on a floured bench.</span><span>What is left at closing goes to the shelter on East 7th Street. Nothing waits for tomorrow.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS: the steps scroll past one pinned photo that changes with each step ============ -->
+    <section class="process" id="process">
+      <div class="wrap process__grid">
+        <div class="process__media" aria-hidden="true">
+          <div class="process__frame">
+            <img class="pimg" src="assets/img/flour-1280.webp" alt="" loading="lazy" decoding="async">
+            <img class="pimg" src="assets/img/starter-1280.webp" alt="" loading="lazy" decoding="async">
+            <img class="pimg" src="assets/img/shape-1280.webp" alt="" loading="lazy" decoding="async">
+            <img class="pimg" src="assets/img/oven-1280.webp" alt="" loading="lazy" decoding="async">
+            <p class="process__clock"><span class="process__t">Day 1, 9 AM</span></p>
+          </div>
+          <div class="process__rail"><span></span></div>
+        </div>
+        <div class="process__steps">
+          <header class="process__head">
+            <p class="kicker">02 · From flour to crust</p>
+            <h2 class="h2">One dough,<br><em>two days</em></h2>
+          </header>
+          <article class="pstep" data-t="Day 1, 9 AM">
+            <p class="pstep__n">Step 1</p>
+            <h3>Flour</h3>
+            <p>Wheat, rye and spelt from a Texas mill, milled on stone and used within the week, while it still smells of grain.</p>
+            <img class="pstep__img" src="assets/img/flour-1280.webp" alt="A pile of white flour with ears of wheat on a wooden table" loading="lazy" decoding="async">
+          </article>
+          <article class="pstep" data-t="Day 1, noon">
+            <p class="pstep__n">Step 2</p>
+            <h3>Ferment</h3>
+            <p>The starter goes in at noon. The dough rests in the cold for thirty six hours and turns sour, sweet and alive.</p>
+            <img class="pstep__img" src="assets/img/starter-1280.webp" alt="A jar of sourdough starter beside a sliced loaf and scattered grain on linen" loading="lazy" decoding="async">
+          </article>
+          <article class="pstep" data-t="Day 3, midnight">
+            <p class="pstep__n">Step 3</p>
+            <h3>Shape</h3>
+            <p>Every loaf is shaped by hand and set in a linen basket. Pastry is folded with butter into eighty one layers.</p>
+            <img class="pstep__img" src="assets/img/shape-1280.webp" alt="Hands pressing dough into a linen lined proofing basket" loading="lazy" decoding="async">
+          </article>
+          <article class="pstep" data-t="Day 3, 3 AM">
+            <p class="pstep__n">Step 4</p>
+            <h3>Bake</h3>
+            <p>Into a stone deck oven at 3 AM, with steam for the crust. Out at six, dark and crackling as it cools.</p>
+            <img class="pstep__img" src="assets/img/oven-1280.webp" alt="A scored round loaf baking on the rack of a hot oven" loading="lazy" decoding="async">
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COUNTER: a photo grid you filter; the 3D piece changes with the filter ============ -->
+    <section class="menu" id="menu">
+      <div class="wrap">
+        <div class="menu__head">
+          <div>
+            <p class="kicker">03 · The counter</p>
+            <h2 class="h2">Baked before dawn,<br><em>gone by noon</em></h2>
+            <div class="filters" role="tablist" aria-label="Counter sections">
+              <button class="filter press is-on" role="tab" aria-selected="true" data-f="all">All <sup>16</sup></button>
+              <button class="filter press" role="tab" aria-selected="false" data-f="bread">Bread <sup>5</sup></button>
+              <button class="filter press" role="tab" aria-selected="false" data-f="pastry">Pastry <sup>6</sup></button>
+              <button class="filter press" role="tab" aria-selected="false" data-f="cakes">Cakes <sup>5</sup></button>
+            </div>
+            <p class="menu__note" aria-live="polite">Everything baked that morning · prices in USD</p>
+          </div>
+          <div class="menu__3d slot" data-scene="menu" aria-hidden="true"></div>
+        </div>
+        <ul class="items">
+          <li class="item press" data-cat="bread"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/campo-1280.webp" alt="Pan de campo"></div><div class="item__body"><h3>Pan de campo</h3><span class="item__p">$12</span><p>Seeded sourdough, thirty six hours, baked dark</p></div></li>
+          <li class="item press" data-cat="bread"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/baguette-1280.webp" alt="Baguette de tradición"></div><div class="item__body"><h3>Baguette de tradición</h3><span class="item__p">$6.50</span><p>Stone milled wheat, thin crisp crust, open crumb</p></div></li>
+          <li class="item press" data-cat="bread"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/brioche-1280.webp" alt="Brioche trenzada"></div><div class="item__body"><h3>Brioche trenzada</h3><span class="item__p">$14</span><p>Butter and eggs, braided and glazed with honey</p></div></li>
+          <li class="item press" data-cat="bread"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/rye-1280.webp" alt="Centeno"></div><div class="item__body"><h3>Centeno</h3><span class="item__p">$11</span><p>Forty percent rye with caraway, best sliced thin</p></div></li>
+          <li class="item press" data-cat="bread"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/bolillo-1280.webp" alt="Bolillos"></div><div class="item__body"><h3>Bolillos</h3><span class="item__p">$7</span><p>The Mexican sandwich roll, crackling crust, six to a bag</p></div></li>
+          <li class="item press" data-cat="pastry"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/croissant-1280.webp" alt="Croissant"></div><div class="item__body"><h3>Croissant</h3><span class="item__p">$5</span><p>Eighty one layers of cultured butter</p></div></li>
+          <li class="item press" data-cat="pastry"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/chocolat-1280.webp" alt="Pan au chocolat"></div><div class="item__body"><h3>Pan au chocolat</h3><span class="item__p">$5.50</span><p>Two bars of 70% dark chocolate, made in Austin</p></div></li>
+          <li class="item press" data-cat="pastry"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/cinnamon-1280.webp" alt="Rol de canela"></div><div class="item__body"><h3>Rol de canela</h3><span class="item__p">$5.25</span><p>Ceylon cinnamon, brown butter glaze</p></div></li>
+          <li class="item press" data-cat="pastry"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/concha-1280.webp" alt="Concha"></div><div class="item__body"><h3>Concha</h3><span class="item__p">$3.50</span><p>Vanilla shell over soft brioche, the morning classic</p></div></li>
+          <li class="item press" data-cat="pastry"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/cookie-1280.webp" alt="Galleta de chocolate"></div><div class="item__body"><h3>Galleta de chocolate</h3><span class="item__p">$4</span><p>Brown butter, sea salt, dark chocolate in chunks</p></div></li>
+          <li class="item press" data-cat="pastry"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/lemon-1280.webp" alt="Tarta de limón"></div><div class="item__body"><h3>Tarta de limón</h3><span class="item__p">$7</span><p>Lemon curd on a short butter crust</p></div></li>
+          <li class="item press" data-cat="cakes"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/fruittart-1280.webp" alt="Tarta de frutos rojos"></div><div class="item__body"><h3>Tarta de frutos rojos</h3><span class="item__p">$8.50</span><p>Vanilla custard, berries from Texas farms</p></div></li>
+          <li class="item press" data-cat="cakes"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/shortcake-1280.webp" alt="Pastel de fresas"></div><div class="item__body"><h3>Pastel de fresas</h3><span class="item__p">$8</span><p>Light sponge, fresh cream, strawberries</p></div></li>
+          <li class="item press" data-cat="cakes"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/cheesecake-1280.webp" alt="Cheesecake de mora"></div><div class="item__body"><h3>Cheesecake de mora</h3><span class="item__p">$8.50</span><p>Baked slowly, blackberry compote</p></div></li>
+          <li class="item press" data-cat="cakes"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/meringue-1280.webp" alt="Tarta de merengue"></div><div class="item__body"><h3>Tarta de merengue</h3><span class="item__p">$7.50</span><p>Lemon, torched meringue in soft peaks</p></div></li>
+          <li class="item press" data-cat="cakes"><div class="item__img"><img loading="lazy" decoding="async" src="assets/img/layer-1280.webp" alt="Pastel de capas"></div><div class="item__body"><h3>Pastel de capas</h3><span class="item__p">$9</span><p>Six layers, raspberry and white chocolate</p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY: two rows of photos that slide in opposite directions as you scroll ============ -->
+    <section class="gallery" id="gallery" aria-label="Gallery">
+      <div class="wrap gallery__head">
+        <p class="kicker">04 · Mornings at Miga</p>
+        <p class="gallery__hint">Tap a photo to open it</p>
+      </div>
+      <div class="strip strip--a">
+        <button class="gi press" data-full="window"><img loading="lazy" decoding="async" src="assets/img/window-1280.webp" alt="Cakes and pastries on a long table by a tall window with a hanging lamp"><span class="label">The window table</span></button>
+        <button class="gi gi--tall press" data-full="conchas"><img loading="lazy" decoding="async" src="assets/img/conchas-1280.webp" alt="Conchas with cocoa and vanilla shells on white paper"><span class="label">Conchas</span></button>
+        <button class="gi press" data-full="cut"><img loading="lazy" decoding="async" src="assets/img/cut-1280.webp" alt="A sourdough loaf cut open beside a bread knife"><span class="label">The crumb</span></button>
+        <button class="gi gi--tall press" data-full="board"><img loading="lazy" decoding="async" src="assets/img/board-1280.webp" alt="Golden croissants piled on a wooden board"><span class="label">First tray, 7 AM</span></button>
+        <button class="gi press" data-full="knead"><img loading="lazy" decoding="async" src="assets/img/knead-1280.webp" alt="Hands kneading dough beside a rolling pin"><span class="label">Kneading</span></button>
+      </div>
+      <div class="strip strip--b">
+        <button class="gi gi--tall press" data-full="cafe"><img loading="lazy" decoding="async" src="assets/img/cafe-1280.webp" alt="A cappuccino beside a croissant on a white plate"><span class="label">Coffee and a croissant</span></button>
+        <button class="gi press" data-full="case"><img loading="lazy" decoding="async" src="assets/img/case-1280.webp" alt="A glass case of breads and pastries under warm lamps"><span class="label">The case</span></button>
+        <button class="gi press" data-full="baskets"><img loading="lazy" decoding="async" src="assets/img/baskets-1280.webp" alt="Rows of dough rising in linen lined baskets"><span class="label">Rising overnight</span></button>
+        <button class="gi gi--tall press" data-full="scored"><img loading="lazy" decoding="async" src="assets/img/scored-1280.webp" alt="A golden scored sourdough loaf on a wooden plate"><span class="label">Scored by hand</span></button>
+        <button class="gi press" data-full="proof"><img loading="lazy" decoding="async" src="assets/img/proof-1280.webp" alt="Loaves of bread on a table"><span class="label">Fresh loaves</span></button>
+      </div>
+    </section>
+
+    <!-- ============ VISIT: the week at a glance, the shop and the map ============ -->
+    <section class="visit" id="visit">
+      <div class="wrap">
+        <div class="visit__top">
+          <div>
+            <p class="kicker">05 · Visit</p>
+            <h2 class="h2">1110 E 6th Street,<br><em>East Austin</em></h2>
+          </div>
+          <div class="visit__now">
+            <div class="hours__kettle slot" data-scene="lantern" aria-hidden="true"></div>
+            <p class="hours__now"><span class="hours__dot"></span><span class="hours__state">Open today</span></p>
+          </div>
+        </div>
+        <ol class="week" aria-label="Opening hours">
+          <li data-day="2"><b>Tue</b><span>7 AM</span><span>7 PM</span></li>
+          <li data-day="3"><b>Wed</b><span>7 AM</span><span>7 PM</span></li>
+          <li data-day="4"><b>Thu</b><span>7 AM</span><span>7 PM</span></li>
+          <li data-day="5"><b>Fri</b><span>7 AM</span><span>7 PM</span></li>
+          <li data-day="6"><b>Sat</b><span>7 AM</span><span>7 PM</span></li>
+          <li data-day="0"><b>Sun</b><span>8 AM</span><span>3 PM</span></li>
+          <li data-day="1" class="is-closed"><b>Mon</b><span>Closed</span><span></span></li>
+        </ol>
+        <p class="sr">Tuesday to Saturday 7 AM to 7 PM. Sunday 8 AM to 3 PM. Monday closed.</p>
+        <p class="visit__note">Bread is out at 7 (8 on Sunday). Croissants often sell out by noon, so order ahead to hold yours.</p>
+        <div class="visit__grid">
+          <figure class="visit__shop">
+            <picture><source media="(max-width: 760px)" srcset="assets/img/room-phone.webp"><img loading="lazy" decoding="async" src="assets/img/room-1280.webp" alt="A bright bakery with a glass pastry case, pendant lamps, bentwood chairs and tall windows"></picture>
+            <figcaption>The shop, with one long table by the window</figcaption>
+          </figure>
+          <div class="where">
+            <figure class="where__map">
+              <iframe class="where__frame" title="Map: Miga, 1110 E 6th Street, Austin, Texas" src="https://www.google.com/maps?q=1110+E+6th+St,+Austin,+TX+78702&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+              <figcaption class="where__label">
+                <span class="where__name">Miga</span>
+                <span class="where__addr">1110 E 6th Street, Austin, TX 78702</span>
+                <a class="where__go press" href="https://www.google.com/maps/dir/?api=1&amp;destination=1110+E+6th+St+Austin+TX+78702" target="_blank" rel="noopener">Get directions</a>
+              </figcaption>
+            </figure>
+            <ul class="where__list">
+              <li><b>Bus</b> CapMetro stop at 6th and Waller, right outside</li>
+              <li><b>Parking</b> Street parking on 6th, free on Sunday</li>
+              <li><b>Access</b> Step free entrance, strollers welcome</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ORDER AHEAD ============ -->
+    <section class="reserve" id="reserve">
+      <div class="wrap reserve__grid">
+        <div class="reserve__head">
+            <p class="kicker">06 · Order ahead</p>
+            <h2 class="h2">Hold a basket<br><em>for the morning</em></h2>
+            <p class="reserve__lede">Pick a day and a time, tell us how many croissants, and we keep them warm at the counter. Pay when you collect.</p>
+        </div>
+        <form class="form" novalidate>
+          <fieldset class="field">
+            <legend>Pickup day</legend>
+            <div class="dates" role="radiogroup" aria-label="Pickup day"></div>
+          </fieldset>
+          <fieldset class="field">
+            <legend>Pickup time</legend>
+            <div class="times" role="radiogroup" aria-label="Pickup time"></div>
+          </fieldset>
+          <div class="field field--two">
+            <label>Name<input name="name" autocomplete="name" required></label>
+            <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <div class="field field--two">
+            <label>Phone<input name="phone" type="tel" autocomplete="tel" inputmode="tel"></label>
+            <label>Add a loaf
+              <select name="occasion">
+                <option value="">No bread</option>
+                <option>Pan de campo</option>
+                <option>Baguette de tradición</option>
+                <option>Brioche trenzada</option>
+                <option>Centeno</option>
+                <option>Bolillos, bag of six</option>
+              </select>
+            </label>
+          </div>
+          <label class="field">Notes for the bakers<textarea name="notes" rows="2" placeholder="Sliced loaf, a box for a gift, anything we should know"></textarea></label>
+          <p class="form__err" role="alert"></p>
+          <button class="btn btn--dark btn--big press" type="submit"><span>Hold my basket</span></button>
+          <div class="form__done" hidden>
+            <p class="kicker">Order received</p>
+            <h3 class="form__doneh">See you <em class="done__when"></em></h3>
+            <p class="form__donep"></p>
+            <button type="button" class="btn btn--line press form__again">Change the order</button>
+          </div>
+        </form>
+        <aside class="tray">
+          <div class="tray__3d slot" data-scene="table" aria-hidden="true"></div>
+          <div class="tray__bar">
+            <div>
+              <p class="tray__k">Croissants</p>
+              <p class="tray__v"><span class="party__label">4 croissants</span></p>
+            </div>
+            <div class="stepper">
+              <button type="button" class="stepper__btn press" data-step="-1" aria-label="One croissant fewer">−</button>
+              <output class="stepper__v" name="party" aria-live="polite">4</output>
+              <button type="button" class="stepper__btn press" data-step="1" aria-label="One croissant more">+</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__grid">
+      <p class="foot__logo">Miga</p>
+      <div><p class="foot__k">Find us</p><p>1110 E 6th Street<br>Austin, TX 78702</p></div>
+      <div><p class="foot__k">Hours</p><p>Tuesday to Saturday from 7 AM<br>Sunday from 8 AM · Monday closed</p></div>
+      <div><p class="foot__k">Order</p><p><a href="#reserve">Hold a basket for the morning</a></p></div>
+    </div>
+    <p class="wrap foot__credit">Photos from Unsplash and Pexels, free licenses. 3D models from Poly Haven, CC0.</p>
+  </footer>
+
+  <div class="lightbox" hidden>
+    <button class="lightbox__close press" aria-label="Close photo">Close</button>
+    <img alt="">
+    <p class="lightbox__cap label"></p>
+  </div>
+
+  <canvas class="scenes" aria-hidden="true"></canvas>
+
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js" } }</script>
+  <script type="module" src="js/main.js"></script>
+<!-- ponce-portfolio-back -->
+<a href="/web-portfolio/" id="pc-back" style="position:fixed;left:14px;bottom:14px;z-index:2147483647;display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 11px;border-radius:999px;background:rgba(13,13,16,.78);border:1px solid rgba(232,176,75,.45);color:#f0d8a8;font:600 12px/1 Inter,system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:.01em;text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.35)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Portfolio</a>
+</body>
+</html>

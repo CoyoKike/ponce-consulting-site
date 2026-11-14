@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison Oriel — Interior Atelier</title>
+<meta name="description" content="Maison Oriel designs quiet, light-filled interiors for private residences.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/loft-1280.webp" as="image" media="(max-width: 1280px)">
+<link rel="preload" href="assets/img/loft.webp" as="image" media="(min-width: 1281px)">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
+
+<div class="loader" aria-hidden="true">
+  <svg class="loader__arch" viewBox="0 0 120 160"><path d="M10 158V60a50 50 0 0 1 100 0v98" /></svg>
+  <div class="loader__count"><span>0</span>%</div>
+  <div class="loader__word">Maison Oriel</div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="nav glass">
+  <a class="nav__logo" href="#top" aria-label="Maison Oriel home">
+    <svg viewBox="0 0 24 32" aria-hidden="true"><path d="M2 31V12a10 10 0 0 1 20 0v19" /></svg>
+    <span>Maison Oriel</span>
+  </a>
+  <nav class="nav__links" aria-label="Main">
+    <a href="#residences" data-magnetic>Residences</a>
+    <a href="#materials" data-magnetic>Materials</a>
+    <a href="#rooms" data-magnetic>Rooms</a>
+    <a href="#atelier" data-magnetic>Atelier</a>
+  </nav>
+  <a class="nav__cta" href="#contact" data-magnetic>Book a visit</a>
+</header>
+
+<main id="top">
+
+  <!-- 1. HERO -->
+  <section class="hero" data-theme="dark">
+    <div class="hero__bg" data-speed="0.5">
+      <img fetchpriority="high" decoding="async" src="assets/img/loft.webp" srcset="assets/img/loft-1280.webp 1280w, assets/img/loft.webp 2400w" sizes="100vw" alt="Warm living room with low sofa and arc lamp">
+    </div>
+    <div class="hero__veil"></div>
+    <div class="hero__beam" aria-hidden="true"></div>
+    <div class="hero__content">
+      <p class="eyebrow">Interior Atelier · Est. 2011</p>
+      <h1 class="hero__title">
+        <span class="line">Rooms that</span>
+        <span class="line"><em>hold</em> the light</span>
+      </h1>
+      <div class="hero__meta">
+        <p>Quiet, tactile interiors for private residences — from the first sketch to the last cushion.</p>
+        <a class="btn" href="#residences" data-magnetic><span>Explore the work</span></a>
+      </div>
+    </div>
+    <aside class="hero__card glass" data-depth="1.4">
+      <span class="tag">Now showing</span>
+      <strong>The Linden House</strong>
+      <span>Hudson Valley · 2025</span>
+    </aside>
+    <div class="hero__scroll"><span>Scroll</span><i></i></div>
+  </section>
+
+  <!-- 2. WINDOW REVEAL -->
+  <section class="window" data-theme="dark">
+    <div class="window__stage">
+      <div class="window__frame">
+        <img decoding="async" src="assets/img/salon.webp" srcset="assets/img/salon-1280.webp 1280w, assets/img/salon.webp 2400w" sizes="100vw" alt="Deep green salon with art wall" loading="lazy">
+      </div>
+      <h2 class="window__text"><span>Step</span> <em>inside</em></h2>
+    </div>
+  </section>
+
+  <!-- 3. MANIFESTO -->
+  <section class="manifesto" data-theme="light">
+    <p class="eyebrow">The approach</p>
+    <p class="manifesto__text">We design rooms the way light moves through a house — slowly, deliberately, with room to breathe. Every surface is chosen for how it feels at seven in the morning and how it glows at midnight.</p>
+    <div class="manifesto__stats">
+      <div class="stat glass"><strong data-count="140">0</strong><span>Residences completed</span></div>
+      <div class="stat glass"><strong data-count="14">0</strong><span>Years of practice</span></div>
+      <div class="stat glass"><strong data-count="9">0</strong><span>Countries</span></div>
+    </div>
+  </section>
+
+  <!-- 4. RESIDENCES (horizontal) -->
+  <section class="residences" id="residences" data-theme="dark">
+    <div class="residences__head">
+      <p class="eyebrow">Selected residences</p>
+      <h2 class="section-title">Recent <em>work</em></h2>
+    </div>
+    <div class="residences__track">
+      <article class="project" data-cursor="View">
+        <div class="project__media"><img decoding="async" src="assets/img/nocturne-1280.webp" alt="Dark bedroom facing a wooded garden" loading="lazy"></div>
+        <div class="project__info glass"><span class="tag">01 · Bedroom</span><h3>Nocturne Suite</h3><p>Charred oak, smoked glass, a window onto the pines.</p></div>
+      </article>
+      <article class="project" data-cursor="View">
+        <div class="project__media"><img decoding="async" src="assets/img/open-1280.webp" alt="Open-plan living room and kitchen" loading="lazy"></div>
+        <div class="project__info glass"><span class="tag">02 · Living</span><h3>Gallery Flat</h3><p>One long room, three moods, no walls.</p></div>
+      </article>
+      <article class="project" data-cursor="View">
+        <div class="project__media"><img decoding="async" src="assets/img/stair-1280.webp" alt="Bright living room with floating staircase" loading="lazy"></div>
+        <div class="project__info glass"><span class="tag">03 · Residence</span><h3>Atrium House</h3><p>A floating stair and a ceiling that keeps going.</p></div>
+      </article>
+      <article class="project" data-cursor="View">
+        <div class="project__media"><img decoding="async" src="assets/img/glass-1280.webp" alt="Living room with glass walls and terrace" loading="lazy"></div>
+        <div class="project__info glass"><span class="tag">04 · Penthouse</span><h3>The Glasshouse</h3><p>Furniture low enough to keep the skyline.</p></div>
+      </article>
+      <article class="project" data-cursor="View">
+        <div class="project__media"><img decoding="async" src="assets/img/kitchen-1280.webp" alt="Kitchen opening onto a garden" loading="lazy"></div>
+        <div class="project__info glass"><span class="tag">05 · Kitchen</span><h3>Orchard Kitchen</h3><p>Limewash, travertine and a garden at the sink.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__row"><span>Washed linen</span><i></i><span><em>Smoked oak</em></span><i></i><span>Travertine</span><i></i><span><em>Aged brass</em></span><i></i><span>Rust velvet</span><i></i><span><em>Limewash</em></span><i></i></div>
+  </div>
+
+  <!-- 5. MATERIALS -->
+  <section class="materials" id="materials" data-theme="light">
+    <div class="materials__intro">
+      <p class="eyebrow">Material library</p>
+      <h2 class="section-title">Touch <em>first</em>,<br>colour second</h2>
+      <p class="lede">We begin every project at the material table. Linen that softens with age, velvet that catches the lamp, stone that stays cool in August.</p>
+    </div>
+    <div class="materials__grid">
+      <figure class="mat mat--a" data-speed="0.85"><img decoding="async" src="assets/img/linen-1280.webp" alt="Striped linen and leather cushions" loading="lazy"><figcaption class="glass"><strong>Washed linen</strong><span>Flax · Belgium</span></figcaption></figure>
+      <figure class="mat mat--b" data-speed="1.15"><img decoding="async" src="assets/img/velvet-1280.jpg" alt="Burnt orange velvet sofa" loading="lazy"><figcaption class="glass"><strong>Rust velvet</strong><span>Cotton pile · Italy</span></figcaption></figure>
+      <figure class="mat mat--c" data-speed="0.95"><img decoding="async" src="assets/img/stone-1280.webp" alt="Dark stone bathroom with freestanding tub" loading="lazy"><figcaption class="glass"><strong>Nero stone</strong><span>Honed basalt · Portugal</span></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 6. ROOMS (sticky crossfade) -->
+  <section class="rooms" id="rooms" data-theme="dark">
+    <div class="rooms__visual">
+      <div class="rooms__badge glass"><span class="rooms__idx">01</span><span class="rooms__bar"><i></i></span><span>04</span></div>
+      <img class="is-active" src="assets/img/suite-1280.jpg" alt="Bedroom with plants and soft light" loading="lazy">
+      <img decoding="async" src="assets/img/arches-1280.webp" alt="Living room under tall arched windows" loading="lazy">
+      <img decoding="async" src="assets/img/bath-1280.webp" alt="White bathroom with freestanding tub" loading="lazy">
+      <img decoding="async" src="assets/img/chandelier-1280.jpg" alt="Bedroom with crystal chandelier" loading="lazy">
+    </div>
+    <div class="rooms__list">
+      <div class="room"><span class="room__num">01</span><h3>The bedroom</h3><p>Layered textiles, dimmable everything, and a reading chair you won't leave.</p></div>
+      <div class="room"><span class="room__num">02</span><h3>The salon</h3><p>Tall arches, low seating and a fireplace that anchors the room.</p></div>
+      <div class="room"><span class="room__num">03</span><h3>The bath</h3><p>Sculpted tubs, warm white plaster and nothing on the counter.</p></div>
+      <div class="room"><span class="room__num">04</span><h3>The guest suite</h3><p>A hotel feeling at home: crystal, velvet and blackout drapes.</p></div>
+    </div>
+  </section>
+
+  <!-- 7. ATELIER / SERVICES -->
+  <section class="atelier" id="atelier" data-theme="dark">
+    <div class="atelier__bg" data-speed="0.6"><img decoding="async" src="assets/img/mirror-1280.jpg" alt="" loading="lazy"></div>
+    <div class="atelier__inner">
+      <p class="eyebrow">The atelier</p>
+      <h2 class="section-title">How we <em>work</em></h2>
+      <div class="services">
+        <article class="service glass" data-tilt><span class="service__n">I</span><h3>Full interiors</h3><p>Architecture, joinery, lighting and furnishing, managed end to end.</p></article>
+        <article class="service glass" data-tilt><span class="service__n">II</span><h3>Styling &amp; art</h3><p>Objects, art and textiles that make a finished house feel lived in.</p></article>
+        <article class="service glass" data-tilt><span class="service__n">III</span><h3>Bespoke pieces</h3><p>Furniture drawn in our studio and made by workshops we have known for years.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. QUOTE -->
+  <section class="quote" data-theme="light">
+    <figure class="quote__img" data-speed="0.8"><img decoding="async" src="assets/img/vignette-1280.jpg" alt="Styled corner with mirror, sideboard and plants" loading="lazy"></figure>
+    <blockquote>
+      <p>“They didn't decorate our house. They taught it how to be <em>quiet</em>.”</p>
+      <cite>— Private client, Linden House</cite>
+    </blockquote>
+  </section>
+
+  <!-- 9. CONTACT -->
+  <section class="contact" id="contact" data-theme="dark">
+    <div class="contact__bg" data-speed="0.7"><img decoding="async" src="assets/img/dusk-1280.jpg" srcset="assets/img/dusk-1280.jpg 1280w, assets/img/dusk.webp 2400w" sizes="100vw" alt="Modern house glowing at dusk" loading="lazy"></div>
+    <div class="contact__inner">
+      <h2 class="contact__title">Let's begin with<br><em>your light</em></h2>
+      <form class="contact__form glass" onsubmit="return false">
+        <label><span>Name</span><input type="text" placeholder="Your name"></label>
+        <label><span>Email</span><input type="email" placeholder="you@example.com"></label>
+        <label><span>The project</span><select><option>Full residence</option><option>A single room</option><option>Styling &amp; art</option><option>Bespoke piece</option></select></label>
+        <button class="btn btn--solid" type="submit" data-magnetic><span>Request a visit</span></button>
+        <p class="contact__note">Concept site — this form does not send.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__big">Maison <em>Oriel</em></div>
+  <div class="footer__row">
+    <span>Studio · New York · Lisbon</span>
+    <span>hello@maisonoriel.studio</span>
+    <span>A concept site · Photography: Unsplash</span>
+    <a href="#top" class="footer__top" data-magnetic>Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/SplitText.min.js" defer></script>
+<script src="assets/vendor/lenis.min.js" defer></script>
+<script src="js/motion.js" defer></script>
+<script src="js/interaction.js" defer></script>
+<script src="js/polish.js" defer></script>
+<!-- ponce-portfolio-back -->
+<a href="/web-portfolio/" id="pc-back" style="position:fixed;left:14px;bottom:14px;z-index:2147483647;display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 11px;border-radius:999px;background:rgba(13,13,16,.78);border:1px solid rgba(232,176,75,.45);color:#f0d8a8;font:600 12px/1 Inter,system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:.01em;text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.35)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Portfolio</a>
+</body>
+</html>

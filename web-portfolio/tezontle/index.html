@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Tezontle Builders · General contractor · Houston, Texas</title>
+  <meta name="description" content="Tezontle Builders builds towers, homes and public buildings in Houston. One team from the first pier to the keys.">
+  <meta name="theme-color" content="#111213">
+  <link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=1">
+  <script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js" } }</script>
+</head>
+<body>
+
+  <div class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__word">Tezontle</div>
+      <svg class="loader__plan" viewBox="0 0 240 60"><path d="M10 50 H230 M30 50 V14 H210 V50 M70 50 V14 M110 50 V14 M150 50 V14 M190 50 V14 M30 32 H210"/></svg>
+      <div class="loader__count"><span class="loader__num">0</span><span>%</span></div>
+    </div>
+  </div>
+  <div class="cursor" aria-hidden="true"><span></span></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <canvas class="site-canvas" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <a href="#top" class="nav__logo press" aria-label="Tezontle Builders, back to top">
+      <svg class="nav__mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21 H21 M6 21 V9 H18 V21 M6 15 H18 M12 9 V21"/><path class="nav__mark-a" d="M6 9 L12 3 L18 9"/></svg>
+      <span class="nav__name">Tezontle <em>Builders</em></span>
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#build" data-nav="build">How we build</a>
+      <a href="#work" data-nav="work">Work</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn--accent nav__cta press">Start a project</a>
+  </header>
+
+  <main>
+    <!-- ============ THE BUILD: hero + one tower going up, pinned ============ -->
+    <section class="build" id="build" aria-label="How we build, from the ground to the keys">
+      <span id="top" class="anchor"></span>
+      <div class="build__stage">
+
+        <!-- site log: where the project is on its 18 month schedule -->
+        <aside class="log" aria-hidden="true">
+          <div class="log__head"><span class="mono">Site log</span><span class="mono">Month <b class="log__m">00</b> of 18</span></div>
+          <div class="log__chart">
+            <div class="log__row" data-i="1"><span>Ground</span><i style="--a:0;--b:3"></i></div>
+            <div class="log__row" data-i="2"><span>Structure</span><i style="--a:3;--b:11"></i></div>
+            <div class="log__row" data-i="3"><span>Envelope</span><i style="--a:8;--b:14"></i></div>
+            <div class="log__row" data-i="4"><span>Handover</span><i style="--a:12;--b:18"></i></div>
+            <div class="log__axis"><span>0</span><span>6</span><span>12</span><span>18 mo</span></div>
+            <div class="log__now"></div>
+          </div>
+        </aside>
+
+        <!-- 0 · hero -->
+        <div class="stop stop--hero" data-stop="0">
+          <p class="eyebrow">Tezontle Builders · Houston, Texas · since 1998</p>
+          <h1 class="hero__title"><span class="line"><span>We build what</span></span><span class="line"><span>the drawings <em>promise.</em></span></span></h1>
+          <p class="hero__lede">General contractor for towers, homes and public buildings in Houston. One team from the first pier to the keys.</p>
+          <div class="hero__actions">
+            <a href="#stop-1" class="btn btn--accent btn--big press">Watch a tower go up</a>
+            <a href="#work" class="btn btn--ghost btn--big press">See our work</a>
+          </div>
+          <div class="hero__meta mono">
+            <span>Kirby Tower</span>
+            <span>22 levels · Upper Kirby</span>
+            <span>Built 2025 to 2026</span>
+          </div>
+          <div class="hero__scroll mono"><span class="hero__scrollbar"><i></i></span>Scroll to build it</div>
+        </div>
+
+        <!-- 1 · ground -->
+        <article class="stop" data-stop="1" id="stop-1">
+          <p class="stop__where mono"><span>01</span>Ground</p>
+          <h2 class="stop__title">It starts below the street.</h2>
+          <p class="stop__lede">Houston sits on soft Gulf Coast clay that swells when wet and shrinks when dry, so every tower stands on piers drilled down to stiff ground. We test the soil, dig, and pour one solid raft before anything rises.</p>
+          <div class="live"><span class="live__v" data-v="piles">0</span><span class="live__u">piers</span><span class="live__k">drilled 105 ft down<br>to stiff ground</span><span class="live__bar"><i data-bar="piles"></i></span></div>
+          <dl class="facts"><div><dt>Soil study</dt><dd>Before the bid</dd></div><div><dt>Raft</dt><dd>4 ft concrete</dd></div><div><dt>Neighbors</dt><dd>Monitored daily</dd></div></dl>
+          <figure class="stop__photo"><img src="assets/img/found-1280.webp" alt="Crew tying the steel grid for a foundation raft" loading="lazy" width="1280" height="960"></figure>
+        </article>
+
+        <!-- 2 · structure -->
+        <article class="stop" data-stop="2">
+          <p class="stop__where mono"><span>02</span>Structure</p>
+          <h2 class="stop__title">A floor every six days.</h2>
+          <p class="stop__lede">The concrete core climbs first and the columns and slabs follow. Every pour is tested before the next one starts, and the crane works to a plan made the night before.</p>
+          <div class="live"><span class="live__v" data-v="level">00</span><span class="live__u">of 22</span><span class="live__k">levels poured<br>and tested</span><span class="live__bar"><i data-bar="level"></i></span></div>
+          <dl class="facts"><div><dt>Cycle</dt><dd>6 days a floor</dd></div><div><dt>Concrete</dt><dd>Cylinder tested</dd></div><div><dt>Wind</dt><dd>Hurricane rated</dd></div></dl>
+          <figure class="stop__photo"><img src="assets/img/columns-1280.webp" alt="Crew fixing column steel high on a tower" loading="lazy" width="1280" height="854"></figure>
+        </article>
+
+        <!-- 3 · envelope -->
+        <article class="stop" data-stop="3">
+          <p class="stop__where mono"><span>03</span>Envelope</p>
+          <h2 class="stop__title">Closed to the weather, floor by floor.</h2>
+          <p class="stop__lede">Glass goes on a few floors behind the structure, so interior crews can start while the frame is still rising. Each panel is checked for water and air before it is signed off.</p>
+          <div class="live"><span class="live__v" data-v="glass">0</span><span class="live__u">%</span><span class="live__k">of the façade<br>closed in</span><span class="live__bar"><i data-bar="glass"></i></span></div>
+          <dl class="facts"><div><dt>Panels</dt><dd>616 units</dd></div><div><dt>Water test</dt><dd>Every floor</dd></div><div><dt>Overlap</dt><dd>Interiors start early</dd></div></dl>
+          <figure class="stop__photo"><img src="assets/img/facade-1280.webp" alt="Glass and concrete façade seen from below" loading="lazy" width="1280" height="960"></figure>
+        </article>
+
+        <!-- 4 · handover -->
+        <article class="stop" data-stop="4">
+          <p class="stop__where mono"><span>04</span>Handover</p>
+          <h2 class="stop__title">The lights come on. You get the keys.</h2>
+          <p class="stop__lede">Systems are tested floor by floor, the crane comes down, and you receive the building with its drawings, manuals and warranties in one place.</p>
+          <div class="live"><span class="live__v" data-v="days">0</span><span class="live__u">days</span><span class="live__k">ahead of the<br>contract date</span><span class="live__bar"><i data-bar="days"></i></span></div>
+          <dl class="facts"><div><dt>Punch list</dt><dd>Closed before keys</dd></div><div><dt>Warranty</dt><dd>10 years structure</dd></div><div><dt>Lost time</dt><dd>0 incidents</dd></div></dl>
+          <figure class="stop__photo"><img src="assets/img/night-1280.webp" alt="Finished residential buildings lit at dusk" loading="lazy" width="1280" height="853"></figure>
+        </article>
+
+        <div class="build__counter mono"><span class="build__n">00</span> / 04</div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="section work" id="work">
+      <div class="work__head">
+        <p class="eyebrow mono">Selected work</p>
+        <h2 class="h2 split">Finished on time, <em>and on budget.</em></h2>
+        <p class="lede">Four projects from the last three years. Each bar shows the months in the contract against the months it took.</p>
+      </div>
+      <div class="work__grid">
+        <article class="card press" tabindex="0">
+          <figure class="card__img par"><img src="assets/img/villa-1280.webp" alt="Private residence at dusk with its lights on" loading="lazy" width="1280" height="853"></figure>
+          <div class="card__body">
+            <p class="card__meta mono"><span>Residence</span><span>Memorial · 2025</span></p>
+            <h3 class="h3">Memorial Residence</h3>
+            <p class="card__out">6,900 sq ft family home in stone and concrete, handed over three weeks early.</p>
+            <div class="sched" role="img" aria-label="Contract 14 months, delivered in 13.3 months">
+              <div class="sched__row"><span>Contract</span><i style="--w:14"></i><b>14 mo</b></div>
+              <div class="sched__row is-real"><span>Delivered</span><i style="--w:13.3"></i><b>13.3 mo</b></div>
+            </div>
+          </div>
+        </article>
+        <article class="card press" tabindex="0">
+          <figure class="card__img par"><img src="assets/img/tower-1280.webp" alt="Concrete tower frame with a tower crane at dusk" loading="lazy" width="1280" height="854"></figure>
+          <div class="card__body">
+            <p class="card__meta mono"><span>Residential tower</span><span>Upper Kirby · 2026</span></p>
+            <h3 class="h3">Kirby Tower</h3>
+            <p class="card__out">22 levels and 88 homes. Structure topped out in month 11, on the day the contract set.</p>
+            <div class="sched" role="img" aria-label="Structure: contract 11 months, done in 11 months">
+              <div class="sched__row"><span>Contract</span><i style="--w:11"></i><b>11 mo</b></div>
+              <div class="sched__row is-real"><span>Topped out</span><i style="--w:11"></i><b>11 mo</b></div>
+            </div>
+          </div>
+        </article>
+        <article class="card press" tabindex="0">
+          <figure class="card__img par"><img src="assets/img/hall-1280.webp" alt="Exposed concrete hall and stair during the last weeks of works" loading="lazy" width="1280" height="853"></figure>
+          <div class="card__body">
+            <p class="card__meta mono"><span>Public building</span><span>East End · 2024</span></p>
+            <h3 class="h3">East End Library</h3>
+            <p class="card__out">Exposed concrete library and hall, built while the school next door stayed open.</p>
+            <div class="sched" role="img" aria-label="Contract 18 months, delivered in 17 months">
+              <div class="sched__row"><span>Contract</span><i style="--w:18"></i><b>18 mo</b></div>
+              <div class="sched__row is-real"><span>Delivered</span><i style="--w:17"></i><b>17 mo</b></div>
+            </div>
+          </div>
+        </article>
+        <article class="card press" tabindex="0">
+          <figure class="card__img par"><img src="assets/img/gallery-1280.webp" alt="Office lobby in exposed concrete with daylight" loading="lazy" width="1280" height="853"></figure>
+          <div class="card__body">
+            <p class="card__meta mono"><span>Offices</span><span>Montrose · 2023</span></p>
+            <h3 class="h3">Montrose Offices</h3>
+            <p class="card__out">Four floor office refit in a 1960s frame, finished within 1.8% of the budget.</p>
+            <div class="sched" role="img" aria-label="Contract 9 months, delivered in 9 months">
+              <div class="sched__row"><span>Contract</span><i style="--w:9"></i><b>9 mo</b></div>
+              <div class="sched__row is-real"><span>Delivered</span><i style="--w:9"></i><b>9 mo</b></div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="sched__scale mono" aria-hidden="true"><span>0</span><span>6</span><span>12</span><span>18 months</span></div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="contact__side">
+        <p class="eyebrow mono">Tezontle Builders · Contact</p>
+        <h2 class="h2 split">Tell us what <em>you want to build.</em></h2>
+        <p class="lede">Send the basics and an estimator calls you within two working days. If you already have drawings, bring them to the first meeting.</p>
+        <div class="panel contact__where press">
+          <figure class="map">
+            <iframe class="map__frame" title="Map: Tezontle Builders, Houston" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=1910%20West%20Alabama%20Street%2C%20Houston%2C%20TX%2077098&z=16&output=embed"></iframe>
+            <figcaption class="map__label">
+              <span class="map__name">Tezontle Builders</span>
+              <span class="map__addr">1910 West Alabama Street<br>Houston, TX 77098</span>
+              <a class="map__go" href="https://www.google.com/maps/dir/?api=1&destination=1910%20West%20Alabama%20Street%2C%20Houston%2C%20TX%2077098" target="_blank" rel="noopener">Get directions →</a>
+            </figcaption>
+          </figure>
+          <p class="phone"><a href="tel:+17135550197">(713) 555-0197</a></p>
+        </div>
+        <div class="panel contact__hours press">
+          <p class="mono">Office hours <span class="open-now mono" data-open></span></p>
+          <table class="hours">
+            <tr data-day="1"><th>Monday</th><td>8:00 am to 6:00 pm</td></tr>
+            <tr data-day="2"><th>Tuesday</th><td>8:00 am to 6:00 pm</td></tr>
+            <tr data-day="3"><th>Wednesday</th><td>8:00 am to 6:00 pm</td></tr>
+            <tr data-day="4"><th>Thursday</th><td>8:00 am to 6:00 pm</td></tr>
+            <tr data-day="5"><th>Friday</th><td>8:00 am to 6:00 pm</td></tr>
+            <tr data-day="6"><th>Saturday</th><td>9:00 am to 1:00 pm</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="contact__main">
+        <div class="contact__pick">
+          <canvas class="mini" aria-hidden="true"></canvas>
+          <div>
+            <p class="mono mini__k">Your building</p>
+            <p class="mini__v"><b class="mini__floors">6</b> levels · <span class="mini__type">Residential</span></p>
+            <p class="small">Move the slider and pick a type to see it take shape.</p>
+          </div>
+        </div>
+        <form class="form" novalidate>
+          <fieldset class="chips">
+            <legend class="label">Type of project</legend>
+            <label class="chip press"><input type="radio" name="type" value="Residential" checked><span>Residential</span></label>
+            <label class="chip press"><input type="radio" name="type" value="Offices"><span>Offices</span></label>
+            <label class="chip press"><input type="radio" name="type" value="Public"><span>Public</span></label>
+            <label class="chip press"><input type="radio" name="type" value="Home"><span>A home</span></label>
+          </fieldset>
+          <div class="field">
+            <label class="label" for="floors">Levels above ground <span class="floors__out">6</span></label>
+            <input id="floors" name="floors" type="range" min="1" max="22" value="6">
+          </div>
+          <div class="row">
+            <div class="field"><label class="label" for="name">Name</label><input id="name" name="name" required autocomplete="name"></div>
+            <div class="field"><label class="label" for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+          </div>
+          <div class="row">
+            <div class="field"><label class="label" for="tel">Phone</label><input id="tel" name="tel" type="tel" required autocomplete="tel"></div>
+            <div class="field"><label class="label" for="when">Start</label>
+              <select id="when" name="when"><option>Within 6 months</option><option>6 to 12 months</option><option>Later, still planning</option></select></div>
+          </div>
+          <div class="field"><label class="label" for="msg">Site and what you have so far</label><textarea id="msg" name="msg" rows="3" placeholder="Neighborhood, lot size, drawings or permits"></textarea></div>
+          <div class="form__foot">
+            <button class="btn btn--accent btn--big press" type="submit">Send</button>
+            <p class="form__msg small" aria-live="polite"></p>
+          </div>
+          <div class="form__done" hidden>
+            <p class="h3">Thank you, <span class="form__who"></span>.</p>
+            <p>An estimator will call you about your <span class="form__what"></span> project within two working days.</p>
+            <button class="btn btn--ghost press form__again" type="button">Send another</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot__big" aria-hidden="true">Tezontle</div>
+    <div class="foot__row">
+      <span>Tezontle Builders · 1910 West Alabama Street, Houston, Texas</span>
+      <span><a href="tel:+17135550197">(713) 555-0197</a></span>
+      <span>Photos and 3D credits in CREDITS.md</span>
+    </div>
+  </footer>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script type="module" src="js/main.js?v=2"></script>
+<!-- ponce-portfolio-back -->
+<a href="/web-portfolio/" id="pc-back" style="position:fixed;left:14px;bottom:14px;z-index:2147483647;display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 11px;border-radius:999px;background:rgba(13,13,16,.78);border:1px solid rgba(232,176,75,.45);color:#f0d8a8;font:600 12px/1 Inter,system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:.01em;text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.35)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Portfolio</a>
+</body>
+</html>

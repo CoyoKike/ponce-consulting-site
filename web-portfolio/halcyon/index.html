@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Halcyon · Orbital Expeditions</title>
+  <meta name="description" content="Halcyon. Private orbital expeditions for the very few. Leave the blue behind.">
+  <meta name="theme-color" content="#05060a">
+  <link rel="preload" href="assets/fonts/intertight-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrumentserif-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/img/nebula.jpg" imagesrcset="assets/img/nebula-1280.jpg 1280w, assets/img/nebula.jpg 2000w" imagesizes="100vw" fetchpriority="high">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__count"><span class="loader__num">0</span><span class="loader__pct">%</span></div>
+    <div class="loader__bar"><span></span></div>
+    <div class="loader__word">Halcyon</div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <!-- Cursor -->
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span><span class="cursor__label"></span></div>
+
+  <!-- Nav -->
+  <header class="nav">
+    <a href="#top" class="nav__logo pressable" aria-label="Halcyon home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="7"/><ellipse cx="20" cy="20" rx="18" ry="6" transform="rotate(-24 20 20)"/></svg>
+      <span>Halcyon</span>
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#craft" class="pressable">Craft</a>
+      <a href="#journey" class="pressable">Journey</a>
+      <a href="#destinations" class="pressable">Destinations</a>
+      <a href="#voyages" class="pressable">Voyages</a>
+    </nav>
+    <a href="#reserve" class="btn btn--ghost pressable magnetic">Reserve <span class="btn__arrow">→</span></a>
+  </header>
+
+  <main id="top">
+
+    <!-- 1. WORLD: the hero and the 3D craft share one pinned stage. The Space Station floats in the opening view,
+         scrolling dives the camera into it, then circles it and flies on to the lunar lander. -->
+    <section class="world" id="craft" data-section="hero">
+      <div class="world__stage">
+        <div class="hero__media">
+          <img class="hero__img" src="assets/img/nebula.jpg" srcset="assets/img/nebula-1280.jpg 1280w, assets/img/nebula.jpg 2000w" sizes="100vw" alt="The Cosmic Cliffs of the Carina Nebula, glowing orange dust under a field of blue stars" fetchpriority="high">
+          <div class="hero__veil"></div>
+        </div>
+        <canvas class="hero__stars" aria-hidden="true"></canvas>
+        <div class="world__words" aria-hidden="true"><span class="world__word world__word--a">Orbit</span><span class="world__word world__word--b">Selene</span></div>
+        <canvas class="vessel__canvas" aria-label="3D models of the International Space Station and the Apollo Lunar Module"></canvas>
+        <div class="hero__content">
+          <p class="eyebrow hero__eyebrow"><span class="dot"></span> Private orbital expeditions · Season 2027</p>
+          <h1 class="hero__title">
+            <span class="line"><span class="word">Leave</span> <span class="word">the</span></span>
+            <span class="line line--serif"><em class="word">blue</em> <span class="word">behind</span></span>
+          </h1>
+          <div class="hero__foot">
+            <p class="hero__lede">Twelve guests a year. Four hundred kilometres up. One view that changes everything you thought you knew about home.</p>
+            <a href="#craft" class="btn btn--solid pressable magnetic">Begin the ascent</a>
+          </div>
+        </div>
+        <div class="hero__scroll" aria-hidden="true"><span>Scroll to ascend</span><i></i></div>
+        <div class="vessel__intro">
+          <p class="eyebrow">01 · The craft</p>
+          <h2 class="h2 world__h2">Built to<br><em>carry</em> you.</h2>
+        </div>
+        <ol class="vessel__notes">
+          <li class="vessel__note"><small>412 km</small><b>Your home in orbit</b><i></i><p>A station the length of a football field, circling the Earth every ninety minutes.</p></li>
+          <li class="vessel__note"><small>Power</small><b>Wings of light</b><i></i><p>Solar arrays wider than a jumbo jet, turning to follow the Sun.</p></li>
+          <li class="vessel__note"><small>Selene</small><b>The lunar lander</b><i></i><p>Gold foil and four legs. The same shape that first set people down on the Moon.</p></li>
+        </ol>
+        <div class="world__hud" aria-hidden="true"><span class="world__hud-n">00</span><i><b></b></i><span class="world__hud-t">Approach</span></div>
+        <p class="vessel__credit">3D models: NASA, public domain</p>
+      </div>
+    </section>
+
+    <!-- 2. MANIFESTO -->
+    <section class="manifesto" data-section="manifesto">
+      <p class="eyebrow">02 · The idea</p>
+      <p class="manifesto__text">
+        We don't sell trips. We give back the oldest feeling there is: <em>looking up</em> and wondering what's there. Then we take you there, quietly, beautifully, and bring you home changed.
+      </p>
+      <div class="stats" data-speed="0.82">
+        <div class="stat"><span class="stat__num" data-count="412">412</span><span class="stat__unit">km</span><p>Cruising altitude above Earth</p></div>
+        <div class="stat"><span class="stat__num" data-count="16">16</span><span class="stat__unit">×</span><p>Sunrises in a single day</p></div>
+        <div class="stat"><span class="stat__num" data-count="12">12</span><span class="stat__unit">guests</span><p>Per year. Never more.</p></div>
+      </div>
+    </section>
+
+    <!-- 3. DEPARTURE (zoom into image) -->
+    <section class="departure" data-section="departure">
+      <div class="departure__pin">
+        <div class="departure__frame">
+          <img src="assets/img/launch.jpg" srcset="assets/img/launch-1280.jpg 1280w, assets/img/launch.jpg 2560w" sizes="100vw" alt="A rocket lifting off at night in a column of fire and steam" loading="lazy" decoding="async">
+        </div>
+        <h2 class="departure__title">
+          <span class="departure__l">T-minus</span>
+          <span class="departure__r"><em>zero</em></span>
+        </h2>
+        <p class="departure__cap">Kennedy Space Center · Pad 39B · 01:47 local</p>
+      </div>
+    </section>
+
+    <!-- 4. JOURNEY (horizontal) -->
+    <section class="journey" id="journey" data-section="journey">
+      <div class="journey__head">
+        <p class="eyebrow">03 · The journey</p>
+        <h2 class="h2">Nine days.<br><em>Four</em> chapters.</h2>
+      </div>
+      <div class="journey__progress" aria-hidden="true"><span></span></div>
+      <div class="journey__track">
+        <article class="chapter">
+          <div class="chapter__img"><img src="assets/img/orbit.jpg" srcset="assets/img/orbit-1280.jpg 1280w, assets/img/orbit.jpg 2560w" sizes="(max-width: 900px) 90vw, 50vw" alt="Earth's curved horizon seen from the International Space Station with a robotic arm in view" loading="lazy" decoding="async"></div>
+          <div class="chapter__body"><span class="chapter__n">I</span><h3>Orbit</h3><p>Ninety minutes per lap. Watch continents drift beneath you, wrapped in a hairline of atmosphere.</p></div>
+        </article>
+        <article class="chapter">
+          <div class="chapter__img"><img src="assets/img/astronaut.jpg" srcset="assets/img/astronaut-1280.jpg 1280w, assets/img/astronaut.jpg 2560w" sizes="(max-width: 900px) 90vw, 50vw" alt="An astronaut floating free in a white spacesuit against a deep blue Earth" loading="lazy" decoding="async"></div>
+          <div class="chapter__body"><span class="chapter__n">II</span><h3>Untethered</h3><p>A guided spacewalk with a veteran commander. Nothing between you and everything.</p></div>
+        </article>
+        <article class="chapter">
+          <div class="chapter__img"><img src="assets/img/earthset.jpg" srcset="assets/img/earthset-1280.jpg 1280w, assets/img/earthset.jpg 2560w" sizes="(max-width: 900px) 90vw, 50vw" alt="Earth setting behind the cratered horizon of the Moon" loading="lazy" decoding="async"></div>
+          <div class="chapter__body"><span class="chapter__n">III</span><h3>Far side</h3><p>A slow lunar flyby. Watch the Earth slip behind the Moon, and rise again.</p></div>
+        </article>
+        <article class="chapter">
+          <div class="chapter__img"><img src="assets/img/saturn.jpg" srcset="assets/img/saturn-1280.jpg 1280w, assets/img/saturn.jpg 2560w" sizes="(max-width: 900px) 90vw, 50vw" alt="Saturn and its rings lit by the Sun against black space" loading="lazy" decoding="async"></div>
+          <div class="chapter__body"><span class="chapter__n">IV</span><h3>The long view</h3><p>Nights at the onboard observatory, where Saturn's rings become a ritual. Then re-entry at dawn.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. DESTINATIONS (interactive spheres) -->
+    <section class="destinations" id="destinations" data-section="destinations">
+      <canvas class="spheres" aria-label="Interactive planets. Move your mouse across them."></canvas>
+      <div class="destinations__copy">
+        <p class="eyebrow">04 · Destinations</p>
+        <h2 class="h2">Touch the<br><em>worlds</em>.</h2>
+        <p class="destinations__hint">Move across them. Press and hold.</p>
+      </div>
+    </section>
+
+    <!-- 6. EARTHRISE (parallax quote) -->
+    <section class="earthrise" data-section="earthrise">
+      <div class="earthrise__bg"><img src="assets/img/earthrise.jpg" srcset="assets/img/earthrise-1280.jpg 1280w, assets/img/earthrise.jpg 2560w" sizes="100vw" alt="Earth rising over the grey surface of the Moon" loading="lazy" decoding="async"></div>
+      <blockquote class="earthrise__quote">
+        <p>"We came all this way to explore the Moon, and the most important thing is that we <em>discovered the Earth</em>."</p>
+        <cite>Bill Anders, Apollo 8</cite>
+      </blockquote>
+    </section>
+
+    <!-- 7. VOYAGES (pressable cards) -->
+    <section class="voyages" id="voyages" data-section="voyages">
+      <div class="voyages__head" data-speed="1.18">
+        <p class="eyebrow">05 · Voyages</p>
+        <h2 class="h2">Choose your <em>altitude</em>.</h2>
+      </div>
+      <div class="cards">
+        <button class="card pressable" type="button">
+          <span class="card__tag">3 days</span>
+          <span class="card__title">Kármán</span>
+          <span class="card__meta">100 km · Suborbital</span>
+          <span class="card__desc">The edge of space. Weightless silence, the sky turning black above a glowing blue curve.</span>
+          <span class="card__cta">Select <i>→</i></span>
+        </button>
+        <button class="card card--feature pressable" type="button">
+          <span class="card__tag">9 days</span>
+          <span class="card__title">Halcyon</span>
+          <span class="card__meta">412 km · Orbital</span>
+          <span class="card__desc">Our signature voyage. Orbit, spacewalk and a private observation deck with a panoramic dome.</span>
+          <span class="card__cta">Select <i>→</i></span>
+        </button>
+        <button class="card pressable" type="button">
+          <span class="card__tag">14 days</span>
+          <span class="card__title">Selene</span>
+          <span class="card__meta">384,400 km · Lunar</span>
+          <span class="card__desc">Leave Earth's orbit entirely. A free-return loop around the far side of the Moon.</span>
+          <span class="card__cta">Select <i>→</i></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 8. RESERVE -->
+    <section class="reserve" id="reserve" data-section="reserve">
+      <p class="eyebrow">06 · Reserve</p>
+      <h2 class="reserve__title"><span>Your seat</span> <em>is waiting</em></h2>
+      <button class="orb pressable" type="button" aria-label="Request an invitation">
+        <span class="orb__core"></span>
+        <span class="orb__label">Request<br>invitation</span>
+      </button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__big">Halcyon</div>
+    <div class="footer__row">
+      <span>© 2027 Halcyon Orbital (concept)</span>
+      <span>Imagery: NASA, public domain. Planet maps: NASA, USGS, Solar System Scope (CC BY 4.0)</span>
+    </div>
+  </footer>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/SplitText.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js" } }</script>
+  <script type="module" src="js/main.js"></script>
+<!-- ponce-portfolio-back -->
+<a href="/web-portfolio/" id="pc-back" style="position:fixed;left:14px;bottom:14px;z-index:2147483647;display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 11px;border-radius:999px;background:rgba(13,13,16,.78);border:1px solid rgba(232,176,75,.45);color:#f0d8a8;font:600 12px/1 Inter,system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:.01em;text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.35)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Portfolio</a>
+</body>
+</html>

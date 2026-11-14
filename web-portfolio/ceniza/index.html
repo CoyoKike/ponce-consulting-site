@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ceniza · Wood fire kitchen, Roma Norte, Mexico City</title>
+  <meta name="description" content="Ceniza is an artisan Mexican kitchen in Roma Norte, Mexico City. Heirloom corn made into nixtamal every morning, salsas ground in stone, everything cooked over wood. Twelve tables around one fire.">
+  <meta name="theme-color" content="#121110">
+  <link rel="preload" href="assets/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/img/molcajete-phone.webp" media="(max-width: 760px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/molcajete.webp" imagesrcset="assets/img/molcajete-1280.webp 1280w, assets/img/molcajete.webp 3200w" imagesizes="130vw" media="(min-width: 761px)" fetchpriority="high">
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="loader" aria-hidden="true">
+    <div class="loader__word">Ceniza</div>
+    <div class="loader__bar"><span></span></div>
+    <div class="loader__count"><span class="loader__num">0</span></div>
+  </div>
+  <div class="cursor" aria-hidden="true"><span></span></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <header class="nav">
+    <a href="#top" class="nav__logo press" aria-label="Ceniza, back to top">
+      <span class="nav__mark">C</span><span class="nav__name">Ceniza</span>
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#story">Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a href="#reserve" class="btn btn--accent nav__cta press">Reserve</a>
+  </header>
+
+  <main>
+    <!-- ============ HERO: one photo, layered depth (photo, headline, fire glow, embers) ============ -->
+    <section class="hero" id="top" aria-label="Ceniza">
+      <div class="hero__stage">
+        <div class="hero__layer hero__photo" data-depth="1">
+          <picture>
+            <source media="(max-width: 760px)" srcset="assets/img/molcajete-phone.webp">
+            <img src="assets/img/molcajete.webp" srcset="assets/img/molcajete-1280.webp 1280w, assets/img/molcajete.webp 3200w" sizes="130vw" alt="A volcanic stone molcajete in low side light, with dried chiles, an onion and a tomato on a dark wooden table" fetchpriority="high">
+          </picture>
+        </div>
+        <div class="hero__shade" aria-hidden="true"></div>
+        <div class="hero__layer hero__copy" data-depth="3">
+          <p class="eyebrow"><span class="dot"></span>Roma Norte · Mexico City</p>
+          <h1 class="hero__title"><span class="line">Corn, stone</span> <span class="line"><em>and wood fire</em></span></h1>
+          <p class="hero__lede">Heirloom corn, made into nixtamal every morning. Tortillas pressed by hand and cooked on clay over oak. Twelve tables around one fire.</p>
+          <div class="hero__actions">
+            <a href="#reserve" class="btn btn--accent press">Book a table</a>
+            <a href="#menu" class="btn btn--line press">See the menu</a>
+          </div>
+        </div>
+        <div class="hero__layer hero__fg" data-depth="4" aria-hidden="true"></div>
+        <canvas class="hero__layer hero__embers" data-depth="5" aria-hidden="true"></canvas>
+        <div class="hero__meta" aria-hidden="true">
+          <span>Est. 2019</span>
+          <span class="hero__hint">Scroll into the stone · press the photo</span>
+          <span>19.4194° N · 99.1617° W</span>
+        </div>
+        <div class="hero__scroll" aria-hidden="true"><span>Scroll</span><i></i></div>
+        <div class="hero__chapters" aria-hidden="true">
+          <p class="chapter" data-chapter="0"><b>01</b> Dried chiles, toasted on the comal</p>
+          <p class="chapter" data-chapter="1"><b>02</b> Ground by hand in volcanic stone</p>
+          <p class="chapter" data-chapter="2"><b>03</b> Salsa, made for every table</p>
+        </div>
+        <div class="hero__dim" aria-hidden="true"></div>
+        <div class="hero__land" aria-hidden="true">
+          <p class="eyebrow">Every salsa, every service</p>
+          <p class="hero__landname">In the <em>molcajete</em></p>
+          <p class="hero__landsub">Chiles toasted over oak, ground in volcanic stone to order</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ENTER THE ROOM: a black panel rises over the hero with the room in a keyhole arch; scrolling opens the arch and zooms into the room ============ -->
+    <section class="enter" aria-label="The room">
+      <div class="enter__stage">
+        <div class="enter__frame">
+          <picture><source media="(max-width: 760px)" srcset="assets/img/room-phone.webp"><img src="assets/img/room-1280.webp" srcset="assets/img/room-1280.webp 1280w, assets/img/room.webp 3200w" sizes="135vw" alt="A dim dining room lit by table lamps, guests at the tables and wood shelves along the back wall"></picture>
+        </div>
+        <div class="enter__text">
+          <p class="eyebrow">Step inside</p>
+          <h2 class="h2">A room built<br><em>around the fire</em></h2>
+        </div>
+        <span class="label enter__label">The dining room, Calle Colima</span>
+      </div>
+    </section>
+
+    <!-- ============ STORY ============ -->
+    <section class="story" id="story">
+      <div class="wrap story__grid">
+        <div class="story__text">
+          <p class="eyebrow">The story</p>
+          <h2 class="h2">Corn first,<br><em>then the fire</em></h2>
+          <p class="reveal-words">Every day starts with corn. Four heirloom varieties: blue, red, white and yellow.</p>
+          <p class="reveal-words">It soaks overnight in lime and water. That is nixtamal. At dawn we grind it on stone and press each tortilla to order.</p>
+          <p class="reveal-words">Salsas are made in a molcajete of volcanic rock. Moles simmer for two days in clay from Oaxaca.</p>
+          <p class="reveal-words">No gas. Oak for heat, mesquite for smoke, ocote to start the fire.</p>
+          <p class="reveal-words">The corn comes from nine milpa families in Oaxaca and Puebla. We pay them before the harvest, and their names are on the menu.</p>
+          <dl class="facts">
+            <div class="press"><dt>4</dt><dd>heirloom corns, ground daily</dd></div>
+            <div class="press"><dt>9</dt><dd>milpa families who grow them</dd></div>
+            <div class="press"><dt>2</dt><dd>days for every mole, in clay</dd></div>
+          </dl>
+        </div>
+        <div class="story__media">
+          <figure class="ph ph--tall story__ph1" data-speed="-0.12">
+            <img loading="lazy" decoding="async" src="assets/img/chef-1280.webp" alt="A chef in a white jacket holds a plated course in a dark kitchen">
+            <figcaption class="label">Chef Inés Arreola, the pass</figcaption>
+          </figure>
+          <figure class="ph story__ph2" data-speed="0.18">
+            <img loading="lazy" decoding="async" src="assets/img/tortilla-1280.webp" alt="Fresh corn tortillas in a cloth beside a cast iron tortilla press">
+            <figcaption class="label">Nixtamal tortillas, pressed to order</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FROM WOOD TO ASH: horizontal scroll scene ============ -->
+    <section class="journey" aria-label="From wood to ash">
+      <div class="journey__stage">
+        <div class="journey__head">
+          <p class="eyebrow">From wood to ash</p>
+          <h2 class="h2">One fire,<br><em>four stages</em></h2>
+          <div class="journey__count" aria-hidden="true"><span class="journey__n">01</span> / 04</div>
+        </div>
+        <div class="journey__track">
+          <article class="step press">
+            <div class="step__img"><img loading="lazy" decoding="async" src="assets/img/skillet-1280.webp" alt="A cast iron pan on stones over an open wood fire"></div>
+            <div class="step__body"><b>01</b><h3>Wood</h3><p>Oak from Puebla, split and dried for a year. Mesquite for the fish. Ocote to light the day.</p></div>
+          </article>
+          <article class="step press">
+            <div class="step__img"><img loading="lazy" decoding="async" src="assets/img/flames-1280.webp" alt="Orange flames rising from burning logs"></div>
+            <div class="step__body"><b>02</b><h3>Flame</h3><p>Lit at 2 PM. High flame chars the chiles and puffs the tortillas on the clay comal.</p></div>
+          </article>
+          <article class="step press">
+            <div class="step__img"><img loading="lazy" decoding="async" src="assets/img/pot-1280.webp" alt="A black clay pot on a stone hearth with burning logs below"></div>
+            <div class="step__body"><b>03</b><h3>Ember</h3><p>By dinner the fire settles. Octopus and sweet potato are buried in the coals until the skin cracks.</p></div>
+          </article>
+          <article class="step press">
+            <div class="step__img"><img loading="lazy" decoding="async" src="assets/img/chile-1280.webp" alt="Dark dried chiles in a black ceramic bowl"></div>
+            <div class="step__body"><b>04</b><h3>Ash</h3><p>Sifted at closing and mixed with sea salt from Colima. It seasons the first course the next night.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MENU ============ -->
+    <section class="menu" id="menu">
+      <div class="wrap">
+        <div class="menu__head">
+          <p class="eyebrow">The menu</p>
+          <h2 class="h2">Written each<br>morning, <em>cooked at night</em></h2>
+          <div class="tabs" role="tablist" aria-label="Menu sections">
+            <button class="tab press is-on" role="tab" aria-selected="true" aria-controls="m-tasting" id="t-tasting" data-tab="tasting">Tasting</button>
+            <button class="tab press" role="tab" aria-selected="false" aria-controls="m-fire" id="t-fire" data-tab="fire">From the fire</button>
+            <button class="tab press" role="tab" aria-selected="false" aria-controls="m-agave" id="t-agave" data-tab="agave">Agave</button>
+          </div>
+        </div>
+        <div class="menu__grid">
+          <div class="menu__lists">
+            <div class="panel is-on" role="tabpanel" id="m-tasting" aria-labelledby="t-tasting">
+              <p class="panel__note">Siete tiempos · seven courses · $2,450 MXN per guest · agave pairing $1,350</p>
+              <ol class="dishes">
+                <li class="dish press" data-img="tortilla"><span class="dish__n">01</span><div><h3>Tlayuda de ceniza</h3><p>Blue corn, black bean, quesillo, ash salt</p></div><span class="dish__p">Course 1</span></li>
+                <li class="dish press" data-img="fish"><span class="dish__n">02</span><div><h3>Aguachile de brasa</h3><p>Scallop, charred cucumber, chiltepín</p></div><span class="dish__p">Course 2</span></li>
+                <li class="dish press" data-img="tacos2"><span class="dish__n">03</span><div><h3>Tamal colado</h3><p>Hoja santa, smoked tomato, epazote</p></div><span class="dish__p">Course 3</span></li>
+                <li class="dish press" data-img="octopus"><span class="dish__n">04</span><div><h3>Pulpo al rescoldo</h3><p>Octopus buried in embers, chilhuacle negro</p></div><span class="dish__p">Course 4</span></li>
+                <li class="dish press" data-img="salmon"><span class="dish__n">05</span><div><h3>Pescado zarandeado</h3><p>Fish of the day, guajillo adobo, oak smoke</p></div><span class="dish__p">Course 5</span></li>
+                <li class="dish press" data-img="stew"><span class="dish__n">06</span><div><h3>Mole de ceniza</h3><p>Thirty one ingredients, burnt tortilla, duck</p></div><span class="dish__p">Course 6</span></li>
+                <li class="dish press" data-img="smoke"><span class="dish__n">07</span><div><h3>Camote en brasa</h3><p>Sweet potato from the coals, piloncillo, smoked cream</p></div><span class="dish__p">Course 7</span></li>
+              </ol>
+            </div>
+            <div class="panel" role="tabpanel" id="m-fire" aria-labelledby="t-fire" hidden>
+              <p class="panel__note">À la carte at the bar and on Sundays · prices in MXN</p>
+              <ol class="dishes">
+                <li class="dish press" data-img="tacos"><span class="dish__n">01</span><div><h3>Tacos de costilla</h3><p>Short rib over oak, salsa macha, pickled onion</p></div><span class="dish__p">$420</span></li>
+                <li class="dish press" data-img="octopus"><span class="dish__n">02</span><div><h3>Pulpo a la leña</h3><p>Whole tentacle, mole amarillo, burnt lemon</p></div><span class="dish__p">$690</span></li>
+                <li class="dish press" data-img="fish"><span class="dish__n">03</span><div><h3>Trucha zarandeada</h3><p>Grilled in a basket over mesquite, chile ash</p></div><span class="dish__p">$560</span></li>
+                <li class="dish press" data-img="salmon"><span class="dish__n">04</span><div><h3>Robalo a la brasa</h3><p>Sea bass, quelites, smoked butter</p></div><span class="dish__p">$740</span></li>
+                <li class="dish press" data-img="stew"><span class="dish__n">05</span><div><h3>Mole de ceniza</h3><p>Duck leg, sesame, tortillas from the comal</p></div><span class="dish__p">$610</span></li>
+                <li class="dish press" data-img="chile"><span class="dish__n">06</span><div><h3>Chiles tatemados</h3><p>Fire blistered chiles, sea salt, lime</p></div><span class="dish__p">$180</span></li>
+              </ol>
+            </div>
+            <div class="panel" role="tabpanel" id="m-agave" aria-labelledby="t-agave" hidden>
+              <p class="panel__note">Served in clay copitas with orange and sal de gusano · prices in MXN</p>
+              <ol class="dishes">
+                <li class="dish press" data-img="agave"><span class="dish__n">01</span><div><h3>Espadín</h3><p>Santiago Matatlán, roasted in an earth pit, 47%</p></div><span class="dish__p">$220</span></li>
+                <li class="dish press" data-img="agave2"><span class="dish__n">02</span><div><h3>Tobalá</h3><p>Wild agave, Sola de Vega, twelve years to harvest</p></div><span class="dish__p">$390</span></li>
+                <li class="dish press" data-img="bottle"><span class="dish__n">03</span><div><h3>Tepextate</h3><p>Miahuatlán, floral and green, a small batch of 200 bottles</p></div><span class="dish__p">$420</span></li>
+                <li class="dish press" data-img="smoke"><span class="dish__n">04</span><div><h3>Ceniza old fashioned</h3><p>Espadín, piloncillo, mesquite smoke under glass</p></div><span class="dish__p">$280</span></li>
+                <li class="dish press" data-img="cocktail"><span class="dish__n">05</span><div><h3>Humo y toronja</h3><p>Grapefruit, tobalá, rosemary burnt at the table</p></div><span class="dish__p">$260</span></li>
+                <li class="dish press" data-img="agave"><span class="dish__n">06</span><div><h3>Three agave flight</h3><p>Espadín, tobalá and tepextate side by side</p></div><span class="dish__p">$540</span></li>
+              </ol>
+            </div>
+          </div>
+          <aside class="menu__show" aria-hidden="true">
+            <div class="menu__photo"><img src="assets/img/tortilla-1280.webp" alt=""></div>
+            <p class="menu__cap label"><span class="menu__capn">01</span> <span class="menu__capt">Tlayuda de ceniza</span></p>
+          </aside>
+        </div>
+      </div>
+      <div class="dish-peek" aria-hidden="true"><img alt=""></div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="gallery" id="gallery">
+      <div class="wrap gallery__head">
+        <p class="eyebrow">Gallery</p>
+        <h2 class="h2">Evenings <em>at Ceniza</em></h2>
+        <p class="gallery__hint">Tap a photo to open it</p>
+      </div>
+      <div class="gallery__cols">
+        <div class="gcol" data-speed="-0.10">
+          <button class="gi press" data-full="table"><img loading="lazy" decoding="async" src="assets/img/table-1280.webp" alt="Friends sharing dinner by candlelight at a long table"><span class="label">The long table</span></button>
+          <button class="gi gi--tall press" data-full="cocktail"><img loading="lazy" decoding="async" src="assets/img/cocktail-1280.webp" alt="A grapefruit cocktail with rosemary and smoke rising"><span class="label">Humo y toronja</span></button>
+        </div>
+        <div class="gcol" data-speed="0.14">
+          <button class="gi gi--tall press" data-full="corner"><img loading="lazy" decoding="async" src="assets/img/corner-1280.webp" alt="A corner of the dining room with a hanging lamp"><span class="label">Window tables</span></button>
+          <button class="gi press" data-full="octo"><img loading="lazy" decoding="async" src="assets/img/octo-1280.webp" alt="Close up of a grilled octopus tentacle on a dark background"><span class="label">Pulpo al rescoldo</span></button>
+        </div>
+        <div class="gcol" data-speed="-0.06">
+          <button class="gi press" data-full="hall"><img loading="lazy" decoding="async" src="assets/img/hall-1280.webp" alt="The long dining hall with tall windows and warm lamps"><span class="label">The hall at 7 PM</span></button>
+          <button class="gi press" data-full="tacos"><img loading="lazy" decoding="async" src="assets/img/tacos-1280.webp" alt="Three tacos on a long plate with salsa and lime"><span class="label">Tacos de costilla</span></button>
+          <button class="gi press" data-full="brick"><img loading="lazy" decoding="async" src="assets/img/brick-1280.webp" alt="Dark wood tables along a brick wall with round sconces"><span class="label">The brick room</span></button>
+        </div>
+        <div class="gcol" data-speed="0.10">
+          <button class="gi press" data-full="embers"><img loading="lazy" decoding="async" src="assets/img/embers-1280.webp" alt="Glowing embers and flames in the grill"><span class="label">The grill at service</span></button>
+          <button class="gi gi--tall press" data-full="smoke"><img loading="lazy" decoding="async" src="assets/img/smoke-1280.webp" alt="A bartender lifts a smoking cloche from a glass"><span class="label">Ceniza old fashioned</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VISIT: hours and location ============ -->
+    <section class="visit" id="visit">
+      <div class="wrap visit__grid">
+        <div class="card hours press">
+          <p class="eyebrow">Hours</p>
+          <p class="hours__now"><span class="hours__dot"></span><span class="hours__state">Open today</span></p>
+          <table class="hours__table">
+            <tbody>
+              <tr data-days="2,3,4"><th scope="row">Tuesday to Thursday</th><td>6 PM to 11 PM</td></tr>
+              <tr data-days="5,6"><th scope="row">Friday and Saturday</th><td>6 PM to 12 AM</td></tr>
+              <tr data-days="0"><th scope="row">Sunday lunch</th><td>1 PM to 6 PM</td></tr>
+              <tr data-days="1"><th scope="row">Monday</th><td>Closed</td></tr>
+            </tbody>
+          </table>
+          <p class="card__foot">Last seating 90 minutes before close. The bar takes walk ins.</p>
+          <div class="hours__clock slot" data-scene="lantern" aria-hidden="true"></div>
+        </div>
+        <div class="card where">
+          <figure class="where__map">
+            <iframe class="where__frame" title="Map: Ceniza, Calle Colima 187, Roma Norte, Mexico City" src="https://www.google.com/maps?q=Calle+Colima+187,+Roma+Norte,+06700+Ciudad+de+M%C3%A9xico&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <figcaption class="where__label">
+              <span class="where__name">Ceniza</span>
+              <span class="where__addr">Calle Colima 187, Roma Norte, Mexico City</span>
+              <a class="where__go press" href="https://www.google.com/maps/dir/?api=1&amp;destination=Calle+Colima+187+Roma+Norte+Mexico+City" target="_blank" rel="noopener">Get directions <span aria-hidden="true">&rarr;</span></a>
+            </figcaption>
+          </figure>
+          <div class="where__text">
+            <p class="eyebrow">Location</p>
+            <address>Calle Colima 187<br>Roma Norte, 06700<br>Mexico City</address>
+            <ul class="where__list">
+              <li><b>Metro</b> Insurgentes, 8 minutes on foot</li>
+              <li><b>Parking</b> Valet on Colima from 6 PM</li>
+              <li><b>Access</b> Step free entrance and restroom</li>
+            </ul>
+            <a class="btn btn--line press" href="https://www.google.com/maps/dir/?api=1&amp;destination=Calle+Colima+187+Roma+Norte+Mexico+City" target="_blank" rel="noopener">Open in Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESERVE ============ -->
+    <section class="reserve" id="reserve">
+      <div class="reserve__bg" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/img/table-1280.webp" alt=""></div>
+      <div class="wrap reserve__grid">
+        <div class="reserve__side">
+          <p class="eyebrow">Reservations</p>
+          <h2 class="h2">Save a seat<br><em>by the fire</em></h2>
+          <p class="reserve__lede">Tables open 30 days ahead. Parties larger than eight, write to us and we will set the long table.</p>
+          <div class="reserve__3d slot" data-scene="table" aria-hidden="true"></div>
+          <p class="label reserve__tablelabel">Your table: <span class="party__label">2 guests</span></p>
+        </div>
+        <form class="form card" novalidate>
+          <fieldset class="field">
+            <legend>Date</legend>
+            <div class="dates" role="radiogroup" aria-label="Date"></div>
+          </fieldset>
+          <fieldset class="field">
+            <legend>Time</legend>
+            <div class="times" role="radiogroup" aria-label="Time"></div>
+          </fieldset>
+          <fieldset class="field field--row">
+            <legend>Guests</legend>
+            <div class="stepper">
+              <button type="button" class="stepper__btn press" data-step="-1" aria-label="One guest fewer">−</button>
+              <output class="stepper__v" name="party" aria-live="polite">2</output>
+              <button type="button" class="stepper__btn press" data-step="1" aria-label="One guest more">+</button>
+            </div>
+          </fieldset>
+          <div class="field field--two">
+            <label>Name<input name="name" autocomplete="name" required></label>
+            <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <div class="field field--two">
+            <label>Phone<input name="phone" type="tel" autocomplete="tel" inputmode="tel"></label>
+            <label>Occasion
+              <select name="occasion">
+                <option value="">None</option>
+                <option>Birthday</option>
+                <option>Anniversary</option>
+                <option>Business dinner</option>
+                <option>First visit</option>
+              </select>
+            </label>
+          </div>
+          <label class="field">Notes for the kitchen<textarea name="notes" rows="2" placeholder="Allergies, a seat at the counter, anything we should know"></textarea></label>
+          <p class="form__err" role="alert"></p>
+          <button class="btn btn--accent btn--big press" type="submit"><span>Request this table</span></button>
+          <div class="form__done" hidden>
+            <p class="eyebrow">Request received</p>
+            <h3 class="form__doneh">See you <em class="done__when"></em></h3>
+            <p class="form__donep"></p>
+            <button type="button" class="btn btn--line press form__again">Change the request</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot__mark" aria-hidden="true">Ceniza</div>
+    <div class="wrap foot__grid">
+      <p>Calle Colima 187, Roma Norte, Mexico City</p>
+      <p>Tuesday to Sunday · <a href="#reserve">Reserve</a></p>
+      <p class="foot__credit">Photos from Unsplash and Pexels, free licenses. 3D models from Poly Haven, CC0.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" hidden>
+    <button class="lightbox__close press" aria-label="Close photo">Close</button>
+    <img alt="">
+    <p class="lightbox__cap label"></p>
+  </div>
+
+  <canvas class="scenes" aria-hidden="true"></canvas>
+
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js" } }</script>
+  <script type="module" src="js/main.js"></script>
+<!-- ponce-portfolio-back -->
+<a href="/web-portfolio/" id="pc-back" style="position:fixed;left:14px;bottom:14px;z-index:2147483647;display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 11px;border-radius:999px;background:rgba(13,13,16,.78);border:1px solid rgba(232,176,75,.45);color:#f0d8a8;font:600 12px/1 Inter,system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:.01em;text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.35)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Portfolio</a>
+</body>
+</html>

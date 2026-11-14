@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="darkreader-lock">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27%3E%3Crect width=%2724%27 height=%2724%27 fill=%27%230a0a0a%27/%3E%3Crect x=%279%27 y=%274%27 width=%276%27 height=%2716%27 fill=%27%23fff%27/%3E%3C/svg%3E">
+<title>MONOLITH — Architecture and Structural Engineering</title>
+<meta name="description" content="MONOLITH is an architecture and structural engineering studio. Towers, bridges and civic buildings in concrete, steel and glass.">
+<link rel="preload" href="fonts/intertight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/hero.webp" imagesrcset="img/hero-m.webp 1100w, img/hero.webp 2400w" imagesizes="100vw">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <span class="loader-word">MONOLITH</span>
+    <span class="loader-bar"><i id="loaderBar"></i></span>
+    <span class="loader-num mono" id="loaderNum">000</span>
+  </div>
+</div>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span></span><b class="mono">View</b></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<header class="nav" id="nav">
+  <a class="brand press" href="#top" aria-label="MONOLITH home">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20"/></svg>
+    <span>MONOLITH</span>
+  </a>
+  <nav class="nav-links" aria-label="Main">
+    <a class="press" href="#work">Work</a>
+    <a class="press" href="#practice">Practice</a>
+    <a class="press" href="#load">Load test</a>
+    <a class="press" href="#studios">Studios</a>
+  </nav>
+  <a class="btn btn-ghost press" href="#contact">Start a project</a>
+</header>
+
+<main id="top">
+
+  <!-- 1. HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-media">
+      <img class="hero-img" src="img/hero.webp" srcset="img/hero-m.webp 1100w, img/hero.webp 2400w" sizes="100vw" width="2400" height="1558" decoding="async" alt="Looking straight up between two office towers" fetchpriority="high">
+      <div class="hero-shade"></div>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow mono"><span>Architecture</span><span>Structural engineering</span><span>Est. 1987</span></p>
+      <h1 class="hero-title">
+        <span class="line"><span>We build</span></span>
+        <span class="line"><span><em>what stands</em></span></span>
+        <span class="line"><span>for a century.</span></span>
+      </h1>
+      <div class="hero-foot">
+        <p class="hero-lede">Towers, bridges and civic buildings in concrete, steel and glass. Designed and engineered by one team, from the first sketch to the last bolt.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-solid press" href="#work">See the work</a>
+          <a class="btn btn-ghost press" href="#contact">Talk to us</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-meta mono">
+      <span>40.7484° N</span><span>73.9857° W</span><span id="heroClock">00:00</span>
+    </div>
+    <div class="scroll-cue mono"><span>Scroll</span><i></i></div>
+  </section>
+
+  <!-- 2. STATEMENT -->
+  <section class="statement" id="statement">
+    <div class="statement-inner">
+      <p class="label mono">01 — The studio</p>
+      <p class="statement-text" id="statementText">Architects draw the building. Engineers make it stand. At MONOLITH they sit at the same table, so the structure is the design and nothing is added later to hold it up.</p>
+      <div class="statement-figs">
+        <figure class="sfig sfig-a" data-speed="-0.18"><img src="img/angular.webp" srcset="img/angular-m.webp 800w, img/angular.webp 1500w" sizes="(max-width: 900px) 30vw, 30vw" width="1500" height="2250" decoding="async" alt="White angled walls and a skylight" loading="lazy"></figure>
+        <figure class="sfig sfig-b" data-speed="0.12"><img src="img/night.webp" srcset="img/night-m.webp 800w, img/night.webp 1500w" sizes="(max-width: 900px) 42vw, 42vw" width="1500" height="1924" decoding="async" alt="Curved panelled facade at night" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ASCENT (pinned, scroll moves you up and into the building) -->
+  <section class="ascent" id="ascent">
+    <div class="ascent-stage">
+      <div class="ascent-layer" data-i="0"><img src="img/facade.webp" srcset="img/facade-m.webp 800w, img/facade.webp 1500w" sizes="100vw" width="1500" height="1875" decoding="async" alt="Concrete tower seen from its base" loading="lazy"></div>
+      <div class="ascent-layer" data-i="1"><img src="img/windows.webp" srcset="img/windows-m.webp 1100w, img/windows.webp 2400w" sizes="100vw" width="2400" height="1600" decoding="async" alt="Rows of tower windows" loading="lazy"></div>
+      <div class="ascent-layer" data-i="2"><img src="img/spiral.webp" srcset="img/spiral-m.webp 1100w, img/spiral.webp 2400w" sizes="100vw" width="2400" height="1600" decoding="async" alt="Curving ribbed ceiling" loading="lazy"></div>
+      <div class="ascent-layer" data-i="3"><img src="img/portal.webp" srcset="img/portal-m.webp 800w, img/portal.webp 1500w" sizes="100vw" width="1500" height="2250" decoding="async" alt="Circular concrete skylight seen from below" loading="lazy"></div>
+      <div class="ascent-grid" aria-hidden="true"></div>
+      <div class="ascent-copy">
+        <div class="ascent-step" data-i="0"><p class="label mono">02 — Foundation</p><h2>Every tower starts <em>underground.</em></h2><p>Piles go down to bedrock before anything goes up. On our towers that can mean 60 metres of concrete you will never see.</p></div>
+        <div class="ascent-step" data-i="1"><p class="label mono">03 — Frame</p><h2>The frame <em>is</em> the facade.</h2><p>We design the structure and the skin together. Columns carry the load and set the rhythm of the windows.</p></div>
+        <div class="ascent-step" data-i="2"><p class="label mono">04 — Span</p><h2>Wide rooms, <em>no columns.</em></h2><p>Long-span roofs and floors give clients open space. The ribs that carry the weight stay on show.</p></div>
+        <div class="ascent-step" data-i="3"><p class="label mono">05 — Crown</p><h2>Light at <em>the top.</em></h2><p>A building ends where the daylight comes in. We plan the roof, the core and the skylight from day one.</p></div>
+      </div>
+      <div class="gauge mono" aria-hidden="true">
+        <div class="gauge-row"><span>Level</span><b id="gLevel">B6</b></div>
+        <div class="gauge-row"><span>Height</span><b id="gHeight">−60 m</b></div>
+        <div class="gauge-row"><span>Load</span><b id="gLoad">412 MN</b></div>
+        <div class="gauge-track"><i id="gTrack"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. WORK (horizontal) -->
+  <section class="work" id="work">
+    <div class="work-head">
+      <p class="label mono">06 — Selected work</p>
+      <h2 class="h-big">Selected <em>work</em></h2>
+      <p class="work-count mono"><span id="workIdx">01</span> / 06</p>
+    </div>
+    <div class="work-pin">
+      <div class="work-track" id="workTrack">
+        <article class="card press-card" tabindex="0">
+          <div class="card-media"><img src="img/darkglass.webp" srcset="img/darkglass-m.webp 1100w, img/darkglass.webp 2400w" sizes="(max-width: 900px) 95vw, 42vw" width="2400" height="1600" decoding="async" alt="Dark glass towers under a storm sky" loading="lazy"></div>
+          <div class="card-body"><span class="mono">01 · Office tower · 2023</span><h3>Halden Tower</h3><p>62 floors, glass and steel, 248 m.</p></div>
+        </article>
+        <article class="card press-card" tabindex="0">
+          <div class="card-media"><img src="img/salk.webp" srcset="img/salk-m.webp 1100w, img/salk.webp 2400w" sizes="(max-width: 900px) 95vw, 42vw" width="2400" height="1891" decoding="async" alt="Concrete research buildings around a stone courtyard" loading="lazy"></div>
+          <div class="card-body"><span class="mono">02 · Research campus · 2019</span><h3>Coastal Laboratories</h3><p>Board-formed concrete, 41,000 m².</p></div>
+        </article>
+        <article class="card press-card" tabindex="0">
+          <div class="card-media"><img src="img/cables.webp" srcset="img/cables-m.webp 800w, img/cables.webp 1500w" sizes="(max-width: 900px) 95vw, 42vw" width="1500" height="2127" decoding="async" alt="Looking up between steel bridge cables inside an anchorage" loading="lazy"></div>
+          <div class="card-body"><span class="mono">03 · Suspension bridge · 2021</span><h3>North River Crossing</h3><p>1,100 m main span, 61 cable strands.</p></div>
+        </article>
+        <article class="card press-card" tabindex="0">
+          <div class="card-media"><img src="img/hoover.webp" srcset="img/hoover-m.webp 800w, img/hoover.webp 1500w" sizes="(max-width: 900px) 95vw, 42vw" width="1500" height="1914" decoding="async" alt="A concrete arch dam in a deep canyon" loading="lazy"></div>
+          <div class="card-body"><span class="mono">04 · Dam retrofit · 2018</span><h3>Canyon Dam Retrofit</h3><p>Seismic upgrade, kept in service throughout.</p></div>
+        </article>
+        <article class="card press-card" tabindex="0">
+          <div class="card-media"><img src="img/whitetower.webp" srcset="img/whitetower-m.webp 1100w, img/whitetower.webp 2400w" sizes="(max-width: 900px) 95vw, 42vw" width="2400" height="1350" decoding="async" alt="A white office tower seen from below" loading="lazy"></div>
+          <div class="card-body"><span class="mono">05 · Headquarters · 2024</span><h3>Meridian House</h3><p>Exposed frame, 38 floors, net-zero operation.</p></div>
+        </article>
+        <article class="card press-card" tabindex="0">
+          <div class="card-media"><img src="img/curvy.webp" srcset="img/curvy-m.webp 1100w, img/curvy.webp 2400w" sizes="(max-width: 900px) 95vw, 42vw" width="2400" height="1594" decoding="async" alt="Curved metal panels of a concert hall" loading="lazy"></div>
+          <div class="card-body"><span class="mono">06 · Concert hall · 2022</span><h3>Civic Concert Hall</h3><p>Steel shell roof, 2,200 seats.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PRACTICE -->
+  <section class="practice" id="practice">
+    <div class="practice-media">
+      <figure class="pm pm-main"><img src="img/corridor.webp" srcset="img/corridor-m.webp 1100w, img/corridor.webp 2400w" sizes="(max-width: 900px) 100vw, 50vw" width="2400" height="1600" decoding="async" alt="A long concrete corridor with ceiling lights" loading="lazy"></figure>
+      <figure class="pm pm-side" data-speed="-0.25"><img src="img/lighthouse.webp" srcset="img/lighthouse-m.webp 800w, img/lighthouse.webp 1500w" sizes="(max-width: 900px) 50vw, 22vw" width="1500" height="1932" decoding="async" alt="Iron spiral staircase seen from above" loading="lazy"></figure>
+    </div>
+    <div class="practice-copy">
+      <p class="label mono">07 — Practice</p>
+      <h2 class="h-big">One team. <em>Four disciplines.</em></h2>
+      <ol class="disc">
+        <li class="press-row" tabindex="0"><span class="mono">A</span><div><h3>Architecture</h3><p>Massing, planning, facades and interiors.</p></div></li>
+        <li class="press-row" tabindex="0"><span class="mono">B</span><div><h3>Structural engineering</h3><p>Frames, foundations, long spans and seismic design.</p></div></li>
+        <li class="press-row" tabindex="0"><span class="mono">C</span><div><h3>Bridges and infrastructure</h3><p>Suspension, cable-stayed and arch bridges. Dams and tunnels.</p></div></li>
+        <li class="press-row" tabindex="0"><span class="mono">D</span><div><h3>Retrofit</h3><p>Strengthening existing buildings so they can stay in use.</p></div></li>
+      </ol>
+      <div class="stats">
+        <div><b class="num" data-to="38">0</b><span>Years in practice</span></div>
+        <div><b class="num" data-to="214">0</b><span>Buildings completed</span></div>
+        <div><b class="num" data-to="19">0</b><span>Bridges</span></div>
+        <div><b class="num" data-to="460">0</b><span>Architects and engineers</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. MARQUEE -->
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee-row" data-dir="-1"><span>Concrete · Steel · Glass · Stone · Timber · </span><span>Concrete · Steel · Glass · Stone · Timber · </span></div>
+    <div class="marquee-row outline" data-dir="1"><span>Load · Span · Height · Light · Load · Span · </span><span>Load · Span · Height · Light · Load · Span · </span></div>
+  </section>
+
+  <!-- 7. LOAD TEST -->
+  <section class="load" id="load">
+    <div class="load-bg"><img src="img/stairD1.webp" srcset="img/stairD1-m.webp 1100w, img/stairD1.webp 2400w" sizes="100vw" width="2400" height="1600" decoding="async" alt="" loading="lazy"></div>
+    <div class="load-inner">
+      <div class="load-copy">
+        <p class="label mono">08 — Load test</p>
+        <h2 class="h-big">Press and hold <em>to load the beam.</em></h2>
+        <p>Every beam we design is tested past its working load. Hold the button to add weight. Let go and it springs back.</p>
+        <div class="load-read mono">
+          <div><span>Load</span><b id="lVal">0 kN</b></div>
+          <div><span>Deflection</span><b id="lDef">0.0 mm</b></div>
+          <div><span>Status</span><b id="lStat">At rest</b></div>
+        </div>
+        <button class="btn btn-solid btn-xl press" id="loadBtn" type="button"><span>Hold to load</span><i class="fill"></i></button>
+      </div>
+      <div class="load-rig">
+        <canvas id="loadCanvas" aria-label="A beam on two supports under a hydraulic press."></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. STUDIOS (hover list with image) -->
+  <section class="studios" id="studios">
+    <div class="studios-head">
+      <p class="label mono">09 — Studios</p>
+      <h2 class="h-big">Five <em>studios.</em></h2>
+    </div>
+    <ul class="studio-list" id="studioList">
+      <li class="press-row" tabindex="0" data-img="img/fog-m.webp"><span class="mono">01</span><h3>New York</h3><span class="mono">Head office · 180 people</span></li>
+      <li class="press-row" tabindex="0" data-img="img/twist-m.webp"><span class="mono">02</span><h3>London</h3><span class="mono">Towers · 110 people</span></li>
+      <li class="press-row" tabindex="0" data-img="img/bilbao-m.webp"><span class="mono">03</span><h3>Bilbao</h3><span class="mono">Cultural buildings · 60 people</span></li>
+      <li class="press-row" tabindex="0" data-img="img/anchor-m.webp"><span class="mono">04</span><h3>San Francisco</h3><span class="mono">Bridges and seismic · 70 people</span></li>
+      <li class="press-row" tabindex="0" data-img="img/geometric-m.webp"><span class="mono">05</span><h3>Singapore</h3><span class="mono">Infrastructure · 40 people</span></li>
+    </ul>
+    <div class="studio-peek" id="studioPeek" aria-hidden="true"><img alt=""></div>
+  </section>
+
+  <!-- 9. CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-bg"><img src="img/graytower.webp" srcset="img/graytower-m.webp 1100w, img/graytower.webp 2400w" sizes="100vw" width="2400" height="1350" decoding="async" alt="" loading="lazy"></div>
+    <div class="contact-inner">
+      <p class="label mono">10 — Contact</p>
+      <h2 class="contact-title"><span>Start a</span> <em>project.</em></h2>
+      <form class="contact-form" id="contactForm" novalidate>
+        <label><span class="mono">Name</span><input id="cName" name="name" autocomplete="name" required></label>
+        <label><span class="mono">Email</span><input id="cEmail" name="email" type="email" autocomplete="email" required></label>
+        <label class="wide"><span class="mono">Project</span>
+          <select id="cType" name="type">
+            <option>Tower</option><option>Bridge</option><option>Civic building</option><option>Retrofit</option><option>Other</option>
+          </select>
+        </label>
+        <label class="wide"><span class="mono">Message</span><textarea id="cMsg" name="message" rows="3"></textarea></label>
+        <p class="form-err mono" id="formErr" role="alert"></p>
+        <button class="btn btn-light btn-xl press" type="submit">Send</button>
+        <p class="form-note mono">Demo form. Nothing is sent.</p>
+      </form>
+      <div class="form-done" id="formDone" hidden><h3>Thank you.</h3><p>This is a demo, so nothing was sent.</p></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-big" aria-hidden="true">MONOLITH</div>
+  <div class="foot-row mono">
+    <span>Concept site. MONOLITH is a fictional firm; projects and figures are made up.</span>
+    <a class="press" href="#top">Back to top ↑</a>
+  </div>
+  <p class="credits mono">Photos: Unsplash contributors via Wikimedia Commons (CC0); Carol M. Highsmith, Library of Congress (public domain); Jet Lowe and the Historic American Engineering Record, Library of Congress (public domain). All converted to black and white.</p>
+</footer>
+
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/lenis.min.js"></script>
+<script src="js/loadtest.js"></script>
+<script src="js/site.js"></script>
+<script src="js/interact.js"></script>
+<!-- ponce-portfolio-back -->
+<a href="/web-portfolio/" id="pc-back" style="position:fixed;left:14px;bottom:14px;z-index:2147483647;display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 11px;border-radius:999px;background:rgba(13,13,16,.78);border:1px solid rgba(232,176,75,.45);color:#f0d8a8;font:600 12px/1 Inter,system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:.01em;text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.35)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Portfolio</a>
+</body>
+</html>

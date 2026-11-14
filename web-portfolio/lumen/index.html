@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Lumen Cardiology · Dr. Tendilla · Santa Fe, New Mexico</title>
+  <meta name="description" content="Lumen Cardiology in Santa Fe, New Mexico. Consultations, echocardiography, stress testing, cardiac catheterization and prevention with Dr. Tendilla.">
+  <meta name="theme-color" content="#0f1011">
+  <link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/models/heart.glb" as="fetch" crossorigin>
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js" } }</script>
+</head>
+<body>
+
+  <div class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__word">Lumen</div>
+      <svg class="loader__trace" viewBox="0 0 240 40"><path d="M0 22 H86 L94 22 L100 6 L108 36 L114 16 L120 22 H240"/></svg>
+      <div class="loader__count"><span class="loader__num">0</span><span>%</span></div>
+    </div>
+  </div>
+  <div class="cursor" aria-hidden="true"><span></span></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <canvas class="heart-canvas" aria-hidden="true"></canvas>
+  <canvas class="slot-canvas" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <a href="#top" class="nav__logo press" aria-label="Lumen Cardiology, back to top">
+      <svg class="nav__mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10.5"/><circle cx="12" cy="12" r="4"/></svg>
+      <span class="nav__name">Lumen <em>Cardiology</em></span>
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#journey" data-nav="journey">Services</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn--accent nav__cta press">Request a visit</a>
+  </header>
+
+  <main>
+    <!-- ============ JOURNEY: hero + the route through the arteries (pinned) ============ -->
+    <section class="journey" id="journey" aria-label="Our services, along the coronary arteries">
+      <span id="top" class="anchor"></span>
+      <div class="journey__stage">
+
+        <!-- route map: where the catheter is right now -->
+        <aside class="route" aria-hidden="true">
+          <div class="route__head"><span class="mono">Route</span><span class="mono route__mm"><b class="route__mmv">0</b> mm</span></div>
+          <svg class="route__map" viewBox="0 0 100 120"><path class="route__all"/><path class="route__done"/><g class="route__stops"></g><circle class="route__tip" r="2.2"/></svg>
+          <ol class="route__list">
+            <li data-i="1"><span>01</span>Ascending aorta</li>
+            <li data-i="2"><span>02</span>Left main</li>
+            <li data-i="3"><span>03</span>Left anterior descending</li>
+            <li data-i="4"><span>04</span>Apex</li>
+            <li data-i="5"><span>05</span>Right coronary</li>
+          </ol>
+        </aside>
+
+        <!-- stop 0: the hero -->
+        <div class="stop stop--hero is-active" data-stop="0">
+          <p class="eyebrow mono">Cardiology in Santa Fe, New Mexico</p>
+          <h1 class="hero__title">
+            <span class="line"><span>Every beat,</span></span>
+            <span class="line"><span><em>followed closely.</em></span></span>
+          </h1>
+          <p class="hero__lede">Dr. Tendilla and the team look after hearts the way a good map looks after a traveler: patiently, precisely, all the way through.</p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--accent press">Request a visit</a>
+            <a href="#stop-1" class="btn btn--ghost press js-start">Take the route</a>
+          </div>
+          <div class="hero__meta mono">
+            <span>Same week new patient visits</span>
+            <span>On call cardiologist, day and night</span>
+          </div>
+          <div class="hero__scroll mono" aria-hidden="true"><span class="hero__scrollbar"><i></i></span>Scroll to travel the arteries</div>
+        </div>
+
+        <article class="stop" data-stop="1" id="stop-1">
+          <p class="stop__where mono"><span>01</span>Ascending aorta</p>
+          <h2 class="stop__title">Consultations</h2>
+          <p class="stop__lede">Every visit starts at the source: an unhurried first hour with Dr. Tendilla, board certified in cardiology and interventional cardiology, seventeen years in practice, in English or Spanish.</p>
+          <div class="live" aria-hidden="true"><span class="live__beat"></span><b class="live__v" data-v="hr1">64</b><span class="live__u">bpm</span><span class="live__k">Resting heart rate, beating live</span></div>
+          <dl class="facts">
+            <div><dt>First visit</dt><dd>60 min</dd></div>
+            <div><dt>Bring</dt><dd>Medication list, past results</dd></div>
+            <div><dt>Results</dt><dd>Same day</dd></div>
+          </dl>
+          <figure class="stop__photo"><img src="assets/img/consult-1280.webp" alt="A doctor listens to a patient's back with a stethoscope" loading="lazy" width="1280" height="720"></figure>
+          <p class="stop__note">The aorta carries every heartbeat's blood out to the body. The two coronary arteries branch off its root, right where our route begins.</p>
+        </article>
+
+        <article class="stop" data-stop="2">
+          <p class="stop__where mono"><span>02</span>Left main coronary artery</p>
+          <h2 class="stop__title">Echocardiography</h2>
+          <p class="stop__lede">Ultrasound of the beating heart. We watch the chambers fill and squeeze, measure the valves, and see how strongly the muscle pumps.</p>
+          <div class="live" aria-hidden="true"><svg class="live__ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="16"/><circle class="fg" cx="20" cy="20" r="16" pathLength="100"/></svg><b class="live__v" data-v="ef">0</b><span class="live__u">%</span><span class="live__k">Ejection fraction: the share of blood each beat pumps out</span></div>
+          <dl class="facts">
+            <div><dt>Time</dt><dd>45 min</dd></div>
+            <div><dt>Prep</dt><dd>None</dd></div>
+            <div><dt>Radiation</dt><dd>None</dd></div>
+          </dl>
+          <figure class="stop__photo"><img src="assets/img/monitor-1280.webp" alt="A bedside monitor showing heart rhythm and vital signs" loading="lazy" width="1280" height="720"></figure>
+          <p class="stop__note">The left main is a short trunk that feeds most of the left side of the heart. An echo shows whether the muscle it feeds moves the way it should.</p>
+        </article>
+
+        <article class="stop" data-stop="3">
+          <p class="stop__where mono"><span>03</span>Left anterior descending</p>
+          <h2 class="stop__title">Stress testing</h2>
+          <p class="stop__lede">Some narrowings only speak up when the heart works hard. We raise the pace on a treadmill, or with medication, and record the heart with ECG and imaging.</p>
+          <div class="live live--ecg" aria-hidden="true"><canvas class="ecg"></canvas><div class="live__row"><b class="live__v" data-v="hr3">64</b><span class="live__u">bpm</span><span class="live__k">Heart rate as the treadmill speeds up</span></div></div>
+          <dl class="facts">
+            <div><dt>Time</dt><dd>60 to 90 min</dd></div>
+            <div><dt>Wear</dt><dd>Walking shoes</dd></div>
+            <div><dt>Before</dt><dd>No caffeine that morning</dd></div>
+          </dl>
+          <figure class="stop__photo"><img src="assets/img/treadmill-1280.webp" alt="A man running on a treadmill" loading="lazy" width="1280" height="1918"></figure>
+          <p class="stop__note">This artery feeds the largest share of the heart muscle. Chest pressure that spreads to the arm, back or jaw is a warning sign: call 911.</p>
+        </article>
+
+        <article class="stop" data-stop="4">
+          <p class="stop__where mono"><span>04</span>Apex of the heart</p>
+          <h2 class="stop__title">Cardiac catheterization</h2>
+          <p class="stop__lede">The route you just scrolled is the one a catheter takes. Through a small entry at the wrist, Dr. Tendilla maps the arteries with contrast and, when needed, opens a narrowing with a stent in the same visit.</p>
+          <div class="live" aria-hidden="true"><span class="live__bar"><i data-bar="stent"></i></span><b class="live__v" data-v="stent">0.0</b><span class="live__u">mm</span><span class="live__k">Stent opening the artery</span></div>
+          <dl class="facts">
+            <div><dt>Entry</dt><dd>Wrist, most often</dd></div>
+            <div><dt>Sedation</dt><dd>Light, you stay awake</dd></div>
+            <div><dt>Home</dt><dd>Usually the same day</dd></div>
+          </dl>
+          <figure class="stop__photo"><img src="assets/img/theatre-1280.webp" alt="A procedure team at work under operating lights" loading="lazy" width="1280" height="853"></figure>
+          <p class="stop__note">Here, at the tip of the heart, the left and right arteries nearly meet. After a stent, the blood thinners keep it open: never stop them without asking us.</p>
+        </article>
+
+        <article class="stop" data-stop="5">
+          <p class="stop__where mono"><span>05</span>Right coronary artery</p>
+          <h2 class="stop__title">Prevention</h2>
+          <p class="stop__lede">The best procedure is the one you never need. Cholesterol, blood pressure, blood sugar, sleep and movement, each with a target and a plan that fits your week.</p>
+          <div class="live" aria-hidden="true"><span class="live__bar live__bar--down"><i data-bar="ldl"></i></span><b class="live__v" data-v="ldl">162</b><span class="live__u">mg/dL</span><span class="live__k">LDL cholesterol, brought under 70</span></div>
+          <dl class="facts">
+            <div><dt>Includes</dt><dd>Calcium score when useful</dd></div>
+            <div><dt>Follow up</dt><dd>Every 3 to 6 months</dd></div>
+            <div><dt>With</dt><dd>Nutrition and exercise coaching</dd></div>
+          </dl>
+          <figure class="stop__photo"><img src="assets/img/plate-1280.webp" alt="A plate of salmon with quinoa and broccoli" loading="lazy" width="1280" height="853"></figure>
+          <p class="stop__note">The right coronary feeds the cells that set the heart's rhythm. Healthy blood pressure is below 120 over 80; measure at home and bring the log.</p>
+        </article>
+
+        <div class="journey__counter mono" aria-hidden="true"><span class="journey__n">00</span> / 05</div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT: the one stop after the ride ============ -->
+    <section class="contact section" id="contact">
+      <div class="contact__side">
+        <p class="eyebrow mono">Lumen Cardiology · Dr. Tendilla · Contact</p>
+        <h2 class="h2 split">Tell us where <em>to begin.</em></h2>
+        <p class="lede">Send a request and we call back within one business day to confirm a time.</p>
+
+        <div class="panel contact__where press">
+          <figure class="map">
+            <iframe class="map__frame" title="Map: Lumen Cardiology, 460 Paseo de Peralta, Santa Fe" src="https://www.google.com/maps?q=460+Paseo+de+Peralta,+Santa+Fe,+NM+87501&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <figcaption class="map__label">
+              <span class="map__name">Lumen Cardiology</span>
+              <address class="map__addr">460 Paseo de Peralta, Suite 300<br>Santa Fe, New Mexico 87501</address>
+              <a class="map__go press" href="https://www.google.com/maps/dir/?api=1&amp;destination=460+Paseo+de+Peralta+Santa+Fe+NM+87501" target="_blank" rel="noopener">Get directions <span aria-hidden="true">&rarr;</span></a>
+            </figcaption>
+          </figure>
+          <p class="mono small">Free parking · Step free entrance · Elevator</p>
+        </div>
+
+        <div class="panel contact__hours press">
+          <h3 class="h3">Hours <span class="open-now mono" data-open></span></h3>
+          <table class="hours">
+            <tr data-day="1"><th>Monday</th><td>7:30 am to 5:00 pm</td></tr>
+            <tr data-day="2"><th>Tuesday</th><td>7:30 am to 5:00 pm</td></tr>
+            <tr data-day="3"><th>Wednesday</th><td>7:30 am to 5:00 pm</td></tr>
+            <tr data-day="4"><th>Thursday</th><td>7:30 am to 5:00 pm</td></tr>
+            <tr data-day="5"><th>Friday</th><td>7:30 am to 3:00 pm</td></tr>
+            <tr data-day="6"><th>Saturday</th><td>Closed</td></tr>
+            <tr data-day="0"><th>Sunday</th><td>Closed</td></tr>
+          </table>
+          <p class="phone"><a href="tel:+15055550148">505 555 0148</a></p>
+          <p class="small">The on call cardiologist answers the main line at any hour. Medicare, New Mexico Medicaid and most major plans accepted; we check your coverage before the first visit.</p>
+        </div>
+        <p class="small warn"><b>Chest pain, fainting or sudden shortness of breath?</b> Call 911 now. Do not use this form.</p>
+      </div>
+
+      <div class="contact__main">
+        <div class="contact__pick">
+          <div class="request__heart slot" data-view="form" aria-hidden="true"></div>
+          <p class="request__where mono" aria-live="polite"><span class="request__wherev">Choose a reason to see it on the heart</span></p>
+        </div>
+      <form class="form panel" id="request" novalidate>
+        <fieldset class="chips" aria-label="Reason for visit">
+          <legend class="label">Reason for visit</legend>
+          <label class="chip press"><input type="radio" name="reason" value="consult" required><span>Consultation</span></label>
+          <label class="chip press"><input type="radio" name="reason" value="echo"><span>Echocardiogram</span></label>
+          <label class="chip press"><input type="radio" name="reason" value="stress"><span>Stress test</span></label>
+          <label class="chip press"><input type="radio" name="reason" value="cath"><span>Cath follow up</span></label>
+          <label class="chip press"><input type="radio" name="reason" value="prevent"><span>Prevention</span></label>
+        </fieldset>
+        <div class="row">
+          <label class="field"><span class="label">Full name</span><input name="name" autocomplete="name" required></label>
+          <label class="field"><span class="label">Date of birth</span><input name="dob" type="date" required></label>
+        </div>
+        <div class="row">
+          <label class="field"><span class="label">Phone</span><input name="phone" type="tel" autocomplete="tel" required></label>
+          <label class="field"><span class="label">Email</span><input name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <div class="row">
+          <label class="field"><span class="label">Insurance</span>
+            <select name="ins" required>
+              <option value="">Choose your plan</option>
+              <option>Medicare</option><option>New Mexico Medicaid</option><option>Blue Cross Blue Shield of New Mexico</option>
+              <option>Presbyterian Health Plan</option><option>Aetna</option><option>Cigna</option><option>Humana</option>
+              <option>UnitedHealthcare</option><option>TRICARE</option><option>Other or none</option>
+            </select>
+          </label>
+          <label class="field"><span class="label">Referred by (optional)</span><input name="ref" placeholder="Your doctor's name"></label>
+        </div>
+        <fieldset class="chips chips--days" aria-label="Best days">
+          <legend class="label">Best days</legend>
+          <label class="chip press"><input type="checkbox" name="days" value="Mon"><span>Mon</span></label>
+          <label class="chip press"><input type="checkbox" name="days" value="Tue"><span>Tue</span></label>
+          <label class="chip press"><input type="checkbox" name="days" value="Wed"><span>Wed</span></label>
+          <label class="chip press"><input type="checkbox" name="days" value="Thu"><span>Thu</span></label>
+          <label class="chip press"><input type="checkbox" name="days" value="Fri"><span>Fri</span></label>
+        </fieldset>
+        <label class="field"><span class="label">Anything we should know (optional)</span><textarea name="note" rows="3"></textarea></label>
+        <label class="check"><input type="checkbox" name="ok" required><span>I agree to be contacted by phone or email about this request.</span></label>
+        <div class="form__foot">
+          <button class="btn btn--accent btn--big press" type="submit">Send request</button>
+          <p class="form__msg mono" role="status" aria-live="polite"></p>
+        </div>
+        <div class="form__done" hidden>
+          <p class="eyebrow mono">Received</p>
+          <h3 class="h3">Thank you, <span class="form__who"></span>.</h3>
+          <p>We will call you within one business day to book your <span class="form__what"></span>.</p>
+          <button type="button" class="btn btn--ghost press form__again">Send another</button>
+        </div>
+      </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot__big" aria-hidden="true">Lumen</div>
+    <div class="foot__row">
+      <p>Lumen Cardiology · 460 Paseo de Peralta, Suite 300, Santa Fe, New Mexico · <a href="tel:+15055550148">505 555 0148</a></p>
+      <p class="mono small">A design study. The practice and the doctor are fictional. Heart model: Human Reference Atlas, CC BY 4.0. <a href="CREDITS.md">Credits</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+<!-- ponce-portfolio-back -->
+<a href="/web-portfolio/" id="pc-back" style="position:fixed;left:14px;bottom:14px;z-index:2147483647;display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 11px;border-radius:999px;background:rgba(13,13,16,.78);border:1px solid rgba(232,176,75,.45);color:#f0d8a8;font:600 12px/1 Inter,system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:.01em;text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.35)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Portfolio</a>
+</body>
+</html>

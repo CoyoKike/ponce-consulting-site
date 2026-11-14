@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carlos Saúl Ponce López · Datos, mapas y software</title>
+  <meta name="description" content="Ingeniero en Sistemas Computacionales en Coyoacán, CDMX. Líder de desarrollo SIG en CentroGeo. Mapas, datos abiertos y visualización.">
+  <meta name="theme-color" content="#0d0e10">
+  <link rel="preload" href="assets/fonts/intertight-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="data/cdmx.json" as="fetch" crossorigin>
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="loader" aria-hidden="true">
+    <div class="loader__grid"></div>
+    <div class="loader__count"><span class="loader__num">0</span><span class="loader__pct">%</span></div>
+    <div class="loader__word" data-i18n="loader">Cargando 16 alcaldías</div>
+  </div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <header class="nav">
+    <a href="#top" class="nav__logo" aria-label="Inicio">
+      <span class="nav__mark">CSP</span>
+      <span class="nav__name">Carlos Saúl Ponce</span>
+    </a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#sobre" data-i18n="nav.about">Sobre mí</a>
+      <a href="#experiencia" data-i18n="nav.exp">Experiencia</a>
+      <a href="#datos" data-i18n="nav.data">Datos CDMX</a>
+      <a href="#proyectos" data-i18n="nav.projects">Proyecto</a>
+      <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button class="lang__btn is-on" data-lang="es" aria-pressed="true">ES</button>
+      <button class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- 1. HERO: the 3D city is the opening view. Scrolling walks it through four real indicators. -->
+    <section class="hero" id="inicio">
+      <div class="hero__stage">
+        <div class="hero__media" aria-hidden="true">
+          <img class="hero__img" src="assets/img/aerial.jpg" srcset="assets/img/aerial-1280.jpg 1280w, assets/img/aerial.jpg 2400w" sizes="100vw" alt="" fetchpriority="high">
+          <div class="hero__veil"></div>
+        </div>
+        <canvas class="map3d map3d--hero" aria-label="Mapa 3D de las 16 alcaldías de la Ciudad de México; la altura de cada alcaldía es el valor del indicador"></canvas>
+        <div class="map-labels map-labels--hero" aria-hidden="true"></div>
+
+        <div class="hero__content">
+          <p class="eyebrow"><span class="dot"></span> <span data-i18n="hero.eyebrow">Ingeniero en Sistemas Computacionales · Coyoacán, CDMX</span></p>
+          <h1 class="hero__title">
+            <span class="line">Carlos Saúl</span>
+            <span class="line line--b">Ponce López</span>
+          </h1>
+          <p class="hero__lede" data-i18n="hero.lede">Líder de desarrollo en CentroGeo. Construyo plataformas de mapas y datos con GeoNode, Python y Nuxt.</p>
+        </div>
+
+        <!-- Indicator caption + legend for the hero map -->
+        <aside class="hero__panel glass" aria-live="polite">
+          <div class="hero__steps" role="tablist" aria-label="Indicador">
+            <button class="hero__dot is-on" data-step="0" aria-label="1"></button><button class="hero__dot" data-step="1" aria-label="2"></button><button class="hero__dot" data-step="2" aria-label="3"></button><button class="hero__dot" data-step="3" aria-label="4"></button>
+            <p class="hero__step"><span class="hero__step-n">01</span> / 04</p>
+          </div>
+          <h2 class="hero__metric" data-metric-title>Población</h2>
+          <p class="hero__metric-sub" data-metric-sub>Habitantes por alcaldía, 2020</p>
+          <div class="legend" data-legend></div>
+          <p class="hero__top" data-metric-top></p>
+          <p class="source" data-metric-source></p>
+        </aside>
+        <div class="hero__scroll" aria-hidden="true"><i></i><span data-i18n="hero.scroll">Desliza para cambiar el indicador</span></div>
+      </div>
+    </section>
+
+    <!-- 2. ABOUT -->
+    <section class="about plate" id="sobre">
+      <div class="plate__media" aria-hidden="true">
+        <img src="assets/img/coyoacan.jpg" srcset="assets/img/coyoacan-1280.jpg 1280w, assets/img/coyoacan.jpg 1920w" sizes="100vw" alt="" loading="lazy">
+      </div>
+      <div class="plate__veil"></div>
+      <div class="about__inner wrap">
+        <p class="eyebrow"><span class="num">01</span> <span data-i18n="about.eyebrow">Sobre mí</span></p>
+        <h2 class="h2 reveal-lines" data-i18n="about.title">Ingeniería, mapas y datos <em>al servicio de la ciudad.</em></h2>
+        <div class="about__grid">
+          <p class="about__text glass" data-i18n="about.text">Soy Ingeniero en Sistemas Computacionales y vivo en Coyoacán. Hoy dirijo el equipo de desarrollo del área de Sistemas de Información Geográfica en CentroGeo. Antes fui Subdirector de Sistemas de Información y Portales Web en el INECC. Estudié la Maestría en Análisis y Visualización de Big Data en UNIR.</p>
+          <dl class="facts glass">
+            <div><dt data-i18n="about.f1k">Hoy</dt><dd data-i18n="about.f1v">Líder de desarrollo, CentroGeo</dd></div>
+            <div><dt data-i18n="about.f2k">Maestría</dt><dd data-i18n="about.f2v">Big Data, UNIR (2023 a 2025)</dd></div>
+            <div><dt data-i18n="about.f3k">Base</dt><dd>Coyoacán, Ciudad de México</dd></div>
+            <div><dt data-i18n="about.f4k">Idiomas</dt><dd data-i18n="about.f4v">Español nativo · Inglés profesional</dd></div>
+          </dl>
+        </div>
+      </div>
+      <p class="credit" data-credit="coyoacan">Avenida Francisco Sosa, Coyoacán</p>
+    </section>
+
+    <!-- 3. EXPERIENCE TIMELINE -->
+    <section class="exp plate" id="experiencia">
+      <div class="plate__media" aria-hidden="true">
+        <img src="assets/img/skyline.jpg" srcset="assets/img/skyline-1280.jpg 1280w, assets/img/skyline.jpg 2400w" sizes="100vw" alt="" loading="lazy">
+      </div>
+      <div class="plate__veil plate__veil--strong"></div>
+      <div class="exp__inner wrap">
+        <p class="eyebrow"><span class="num">02</span> <span data-i18n="exp.eyebrow">Experiencia</span></p>
+        <h2 class="h2" data-i18n="exp.title">Trayectoria</h2>
+        <ol class="timeline">
+          <li class="tl glass lift" data-card>
+            <div class="tl__side"><p class="tl__date" data-i18n="exp.1d">Mayo 2026 a hoy</p><div class="tl__span" data-span="2026.33,2026.85"></div></div>
+            <div class="tl__body">
+              <h3 class="tl__role" data-i18n="exp.1r">Líder de equipo de desarrollo</h3>
+              <p class="tl__org" data-i18n="exp.1o">CentroGeo · Equipo de Sistemas de Información Geográfica</p>
+              <p class="tl__text" data-i18n="exp.1t">Dirijo al equipo que desarrolla la plataforma de mapas: GeoNode como catálogo de capas, backend en JavaScript y Python y frontend en Nuxt. Planeo y entrego el trabajo en ciclos ágiles mensuales.</p>
+              <ul class="chips"><li data-i18n="exp.1c0">SIG</li><li>GeoNode</li><li>Python</li><li>Django</li><li>JavaScript</li><li>Nuxt</li><li data-i18n="exp.1c">Ciclos ágiles mensuales</li></ul>
+            </div>
+            <div class="tl__3d" data-scene="ex-centrogeo" aria-hidden="true"></div>
+          </li>
+          <li class="tl glass lift" data-card>
+            <div class="tl__side"><p class="tl__date" data-i18n="exp.2d">2023 a 2024</p><div class="tl__span" data-span="2023,2025"></div></div>
+            <div class="tl__body">
+              <h3 class="tl__role" data-i18n="exp.2r">Subdirector de Sistemas de Información y Portales Web</h3>
+              <p class="tl__org" data-i18n="exp.2o">INECC, Instituto Nacional de Ecología y Cambio Climático</p>
+              <p class="tl__text" data-i18n="exp.2t">Estuve a cargo de los sistemas de información y de los portales web del instituto federal que estudia el medio ambiente y el clima de México: que la información estuviera en orden y que los portales la publicaran.</p>
+              <ul class="chips"><li data-i18n="exp.2c1">Sistemas de información</li><li data-i18n="exp.2c2">Portales web</li><li data-i18n="exp.2c3">Bases de datos</li><li>MySQL</li><li>Oracle</li><li data-i18n="exp.2c4">Dirección de equipo</li></ul>
+            </div>
+            <div class="tl__3d" data-scene="ex-inecc" aria-hidden="true"></div>
+          </li>
+          <li class="tl glass lift" data-card>
+            <div class="tl__side"><p class="tl__date" data-i18n="exp.3d">2021 a 2023</p><div class="tl__span" data-span="2021,2024"></div></div>
+            <div class="tl__body">
+              <h3 class="tl__role" data-i18n="exp.3r">QA Tester funcional</h3>
+              <p class="tl__org" data-i18n="exp.3o">Keywords Studios · servicios globales para videojuegos</p>
+              <p class="tl__text" data-i18n="exp.3t">Probé funciones antes de que llegaran a los usuarios: seguir cada caso de prueba, encontrar fallas, reproducirlas paso a paso y documentarlas para que el equipo de desarrollo las corrigiera.</p>
+              <ul class="chips"><li data-i18n="exp.3c1">Pruebas funcionales</li><li data-i18n="exp.3c2">Reporte de fallas</li><li data-i18n="exp.3c3">Casos de prueba</li></ul>
+            </div>
+            <div class="tl__3d" data-scene="ex-keywords" aria-hidden="true"></div>
+          </li>
+          <li class="tl glass lift" data-card>
+            <div class="tl__side"><p class="tl__date" data-i18n="exp.4d">2020 a 2021</p><div class="tl__span" data-span="2020,2022"></div></div>
+            <div class="tl__body">
+              <h3 class="tl__role" data-i18n="exp.4r">Desarrollador web independiente</h3>
+              <p class="tl__org" data-i18n="exp.4o">Proyectos propios</p>
+              <p class="tl__text" data-i18n="exp.4t">Construí sitios web de principio a fin por mi cuenta: diseño, programación y publicación, cada uno a la medida de quien lo pedía.</p>
+              <ul class="chips"><li>JavaScript</li><li data-i18n="exp.4c1">Diseño web</li><li data-i18n="exp.4c2">Publicación</li></ul>
+            </div>
+            <div class="tl__3d" data-scene="ex-freelance" aria-hidden="true"></div>
+          </li>
+          <li class="tl tl--edu glass lift" data-card>
+            <div class="tl__side"><p class="tl__date" data-i18n="exp.5d">2023 a 2025</p><div class="tl__span" data-span="2023,2026"></div></div>
+            <div class="tl__body">
+              <h3 class="tl__role" data-i18n="exp.5r">Maestría en Análisis y Visualización de Big Data</h3>
+              <p class="tl__org" data-i18n="exp.5o">UNIR, Universidad Internacional de La Rioja</p>
+              <p class="tl__text" data-i18n="exp.5t">Cómo trabajar con grandes volúmenes de datos y explicarlos con gráficas y mapas claros. Es la base de los tableros de la Ciudad de México en este sitio.</p>
+              <ul class="chips"><li>Big Data</li><li data-i18n="exp.5c1">Visualización</li><li>Python</li></ul>
+            </div>
+            <div class="tl__3d" data-scene="ex-master" aria-hidden="true"></div>
+          </li>
+          <li class="tl tl--edu glass lift" data-card>
+            <div class="tl__side"><p class="tl__date" data-i18n="exp.6d">Licenciatura</p></div>
+            <div class="tl__body">
+              <h3 class="tl__role" data-i18n="exp.6r">Ingeniería en Sistemas Computacionales</h3>
+              <p class="tl__text" data-i18n="exp.6t">La base técnica: programación, bases de datos y redes de computadoras.</p>
+              <ul class="chips"><li data-i18n="exp.6c1">Programación</li><li data-i18n="exp.6c2">Bases de datos</li><li data-i18n="exp.6c3">Redes Cisco: OSPF, BGP, EIGRP</li></ul>
+            </div>
+            <div class="tl__3d" data-scene="ex-degree" aria-hidden="true"></div>
+          </li>
+        </ol>
+      </div>
+      <p class="credit" data-credit="skyline">Paseo de la Reforma</p>
+    </section>
+
+
+    <!-- 5. CDMX DATA DASHBOARDS -->
+    <section class="data plate" id="datos">
+      <div class="plate__media plate__media--fixed" aria-hidden="true">
+        <img src="assets/img/night.jpg" srcset="assets/img/night-1280.jpg 1280w, assets/img/night.jpg 2400w" sizes="100vw" alt="" loading="lazy">
+      </div>
+      <div class="plate__veil plate__veil--strong"></div>
+      <div class="wrap data__inner">
+        <p class="eyebrow"><span class="num">03</span> <span data-i18n="data.eyebrow">Datos de la Ciudad de México</span></p>
+        <h2 class="h2" data-i18n="data.title">La ciudad <em>en números</em></h2>
+        <p class="data__lede" data-i18n="data.lede">Datos abiertos oficiales, por alcaldía. Cada gráfica dice de dónde viene.</p>
+
+        <!-- KPI row -->
+        <div class="kpis">
+          <div class="kpi glass"><p class="kpi__v" data-kpi="pop"></p><p class="kpi__k" data-i18n="kpi.pop">Habitantes, 2020</p></div>
+          <div class="kpi glass"><p class="kpi__v" data-kpi="area"></p><p class="kpi__k" data-i18n="kpi.area">Superficie en km²</p></div>
+          <div class="kpi glass"><p class="kpi__v" data-kpi="density"></p><p class="kpi__k" data-i18n="kpi.density">Habitantes por km², 2020</p></div>
+          <div class="kpi glass"><p class="kpi__v" data-kpi="metro"></p><p class="kpi__k" data-i18n="kpi.metro">Entradas al Metro por día, 2019</p></div>
+        </div>
+
+        <!-- Dashboards -->
+        <div class="dash">
+          <article class="card glass card--wide">
+            <header class="card__head">
+              <div><h3 class="card__title" data-i18n="c.pop.t">Habitantes por alcaldía, 2020</h3></div>
+              <div class="seg seg--sm" data-chart-switch="pop">
+                <button class="is-on" data-v="pop" data-i18n="c.pop.a">Habitantes</button>
+                <button data-v="density" data-i18n="c.pop.b">Por km²</button>
+              </div>
+            </header>
+            <div class="chart" data-chart="pop"></div>
+            <p class="source">INEGI, Censo de Población y Vivienda 2020 · Marco Geoestadístico 2020</p>
+          </article>
+
+          <article class="card glass">
+            <header class="card__head"><h3 class="card__title" data-i18n="c.metro.t">Entradas diarias al Metro por alcaldía, 2019</h3></header>
+            <div class="chart" data-chart="metro"></div>
+            <p class="source" data-i18n="c.metro.s">STC Metro, afluencia diaria por estación 2019 (datos.cdmx.gob.mx) · estaciones ubicadas con INEGI</p>
+          </article>
+
+          <article class="card glass">
+            <header class="card__head"><h3 class="card__title" data-i18n="c.metrot.t">Entradas diarias al Metro, enero 2019 a agosto 2023</h3></header>
+            <div class="chart" data-chart="metroTrend"></div>
+            <p class="source" data-i18n="c.metrot.s">STC Metro, promedio diario de cada mes, toda la red (datos.cdmx.gob.mx)</p>
+          </article>
+
+          <article class="card glass">
+            <header class="card__head"><h3 class="card__title" data-i18n="c.veh.t">Hogares con auto y con bicicleta, 2020</h3></header>
+            <div class="chart" data-chart="vehicles"></div>
+            <p class="source" data-i18n="c.veh.s">INEGI, Censo 2020 · % de viviendas habitadas</p>
+          </article>
+
+          <article class="card glass">
+            <header class="card__head"><h3 class="card__title" data-i18n="c.space.t">Espacio público por habitante, m²</h3></header>
+            <div class="chart" data-chart="space"></div>
+            <p class="source" data-i18n="c.space.s">Gobierno de la CDMX y CentroGeo, 2020 a 2021, con población 2010 (datos.cdmx.gob.mx)</p>
+          </article>
+
+          <article class="card glass">
+            <header class="card__head"><h3 class="card__title" data-i18n="c.pm.t">PM2.5 promedio anual por estación, 2024</h3></header>
+            <div class="chart" data-chart="pm"></div>
+            <p class="source" data-i18n="c.pm.s">SEDEMA, SIMAT, promedios de 24 h (aire.cdmx.gob.mx) · estaciones en la CDMX con datos válidos en al menos la mitad del año</p>
+          </article>
+
+          <article class="card glass">
+            <header class="card__head"><h3 class="card__title" data-i18n="c.pmt.t">PM2.5 promedio mensual, 2024</h3></header>
+            <div class="chart" data-chart="pmTrend"></div>
+            <p class="source" data-i18n="c.pmt.s">SEDEMA, SIMAT, promedio de las estaciones de la CDMX (aire.cdmx.gob.mx)</p>
+          </article>
+        </div>
+      </div>
+      <p class="credit" data-credit="night">Paseo de la Reforma de noche</p>
+    </section>
+
+
+    <!-- 6. GIS PROJECTS -->
+    <section class="projects plate" id="proyectos">
+      <div class="plate__media" aria-hidden="true">
+        <img src="assets/img/reforma.jpg" srcset="assets/img/reforma-1280.jpg 1280w, assets/img/reforma.jpg 2400w" sizes="100vw" alt="" loading="lazy">
+      </div>
+      <div class="plate__veil plate__veil--strong"></div>
+      <div class="wrap projects__inner">
+        <p class="eyebrow"><span class="num">04</span> <span data-i18n="pr.eyebrow">Proyecto SIG</span></p>
+        <h2 class="h2" data-i18n="pr.title">Mapas que <em>se usan</em></h2>
+        <div class="projects__list projects__list--one">
+          <article class="project project--feature glass lift" data-card>
+            <div class="project__media">
+              <div class="project__3d" data-scene="pr-build" aria-hidden="true"></div>
+              <p class="project__cap" data-prbuild-cap></p>
+            </div>
+            <div class="project__text">
+              <p class="project__n">01</p>
+              <h3 data-i18n="pr.3h">Ciudad de México en 3D</h3>
+              <p data-i18n="pr.3p">El procesamiento detrás de este sitio, en Python y sin librerías SIG: leer los shapefiles de INEGI, simplificar cada límite con una tolerancia de 60 m, ubicar cada estación del Metro en su alcaldía y dibujarlo todo en Three.js.</p>
+              <div class="project__out"><span data-i18n="pr.out">Resultado</span><p data-i18n="pr.3o">Un mapa liviano que carga rápido en el teléfono, con los 16 límites oficiales y las 7 gráficas de este sitio.</p></div>
+              <p class="project__tags">Python · Three.js · INEGI · SEDEMA</p>
+            </div>
+          </article>
+        </div>
+      </div>
+      <p class="credit" data-credit="reforma">Paseo de la Reforma desde el Castillo de Chapultepec</p>
+    </section>
+
+    <!-- 7. CONTACT -->
+    <section class="contact plate" id="contacto">
+      <div class="plate__media" aria-hidden="true">
+        <img src="assets/img/sunset.jpg" srcset="assets/img/sunset-1280.jpg 1280w, assets/img/sunset.jpg 2400w" sizes="100vw" alt="" loading="lazy">
+      </div>
+      <div class="plate__veil plate__veil--strong"></div>
+      <div class="wrap contact__inner">
+        <div class="contact__main">
+          <p class="eyebrow"><span class="num">05</span> <span data-i18n="ct.eyebrow">Contacto</span></p>
+          <h2 class="h2 contact__title" data-i18n="ct.title">¿Un proyecto de <em>datos o mapas?</em></h2>
+          <p class="contact__lede" data-i18n="ct.lede">Mapas, plataformas de datos y portales web, de la idea a la publicación.</p>
+          <ul class="services">
+            <li><a class="service lift" href="#experiencia"><b>01</b><span><strong data-i18n="ct.s1">Mapas y SIG</strong><small data-i18n="ct.s1p">Plataformas de capas geográficas con GeoNode</small></span><i aria-hidden="true">&rarr;</i></a></li>
+            <li><a class="service lift" href="#datos"><b>02</b><span><strong data-i18n="ct.s2">Datos y tableros</strong><small data-i18n="ct.s2p">De datos abiertos a gráficas fáciles de leer</small></span><i aria-hidden="true">&rarr;</i></a></li>
+            <li><a class="service lift" href="#experiencia"><b>03</b><span><strong data-i18n="ct.s3">Portales web</strong><small data-i18n="ct.s3p">Sitios rápidos en Nuxt y JavaScript</small></span><i aria-hidden="true">&rarr;</i></a></li>
+          </ul>
+          <dl class="contact__facts">
+            <div><dt data-i18n="ct.k1">Ubicación</dt><dd>Coyoacán, CDMX</dd></div>
+            <div><dt data-i18n="ct.k2">Idiomas</dt><dd data-i18n="ct.langs">Español · Inglés</dd></div>
+            <div><dt data-i18n="ct.k3">Hora en la CDMX</dt><dd data-clock>--:--</dd></div>
+          </dl>
+          <div class="contact__links" data-contact></div>
+        </div>
+        <figure class="contact__visual glass" data-card>
+          <div class="contact__3d" data-scene="ct-route" aria-hidden="true"></div>
+          <figcaption class="contact__cap"><b data-i18n="ct.capT">Una ruta clara</b><span data-i18n="ct.cap">Idea → datos → mapa → publicación</span></figcaption>
+        </figure>
+      </div>
+      <p class="contact__mark" aria-hidden="true">Carlos Saúl Ponce López</p>
+    </section>
+  </main>
+
+  <footer class="foot wrap">
+    <p>© 2026 Carlos Saúl Ponce López</p>
+    <details class="foot__credits">
+      <summary data-i18n="foot.credits">Fuentes y créditos</summary>
+      <div class="foot__body" data-credits></div>
+    </details>
+  </footer>
+
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+<!-- ponce-portfolio-back -->
+<a href="/web-portfolio/" id="pc-back" style="position:fixed;left:14px;bottom:14px;z-index:2147483647;display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 11px;border-radius:999px;background:rgba(13,13,16,.78);border:1px solid rgba(232,176,75,.45);color:#f0d8a8;font:600 12px/1 Inter,system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:.01em;text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.35)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Portfolio</a>
+</body>
+</html>
