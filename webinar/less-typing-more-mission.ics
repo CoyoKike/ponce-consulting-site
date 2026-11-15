@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ponce Consulting//Webinar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:less-typing-more-mission-20261209@ponceconsulting.org
+DTSTAMP:20261115T220000Z
+DTSTART:20261209T160000Z
+DTEND:20261209T170000Z
+SUMMARY:Less Typing\, More Mission (webinar)
+DESCRIPTION:How AI Cuts Data Entry for Nonprofit Teams. Join on Google Meet: https://meet.google.com/ice-rcgw-jxx\nQuestions? webinar@ponceconsulting.org
+LOCATION:https://meet.google.com/ice-rcgw-jxx
+URL:https://meet.google.com/ice-rcgw-jxx
+ORGANIZER;CN=Enrique Ponce:mailto:webinar@ponceconsulting.org
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Webinar starts in 15 minutes
+END:VALARM
+END:VEVENT
+END:VCALENDAR
