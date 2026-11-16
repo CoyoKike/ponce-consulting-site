@@ -47,13 +47,26 @@
 
 <div class="alegend" id="aLegend" aria-hidden="true"></div>
 
-<section class="acard" id="aCard" aria-live="polite" aria-labelledby="acName" hidden>
-  <p class="acard__lvl" id="acLvl"></p>
-  <h2 class="acard__name" id="acName"></h2>
-  <p class="acard__dist" id="acDist"></p>
-  <ul class="acard__stats" id="acStats"></ul>
-  <a class="btn btn--solid" id="acOpen" href="#">Open the full briefing <span aria-hidden="true">→</span></a>
-  <button type="button" class="iconbtn acard__x" id="acClose" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+<section class="acard" id="aCard" aria-labelledby="acName" hidden>
+  <header class="acard__head">
+    <img class="acard__photo" id="acPhoto" alt="" width="88" height="88">
+    <div>
+      <p class="acard__lvl" id="acLvl"></p>
+      <h2 class="acard__name" id="acName"></h2>
+      <p class="acard__dist" id="acDist"></p>
+    </div>
+    <button type="button" class="iconbtn acard__x" id="acClose" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+  </header>
+  <div class="acar" id="acCar" aria-roledescription="carousel" aria-label="District data">
+    <div class="acar__track" id="acSlides"></div>
+    <div class="acar__nav">
+      <button type="button" class="iconbtn" id="acPrev" aria-label="Previous slide"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="acar__dots" id="acDots"></div>
+      <button type="button" class="iconbtn" id="acNext" aria-label="Next slide"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <p class="sr-only" id="acLive" aria-live="polite"></p>
+  </div>
+  <a class="btn btn--solid acard__open" id="acOpen" href="#">Open the full briefing <span aria-hidden="true">→</span></a>
 </section>
 
 </main>
@@ -61,6 +74,7 @@
 <footer><p class="acredit">Sources: U.S. Census Bureau ACS · CDC PLACES · City of Boston · MA Legislature · map © OpenFreeMap, OpenMapTiles, OpenStreetMap contributors</p></footer>
 
 <script src="assets/maplibre/maplibre-gl.js"></script>
+<script src="js/charts.js"></script>
 <script src="js/atlas.js"></script>
 </body>
 </html>

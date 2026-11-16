@@ -66,7 +66,9 @@
     cur = (i + list.length) % list.length; const d = list[cur], s = d.stats, c = D.city;
     $('#index').hidden = true; $('#brief').hidden = false;
     document.title = `${d.official || d.district} · District briefing · Vecina`;
-    $('#bInit').textContent = initials(d.official || d.district);
+    const seal = $('.seal');
+    if (d.photo) { seal.classList.add('has-photo'); seal.innerHTML = `<img src="${d.photo}" alt="Portrait of ${esc(d.official)}" width="168" height="168">`; seal.removeAttribute('aria-hidden'); }
+    else { seal.classList.remove('has-photo'); seal.setAttribute('aria-hidden', 'true'); seal.innerHTML = `<span>${initials(d.official || d.district)}</span>`; }
     $('#bParty').textContent = d.party ? (d.party.startsWith('Dem') ? 'Democrat' : d.party.startsWith('Rep') ? 'Republican' : d.party) : d.chamber;
     $('#bTitle').textContent = d.title; $('#bName').textContent = d.official || 'Vacant seat'; $('#bDist').textContent = d.district;
     const u = $('#bUrl'); if (d.url) { u.hidden = false; u.href = d.url; } else u.hidden = true;

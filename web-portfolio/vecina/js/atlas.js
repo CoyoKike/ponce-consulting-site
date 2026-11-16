@@ -37,17 +37,58 @@
     sel = id; $$('.aoff').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.id === id)));
     const d = D.districts.find(x => x.id === id);
     if (!d) { $('#aCard').hidden = true; if (ready) map.setFilter('d-sel', ['==', ['get', 'id'], '']); return; }
-    const c = D.city, s = d.stats;
-    $('#acLvl').textContent = d.title; $('#acName').textContent = d.official || 'Vacant seat'; $('#acDist').textContent = d.district;
-    $('#acStats').innerHTML = [[fmt(s.pop), 'residents'], [pct(s.pct65), `65+ · Boston ${pct(c.pct65)}`], [pct(s.poverty), `below poverty · Boston ${pct(c.poverty)}`], [pct(s.lep), `limited English · Boston ${pct(c.lep)}`]]
-      .map(([n, l]) => `<li><b>${n}</b><span>${l}</span></li>`).join('');
-    $('#acOpen').href = `districts.html#d=${d.id}`;
+    renderCard(d);
     $('#aCard').hidden = false;
     if (ready) {
       map.setFilter('d-sel', ['==', ['get', 'id'], id]); map.setFilter('d-sel-fill', ['==', ['get', 'id'], id]);
       if (fly) { const [a, b, c2, e] = d.bbox; map.fitBounds([[a, b], [c2, e]], { padding: { top: 90, bottom: 60, left: innerWidth > 900 ? 400 : 30, right: innerWidth > 900 ? 380 : 30 }, duration: reduce ? 0 : 1200, pitch: threeD ? 50 : 0, bearing: threeD ? -18 : 0 }); }
     }
   }
+  /* ---------- the card: photo + chart carousel ---------- */
+  const HL = { DIABETES: 'Diabetes', BPHIGH: 'High blood pressure', CHD: 'Heart disease', COPD: 'COPD', CASTHMA: 'Asthma', DEPRESSION: 'Depression', LONELINESS: 'Loneliness', DISABILITY: 'Any disability' };
+  let slide = 0, nSlides = 0;
+  function renderCard(d) {
+    const V = window.VCharts, s = d.stats, c = D.city;
+    const ph = $('#acPhoto');
+    if (d.photo) { ph.src = d.photo; ph.alt = `Portrait of ${d.official}`; ph.hidden = false; } else { ph.hidden = true; }
+    $('#acLvl').textContent = d.party ? `${d.title} · ${d.party.startsWith('Dem') ? 'Democrat' : d.party}` : d.title;
+    $('#acName').textContent = d.official || 'Vacant seat'; $('#acDist').textContent = d.district;
+    const langs = Object.entries(s.langs).filter(([k]) => k !== 'Other').concat(s.langs.Other ? [['Other', s.langs.Other]] : []).sort((x, y) => (x[0] === 'Other') - (y[0] === 'Other') || y[1] - x[1]).filter(([k]) => k !== 'Other').concat([]); const otherSrc = s.langs.Other || 0; const top = langs.slice(0, 5).map(([k, v]) => ({ label: k.replace(/ \(.*\)/, ''), value: v }));
+    const rest = langs.slice(5).reduce((a, [, v]) => a + v, 0) + otherSrc; if (rest) top.push({ label: 'Other languages', value: rest, color: '#b8ada0' });
+    const hs = Object.keys(HL).filter(k => s.health[k] != null).map(k => ({ k, d: s.health[k] - c.health[k] })).sort((a, b) => b.d - a.d).slice(0, 6);
+    const hmax = Math.max(...hs.map(h => Math.max(s.health[h.k], c.health[h.k]))) * 1.08;
+    const slides = [
+      ['At a glance', `<ul class="aglance">
+        <li><b>${fmt(s.pop)}</b><span>residents</span></li>
+        <li><b>${pct(s.pct65)}</b><span>65 and older</span><small>Boston ${pct(c.pct65)}</small></li>
+        <li><b>${pct(s.poverty)}</b><span>below poverty</span><small>Boston ${pct(c.poverty)}</small></li>
+        <li><b>${pct(s.lep)}</b><span>limited English</span><small>Boston ${pct(c.lep)}</small></li></ul>`],
+      ['Who lives here', `<div class="atwo">
+        <figure>${V.donut([{ label: '65+', value: s.pop65, color: '#a63f22' }, { label: 'Under 65', value: s.pop - s.pop65, color: '#e7d7c4' }], pct(s.pct65), '65+')}<figcaption>${fmt(s.pop65)} adults 65+<small>Boston ${pct(c.pct65)}</small></figcaption></figure>
+        <figure>${V.donut([{ label: 'Limited English', value: s.lep, color: '#1d5f80' }, { label: 'Other', value: 100 - s.lep, color: '#d9e6ea' }], pct(s.lep), 'limited Eng.')}<figcaption>Speak English less than very well<small>Boston ${pct(c.lep)}</small></figcaption></figure></div>`],
+      ['Languages at home', top.length ? `<div class="alang">${V.donut(top, fmt(top.reduce((a, p) => a + p.value, 0)), 'speakers')}${V.legend(top, fmt)}</div>` : '<p>No data.</p>'],
+      ['Health, compared with Boston', V.compare(hs.map(h => ({ name: HL[h.k], v: s.health[h.k], city: c.health[h.k], color: h.d > .5 ? '#a63f22' : '#1f6b4f' })), hmax) + '<p class="acar__note">The black tick is the Boston rate.</p>'],
+      ['Housing and money', `<div class="agauges">${[['Below poverty', s.poverty, c.poverty, '#7a5400'], ['Rent is 50%+ of income', s.rentburden, c.rentburden, '#a63f22'], ['Food insecurity', s.health.FOODINSECU, c.health.FOODINSECU, '#6a3d8f'], ['Housing insecurity', s.health.HOUSINSECU, c.health.HOUSINSECU, '#1d5f80']]
+        .map(([l, v, cv, col]) => `<figure>${V.gauge(v, col, cv)}<figcaption>${l}<small>Boston ${pct(cv)}</small></figcaption></figure>`).join('')}</div><p class="acar__note">The black tick is the Boston rate.</p>`]
+    ];
+    nSlides = slides.length;
+    $('#acSlides').innerHTML = slides.map(([t, body], i) => `<section class="acar__slide" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${slides.length}: ${t}" ${i ? 'hidden' : ''}><h3>${t}</h3>${body}</section>`).join('');
+    $('#acDots').innerHTML = slides.map(([t], i) => `<button type="button" class="acar__dot" aria-label="Slide ${i + 1}: ${t}" ${i ? '' : 'aria-current="true"'} data-i="${i}"></button>`).join('');
+    go(0, false);
+  }
+  function go(i, say) {
+    slide = (i + nSlides) % nSlides;
+    $$('#acSlides .acar__slide').forEach((el, k) => { const on = k === slide; el.hidden = !on; if (on) { el.classList.remove('in'); void el.offsetWidth; el.classList.add('in'); } });
+    $$('#acDots .acar__dot').forEach((b, k) => b.toggleAttribute('aria-current', k === slide));
+    if (say) $('#acLive').textContent = $$('#acSlides .acar__slide')[slide].getAttribute('aria-label');
+  }
+  $('#acPrev').addEventListener('click', () => go(slide - 1, true));
+  $('#acNext').addEventListener('click', () => go(slide + 1, true));
+  $('#acDots').addEventListener('click', e => { const b = e.target.closest('.acar__dot'); if (b) go(+b.dataset.i, true); });
+  // swipe on touch screens
+  let sx = null;
+  $('#acSlides').addEventListener('pointerdown', e => { sx = e.clientX; });
+  $('#acSlides').addEventListener('pointerup', e => { if (sx == null) return; const dx = e.clientX - sx; sx = null; if (Math.abs(dx) > 40) go(slide + (dx < 0 ? 1 : -1), true); });
   $('#acClose').addEventListener('click', () => { const id = sel; select(null); const b = $(`.aoff[data-id="${id}"]`); if (b) b.focus(); });
 
   /* ---------- map ---------- */
