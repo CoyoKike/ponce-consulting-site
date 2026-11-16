@@ -209,3 +209,6 @@
 .hgrid--3 .hgrid__inc { grid-row: auto; }
 .hgrid__d .vc-donut { width: 170px; max-width: 100%; }
 @media (max-width: 760px) { .hgrid--3 { grid-template-columns: 1fr 1fr; } }
+
+.vc-c1 { font-size: 19px; }
+.vc-c2 { font-size: 6.5px; letter-spacing: .04em; }
