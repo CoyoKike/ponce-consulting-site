@@ -78,12 +78,11 @@
     $('#mapNote').textContent = `Each column is one census tract in the district; its height and color show the measure chosen above. Values for every measure are in the other tabs.`;
 
     $('#peopleHead').textContent = `${pct(s.pct65)} of residents are 65 or older, ${cmpWord(s.pct65, c.pct65)}.`;
-    $('#kPeople').innerHTML = [
-      [fmt(s.pop), 'Residents', `Boston: ${fmt(c.pop)}`],
-      [fmt(s.pop65), 'Adults 65 and older', `${pct(s.pct65)} of residents · Boston ${pct(c.pct65)}`],
-      [pct(s.lep), 'Speak English less than very well', `Age 5+ · Boston ${pct(c.lep)}`],
-      [String(s.tracts), 'Census tracts', 'Neighborhood-sized areas of about 4,000 people']
-    ].map(([n, l, sub]) => `<li class="kpi"><b>${n}</b><span>${l}</span><small>${sub}</small></li>`).join('');
+    $('#kPeople').className = 'hgrid hgrid--3';
+    { const V = window.VCharts;
+      $('#kPeople').innerHTML = `<li class="hgrid__inc"><span class="hgrid__k">Residents</span><b>${fmt(s.pop)}</b><small>In ${s.tracts} census tracts · Boston ${fmt(c.pop)}</small></li>` +
+        `<li class="hgrid__d">${V.donut([{ label: '65+', value: s.pop65, color: '#a63f22' }, { label: 'Under 65', value: s.pop - s.pop65, color: '#e7d7c4' }], pct(s.pct65), '65 and older')}<span>${fmt(s.pop65)} adults 65 and older</span><small>Boston ${pct(c.pct65)}</small></li>` +
+        `<li class="hgrid__d">${V.donut([{ label: 'Limited English', value: s.lep, color: '#1d5f80' }, { label: 'Other', value: 100 - s.lep, color: '#d9e6ea' }], pct(s.lep), 'limited English')}<span>Speak English less than very well</span><small>Age 5+ · Boston ${pct(c.lep)}</small></li>`; }
 
     const langTot = Object.values(s.langs).reduce((a, b) => a + b, 0);
     const langs = Object.entries(s.langs).slice(0, 8);

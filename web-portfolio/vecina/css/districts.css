@@ -204,3 +204,8 @@
 .hgrid__d small { margin-top: 2px; color: var(--muted); }
 .hgrid__note { grid-column: 1 / -1; background: none !important; border: 0 !important; padding: 0 !important; font-size: .875rem; color: var(--muted); }
 @media (max-width: 760px) { .hgrid { grid-template-columns: 1fr 1fr; } .hgrid__inc { grid-row: auto; grid-column: 1 / -1; } }
+
+.hgrid--3 { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; }
+.hgrid--3 .hgrid__inc { grid-row: auto; }
+.hgrid__d .vc-donut { width: 170px; max-width: 100%; }
+@media (max-width: 760px) { .hgrid--3 { grid-template-columns: 1fr 1fr; } }
