@@ -65,7 +65,7 @@
       noPlace: q => `No neighborhood or ZIP code matches “${q}”. Try East Boston, Jamaica Plain or 02130.`,
       sugN: n => `${n} ${n === 1 ? 'suggestion' : 'suggestions'}. Use the up and down arrow keys.`,
       mi: d => `${d.toFixed(1)} mi`, miLong: d => `${d.toFixed(1)} miles away`,
-      back: 'Back to the results', showMap: 'Show on the map', call: 'Call',
+      back: 'Back to the results', showMap: 'Show on the map', call: 'Call', listen: 'Listen', stopListen: 'Stop', sayPhone: 'Phone',
       dCat: 'Type', dHood: 'Neighborhood', dHours: 'Hours', dLang: 'Languages', dWalk: 'Walk-ins', walkYes: 'Welcome, no appointment needed', walkNo: 'Call first',
       english: 'English', demo: 'Demo listing. This program is made up.', here: 'You searched here', pinOf: (n, c) => `${n}, ${c}. Open details`,
       scores: [['0', 'axe-core violations on every page state'], ['100', 'Lighthouse accessibility score'], ['0', 'scripted keyboard checks that failed'], ['6', 'languages, each with its own page language']],
@@ -114,7 +114,7 @@
       noPlace: q => `Ningún vecindario o código postal coincide con “${q}”. Prueba East Boston, Jamaica Plain o 02130.`,
       sugN: n => `${n} ${n === 1 ? 'sugerencia' : 'sugerencias'}. Usa las flechas arriba y abajo.`,
       mi: d => `${d.toFixed(1)} mi`, miLong: d => `a ${d.toFixed(1)} millas`,
-      back: 'Volver a los resultados', showMap: 'Ver en el mapa', call: 'Llamar',
+      back: 'Volver a los resultados', showMap: 'Ver en el mapa', call: 'Llamar', listen: 'Escuchar', stopListen: 'Detener', sayPhone: 'Teléfono',
       dCat: 'Tipo', dHood: 'Vecindario', dHours: 'Horario', dLang: 'Idiomas', dWalk: 'Sin cita', walkYes: 'Bienvenidos, no hace falta cita', walkNo: 'Llama antes',
       english: 'Inglés', demo: 'Programa de demostración. Es inventado.', here: 'Buscaste aquí', pinOf: (n, c) => `${n}, ${c}. Abrir detalles`,
       scores: [['0', 'fallas de axe-core en cada estado de la página'], ['100', 'puntuación de accesibilidad en Lighthouse'], ['0', 'pruebas de teclado con script que fallaron'], ['6', 'idiomas, cada uno con su idioma de página']],
@@ -244,11 +244,32 @@
       </dl>
       <div class="detail__actions">
         <a class="btn btn--solid" href="tel:+1${phone.replace(/-/g, '')}">${t('call')} ${phone}</a>
+        ${voiceFor(lang) ? `<button type="button" class="btn btn--ghost listen" id="listen" aria-pressed="false"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M4 9h4l5-4v14l-5-4H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>${t('listen')}</span></button>` : ''}
       </div>
 `;
     $('#back').addEventListener('click', () => closeDetail(true));
+    const lb = $('#listen');
+    if (lb) lb.addEventListener('click', () => {
+      if (lb.getAttribute('aria-pressed') === 'true') { speechSynthesis.cancel(); return; }
+      const said = [r.name, cat[lang], `${t('dHood')}: ${r.p}`, `${t('dHours')}: ${DAYS[r.d][lang]}, ${r.h.replace('–', ' - ')}`,
+        `${t('dLang')}: ${langs}`, `${t('dWalk')}: ${r.walk ? t('walkYes') : t('walkNo')}`, `${t('sayPhone')}: ${phone.replace(/-/g, ' ').split('').join(' ')}`].join('. ');
+      const u = new SpeechSynthesisUtterance(said);
+      const v = voiceFor(lang); if (v) { u.voice = v; u.lang = v.lang; }
+      u.rate = 0.95;
+      const set = on => { lb.setAttribute('aria-pressed', String(on)); lb.querySelector('span').textContent = on ? t('stopListen') : t('listen'); };
+      u.onstart = () => set(true); u.onend = u.onerror = () => set(false);
+      speechSynthesis.cancel(); speechSynthesis.speak(u);
+    });
     if (focus) $('#detailName').focus();
   }
+  // read-aloud: the browser's own voices; a language with no voice on this device gets no button
+  const VOICE_LANG = { en: 'en', es: 'es', ht: 'ht', pt: 'pt', zh: 'zh', vi: 'vi' };
+  function voiceFor(l) {
+    if (!('speechSynthesis' in window)) return null;
+    const vs = speechSynthesis.getVoices(), want = VOICE_LANG[l];
+    return vs.find(v => v.lang.toLowerCase().startsWith(want) && /natural|online|google/i.test(v.name)) || vs.find(v => v.lang.toLowerCase().startsWith(want)) || null;
+  }
+  if ('speechSynthesis' in window) speechSynthesis.addEventListener('voiceschanged', () => { if (state.open) renderDetail(state.open, false); });
   function openDetail(id, opener) {
     state.open = id; state.opener = opener || null;
     const card = $('#detail');
@@ -259,6 +280,7 @@
     setTimeout(() => { const h = $('#detailName'); if (h && state.open === id && document.activeElement !== h) h.focus({ preventScroll: true }); $('.mapbox').scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' }); }, 60);
   }
   function closeDetail(restore) {
+    if ('speechSynthesis' in window) speechSynthesis.cancel();
     const id = state.open;
     state.open = null;
     $('#detail').hidden = true;

@@ -653,3 +653,10 @@ a:hover { text-decoration-thickness: .14em; }
 .foot__row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .brand--foot .brand__name { font-size: 1.3rem; }
 .foot__copy { margin: 0; }
+
+/* read-aloud button on the detail card */
+.listen svg { flex: none; }
+.listen[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.listen[aria-pressed="true"] svg path:last-child { animation: pulseWave 1.2s ease-in-out infinite; }
+@keyframes pulseWave { 50% { opacity: .3; } }
+@media (prefers-reduced-motion: reduce) { .listen[aria-pressed="true"] svg path:last-child { animation: none; } }
