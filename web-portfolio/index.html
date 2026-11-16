@@ -200,10 +200,10 @@
   const arrow = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>';
   root.innerHTML = S.map((s, i) => `
     <article class="card">
-      <a href="./${s.id}/" data-name="${s.name.replace(/<[^>]+>/g,'')}" aria-label="Open the ${s.name.replace(/<[^>]+>/g,'')} website">
+      <a href="/web-portfolio/${s.id}/" data-name="${s.name.replace(/<[^>]+>/g,'')}" aria-label="Open the ${s.name.replace(/<[^>]+>/g,'')} website">
         <div class="frame">
           <div class="bar-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-          <img src="./_img/${s.id}.jpg" alt="" loading="${i < 2 ? 'eager' : 'lazy'}" decoding="async">
+          <img src="/web-portfolio/_img/${s.id}.jpg" alt="" loading="${i < 2 ? 'eager' : 'lazy'}" decoding="async">
           <span class="open"><span class="en">Open site</span><span class="es">Abrir sitio</span>${arrow}</span>
         </div>
         <div class="meta">
