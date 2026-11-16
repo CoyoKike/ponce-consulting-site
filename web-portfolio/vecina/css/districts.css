@@ -186,3 +186,7 @@
 
 /* a hidden card stays hidden (the flex layout above would otherwise override the hidden attribute) */
 .acard[hidden], [hidden] { display: none !important; }
+
+/* measure buttons sit to the right of the side panel, never over it */
+.atools { left: 376px; transform: none; max-width: calc(100vw - 376px - 470px); min-width: 300px; border-radius: 22px; }
+@media (max-width: 960px) { .atools { max-width: none; min-width: 0; border-radius: 999px; } }
