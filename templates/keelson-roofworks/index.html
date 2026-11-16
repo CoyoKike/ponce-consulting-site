@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <title data-i18n="meta.title">Keelson Roofworks · Roofing contractor · St. Petersburg and Tampa Bay</title>
+  <meta name="description" data-i18n-attr="content:meta.desc" content="Shingle, standing-seam metal and tile roofs for Tampa Bay homes. Re-roofs, repairs, storm inspections, insurance claim photos, wind mitigation and gutters, permitted and built to Florida code.">
+  <meta name="theme-color" content="#0f1419">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/newsreader-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    document.documentElement.classList.add('js');
+    try { var l = localStorage.getItem('keelson-lang'); if (l === 'es') document.documentElement.lang = 'es'; } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">{ "imports": { "three": "./js/vendor/three.module.min.js" } }</script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="nav.skip">Skip to content</a>
+
+  <header class="nav" id="top">
+    <a class="nav__logo" href="#main" aria-label="Keelson Roofworks, back to top" data-i18n-attr="aria-label:nav.home">
+      <svg class="nav__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 17 16 6l13 11"/><path d="M7 14v12h18V14"/><path d="M3 21h26" class="nav__mark-a"/></svg>
+      <span class="nav__name">Keelson <span>Roofworks</span></span>
+    </a>
+    <nav class="nav__links" id="menu" aria-label="Main" data-i18n-attr="aria-label:nav.main">
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#how" data-i18n="nav.how">How we build</a>
+      <a href="#work" data-i18n="nav.work">Work</a>
+      <a href="#area" data-i18n="nav.area">Service area</a>
+      <a href="#reviews" data-i18n="nav.reviews">Reviews</a>
+      <a href="#estimate" class="nav__menu-cta" data-i18n="nav.cta">Free estimate</a>
+      <a href="tel:+17275550148" class="nav__tel mono">(727) 555-0148</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
+        <button type="button" class="lang__b" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" class="lang__b" data-lang="es" aria-pressed="false" lang="es">ES</button>
+      </div>
+      <a href="#estimate" class="btn btn--copper nav__cta" data-i18n="nav.cta">Free estimate</a>
+      <button type="button" class="nav__burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu" data-i18n-attr="aria-label:nav.open"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- ============ HERO: the roof goes on as you scroll ============ -->
+    <section class="build" aria-labelledby="hero-title">
+      <div class="build__stage">
+        <div class="view">
+          <canvas class="view__canvas" aria-hidden="true"></canvas>
+          <picture class="view__poster">
+            <source type="image/webp" srcset="assets/img/hero-poster-1080.webp 1080w, assets/img/hero-poster-1920.webp 1920w" sizes="100vw">
+            <img src="assets/img/hero-poster-1920.webp" width="1920" height="1080" loading="lazy" decoding="async" alt="A Florida ranch house with a new grey shingle hip roof at sunset, palms around it" data-i18n-attr="alt:hero.poster">
+          </picture>
+          <div class="view__scrim" aria-hidden="true"></div>
+
+          <div class="hero">
+            <p class="eyebrow"><span data-i18n="hero.eyebrow">State Certified Roofing Contractor · St. Petersburg, Florida</span></p>
+            <h1 class="hero__title" id="hero-title" data-i18n-html="hero.title"><span class="ln"><span>Roofs built</span></span><span class="ln"><span>for the <em>next</em></span></span><span class="ln"><span>storm.</span></span></h1>
+            <p class="hero__lede" data-i18n="hero.lede">Shingle, standing-seam metal and tile roofs for homes from Clearwater to Sarasota. Permitted, inspected and nailed to the Florida Building Code, every time.</p>
+            <div class="hero__actions">
+              <a href="#estimate" class="btn btn--copper btn--big" data-i18n="hero.cta">Get a free estimate</a>
+              <a href="#how" class="btn btn--line btn--big" data-i18n="hero.watch">Watch a roof go on</a>
+            </div>
+          </div>
+          <p class="hero__spec mono" aria-hidden="true"><span data-i18n="hero.spec1">Hip roof · 5/12 pitch</span><span data-i18n="hero.spec2">Rated to 150 mph</span></p>
+          <p class="hero__scroll mono" aria-hidden="true"><i></i><span data-i18n="hero.scroll">Scroll to build it</span></p>
+
+          <div class="rail" aria-hidden="true">
+            <div class="rail__bar"><i></i></div>
+            <ol class="rail__steps">
+              <li data-i18n="s1.k">Framing</li><li data-i18n="s2.k">Decking</li><li data-i18n="s3.k">Underlayment</li>
+              <li data-i18n="s4.k">Shingles</li><li data-i18n="s5.k">Edges</li><li data-i18n="s6.k">Inspection</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="how" id="how">
+          <h2 class="sr-only" data-i18n="how.h">How we build a roof</h2>
+          <ol class="stages">
+            <li class="stage" data-stage="0">
+              <p class="stage__num mono"><span>01</span><span data-i18n="s1.k">Framing</span></p>
+              <h3 class="stage__title" data-i18n="s1.t">Every truss strapped to the wall.</h3>
+              <p class="stage__body" data-i18n="s1.b">Before anything goes on top, we check each truss and the hurricane straps that tie it into the bond beam. Rusted or missing straps get replaced, and all of it goes in your photo log.</p>
+              <dl class="facts"><div><dt data-i18n="s1.f1k">Straps</dt><dd data-i18n="s1.f1v">On every truss</dd></div><div><dt data-i18n="s1.f2k">Spacing</dt><dd data-i18n="s1.f2v">24 in. on center</dd></div><div><dt data-i18n="s1.f3k">Photo log</dt><dd data-i18n="s1.f3v">From day one</dd></div></dl>
+            </li>
+            <li class="stage" data-stage="1">
+              <p class="stage__num mono"><span>02</span><span data-i18n="s2.k">Decking</span></p>
+              <h3 class="stage__title" data-i18n="s2.t">Solid wood, nailed like it matters.</h3>
+              <p class="stage__body" data-i18n="s2.b">Soft or delaminated plywood is cut out and replaced, never covered over. Then the whole deck is re-nailed with 8d ring-shank nails at 6 inches on center, the way Florida code asks for it.</p>
+              <dl class="facts"><div><dt data-i18n="s2.f1k">Sheathing</dt><dd data-i18n="s2.f1v">19/32 in. plywood</dd></div><div><dt data-i18n="s2.f2k">Nails</dt><dd data-i18n="s2.f2v">8d ring-shank</dd></div><div><dt data-i18n="s2.f3k">Pattern</dt><dd data-i18n="s2.f3v">6 in. on center</dd></div></dl>
+            </li>
+            <li class="stage" data-stage="2">
+              <p class="stage__num mono"><span>03</span><span data-i18n="s3.k">Underlayment</span></p>
+              <h3 class="stage__title" data-i18n="s3.t">Sealed before the first shingle.</h3>
+              <p class="stage__body" data-i18n="s3.b">A self-adhered secondary water barrier covers the entire deck, lapped and rolled tight. If a storm ever strips shingles off, the house stays dry underneath. Most homes are dried in by the end of the first day.</p>
+              <dl class="facts"><div><dt data-i18n="s3.f1k">Membrane</dt><dd data-i18n="s3.f1v">Peel-and-stick</dd></div><div><dt data-i18n="s3.f2k">Coverage</dt><dd data-i18n="s3.f2v">Entire deck</dd></div><div><dt data-i18n="s3.f3k">Laps</dt><dd data-i18n="s3.f3v">3 in. side, 6 in. end</dd></div></dl>
+            </li>
+            <li class="stage" data-stage="3">
+              <p class="stage__num mono"><span>04</span><span data-i18n="s4.k">Shingles</span></p>
+              <h3 class="stage__title" data-i18n="s4.t">Laid course by course, eave to ridge.</h3>
+              <p class="stage__body" data-i18n="s4.b">Starter strip on every edge, six nails in every shingle, offsets checked as we go up. Metal and tile roofs are fastened to the engineered pattern for your address instead.</p>
+              <dl class="facts"><div><dt data-i18n="s4.f1k">Nails</dt><dd data-i18n="s4.f1v">6 per shingle</dd></div><div><dt data-i18n="s4.f2k">Wind rating</dt><dd data-i18n="s4.f2v">130 to 150 mph</dd></div><div><dt data-i18n="s4.f3k">Starter</dt><dd data-i18n="s4.f3v">All edges</dd></div></dl>
+            </li>
+            <li class="stage" data-stage="4">
+              <p class="stage__num mono"><span>05</span><span data-i18n="s5.k">Edges</span></p>
+              <h3 class="stage__title" data-i18n="s5.t">Drip edge, gutters, hip and ridge cap.</h3>
+              <p class="stage__body" data-i18n="s5.b">Metal drip edge on every eave and rake, new flashing at walls and vents, gutters hung on the new fascia, caps set last. Most leaks we get called for start at an edge someone skipped.</p>
+              <dl class="facts"><div><dt data-i18n="s5.f1k">Drip edge</dt><dd data-i18n="s5.f1v">Every edge</dd></div><div><dt data-i18n="s5.f2k">Flashing</dt><dd data-i18n="s5.f2v">All new</dd></div><div><dt data-i18n="s5.f3k">Gutters</dt><dd data-i18n="s5.f3v">6 in. seamless</dd></div></dl>
+            </li>
+            <li class="stage" data-stage="5">
+              <p class="stage__num mono"><span>06</span><span data-i18n="s6.k">Inspection</span></p>
+              <h3 class="stage__title" data-i18n="s6.t">Inspected, signed off, on paper.</h3>
+              <p class="stage__body" data-i18n="s6.b">The city inspects the nailing and the finished roof. We close the permit and send you the photos, the warranty and a wind mitigation report you can hand to your insurance company.</p>
+              <dl class="facts"><div><dt data-i18n="s6.f1k">Permit</dt><dd data-i18n="s6.f1v">Pulled and closed</dd></div><div><dt data-i18n="s6.f2k">Inspections</dt><dd data-i18n="s6.f2v">In progress and final</dd></div><div><dt data-i18n="s6.f3k">You get</dt><dd data-i18n="s6.f3v">Photos, warranty, report</dd></div></dl>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section services" id="services" aria-labelledby="svc-h">
+      <div class="wrap">
+        <header class="head">
+          <p class="eyebrow eyebrow--dark" data-i18n="svc.eyebrow">Services</p>
+          <h2 class="h2 rv" id="svc-h"><span data-i18n-html="svc.h">Three kinds of roof. <em>One way of building them.</em></span></h2>
+        </header>
+        <div class="roofs">
+          <article class="roof">
+            <figure class="roof__img"><img src="assets/img/work-nailing-1080.webp" srcset="assets/img/work-nailing-1080.webp 1080w, assets/img/work-nailing-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 33vw" width="1080" height="720" loading="lazy" decoding="async" alt="Roofer nailing grey architectural shingles on a new roof" data-i18n-attr="alt:svc.a1"></figure>
+            <p class="roof__n mono">01</p>
+            <h3 class="h3" data-i18n="svc.t1">Architectural shingle</h3>
+            <p data-i18n="svc.b1">The most common roof in Tampa Bay and the quickest to replace. Dimensional shingles over a full peel-and-stick underlayment, with sealed starter strips at every edge. Most homes are torn off and dried in the same day.</p>
+            <dl class="spec"><div><dt data-i18n="svc.k1a">Typical job</dt><dd data-i18n="svc.v1a">2 to 3 days</dd></div><div><dt data-i18n="svc.k1b">Wind rating</dt><dd data-i18n="svc.v1b">130 to 150 mph</dd></div></dl>
+          </article>
+          <article class="roof">
+            <figure class="roof__img"><img src="assets/img/svc-metal-1080.webp" srcset="assets/img/svc-metal-1080.webp 1080w, assets/img/svc-metal-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 33vw" width="1080" height="810" loading="lazy" decoding="async" alt="Dark standing-seam metal roof with a brick chimney against a blue sky" data-i18n-attr="alt:svc.a2"></figure>
+            <p class="roof__n mono">02</p>
+            <h3 class="h3" data-i18n="svc.t2">Standing-seam metal</h3>
+            <p data-i18n="svc.b2">Concealed-fastener panels with mechanically seamed ribs, roll-formed to length on site so there are no end laps. Aluminum near salt water, steel inland, and a reflective finish that takes the edge off August.</p>
+            <dl class="spec"><div><dt data-i18n="svc.k2a">Panels</dt><dd data-i18n="svc.v2a">24 gauge, 16 in. wide</dd></div><div><dt data-i18n="svc.k2b">Near the beach</dt><dd data-i18n="svc.v2b">.032 aluminum</dd></div></dl>
+          </article>
+          <article class="roof">
+            <figure class="roof__img"><img src="assets/img/svc-tile-1080.webp" srcset="assets/img/svc-tile-1080.webp 1080w, assets/img/svc-tile-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 33vw" width="1080" height="721" loading="lazy" decoding="async" alt="Orange clay barrel tile roof with a white dormer window" data-i18n-attr="alt:svc.a3"></figure>
+            <p class="roof__n mono">03</p>
+            <h3 class="h3" data-i18n="svc.t3">Clay and concrete tile</h3>
+            <p data-i18n="svc.b3">The heaviest roof and the longest lasting. Tile is set with foam adhesive or screws to the engineered pattern, over two layers of underlayment. We also replace cracked tile and re-set loose hips without disturbing the rest.</p>
+            <dl class="spec"><div><dt data-i18n="svc.k3a">Set with</dt><dd data-i18n="svc.v3a">Foam or screws</dd></div><div><dt data-i18n="svc.k3b">Underlayment</dt><dd data-i18n="svc.v3b">Two layers</dd></div></dl>
+          </article>
+        </div>
+
+        <ul class="also">
+          <li class="also__row">
+            <h3 class="also__t" data-i18n="svc.r1t">Roof repair</h3>
+            <p data-i18n="svc.r1b">Leaks, lifted shingles, cracked tile, failed pipe boots. Every repair is photographed before and after, and if the roof is past repairing we tell you plainly.</p>
+          </li>
+          <li class="also__row">
+            <h3 class="also__t" data-i18n="svc.r2t">Storm inspection and insurance claims</h3>
+            <p data-i18n="svc.r2b">After a named storm we document every slope with dated photos, measurements and a written report your adjuster can work from, and we meet the adjuster on the roof if you want us there.</p>
+          </li>
+          <li class="also__row">
+            <h3 class="also__t" data-i18n="svc.r3t">Wind mitigation</h3>
+            <p data-i18n="svc.r3b">Our licensed inspector checks deck nailing, roof-to-wall connections and opening protection, and fills out the state form (OIR-B1-1802). It often lowers the windstorm part of your premium.</p>
+          </li>
+          <li class="also__row">
+            <h3 class="also__t" data-i18n="svc.r4t">Gutters</h3>
+            <p data-i18n="svc.r4b">Seamless 6-inch aluminum gutters with oversized downspouts, sized for a summer afternoon downpour and pitched so the water leaves the house fast.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ STORM ============ -->
+    <section class="storm" aria-labelledby="storm-h">
+      <picture class="storm__bg">
+        <source type="image/webp" srcset="assets/img/storm-1080.webp 1080w, assets/img/storm-1920.webp 1920w" sizes="100vw">
+        <img src="assets/img/storm-1920.webp" width="1920" height="1279" loading="lazy" decoding="async" alt="A rain squall moving in over a barrier island on the Gulf coast" data-i18n-attr="alt:storm.alt">
+      </picture>
+      <div class="storm__in wrap">
+        <p class="eyebrow" data-i18n="storm.eyebrow">June through November</p>
+        <h2 class="h2 rv" id="storm-h"><span data-i18n-html="storm.h">After the storm, <em>photos first.</em></span></h2>
+        <p class="storm__lede" data-i18n="storm.lede">During hurricane season we keep a crew on call for emergency tarping. Once the wind drops we inspect, tarp what needs it the same day, and put together a claim file your adjuster can actually use.</p>
+        <ol class="storm__list">
+          <li><span class="mono">01</span><span data-i18n="storm.l1">Emergency tarp, same or next day</span></li>
+          <li><span class="mono">02</span><span data-i18n="storm.l2">Dated photos of every slope, damage measured</span></li>
+          <li><span class="mono">03</span><span data-i18n="storm.l3">Line-item pricing for your adjuster</span></li>
+          <li><span class="mono">04</span><span data-i18n="storm.l4">We meet the adjuster on site</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="section work" id="work" aria-labelledby="work-h">
+      <div class="wrap">
+        <header class="head head--split">
+          <div>
+            <p class="eyebrow eyebrow--dark" data-i18n="work.eyebrow">Recent work</p>
+            <h2 class="h2 rv" id="work-h"><span data-i18n-html="work.h">Roofs around <em>the bay.</em></span></h2>
+          </div>
+          <p class="head__lede" data-i18n="work.lede">A few jobs from this year, from a two-day shingle re-roof in Largo to a full clay tile roof in Sarasota.</p>
+        </header>
+        <div class="gallery">
+          <figure class="shot shot--a">
+            <div class="shot__img"><img src="assets/img/work-snell-1080.webp" srcset="assets/img/work-snell-1080.webp 1080w, assets/img/work-snell-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 58vw" width="1080" height="686" loading="lazy" decoding="async" alt="Single-story home with an arched entry and a long, low roof behind tall royal palms" data-i18n-attr="alt:work.a1"></div>
+            <figcaption><span data-i18n="work.c1">Snell Isle, St. Petersburg</span><span class="mono" data-i18n="work.d1">Concrete tile re-roof</span></figcaption>
+          </figure>
+          <figure class="shot shot--b">
+            <div class="shot__img"><img src="assets/img/work-tilecrew-1080.webp" srcset="assets/img/work-tilecrew-1080.webp 1080w, assets/img/work-tilecrew-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 40vw" width="1080" height="720" loading="lazy" decoding="async" alt="Two roofers loading stacks of clay tile on a roof, a palm behind them" data-i18n-attr="alt:work.a2"></div>
+            <figcaption><span data-i18n="work.c2">Lakewood Ranch</span><span class="mono" data-i18n="work.d2">Tile loaded, hips re-set</span></figcaption>
+          </figure>
+          <figure class="shot shot--c">
+            <div class="shot__img"><img src="assets/img/work-sarasota-1080.webp" srcset="assets/img/work-sarasota-1080.webp 1080w, assets/img/work-sarasota-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 40vw" width="1080" height="724" loading="lazy" decoding="async" alt="Two-story white house with orange clay tile roofs among palms" data-i18n-attr="alt:work.a3"></div>
+            <figcaption><span data-i18n="work.c3">Sarasota</span><span class="mono" data-i18n="work.d3">Clay tile, two stories</span></figcaption>
+          </figure>
+          <figure class="shot shot--d">
+            <div class="shot__img"><img src="assets/img/work-palms-1080.webp" srcset="assets/img/work-palms-1080.webp 1080w, assets/img/work-palms-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 58vw" width="1080" height="714" loading="lazy" decoding="async" alt="White stucco home with a dark flat-tile roof among palms" data-i18n-attr="alt:work.a4"></div>
+            <figcaption><span data-i18n="work.c4">Belleair</span><span class="mono" data-i18n="work.d4">Flat concrete tile, new gutters</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="ba">
+          <div class="ba__text">
+            <p class="eyebrow eyebrow--dark" data-i18n="ba.eyebrow">Before and after</p>
+            <h3 class="h3 ba__h" data-i18n="ba.h">Forty-year-old barrel tile, replaced in nine working days.</h3>
+            <p data-i18n="ba.b">Bradenton, after two leaks in one summer. The old tile was cracked and soft underneath, so the whole roof came off, the deck was re-nailed, and new clay tile went down over two layers of underlayment.</p>
+            <p class="ba__hint mono" data-i18n="ba.hint">Drag the handle, or use the arrow keys</p>
+          </div>
+          <div class="ba__view" style="--pos:50%">
+            <img class="ba__after" src="assets/img/after-1080.webp" srcset="assets/img/after-1080.webp 1080w, assets/img/after-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 55vw" width="1080" height="720" loading="lazy" decoding="async" alt="After: new orange clay barrel tile in straight courses" data-i18n-attr="alt:ba.after">
+            <div class="ba__before"><img src="assets/img/before-1080.webp" srcset="assets/img/before-1080.webp 1080w, assets/img/before-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 55vw" width="1080" height="715" loading="lazy" decoding="async" alt="Before: faded clay barrel tile with lichen and broken pieces" data-i18n-attr="alt:ba.before"></div>
+            <span class="ba__tag ba__tag--l mono" aria-hidden="true" data-i18n="ba.tb">Before</span>
+            <span class="ba__tag ba__tag--r mono" aria-hidden="true" data-i18n="ba.ta">After</span>
+            <span class="ba__handle" aria-hidden="true"><i></i></span>
+            <input class="ba__range" type="range" min="0" max="100" value="50" step="1" aria-label="Compare before and after" data-i18n-attr="aria-label:ba.label">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICE AREA ============ -->
+    <section class="section area" id="area" aria-labelledby="area-h">
+      <div class="wrap area__grid">
+        <div class="area__text">
+          <p class="eyebrow" data-i18n="area.eyebrow">Service area</p>
+          <h2 class="h2 rv" id="area-h"><span data-i18n-html="area.h">From Wesley Chapel <em>to Sarasota.</em></span></h2>
+          <p class="area__lede" data-i18n="area.lede">Our trucks leave the yard in St. Petersburg at 6:30 every morning. Anywhere on this list we can usually be on your roof within two business days, and the same day after a storm.</p>
+          <ul class="cities">
+            <li><span>St. Petersburg</span><span class="mono">Pinellas</span></li>
+            <li><span>Clearwater</span><span class="mono">Pinellas</span></li>
+            <li><span>Largo</span><span class="mono">Pinellas</span></li>
+            <li><span>Tampa</span><span class="mono">Hillsborough</span></li>
+            <li><span>Brandon</span><span class="mono">Hillsborough</span></li>
+            <li><span>Wesley Chapel</span><span class="mono">Pasco</span></li>
+            <li><span>Bradenton</span><span class="mono">Manatee</span></li>
+            <li><span>Lakewood Ranch</span><span class="mono">Manatee</span></li>
+            <li><span>Sarasota</span><span class="mono">Sarasota</span></li>
+          </ul>
+        </div>
+        <figure class="map">
+          <svg viewBox="0 0 452 738" role="img" aria-labelledby="map-t">
+            <title id="map-t" data-i18n="area.map">Map of the Tampa Bay area showing the nine cities we serve, with our yard in St. Petersburg</title>
+            <defs>
+              <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0v7" class="map__hatch"/></pattern>
+            </defs>
+            <path class="map__land" d="M132.8 0.0 L111.5 48.0 L79.7 96.0 L85.0 150.0 L79.7 186.0 L63.7 216.0 L53.1 258.0 L58.4 294.0 L85.0 330.0 L111.5 366.0 L116.8 390.0 L116.8 426.0 L143.4 414.0 L164.6 375.0 L169.9 360.0 L172.6 336.0 L175.2 306.0 L185.9 282.0 L159.3 258.0 L143.4 228.0 L138.1 204.0 L148.7 174.0 L159.3 168.0 L180.5 186.0 L204.4 216.0 L215.1 234.0 L217.7 264.0 L220.4 294.0 L239.0 306.0 L252.2 282.0 L257.5 252.0 L262.8 231.0 L281.4 240.0 L292.0 282.0 L289.4 336.0 L265.5 372.0 L207.1 402.0 L196.5 438.0 L175.2 462.0 L116.8 474.0 L138.1 528.0 L169.9 570.0 L193.8 612.0 L212.4 648.0 L239.0 696.0 L260.2 738.0 L451.4 738.0 L451.4 0.0 Z"/>
+            <path class="map__coast" d="M132.8 0.0 L111.5 48.0 L79.7 96.0 L85.0 150.0 L79.7 186.0 L63.7 216.0 L53.1 258.0 L58.4 294.0 L85.0 330.0 L111.5 366.0 L116.8 390.0 L116.8 426.0 L143.4 414.0 L164.6 375.0 L169.9 360.0 L172.6 336.0 L175.2 306.0 L185.9 282.0 L159.3 258.0 L143.4 228.0 L138.1 204.0 L148.7 174.0 L159.3 168.0 L180.5 186.0 L204.4 216.0 L215.1 234.0 L217.7 264.0 L220.4 294.0 L239.0 306.0 L252.2 282.0 L257.5 252.0 L262.8 231.0 L281.4 240.0 L292.0 282.0 L289.4 336.0 L265.5 372.0 L207.1 402.0 L196.5 438.0 L175.2 462.0 L116.8 474.0 L138.1 528.0 L169.9 570.0 L193.8 612.0 L212.4 648.0 L239.0 696.0 L260.2 738.0"/>
+            <path class="map__land-hatch" fill="url(#hatch)" d="M132.8 0.0 L111.5 48.0 L79.7 96.0 L85.0 150.0 L79.7 186.0 L63.7 216.0 L53.1 258.0 L58.4 294.0 L85.0 330.0 L111.5 366.0 L116.8 390.0 L116.8 426.0 L143.4 414.0 L164.6 375.0 L169.9 360.0 L172.6 336.0 L175.2 306.0 L185.9 282.0 L159.3 258.0 L143.4 228.0 L138.1 204.0 L148.7 174.0 L159.3 168.0 L180.5 186.0 L204.4 216.0 L215.1 234.0 L217.7 264.0 L220.4 294.0 L239.0 306.0 L252.2 282.0 L257.5 252.0 L262.8 231.0 L281.4 240.0 L292.0 282.0 L289.4 336.0 L265.5 372.0 L207.1 402.0 L196.5 438.0 L175.2 462.0 L116.8 474.0 L138.1 528.0 L169.9 570.0 L193.8 612.0 L212.4 648.0 L239.0 696.0 L260.2 738.0 L451.4 738.0 L451.4 0.0 Z"/>
+            <circle class="map__reach" cx="158" cy="336" r="230"/>
+            <circle class="map__reach map__reach--2" cx="158" cy="336" r="150"/>
+            <text class="map__water" x="196" y="318" aria-hidden="true" data-i18n="area.bay">Tampa Bay</text>
+            <g class="map__pins" aria-hidden="true">
+              <g class="pin" style="--d:1"><circle cx="330.3" cy="54.6" r="4"/><text x="341" y="58">Wesley Chapel</text></g>
+              <g class="pin" style="--d:2"><circle cx="90" cy="219" r="4"/><text x="100" y="223">Clearwater</text></g>
+              <g class="pin" style="--d:3"><circle cx="94" cy="252" r="4"/><text x="104" y="256">Largo</text></g>
+              <g class="pin" style="--d:4"><circle cx="272" cy="222" r="4"/><text x="282" y="214">Tampa</text></g>
+              <g class="pin" style="--d:5"><circle cx="352.6" cy="235.2" r="4"/><text x="362" y="239">Brandon</text></g>
+              <g class="pin pin--home" style="--d:0"><circle cx="158" cy="336" r="7"/><circle cx="158" cy="336" r="14" class="pin__ring"/><text x="88" y="378">St. Petersburg</text></g>
+              <g class="pin" style="--d:6"><circle cx="199.1" cy="498.6" r="4"/><text x="209" y="502">Bradenton</text></g>
+              <g class="pin" style="--d:7"><circle cx="292" cy="546" r="4"/><text x="302" y="550">Lakewood Ranch</text></g>
+              <g class="pin" style="--d:8"><circle cx="222.5" cy="596.4" r="4"/><text x="233" y="600">Sarasota</text></g>
+            </g>
+            <g class="map__scale" aria-hidden="true"><path d="M24 712h87"/><path d="M24 706v12M111 706v12"/><text x="24" y="700">10 mi</text></g>
+            <g class="map__north" aria-hidden="true"><path d="M420 640 412 662h16z"/><text x="416" y="682">N</text></g>
+          </svg>
+          <figcaption class="mono"><span class="dot"></span><span data-i18n="area.yard">Our yard, St. Petersburg</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section class="section reviews" id="reviews" aria-labelledby="rev-h">
+      <div class="wrap">
+        <header class="head">
+          <p class="eyebrow eyebrow--dark" data-i18n="rev.eyebrow">Reviews</p>
+          <h2 class="h2 rv" id="rev-h"><span data-i18n-html="rev.h">What homeowners <em>say after.</em></span></h2>
+        </header>
+        <div class="quotes">
+          <figure class="quote quote--big">
+            <blockquote><p data-i18n="rev.q1">They found three sheets of rotted plywood under our old shingles and sent me photos before they replaced them. The permit was closed two weeks after they finished, and the wind mitigation report took a real chunk off our insurance.</p></blockquote>
+            <figcaption><b>Denise R.</b><span class="mono"><span>Largo</span> · <span data-i18n="rev.w1">Shingle re-roof</span></span></figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote><p data-i18n="rev.q2">After the hurricane half our street had tarps waiting on a list. Keelson had ours on the next morning and the photo report was ready before the adjuster even called.</p></blockquote>
+            <figcaption><b>Marcus T.</b><span class="mono"><span>St. Petersburg</span> · <span data-i18n="rev.w2">Storm claim</span></span></figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote><p data-i18n="rev.q3">We went with standing seam because we're two blocks from the water. Quiet crew, magnet sweep of the yard twice a day, and not one nail in the driveway.</p></blockquote>
+            <figcaption><b>Paul K.</b><span class="mono"><span>Clearwater</span> · <span data-i18n="rev.w3">Standing-seam metal</span></span></figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote><p data-i18n="rev.q4">Two cracked tiles turned into a leak over the kitchen. They matched the color, re-set the hip and charged exactly what the estimate said.</p></blockquote>
+            <figcaption><b>Rosa M.</b><span class="mono"><span>Brandon</span> · <span data-i18n="rev.w4">Tile repair</span></span></figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote><p data-i18n="rev.q5">The new gutters actually keep up with the afternoon storms. Before, the water came straight over the front door.</p></blockquote>
+            <figcaption><b>Jorge A.</b><span class="mono"><span>Wesley Chapel</span> · <span data-i18n="rev.w5">Gutters</span></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ESTIMATE ============ -->
+    <section class="section estimate" id="estimate" aria-labelledby="est-h">
+      <div class="wrap est__grid">
+        <div class="est__side">
+          <p class="eyebrow" data-i18n="est.eyebrow">Free estimate</p>
+          <h2 class="h2 rv" id="est-h"><span data-i18n-html="est.h">Tell us about <em>your roof.</em></span></h2>
+          <p class="est__lede" data-i18n="est.lede">We call within one business day to set up a visit. The inspection takes about 45 minutes, and you get a written, itemized estimate with photos of what we found.</p>
+          <ol class="next">
+            <li><span class="mono">01</span><span data-i18n="est.n1">We call you back within one business day</span></li>
+            <li><span class="mono">02</span><span data-i18n="est.n2">Roof, attic and deck checked, with photos</span></li>
+            <li><span class="mono">03</span><span data-i18n="est.n3">Written estimate, line by line, no pressure</span></li>
+          </ol>
+          <a class="est__phone" href="tel:+17275550148"><span class="mono" data-i18n="est.call">Rather call?</span>(727) 555-0148</a>
+        </div>
+
+        <form class="form" novalidate>
+          <div class="form__fields">
+            <div class="row">
+              <div class="field"><label for="f-name" data-i18n="f.name">Name</label><input id="f-name" name="name" required autocomplete="name" placeholder="Maria Lopez" data-i18n-attr="placeholder:f.nameP"></div>
+              <div class="field"><label for="f-tel" data-i18n="f.tel">Phone</label><input id="f-tel" name="tel" type="tel" required autocomplete="tel" placeholder="(727) 555-0100" data-i18n-attr="placeholder:f.telP"></div>
+            </div>
+            <div class="row">
+              <div class="field"><label for="f-email" data-i18n="f.email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" data-i18n-attr="placeholder:f.emailP"></div>
+              <div class="field"><label for="f-city" data-i18n="f.city">City</label>
+                <select id="f-city" name="city" autocomplete="address-level2">
+                  <option value="" data-i18n="f.cityP">Choose your city</option>
+                  <option>St. Petersburg</option><option>Clearwater</option><option>Largo</option><option>Tampa</option><option>Brandon</option>
+                  <option>Wesley Chapel</option><option>Bradenton</option><option>Lakewood Ranch</option><option>Sarasota</option>
+                  <option value="other" data-i18n="f.cityO">Somewhere else nearby</option>
+                </select></div>
+            </div>
+            <fieldset class="chips">
+              <legend data-i18n="f.roof">Your roof today</legend>
+              <label class="chip"><input type="radio" name="roof" value="shingle" checked><span data-i18n="f.r1">Shingle</span></label>
+              <label class="chip"><input type="radio" name="roof" value="metal"><span data-i18n="f.r2">Metal</span></label>
+              <label class="chip"><input type="radio" name="roof" value="tile"><span data-i18n="f.r3">Tile</span></label>
+              <label class="chip"><input type="radio" name="roof" value="unsure"><span data-i18n="f.r4">Not sure</span></label>
+            </fieldset>
+            <fieldset class="chips">
+              <legend data-i18n="f.need">What do you need?</legend>
+              <label class="chip"><input type="checkbox" name="need" value="replace" checked><span data-i18n="f.n1">New roof</span></label>
+              <label class="chip"><input type="checkbox" name="need" value="repair"><span data-i18n="f.n2">Repair or leak</span></label>
+              <label class="chip"><input type="checkbox" name="need" value="storm"><span data-i18n="f.n3">Storm damage</span></label>
+              <label class="chip"><input type="checkbox" name="need" value="wind"><span data-i18n="f.n4">Wind mitigation</span></label>
+              <label class="chip"><input type="checkbox" name="need" value="gutters"><span data-i18n="f.n5">Gutters</span></label>
+            </fieldset>
+            <div class="field"><label for="f-msg" data-i18n="f.msg">Anything we should know?</label><textarea id="f-msg" name="msg" rows="3" placeholder="Age of the roof, where it leaks, when you're home" data-i18n-attr="placeholder:f.msgP"></textarea></div>
+            <div class="form__foot">
+              <button class="btn btn--copper btn--big" type="submit" data-i18n="f.send">Request my free estimate</button>
+              <p class="form__msg" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="form__done" hidden tabindex="-1">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 26 24 10l18 16"/><path d="M16 30l6 6 11-12"/></svg>
+            <p class="h3 form__thanks"></p>
+            <p class="form__next"></p>
+            <button class="btn btn--line form__again" type="button" data-i18n="f.again">Send another request</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p class="foot__big" aria-hidden="true">Keelson</p>
+      <div class="foot__grid">
+        <div>
+          <p class="foot__k mono" data-i18n="ft.call">Call</p>
+          <p><a href="tel:+17275550148">(727) 555-0148</a></p>
+          <p class="foot__small" data-i18n="ft.storm">Storm line answered around the clock during named storms.</p>
+        </div>
+        <div>
+          <p class="foot__k mono" data-i18n="ft.hours">Hours</p>
+          <p data-i18n="ft.h1">Monday to Friday, 7:00 am to 5:30 pm</p>
+          <p data-i18n="ft.h2">Saturday, 8:00 am to noon</p>
+        </div>
+        <div>
+          <p class="foot__k mono" data-i18n="ft.where">Where we work</p>
+          <p data-i18n="ft.counties">Pinellas, Hillsborough, Pasco, Manatee and Sarasota counties</p>
+        </div>
+        <div>
+          <p class="foot__k mono" data-i18n="ft.lic">License</p>
+          <p data-i18n="ft.licv">State Certified Roofing Contractor, Lic. CCC 1399-0041. Fully insured.</p>
+        </div>
+      </div>
+      <div class="foot__row">
+        <span>© 2026 Keelson Roofworks</span>
+        <a href="#main" data-i18n="ft.top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

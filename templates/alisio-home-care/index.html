@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-i18n="meta.title">Alisio Home Care · House and condo cleaning in South Florida</title>
+  <meta name="description" data-i18n-attr="content:meta.desc" content="Recurring, deep, move-out and post-construction cleaning for condos and houses from Boca Raton to Coral Gables. Same team every visit, plant-based supplies, a photo report before we lock up.">
+  <meta name="theme-color" content="#f7f5f0">
+  <link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    (function () {
+      var d = document.documentElement; d.classList.add('js');
+      try { var l = localStorage.getItem('alisio-lang'); if (l === 'es') d.lang = 'es'; } catch (e) {}
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('reduce');
+    })();
+  </script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">{ "imports": { "three": "./js/vendor/three.module.min.js" } }</script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <a href="#top" class="logo" aria-label="Alisio Home Care, back to top" data-i18n-attr="aria-label:nav.home">
+      <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#bfe6df"/><stop offset=".45" stop-color="#f6dfe9"/><stop offset="1" stop-color="#cfd8fb"/></linearGradient></defs><circle cx="16" cy="16" r="14" fill="url(#lg)"/><circle cx="16" cy="16" r="14" fill="none" stroke="#13233a" stroke-opacity=".5" stroke-width="1"/><path d="M8.5 12.5a8 8 0 0 1 6-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      <span class="logo__word">Alisio</span>
+    </a>
+    <nav class="nav__links" aria-label="Main" data-i18n-attr="aria-label:nav.main">
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#process" data-i18n="nav.process">How it works</a>
+      <a href="#estimate" data-i18n="nav.estimate">Pricing</a>
+      <a href="#area" data-i18n="nav.area">Where we clean</a>
+      <a href="#reviews" data-i18n="nav.reviews">Reviews</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:nav.lang">
+        <button type="button" class="lang__btn" data-lang="en" aria-pressed="true" aria-label="English">EN</button>
+        <button type="button" class="lang__btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+      </div>
+      <a href="#book" class="btn btn--ink nav__cta" data-i18n="cta.book">Book a cleaning</a>
+      <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Open menu" data-i18n-attr="aria-label:nav.open">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <nav aria-label="Mobile" data-i18n-attr="aria-label:nav.mobile">
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#process" data-i18n="nav.process">How it works</a>
+      <a href="#estimate" data-i18n="nav.estimate">Pricing</a>
+      <a href="#area" data-i18n="nav.area">Where we clean</a>
+      <a href="#reviews" data-i18n="nav.reviews">Reviews</a>
+      <a href="#book" class="btn btn--ink" data-i18n="cta.book">Book a cleaning</a>
+    </nav>
+    <p class="menu__foot"><a href="tel:+19545550142">(954) 555-0142</a> <span data-i18n="menu.text">Call or text, Mon to Sat</span></p>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <canvas class="hero__gl" aria-hidden="true"></canvas>
+      <div class="hero__fallback" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="hero__inner wrap">
+        <p class="hero__kicker"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.kicker">House and condo cleaning · Boca Raton to Coral Gables</span></p>
+        <h1 class="hero__title" id="hero-title" data-i18n-html="hero.title"><span class="line"><span>Clean, down to</span></span> <span class="line"><span><em>the grout lines.</em></span></span></h1>
+        <div class="hero__row">
+          <p class="hero__lede" data-i18n="hero.lede">Recurring and deep cleaning for South Florida homes. The same two-person team every visit, plant-based supplies, and a photo report of every room before we lock up.</p>
+          <div class="hero__actions">
+            <a href="#book" class="btn btn--ink btn--lg" data-i18n="cta.book">Book a cleaning</a>
+            <a href="#estimate" class="btn btn--line btn--lg" data-i18n="cta.estimate">Estimate your price</a>
+          </div>
+          <ul class="hero__notes" aria-label="What every visit includes" data-i18n-attr="aria-label:hero.notesLabel">
+            <li data-i18n="hero.n1">Same team every visit</li>
+            <li data-i18n="hero.n2">Fragrance-free on request</li>
+            <li data-i18n="hero.n3">Building COI handled</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ APPROACH ============ -->
+    <section class="approach" id="approach" aria-labelledby="approach-title">
+      <div class="wrap">
+        <p class="kicker"><span>01</span> <span data-i18n="ap.kicker">The way we clean</span></p>
+        <h2 class="statement" id="approach-title" data-i18n-html="ap.statement">Top to bottom, dry to wet, <em>room by room.</em> The same order every visit, so nothing gets skipped and you always know who is at your door.</h2>
+        <div class="approach__grid">
+          <figure class="approach__fig approach__fig--a reveal-img">
+            <img src="assets/img/about-light-1080.webp" srcset="assets/img/about-light-1080.webp 1080w, assets/img/about-light-1920.webp 1920w" sizes="(max-width: 760px) 92vw, 40vw" width="1080" height="1440" loading="lazy" decoding="async" alt="A white armchair in a quiet living room, with afternoon sun falling through sheer curtains" data-i18n-attr="alt:ap.alt1">
+          </figure>
+          <div class="approach__copy">
+            <p data-i18n="ap.p1">We started cleaning condos on the beach side of Fort Lauderdale, where salt air leaves a film on every slider and the AC pulls dust into every vent. We still clean that way: vents and tracks first, glass before floors, and a checklist taped inside the caddy so nothing depends on memory.</p>
+            <p data-i18n="ap.p2">Every client gets a set team of two. They learn where the dog hides, which cabinet sticks and how you like the towels folded. If someone is out sick, we tell you the night before and send someone who has read your notes.</p>
+            <dl class="facts">
+              <div><dt data-i18n="ap.f1t">Supplies</dt><dd data-i18n="ap.f1d">Plant-based cleaners, HEPA vacuum, color-coded microfiber. Fragrance-free if you ask.</dd></div>
+              <div><dt data-i18n="ap.f2t">Keys</dt><dd data-i18n="ap.f2d">Lockbox, front desk or key pickup. Keys are tagged with a number, never an address.</dd></div>
+              <div><dt data-i18n="ap.f3t">Buildings</dt><dd data-i18n="ap.f3d">We send the certificate of insurance to your management office before the first visit.</dd></div>
+            </dl>
+          </div>
+          <figure class="approach__fig approach__fig--b reveal-img">
+            <img src="assets/img/about-towels-1080.webp" srcset="assets/img/about-towels-1080.webp 1080w, assets/img/about-towels-1920.webp 1920w" sizes="(max-width: 760px) 92vw, 34vw" width="1080" height="720" loading="lazy" decoding="async" alt="Gloved hands smoothing a stack of freshly folded white towels" data-i18n-attr="alt:ap.alt2">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="kicker"><span>02</span> <span data-i18n="sv.kicker">Services</span></p>
+          <h2 class="h2" id="services-title" data-i18n-html="sv.title">Pick a rhythm, <em>or just a reset.</em></h2>
+        </div>
+        <ol class="svc">
+          <li class="svc__row" data-img="svc-recurring">
+            <span class="svc__num">01</span>
+            <img class="svc__thumb" src="assets/img/svc-recurring-1080.webp" width="1080" height="694" loading="lazy" decoding="async" alt="A woman wiping down a kitchen table in a bright kitchen" data-i18n-attr="alt:sv.a1">
+            <h3 class="svc__name" data-i18n="sv.t1">Recurring cleaning</h3>
+            <p class="svc__desc" data-i18n="sv.d1">Weekly, every two weeks or monthly. Kitchen, bathrooms, dusting, floors, beds made and the trash out. Same team, same checklist, same day of the week.</p>
+            <p class="svc__price"><span data-i18n="sv.from">from</span> <strong>$130</strong></p>
+          </li>
+          <li class="svc__row" data-img="svc-deep">
+            <span class="svc__num">02</span>
+            <img class="svc__thumb" src="assets/img/svc-deep-1080.webp" width="1080" height="720" loading="lazy" decoding="async" alt="A hand wiping a granite countertop with a cloth and a spray bottle" data-i18n-attr="alt:sv.a2">
+            <h3 class="svc__name" data-i18n="sv.t2">Deep clean</h3>
+            <p class="svc__desc" data-i18n="sv.d2">The first visit for most homes. Baseboards, door frames, vents, cabinet fronts, shower grout scrubbed, and the build-up behind the toilet and under the sink.</p>
+            <p class="svc__price"><span data-i18n="sv.from">from</span> <strong>$255</strong></p>
+          </li>
+          <li class="svc__row" data-img="svc-move">
+            <span class="svc__num">03</span>
+            <img class="svc__thumb" src="assets/img/svc-move-1080.webp" width="1080" height="721" loading="lazy" decoding="async" alt="An empty, sunlit dining area with glass doors opening onto a balcony" data-i18n-attr="alt:sv.a3">
+            <h3 class="svc__name" data-i18n="sv.t3">Move-in and move-out</h3>
+            <p class="svc__desc" data-i18n="sv.d3">An empty-home clean inside every cabinet, drawer, closet and appliance. Timed around your lease, your closing or the building's elevator reservation.</p>
+            <p class="svc__price"><span data-i18n="sv.from">from</span> <strong>$285</strong></p>
+          </li>
+          <li class="svc__row" data-img="svc-build">
+            <span class="svc__num">04</span>
+            <img class="svc__thumb" src="assets/img/svc-build-1080.webp" width="1080" height="810" loading="lazy" decoding="async" alt="A newly finished marble bathroom with a floating vanity and a soaking tub" data-i18n-attr="alt:sv.a4">
+            <h3 class="svc__name" data-i18n="sv.t4">Post-construction</h3>
+            <p class="svc__desc" data-i18n="sv.d4">After a remodel, the fine dust comes off every ledge, vent and light fixture. Paint specks and sticker residue come off the glass, tape lines off the floors.</p>
+            <p class="svc__price"><span data-i18n="sv.from">from</span> <strong>$420</strong></p>
+          </li>
+          <li class="svc__row" data-img="svc-turnover">
+            <span class="svc__num">05</span>
+            <img class="svc__thumb" src="assets/img/svc-turnover-1080.webp" width="1080" height="720" loading="lazy" decoding="async" alt="A freshly made bed with two folded white towels at the foot" data-i18n-attr="alt:sv.a5">
+            <h3 class="svc__name" data-i18n="sv.t5">Vacation-rental turnovers</h3>
+            <p class="svc__desc" data-i18n="sv.d5">Between-guest resets on your checkout schedule. Linens changed, kitchen restocked to your list, and photos sent so you know it is ready for the next check-in.</p>
+            <p class="svc__price"><span data-i18n="sv.from">from</span> <strong>$110</strong></p>
+          </li>
+        </ol>
+        <div class="addons">
+          <h3 class="addons__title" data-i18n="sv.addons">Add to any visit</h3>
+          <ul class="addons__list">
+            <li><span data-i18n="ad.oven">Inside the oven</span> <b>+$35</b></li>
+            <li><span data-i18n="ad.fridge">Inside the fridge</span> <b>+$35</b></li>
+            <li><span data-i18n="ad.windows">Interior windows</span> <b>+$45</b></li>
+            <li><span data-i18n="ad.base">Baseboards, hand-wiped</span> <b>+$30</b></li>
+            <li><span data-i18n="ad.lanai">Balcony or lanai wash</span> <b>+$30</b></li>
+            <li><span data-i18n="ad.laundry">Laundry, washed and folded</span> <b>+$25</b></li>
+            <li><span data-i18n="ad.cab">Inside kitchen cabinets</span> <b>+$40</b></li>
+          </ul>
+        </div>
+      </div>
+      <div class="svc-float" aria-hidden="true"><img alt="" src="assets/img/svc-recurring-1080.webp" width="1080" height="694"></div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="process" id="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <div class="sec-head sec-head--split">
+          <div>
+            <p class="kicker kicker--light"><span>03</span> <span data-i18n="pr.kicker">How it works</span></p>
+            <h2 class="h2" id="process-title" data-i18n-html="pr.title">Four steps, <em>and the same faces.</em></h2>
+          </div>
+          <figure class="process__fig reveal-img">
+            <img src="assets/img/process-1080.webp" srcset="assets/img/process-1080.webp 1080w, assets/img/process-1920.webp 1920w" sizes="(max-width: 760px) 92vw, 46vw" width="1080" height="720" loading="lazy" decoding="async" alt="Two gloved hands wiping a white quartz counter beside a sink" data-i18n-attr="alt:pr.alt">
+          </figure>
+        </div>
+        <div class="steps__track" aria-hidden="true"><i class="steps__bar"></i></div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num">01</span>
+            <h3 class="step__title" data-i18n="pr.t1">Book</h3>
+            <p data-i18n="pr.d1">Pick a day online or text us. Tell us about pets, parking, the gate code and anything that needs a gentle hand.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">02</span>
+            <h3 class="step__title" data-i18n="pr.t2">Your team arrives</h3>
+            <p data-i18n="pr.d2">Two people you will get to know, on time, with supplies and equipment. If you are out, they use your lockbox or the front desk.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">03</span>
+            <h3 class="step__title" data-i18n="pr.t3">Room by room</h3>
+            <p data-i18n="pr.d3">A written checklist for each room. High to low, dry work before wet, and the floors last on the way out the door.</p>
+          </li>
+          <li class="step">
+            <span class="step__num">04</span>
+            <h3 class="step__title" data-i18n="pr.t4">Walkthrough and photos</h3>
+            <p data-i18n="pr.d4">Home? Walk through it together. Away? A photo of every room lands on your phone before they lock up. Anything we missed, we come back for within 24 hours.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CHECKLIST ============ -->
+    <section class="checklist" id="checklist" aria-labelledby="checklist-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="kicker"><span>04</span> <span data-i18n="ck.kicker">What's included</span></p>
+          <h2 class="h2" id="checklist-title" data-i18n-html="ck.title">In every visit, <em>in every room.</em></h2>
+        </div>
+        <div class="tabs">
+          <div class="tabs__list" role="tablist" aria-label="Rooms" data-i18n-attr="aria-label:ck.rooms">
+            <button type="button" role="tab" id="tab-kitchen" aria-controls="panel-kitchen" aria-selected="true"><span class="tabs__n">01</span><span data-i18n="ck.k">Kitchen</span></button>
+            <button type="button" role="tab" id="tab-bath" aria-controls="panel-bath" aria-selected="false" tabindex="-1"><span class="tabs__n">02</span><span data-i18n="ck.b">Bathrooms</span></button>
+            <button type="button" role="tab" id="tab-bed" aria-controls="panel-bed" aria-selected="false" tabindex="-1"><span class="tabs__n">03</span><span data-i18n="ck.r">Bedrooms</span></button>
+            <button type="button" role="tab" id="tab-living" aria-controls="panel-living" aria-selected="false" tabindex="-1"><span class="tabs__n">04</span><span data-i18n="ck.l">Living areas</span></button>
+          </div>
+          <div class="tabs__panels">
+            <ul class="ticks" role="tabpanel" id="panel-kitchen" aria-labelledby="tab-kitchen" tabindex="0">
+              <li data-i18n="ck.k1">Counters and backsplash wiped and sanitized</li>
+              <li data-i18n="ck.k2">Stovetop degreased, knobs and hood front cleaned</li>
+              <li data-i18n="ck.k3">Microwave inside and out, fridge and dishwasher fronts</li>
+              <li data-i18n="ck.k4">Cabinet fronts and handles spot-cleaned</li>
+              <li data-i18n="ck.k5">Sink scrubbed, faucet polished, drain freshened</li>
+              <li data-i18n="ck.k6">Floor vacuumed and mopped, trash out with a new liner</li>
+            </ul>
+            <ul class="ticks" role="tabpanel" id="panel-bath" aria-labelledby="tab-bath" tabindex="0" hidden>
+              <li data-i18n="ck.b1">Shower and tub scrubbed, glass squeegeed</li>
+              <li data-i18n="ck.b2">Toilet inside, outside and behind the base</li>
+              <li data-i18n="ck.b3">Vanity, sink and mirror left streak-free</li>
+              <li data-i18n="ck.b4">Fixtures descaled and polished</li>
+              <li data-i18n="ck.b5">Towels folded or hung, paper restocked</li>
+              <li data-i18n="ck.b6">Floor vacuumed and mopped edge to edge</li>
+            </ul>
+            <ul class="ticks" role="tabpanel" id="panel-bed" aria-labelledby="tab-bed" tabindex="0" hidden>
+              <li data-i18n="ck.r1">Beds made, linens changed if you leave them out</li>
+              <li data-i18n="ck.r2">Nightstands, lamps, frames and headboards dusted</li>
+              <li data-i18n="ck.r3">Ceiling fan blades and AC vents dusted</li>
+              <li data-i18n="ck.r4">Mirrors and glass surfaces wiped</li>
+              <li data-i18n="ck.r5">Closet floors vacuumed</li>
+              <li data-i18n="ck.r6">Floors vacuumed and mopped, under the bed where we can reach</li>
+            </ul>
+            <ul class="ticks" role="tabpanel" id="panel-living" aria-labelledby="tab-living" tabindex="0" hidden>
+              <li data-i18n="ck.l1">Furniture dusted, cushions straightened</li>
+              <li data-i18n="ck.l2">Sliding door tracks vacuumed, glass at hand height</li>
+              <li data-i18n="ck.l3">Remotes, switches and door handles sanitized</li>
+              <li data-i18n="ck.l4">Shelves and décor dusted piece by piece</li>
+              <li data-i18n="ck.l5">Rugs vacuumed, hard floors mopped</li>
+              <li data-i18n="ck.l6">Balcony swept and furniture wiped</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ESTIMATOR ============ -->
+    <section class="estimate" id="estimate" aria-labelledby="estimate-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="kicker"><span>05</span> <span data-i18n="es.kicker">Pricing</span></p>
+          <h2 class="h2" id="estimate-title" data-i18n-html="es.title">A ballpark <em>in ten seconds.</em></h2>
+        </div>
+        <form class="calc" id="calc" aria-describedby="calc-out">
+          <div class="calc__controls">
+            <fieldset class="seg">
+              <legend data-i18n="es.beds">Bedrooms</legend>
+              <div class="seg__opts">
+                <label><input type="radio" name="beds" value="1"><span>1</span></label>
+                <label><input type="radio" name="beds" value="2" checked><span>2</span></label>
+                <label><input type="radio" name="beds" value="3"><span>3</span></label>
+                <label><input type="radio" name="beds" value="4"><span>4</span></label>
+                <label><input type="radio" name="beds" value="5"><span>5+</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="seg">
+              <legend data-i18n="es.baths">Bathrooms</legend>
+              <div class="seg__opts">
+                <label><input type="radio" name="baths" value="1"><span>1</span></label>
+                <label><input type="radio" name="baths" value="2" checked><span>2</span></label>
+                <label><input type="radio" name="baths" value="3"><span>3</span></label>
+                <label><input type="radio" name="baths" value="4"><span>4+</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="seg seg--wide">
+              <legend data-i18n="es.type">Type of cleaning</legend>
+              <div class="seg__opts">
+                <label><input type="radio" name="freq" value="weekly"><span data-i18n="es.weekly">Weekly</span></label>
+                <label><input type="radio" name="freq" value="biweekly" checked><span data-i18n="es.biweekly">Every 2 weeks</span></label>
+                <label><input type="radio" name="freq" value="monthly"><span data-i18n="es.monthly">Monthly</span></label>
+                <label><input type="radio" name="freq" value="deep"><span data-i18n="es.deep">Deep clean</span></label>
+                <label><input type="radio" name="freq" value="move"><span data-i18n="es.move">Move-in / out</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="checks">
+              <legend data-i18n="es.extras">Add-ons</legend>
+              <label><input type="checkbox" name="add" value="35"><span data-i18n="ad.oven">Inside the oven</span></label>
+              <label><input type="checkbox" name="add" value="35"><span data-i18n="ad.fridge">Inside the fridge</span></label>
+              <label><input type="checkbox" name="add" value="45"><span data-i18n="ad.windows">Interior windows</span></label>
+              <label><input type="checkbox" name="add" value="30"><span data-i18n="ad.lanai">Balcony or lanai wash</span></label>
+              <label><input type="checkbox" name="add" value="25"><span data-i18n="ad.laundry">Laundry, washed and folded</span></label>
+            </fieldset>
+          </div>
+          <div class="calc__out" id="calc-out" aria-live="polite">
+            <p class="calc__label" data-i18n="es.estimate">Estimated price per visit</p>
+            <p class="calc__price"><span class="calc__cur">$</span><span class="calc__num">185</span></p>
+            <p class="calc__detail">About 2½ hours for a team of two</p>
+            <p class="calc__note" data-i18n="es.note">We confirm the final price after a quick video walkthrough or a few photos.</p>
+            <a href="#book" class="btn btn--pearl btn--lg calc__go" data-i18n="cta.book">Book a cleaning</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="kicker"><span>06</span> <span data-i18n="wk.kicker">Recent homes</span></p>
+          <h2 class="h2" id="work-title" data-i18n-html="wk.title">The moment <em>after we leave.</em></h2>
+        </div>
+        <div class="gallery">
+          <figure class="g g--1 reveal-img">
+            <img src="assets/img/g1-1080.webp" srcset="assets/img/g1-1080.webp 1080w, assets/img/g1-1920.webp 1920w" sizes="(max-width: 760px) 92vw, 30vw" width="1080" height="1918" loading="lazy" decoding="async" alt="A white sofa and a tall plant in a bright living room with marble floors" data-i18n-attr="alt:wk.a1">
+            <figcaption><span data-i18n="wk.c1">Living room, Aventura</span><span data-i18n="wk.s1">Every two weeks</span></figcaption>
+          </figure>
+          <figure class="g g--2 reveal-img">
+            <img src="assets/img/g3-1080.webp" srcset="assets/img/g3-1080.webp 1080w, assets/img/g3-1920.webp 1920w" sizes="(max-width: 760px) 92vw, 38vw" width="1080" height="810" loading="lazy" decoding="async" alt="A marble bathroom with a freestanding tub and a long white vanity" data-i18n-attr="alt:wk.a2">
+            <figcaption><span data-i18n="wk.c2">Primary bath, Coral Gables</span><span data-i18n="wk.s2">Deep clean</span></figcaption>
+          </figure>
+          <figure class="g g--3 reveal-img">
+            <img src="assets/img/g4-1080.webp" srcset="assets/img/g4-1080.webp 1080w, assets/img/g4-1920.webp 1920w" sizes="(max-width: 760px) 92vw, 26vw" width="1080" height="720" loading="lazy" decoding="async" alt="A stack of folded beige towels on a small white stool" data-i18n-attr="alt:wk.a3">
+            <figcaption><span data-i18n="wk.c3">Linen closet, Hollywood</span><span data-i18n="wk.s3">Rental turnover</span></figcaption>
+          </figure>
+          <figure class="g g--4 reveal-img">
+            <img src="assets/img/g5-1080.webp" srcset="assets/img/g5-1080.webp 1080w, assets/img/g5-1920.webp 1920w" sizes="(max-width: 760px) 92vw, 38vw" width="1080" height="1062" loading="lazy" decoding="async" alt="A minimalist living room with soft white sofas and tall sheer curtains" data-i18n-attr="alt:wk.a4">
+            <figcaption><span data-i18n="wk.c4">Condo, Brickell</span><span data-i18n="wk.s4">Weekly</span></figcaption>
+          </figure>
+          <figure class="g g--5 reveal-img">
+            <img src="assets/img/g2-1080.webp" srcset="assets/img/g2-1080.webp 1080w, assets/img/g2-1920.webp 1920w" sizes="(max-width: 760px) 92vw, 26vw" width="1080" height="1619" loading="lazy" decoding="async" alt="A curved white sofa beside a round glass coffee table in a sunny room" data-i18n-attr="alt:wk.a5">
+            <figcaption><span data-i18n="wk.c5">Family room, Weston</span><span data-i18n="wk.s5">Move-in</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="ba">
+          <div class="ba__head">
+            <h3 class="ba__title" data-i18n-html="ba.title">A guest bath in Miami Beach, <em>before and after.</em></h3>
+            <p class="ba__text" data-i18n="ba.text">Hard-water spots on the shower glass, soap film on the mirror, grime in the floor grout. One deep clean, about three hours.</p>
+          </div>
+          <div class="ba__frame" style="--pos: 50%">
+            <img class="ba__img" src="assets/img/ba-1080.webp" srcset="assets/img/ba-1080.webp 1080w, assets/img/ba-1920.webp 1920w" sizes="(max-width: 1400px) 92vw, 1300px" width="1080" height="720" loading="lazy" decoding="async" alt="After: the bathroom with clear shower glass, a bright mirror and clean white marble" data-i18n-attr="alt:ba.after">
+            <div class="ba__before">
+              <img class="ba__img" src="assets/img/ba-before-1080.webp" srcset="assets/img/ba-before-1080.webp 1080w, assets/img/ba-before-1920.webp 1920w" sizes="(max-width: 1400px) 92vw, 1300px" width="1080" height="720" loading="lazy" decoding="async" alt="Before: the same bathroom with spotted shower glass, a filmy mirror and dull, stained floors" data-i18n-attr="alt:ba.before">
+            </div>
+            <span class="ba__tag ba__tag--b" aria-hidden="true" data-i18n="ba.b">Before</span>
+            <span class="ba__tag ba__tag--a" aria-hidden="true" data-i18n="ba.a">After</span>
+            <span class="ba__handle" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <input class="ba__range" type="range" min="0" max="100" value="50" step="1" aria-label="Before and after comparison" data-i18n-attr="aria-label:ba.label">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AREA ============ -->
+    <section class="area" id="area" aria-labelledby="area-title">
+      <div class="wrap area__grid">
+        <div class="area__copy">
+          <p class="kicker"><span>07</span> <span data-i18n="ar.kicker">Where we clean</span></p>
+          <h2 class="h2" id="area-title" data-i18n-html="ar.title">From Boca <em>to the Gables.</em></h2>
+          <p class="area__lede" data-i18n="ar.lede">Teams start the day from Fort Lauderdale and work the coast in both directions. If you live between two of these, text us. We probably already clean on your street.</p>
+          <div class="cities">
+            <div>
+              <h3 data-i18n="ar.pb">Palm Beach County</h3>
+              <ul><li>Boca Raton</li></ul>
+            </div>
+            <div>
+              <h3 data-i18n="ar.br">Broward County</h3>
+              <ul><li>Fort Lauderdale</li><li>Hollywood</li><li>Weston</li><li>Pembroke Pines</li></ul>
+            </div>
+            <div>
+              <h3 data-i18n="ar.md">Miami-Dade County</h3>
+              <ul><li>Aventura</li><li>Miami Beach</li><li>Miami</li><li>Brickell</li><li>Coral Gables</li></ul>
+            </div>
+          </div>
+        </div>
+        <figure class="map" aria-labelledby="map-cap">
+          <svg viewBox="0 0 400 560" role="img" aria-labelledby="map-title">
+            <title id="map-title" data-i18n="ar.maptitle">Map of the South Florida coast from Boca Raton to Coral Gables, with our service cities marked</title>
+            <defs>
+              <linearGradient id="sea" x1="0" x2="1"><stop offset="0" stop-color="#d7ebe8"/><stop offset="1" stop-color="#eaf4f2"/></linearGradient>
+              <radialGradient id="pearl" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#d7f0ea"/><stop offset="1" stop-color="#e9d6ef"/></radialGradient>
+            </defs>
+            <rect x="0" y="0" width="400" height="560" fill="url(#sea)"/>
+            <path class="map__land" d="M0 0 H318 C316 60 312 140 308 220 C306 280 305 330 302 380 C300 420 296 445 290 465 C282 492 272 520 262 560 H0 Z"/>
+            <path class="map__bay" d="M286 344 C292 372 292 410 288 440 C285 458 280 470 272 484 C268 466 270 438 272 410 C274 382 279 360 286 344 Z"/>
+            <path class="map__coast" d="M318 0 C316 60 312 140 308 220 C306 280 305 330 302 380 C300 420 296 445 290 465 C282 492 272 520 262 560" fill="none"/>
+            <g class="map__grid" aria-hidden="true"><path d="M0 140 H400 M0 280 H400 M0 420 H400 M100 0 V560 M200 0 V560"/></g>
+            <g class="map__pins">
+              <g class="pin" transform="translate(300 54)"><circle r="7"/><text x="-14" y="5" text-anchor="end">Boca Raton</text></g>
+              <g class="pin pin--home" transform="translate(296 186)"><circle r="9"/><text x="-16" y="5" text-anchor="end">Fort Lauderdale</text></g>
+              <g class="pin" transform="translate(150 196)"><circle r="6"/><text x="0" y="-14" text-anchor="middle">Weston</text></g>
+              <g class="pin" transform="translate(184 262)"><circle r="6"/><text x="0" y="24" text-anchor="middle">Pembroke Pines</text></g>
+              <g class="pin" transform="translate(294 254)"><circle r="6"/><text x="-14" y="-6" text-anchor="end">Hollywood</text></g>
+              <g class="pin" transform="translate(290 300)"><circle r="6"/><text x="-14" y="5" text-anchor="end">Aventura</text></g>
+              <g class="pin" transform="translate(296 384)"><circle r="6"/><text x="16" y="5">Miami Beach</text></g>
+              <g class="pin" transform="translate(262 396)"><circle r="6"/><text x="-14" y="5" text-anchor="end">Miami</text></g>
+              <g class="pin" transform="translate(264 418)"><circle r="5"/><text x="-12" y="18" text-anchor="end">Brickell</text></g>
+              <g class="pin" transform="translate(234 452)"><circle r="6"/><text x="-14" y="5" text-anchor="end">Coral Gables</text></g>
+            </g>
+            <text class="map__ocean" x="360" y="300" text-anchor="middle" transform="rotate(90 360 300)" data-i18n="ar.ocean">Atlantic Ocean</text>
+          </svg>
+          <figcaption id="map-cap"><span class="map__home" aria-hidden="true"></span><span data-i18n="ar.cap">Teams leave from Fort Lauderdale every morning</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <p class="kicker"><span>08</span> <span data-i18n="rv.kicker">Reviews</span></p>
+          <h2 class="h2" id="reviews-title" data-i18n-html="rv.title">Notes from <em>the people we clean for.</em></h2>
+        </div>
+        <ul class="quotes">
+          <li class="quote quote--lg">
+            <blockquote><p data-i18n="rv.q1">Same two people every other Thursday for a year now. Marisol knows the cat hides under the guest bed and vacuums around her. The grout in our shower is white again.</p></blockquote>
+            <p class="quote__by"><strong>Daniela R.</strong> <span>Coral Gables</span></p>
+          </li>
+          <li class="quote">
+            <blockquote><p data-i18n="rv.q2">They sent the insurance certificate to my building manager before I even asked. Thirty-second floor, no drama, and the slider glass is spotless.</p></blockquote>
+            <p class="quote__by"><strong>Kevin M.</strong> <span>Brickell</span></p>
+          </li>
+          <li class="quote">
+            <blockquote><p data-i18n="rv.q3">We turn our two-bedroom over most weekends. The photos land on my phone before noon and the beds are always made tight.</p></blockquote>
+            <p class="quote__by"><strong>Andrea P.</strong> <span>Hollywood</span></p>
+          </li>
+          <li class="quote">
+            <blockquote><p data-i18n="rv.q4">Move-out clean on a Friday, landlord walkthrough on Saturday, full deposit back. They even got the oven racks.</p></blockquote>
+            <p class="quote__by"><strong>Tomás G.</strong> <span>Fort Lauderdale</span></p>
+          </li>
+          <li class="quote">
+            <blockquote><p data-i18n="rv.q5">I asked for fragrance-free because of my son's asthma. No perfume smell, just clean, and they have remembered on every visit since.</p></blockquote>
+            <p class="quote__by"><strong>Lauren S.</strong> <span>Weston</span></p>
+          </li>
+          <li class="quote quote--lg">
+            <blockquote><p data-i18n="rv.q6">After our kitchen remodel there was dust on top of dust, even inside the light fixtures. Two days later you would never know a contractor had been here.</p></blockquote>
+            <p class="quote__by"><strong>Ricardo V.</strong> <span>Pembroke Pines</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq__grid">
+        <div>
+          <p class="kicker"><span>09</span> <span data-i18n="fq.kicker">Good to know</span></p>
+          <h2 class="h2" id="faq-title" data-i18n-html="fq.title">Before <em>the first visit.</em></h2>
+        </div>
+        <div class="faq__list">
+          <details>
+            <summary data-i18n="fq.q1">Do I need to be home?</summary>
+            <p data-i18n="fq.a1">No. Most clients leave a key with the front desk or give us a lockbox code. We keep keys tagged with a number, never with your name or address.</p>
+          </details>
+          <details>
+            <summary data-i18n="fq.q2">Do you bring your own supplies?</summary>
+            <p data-i18n="fq.a2">Yes. Plant-based cleaners, a HEPA vacuum, mops and color-coded microfiber, so bathroom cloths never touch your kitchen. If you prefer your own products, leave them out and we will use them.</p>
+          </details>
+          <details>
+            <summary data-i18n="fq.q3">My building asks for a certificate of insurance.</summary>
+            <p data-i18n="fq.a3">Send us the management office's email and any wording they need. We usually send the certificate the same day, and we keep it on file for every visit after.</p>
+          </details>
+          <details>
+            <summary data-i18n="fq.q4">What if something gets missed?</summary>
+            <p data-i18n="fq.a4">Tell us within 24 hours. The same team comes back to fix it, at no charge.</p>
+          </details>
+          <details>
+            <summary data-i18n="fq.q5">We have pets. Is that OK?</summary>
+            <p data-i18n="fq.a5">Of course. Tell us their names, where they like to hide and which doors should stay closed. We note it on your checklist so every visit goes the same way.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOOK ============ -->
+    <section class="book" id="book" aria-labelledby="book-title">
+      <div class="wrap book__grid">
+        <div class="book__copy">
+          <p class="kicker kicker--light"><span>10</span> <span data-i18n="bk.kicker">Book</span></p>
+          <h2 class="book__title" id="book-title" data-i18n-html="bk.title">Book a <em>cleaning.</em></h2>
+          <p class="book__lede" data-i18n="bk.lede">Tell us a little about your place. We text back within two business hours with times that work, and the price before anyone shows up.</p>
+          <ul class="book__contact">
+            <li><span data-i18n="bk.call">Call or text</span> <a href="tel:+19545550142">(954) 555-0142</a></li>
+            <li><span data-i18n="bk.hours">Hours</span> <span data-i18n="bk.hoursv">Mon to Fri 7:30 a.m. to 6 p.m. · Sat 8 a.m. to 2 p.m.</span></li>
+          </ul>
+        </div>
+        <div class="book__card">
+          <form class="form" id="book-form" novalidate>
+            <div class="form__row">
+              <div class="field">
+                <label for="f-name" data-i18n="bk.name">Your name</label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Ana Rivera" data-i18n-attr="placeholder:bk.namePh" aria-describedby="e-name">
+                <p class="field__err" id="e-name"></p>
+              </div>
+              <div class="field">
+                <label for="f-phone" data-i18n="bk.phone">Mobile number</label>
+                <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="(954) 555-0100" aria-describedby="e-phone">
+                <p class="field__err" id="e-phone"></p>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="field">
+                <label for="f-email"><span data-i18n="bk.email">Email</span> <span class="opt" data-i18n="bk.optional">(optional)</span></label>
+                <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" data-i18n-attr="placeholder:bk.emailPh" aria-describedby="e-email">
+                <p class="field__err" id="e-email"></p>
+              </div>
+              <div class="field">
+                <label for="f-zip" data-i18n="bk.zip">ZIP code</label>
+                <input id="f-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" required placeholder="33301" aria-describedby="e-zip">
+                <p class="field__err" id="e-zip"></p>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="field">
+                <label for="f-service" data-i18n="bk.service">Type of cleaning</label>
+                <select id="f-service" name="service">
+                  <option value="biweekly" data-i18n="bk.o1">Recurring, every 2 weeks</option>
+                  <option value="weekly" data-i18n="bk.o2">Recurring, weekly</option>
+                  <option value="monthly" data-i18n="bk.o3">Recurring, monthly</option>
+                  <option value="deep" data-i18n="bk.o4">Deep clean</option>
+                  <option value="move" data-i18n="bk.o5">Move-in or move-out</option>
+                  <option value="build" data-i18n="bk.o6">Post-construction</option>
+                  <option value="rental" data-i18n="bk.o7">Vacation-rental turnover</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-day" data-i18n="bk.day">Preferred day</label>
+                <select id="f-day" name="day">
+                  <option value="any" data-i18n="bk.d0">Any weekday</option>
+                  <option value="mon" data-i18n="bk.d1">Monday</option>
+                  <option value="tue" data-i18n="bk.d2">Tuesday</option>
+                  <option value="wed" data-i18n="bk.d3">Wednesday</option>
+                  <option value="thu" data-i18n="bk.d4">Thursday</option>
+                  <option value="fri" data-i18n="bk.d5">Friday</option>
+                  <option value="sat" data-i18n="bk.d6">Saturday</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-home" data-i18n="bk.home">Your home</label>
+              <input id="f-home" name="home" type="text" placeholder="2 bedrooms, 2 bathrooms, condo" data-i18n-attr="placeholder:bk.homePh">
+            </div>
+            <div class="field">
+              <label for="f-notes" data-i18n="bk.notes">Anything we should know?</label>
+              <textarea id="f-notes" name="notes" rows="3" placeholder="Gate code, parking, pets, the room that needs the most love" data-i18n-attr="placeholder:bk.notesPh"></textarea>
+            </div>
+            <label class="tick-box"><input type="checkbox" name="ff"><span data-i18n="bk.ff">Fragrance-free products, please</span></label>
+            <button type="submit" class="btn btn--ink btn--lg btn--full" data-i18n="cta.book">Book a cleaning</button>
+          </form>
+          <div class="thanks" id="thanks" hidden tabindex="-1">
+            <svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 33l8 8 16-17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3 class="thanks__title"></h3>
+            <p class="thanks__text"></p>
+            <button type="button" class="btn btn--line" id="again" data-i18n="bk.again">Send another request</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__top">
+        <p class="foot__tag" data-i18n="ft.tag">House and condo cleaning across Broward, Miami-Dade and south Palm Beach.</p>
+        <div class="foot__cols">
+          <div>
+            <h2 class="foot__h" data-i18n="ft.contact">Contact</h2>
+            <p><a href="tel:+19545550142">(954) 555-0142</a><br><span data-i18n="ft.text">Call or text</span></p>
+          </div>
+          <div>
+            <h2 class="foot__h" data-i18n="ft.hours">Hours</h2>
+            <p><span data-i18n="ft.h1">Mon to Fri, 7:30 a.m. to 6 p.m.</span><br><span data-i18n="ft.h2">Saturday, 8 a.m. to 2 p.m.</span></p>
+          </div>
+          <div>
+            <h2 class="foot__h" data-i18n="ft.explore">Explore</h2>
+            <p><a href="#services" data-i18n="nav.services">Services</a><br><a href="#estimate" data-i18n="nav.estimate">Pricing</a><br><a href="#book" data-i18n="cta.book">Book a cleaning</a></p>
+          </div>
+        </div>
+      </div>
+      <p class="foot__word" aria-hidden="true">Alisio</p>
+      <div class="foot__base">
+        <p>© 2026 Alisio Home Care</p>
+        <p data-i18n="ft.based">Based in Fort Lauderdale, Florida</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
