@@ -36,12 +36,29 @@
   function select(id, fly) {
     sel = id; $$('.aoff').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.id === id)));
     const d = D.districts.find(x => x.id === id);
-    if (!d) { $('#aCard').hidden = true; if (ready) map.setFilter('d-sel', ['==', ['get', 'id'], '']); return; }
+    if (!d) {
+      $('#aCard').hidden = true;
+      if (ready) {
+        ['d-sel', 'd-sel-fill', 'd-sel-glow'].forEach(l => map.setFilter(l, ['==', ['get', 'id'], '']));
+        map.setFilter('t-sel-3d', ['in', ['get', 'id'], ['literal', []]]);
+        map.setPaintProperty('mask', 'fill-opacity', 0);
+        map.setLayoutProperty('d-label', 'visibility', 'visible');
+        if (!threeD) map.easeTo({ pitch: 0, bearing: 0, duration: reduce ? 0 : 900 });
+      }
+      return;
+    }
     renderCard(d);
     $('#aCard').hidden = false;
     if (ready) {
-      map.setFilter('d-sel', ['==', ['get', 'id'], id]); map.setFilter('d-sel-fill', ['==', ['get', 'id'], id]);
-      if (fly) { const [a, b, c2, e] = d.bbox; map.fitBounds([[a, b], [c2, e]], { padding: { top: 90, bottom: 60, left: innerWidth > 900 ? 400 : 30, right: innerWidth > 900 ? 380 : 30 }, duration: reduce ? 0 : 1200, pitch: threeD ? 50 : 0, bearing: threeD ? -18 : 0 }); }
+      ['d-sel', 'd-sel-fill', 'd-sel-glow'].forEach(l => map.setFilter(l, ['==', ['get', 'id'], id]));
+      map.setFilter('t-sel-3d', ['in', ['get', 'id'], ['literal', d.tractIds]]);
+      // fade the rest of the city: a cream layer over everything except this district
+      const holes = (d.shape.type === 'Polygon' ? [d.shape.coordinates] : d.shape.coordinates).map(poly => poly[0].slice().reverse());
+      map.getSource('mask').setData({ type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [[[-75, 40], [-67, 40], [-67, 45], [-75, 45], [-75, 40]], ...holes] } });
+      map.setPaintProperty('mask', 'fill-opacity', .78);
+      map.setLayoutProperty('d-label', 'visibility', 'none');
+      const [a, b, c2, e] = d.bbox;
+      map.fitBounds([[a, b], [c2, e]], { padding: { top: 110, bottom: 80, left: innerWidth > 900 ? 400 : 30, right: innerWidth > 900 ? 480 : 30 }, duration: reduce ? 0 : 1300, pitch: reduce ? 0 : 50, bearing: reduce ? 0 : -18 });
     }
   }
   /* ---------- the card: photo + chart carousel ---------- */
@@ -116,6 +133,8 @@
     map.setPaintProperty('t-fill', 'fill-color', color);
     map.setPaintProperty('t-3d', 'fill-extrusion-color', color);
     map.setPaintProperty('t-3d', 'fill-extrusion-height', ['*', ['/', ['get', measure], stops[3]], 650]);
+    map.setPaintProperty('t-sel-3d', 'fill-extrusion-color', color);
+    map.setPaintProperty('t-sel-3d', 'fill-extrusion-height', ['+', 120, ['*', ['/', ['get', measure], stops[3]], 900]]);
   }
   function drawLevel() {
     if (!ready) return;
@@ -151,9 +170,13 @@
       map.addSource('dists', { type: 'geojson', data: fc([]) });
       map.addLayer({ id: 't-fill', type: 'fill', source: 'tracts', paint: { 'fill-opacity': .78, 'fill-outline-color': 'rgba(255,253,249,.6)' } }, firstLabel);
       map.addLayer({ id: 't-3d', type: 'fill-extrusion', source: 'tracts', layout: { visibility: 'none' }, paint: { 'fill-extrusion-opacity': .9 } });
-      map.addLayer({ id: 'd-sel-fill', type: 'fill', source: 'dists', filter: ['==', ['get', 'id'], ''], paint: { 'fill-color': '#1d1b18', 'fill-opacity': .08 } });
+      map.addSource('mask', { type: 'geojson', data: fc([]) });
+      map.addLayer({ id: 'mask', type: 'fill', source: 'mask', paint: { 'fill-color': '#f3eee5', 'fill-opacity': 0, 'fill-opacity-transition': { duration: reduce ? 0 : 600 } } });
+      map.addLayer({ id: 't-sel-3d', type: 'fill-extrusion', source: 'tracts', filter: ['in', ['get', 'id'], ['literal', []]], paint: { 'fill-extrusion-opacity': .96, 'fill-extrusion-vertical-gradient': true } });
+      map.addLayer({ id: 'd-sel-fill', type: 'fill', source: 'dists', filter: ['==', ['get', 'id'], ''], paint: { 'fill-color': '#a63f22', 'fill-opacity': .06 } });
+      map.addLayer({ id: 'd-sel-glow', type: 'line', source: 'dists', filter: ['==', ['get', 'id'], ''], paint: { 'line-color': '#a63f22', 'line-width': 16, 'line-opacity': .22, 'line-blur': 8 } });
       map.addLayer({ id: 'd-line', type: 'line', source: 'dists', paint: { 'line-color': '#14322a', 'line-width': 1.4, 'line-opacity': .75 } });
-      map.addLayer({ id: 'd-sel', type: 'line', source: 'dists', filter: ['==', ['get', 'id'], ''], paint: { 'line-color': '#a63f22', 'line-width': 4 } });
+      map.addLayer({ id: 'd-sel', type: 'line', source: 'dists', filter: ['==', ['get', 'id'], ''], paint: { 'line-color': '#a63f22', 'line-width': 4.5 } });
       map.addLayer({ id: 'd-label', type: 'symbol', source: 'dists', layout: { 'text-field': ['get', 'label'], 'text-size': 12, 'text-font': ['Noto Sans Bold'], 'text-max-width': 8 }, paint: { 'text-color': '#14322a', 'text-halo-color': '#fffdf9', 'text-halo-width': 2 } });
       map.on('click', 'd-line', () => {});
       map.on('click', e => { const f = map.queryRenderedFeatures(e.point, { layers: ['d-sel-fill', 'd-line'] }); const hit = D.districts.filter(d => d.chamber === level).find(d => pointIn(e.lngLat, d)); if (hit) { select(hit.id, false); const b = $(`.aoff[data-id="${hit.id}"]`); if (b) b.scrollIntoView({ block: 'nearest' }); } });
