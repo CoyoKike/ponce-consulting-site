@@ -190,3 +190,17 @@
 /* measure buttons sit to the right of the side panel, never over it */
 .atools { left: 376px; transform: none; max-width: calc(100vw - 376px - 470px); min-width: 300px; border-radius: 22px; }
 @media (max-width: 960px) { .atools { max-width: none; min-width: 0; border-radius: 999px; } }
+
+/* housing and money: income card on the left, 2x2 rings on the right */
+.hgrid { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: 1.1fr 1fr 1fr; grid-template-rows: auto auto; gap: 18px; }
+.hgrid > li { background: #fffdf9; border: 1px solid var(--line); border-radius: 22px; padding: 22px; }
+.hgrid__inc { grid-row: 1 / span 2; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(160deg, #14322a, #1f4a3d) !important; color: #fffdf9; border: 0 !important; }
+.hgrid__inc .hgrid__k { font: 700 .75rem var(--sans); letter-spacing: .18em; text-transform: uppercase; color: #f0d9c4; }
+.hgrid__inc b { font: 500 clamp(2.4rem, 4vw, 3.6rem)/1.05 var(--serif); margin: 14px 0 10px; }
+.hgrid__inc small { color: #e6ede9; font-size: .9375rem; }
+.hgrid__d { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.hgrid__d .vc-gauge { width: 150px; max-width: 100%; }
+.hgrid__d span { margin-top: 8px; font-weight: 700; }
+.hgrid__d small { margin-top: 2px; color: var(--muted); }
+.hgrid__note { grid-column: 1 / -1; background: none !important; border: 0 !important; padding: 0 !important; font-size: .875rem; color: var(--muted); }
+@media (max-width: 760px) { .hgrid { grid-template-columns: 1fr 1fr; } .hgrid__inc { grid-row: auto; grid-column: 1 / -1; } }

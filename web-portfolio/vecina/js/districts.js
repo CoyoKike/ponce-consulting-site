@@ -101,13 +101,14 @@
       `<p class="note"><span class="legend-tick" aria-hidden="true"></span> The thin line marks the Boston rate. Adult estimates from CDC PLACES, weighted by tract population.</p>`;
 
     $('#homeHead').textContent = `${pct(s.poverty)} of residents live below the poverty line, ${cmpWord(s.poverty, c.poverty)}.`;
-    $('#kHome').innerHTML = [
-      [pct(s.poverty), 'Below the poverty line', `Boston ${pct(c.poverty)}`],
-      [pct(s.rentburden), 'Renters paying 50%+ of income on rent', `Boston ${pct(c.rentburden)}`],
-      [pct(s.health.FOODINSECU), 'Adults facing food insecurity', `Boston ${pct(c.health.FOODINSECU)}`],
-      [pct(s.health.HOUSINSECU), 'Adults facing housing insecurity', `Boston ${pct(c.health.HOUSINSECU)}`],
-      [s.income_median_tract ? '$' + fmt(s.income_median_tract) : '—', 'Median household income, middle tract', 'Typical tract in the district']
-    ].map(([n, l, sub]) => `<li class="kpi"><b>${n}</b><span>${l}</span><small>${sub}</small></li>`).join('');
+    $('#kHome').className = 'hgrid';
+    $('#kHome').innerHTML = `<li class="hgrid__inc"><span class="hgrid__k">Median household income</span><b>${s.income_median_tract ? '$' + fmt(s.income_median_tract) : '—'}</b><small>Middle census tract in the district</small></li>` + [
+      [s.poverty, c.poverty, 'Below the poverty line', '#7a5400'],
+      [s.rentburden, c.rentburden, 'Renters paying 50%+ of income on rent', '#a63f22'],
+      [s.health.FOODINSECU, c.health.FOODINSECU, 'Adults facing food insecurity', '#6a3d8f'],
+      [s.health.HOUSINSECU, c.health.HOUSINSECU, 'Adults facing housing insecurity', '#1d5f80']
+    ].map(([v, cv, l, col]) => `<li class="hgrid__d">${window.VCharts.gauge(v, col, cv)}<span>${l}</span><small>Boston ${pct(cv)}</small></li>`).join('') +
+      `<li class="hgrid__note"><span class="legend-tick" aria-hidden="true"></span> The black tick on each ring marks the Boston rate.</li>`;
 
     updateMap();
     selectTab($('#t-map'), false);
