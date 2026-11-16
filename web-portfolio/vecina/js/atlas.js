@@ -184,6 +184,7 @@
       map.addLayer({ id: 'd-label', type: 'symbol', source: 'dists', layout: { 'text-field': ['get', 'label'], 'text-size': 12, 'text-font': ['Noto Sans Bold'], 'text-max-width': 8 }, paint: { 'text-color': '#14322a', 'text-halo-color': '#fffdf9', 'text-halo-width': 2 } });
       map.on('click', 'd-line', () => {});
       map.on('click', e => { const f = map.queryRenderedFeatures(e.point, { layers: ['d-sel-fill', 'd-line'] }); const hit = D.districts.filter(d => d.chamber === level).find(d => pointIn(e.lngLat, d)); if (hit) { select(hit.id, false); const b = $(`.aoff[data-id="${hit.id}"]`); if (b) b.scrollIntoView({ block: 'nearest' }); } });
+      { const m = location.hash.match(/^#l=(.+)$/); const want = m && decodeURIComponent(m[1]); const pill = want && $$('.apanel__levels .pill').find(b => b.dataset.ch === want); if (pill) { level = want; $$('.apanel__levels .pill').forEach(x => x.setAttribute('aria-pressed', String(x === pill))); renderList(); } }
       ready = true; drawLevel(); drawMeasure(); set3D(threeD);
     });
   }

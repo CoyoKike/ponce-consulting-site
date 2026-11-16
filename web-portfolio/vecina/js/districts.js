@@ -175,7 +175,8 @@
     $('#brief').hidden = true; $('#index').hidden = false; document.title = 'District briefings · Vecina';
   }
   addEventListener('hashchange', route);
-  $('.brief__back').addEventListener('click', e => { e.preventDefault(); history.pushState('', '', location.pathname); route(); const back = $(`.dcard[href="#d=${list[cur]?.id}"]`); (back || $('#ixTitle')).focus(); });
+  // back goes to the district map, on the same level of government
+  $('.brief__back').addEventListener('click', e => { e.preventDefault(); const c = list[cur]; location.href = 'atlas.html' + (c ? '#l=' + encodeURIComponent(c.chamber) : ''); });
   $('#bPrev').addEventListener('click', () => { location.hash = 'd=' + list[(cur - 1 + list.length) % list.length].id; });
   $('#bNext').addEventListener('click', () => { location.hash = 'd=' + list[(cur + 1) % list.length].id; });
 
