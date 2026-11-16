@@ -183,3 +183,6 @@
 .seal img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
 .seal.has-photo { box-shadow: 0 0 0 6px var(--paper), 0 0 0 7px var(--clay), 0 30px 60px rgba(20, 50, 42, .22); }
 @media (max-width: 960px) { .alegend { left: auto; bottom: auto; } }
+
+/* a hidden card stays hidden (the flex layout above would otherwise override the hidden attribute) */
+.acard[hidden], [hidden] { display: none !important; }
