@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vecina · Find help near you in Boston</title>
+<meta name="description" content="Vecina is a concept community resource map for Boston: food, health care, housing, community programs, legal help and jobs, built to meet WCAG 2.1 Level AA.">
+<meta property="og:title" content="Vecina · Find help near you in Boston">
+<meta property="og:description" content="A community resource map built to meet WCAG 2.1 Level AA.">
+<meta property="og:image" content="https://ponceconsulting.org/web-portfolio/_img/vecina.jpg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/dmsans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/leaflet/leaflet.css">
+<link rel="stylesheet" href="assets/leaflet/MarkerCluster.css">
+<link rel="stylesheet" href="assets/maplibre/maplibre-gl.css">
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#results" data-i18n="skipResults">Skip to the results list</a>
+<a class="skip" href="#access" data-i18n="skipAccess">Skip to the accessibility statement</a>
+
+<header class="top">
+  <div class="wrap top__bar">
+    <a class="brand" href="./" aria-label="Vecina, home">
+      <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M20 9c-5 0-9 4-9 9 0 7 9 13 9 13s9-6 9-13c0-5-4-9-9-9Zm0 12.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" fill="currentColor"/></svg>
+      <span class="brand__name">Vecina</span>
+    </a>
+    <nav aria-label="Main" data-i18n-label="navLabel">
+      <ul class="nav">
+        <li><a href="#finder" data-i18n="navFind">Find help</a></li>
+        <li><a href="about.html" data-i18n="navAbout">About us</a></li>
+        <li><a href="#access" data-i18n="navAccess">Accessibility</a></li>
+        <li><button type="button" class="btn btn--ghost" id="suggestOpen" data-i18n="navSuggest">Suggest a listing</button></li>
+      </ul>
+    </nav>
+    <div class="langsel">
+      <label for="langSel" class="sr-only" data-i18n="langLabel">Language</label>
+      <svg class="langsel__ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21M12 3C9.5 5.6 8.2 8.6 8.2 12s1.3 6.4 3.8 9" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+      <select id="langSel">
+        <option value="en" lang="en">English</option>
+        <option value="es" lang="es">Español</option>
+        <option value="ht" lang="ht">Kreyòl ayisyen</option>
+        <option value="pt" lang="pt-BR">Português</option>
+        <option value="zh" lang="zh-Hans">中文（简体）</option>
+        <option value="vi" lang="vi">Tiếng Việt</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero__bg" aria-hidden="true">
+      <img class="hero__photo" data-px="0.3" src="assets/img/harbor-1280.webp" srcset="assets/img/harbor-1280.webp 1280w, assets/img/harbor-2400.webp 2400w" sizes="100vw" alt="" fetchpriority="high" decoding="async">
+      <div class="hero__scrim"></div>
+    </div>
+    <div class="wrap hero__inner">
+     <div class="hero__main">
+      <p class="eyebrow" data-i18n="eyebrow">Boston community resources</p>
+      <h1 id="heroTitle" class="rise"><span data-i18n="h1a">Help is closer</span> <em data-i18n="h1b">than you think.</em></h1>
+      <p class="lede" data-i18n="lede">Food, health care, housing, community programs, legal help and jobs near you. Free to use, in six languages.</p>
+
+      <form class="search" id="searchForm" role="search" aria-labelledby="searchLabel" novalidate>
+        <label id="searchLabel" for="q" class="search__label" data-i18n="searchLabel">Neighborhood or ZIP code</label>
+        <div class="search__row">
+          <div class="combo">
+            <input id="q" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="qList" aria-describedby="qHint" placeholder="East Boston, 02130…">
+            <ul id="qList" class="combo__list" role="listbox" aria-labelledby="searchLabel" hidden></ul>
+          </div>
+          <button class="btn btn--solid" type="submit" data-i18n="searchGo">Search</button>
+        </div>
+        <p id="qHint" class="search__hint" data-i18n="searchHint">Type at least 2 letters or numbers. Use the up and down arrow keys to choose a suggestion.</p>
+      </form>
+     </div>
+     <div class="stack" aria-hidden="true">
+      <figure class="stack__card s1" data-px="-0.35"><img src="assets/img/backbay-700.webp" srcset="assets/img/backbay-700.webp 700w, assets/img/backbay-1200.webp 1200w" sizes="(max-width: 960px) 70vw, 420px" alt="" loading="eager" decoding="async"><figcaption>Charles River</figcaption></figure>
+      <figure class="stack__card s2" data-px="0.55"><img src="assets/img/northend-600.webp" srcset="assets/img/northend-600.webp 600w, assets/img/northend-1000.webp 1000w" sizes="(max-width: 960px) 50vw, 300px" alt="" decoding="async"><figcaption>North End</figcaption></figure>
+      <figure class="stack__card s3" data-px="-0.8"><img src="assets/img/brownstones-600.webp" srcset="assets/img/brownstones-600.webp 600w, assets/img/brownstones-1000.webp 1000w" sizes="(max-width: 960px) 45vw, 260px" alt="" decoding="async"><figcaption>Back Bay</figcaption></figure>
+     </div>
+    </div>
+  </section>
+
+  <nav class="needs wrap" aria-labelledby="needsTitle">
+    <h2 id="needsTitle" class="needs__title" data-i18n="needsTitle">What do you need?</h2>
+    <ul class="needs__grid" id="needs"></ul>
+  </nav>
+
+  <ol class="steps wrap" aria-label="How it works" data-i18n-label="stepsLabel">
+    <li><b>1</b><span data-i18n="step1">Pick what you need</span></li>
+    <li><b>2</b><span data-i18n="step2">Add your neighborhood</span></li>
+    <li><b>3</b><span data-i18n="step3">Call or walk in</span></li>
+  </ol>
+
+  <section class="finder" id="finder" aria-labelledby="finderTitle">
+    <div class="wrap">
+      <div class="finder__head">
+        <h2 id="finderTitle" data-i18n="finderTitle">Resources near you</h2>
+        <fieldset class="filters">
+          <legend data-i18n="filterLegend">Show</legend>
+          <div class="filters__opts"><span id="filters" class="filters__opts"></span><button type="button" class="linkbtn" id="showAll" data-i18n="showAll">Show all</button></div>
+        </fieldset>
+      </div>
+      <p id="count" class="count" role="status" aria-live="polite"></p>
+
+      <div class="finder__grid">
+        <div class="panel" id="results" tabindex="-1" role="region" aria-labelledby="resultsTitle">
+          <h3 id="resultsTitle" class="sr-only" data-i18n="resultsTitle">Results list</h3>
+          <ol class="cards" id="cards"></ol>
+        </div>
+        <div class="mapbox">
+          <div id="map" role="region" aria-labelledby="mapLabel"></div>
+          <article class="detail mapcard" id="detail" hidden aria-labelledby="detailName"></article>
+          <p id="mapLabel" class="sr-only" data-i18n="mapLabel">Map of the results. Every resource on the map is also in the results list.</p>
+          <ul class="legend" id="legend" aria-label="Map key"></ul>
+          <p class="mapcredit">Leaflet · <a href="https://openfreemap.org">OpenFreeMap</a> · © <a href="https://www.openmaptiles.org/">OpenMapTiles</a> · © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="bandTitle">
+    <div class="band__bg" aria-hidden="true"><img class="band__photo" data-px="0.5" src="assets/img/downtown-1280.webp" srcset="assets/img/downtown-1280.webp 1280w, assets/img/downtown-2400.webp 2400w" sizes="100vw" alt="" loading="lazy" decoding="async"></div>
+    <div class="wrap band__inner">
+      <h2 id="bandTitle" class="band__title"><span data-i18n="bandA">Every neighborhood.</span> <em data-i18n="bandB">One search.</em></h2>
+      <ul class="band__stats">
+        <li><b data-count="36">36</b><span data-i18n="statPrograms">programs on the map</span></li>
+        <li><b data-count="16">16</b><span data-i18n="statHoods">Boston neighborhoods</span></li>
+        <li><b data-count="6">6</b><span data-i18n="statLangs">languages</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="access" id="access" aria-labelledby="accessTitle">
+    <div class="access__mark" aria-hidden="true" data-px="-0.25">AA</div>
+    <div class="wrap">
+      <p class="stmtnote" id="stmtNote"></p>
+      <div class="access__grid">
+        <div class="access__intro">
+          <p class="eyebrow eyebrow--light" data-i18n="accessEyebrow">Accessibility statement</p>
+          <h2 id="accessTitle"><span data-i18n="accessTitleA">Built to meet</span> <em>WCAG 2.1 AA.</em></h2>
+          <p class="access__lede" data-i18n="accessLede">Vecina is designed and tested to meet the Web Content Accessibility Guidelines 2.1, Level AA, the standard named in the ADA Title II web rule and Section 508.</p>
+          <div class="deckctl">
+            <button type="button" class="iconbtn iconbtn--dark" id="deckPrev" aria-controls="checks" aria-label="Previous card" data-i18n-label="prev"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <p class="deckctl__n" id="deckCount" aria-live="polite"></p>
+            <button type="button" class="iconbtn iconbtn--dark" id="deckNext" aria-controls="checks" aria-label="Next card" data-i18n-label="next"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+        <div class="deck is-dealing" id="deck">
+          <h3 id="howTitle" class="sr-only" data-i18n="howTitle">What that means for you</h3>
+          <ol class="deck__cards" id="checks" aria-labelledby="howTitle"></ol>
+        </div>
+      </div>
+
+      <div class="scores ledger" id="scores" role="list"></div>
+
+      <details class="howtest">
+        <summary><span data-i18n="testTitle">How we tested it</span></summary>
+        <ul class="tested" id="tested"></ul>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner foot__row">
+    <a class="brand brand--foot" href="./"><svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M20 9c-5 0-9 4-9 9 0 7 9 13 9 13s9-6 9-13c0-5-4-9-9-9Zm0 12.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" fill="currentColor"/></svg><span class="brand__name">Vecina</span></a>
+    <p class="foot__copy">© 2026 Vecina · Boston</p>
+  </div>
+</footer>
+
+<dialog class="modal" id="suggest" aria-labelledby="suggestTitle" aria-describedby="suggestDesc">
+  <form method="dialog" class="modal__form" id="suggestForm" novalidate>
+    <div class="modal__head">
+      <h2 id="suggestTitle" data-i18n="sugTitle">Suggest a listing</h2>
+      <button type="button" class="iconbtn" id="suggestClose" aria-label="Close" data-i18n-label="close">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <p id="suggestDesc" data-i18n="sugDesc">Know a program that should be on the map? Tell us. Fields marked required must be filled in.</p>
+    <div class="field">
+      <label for="sName"><span data-i18n="sName">Program name</span> <span class="req" data-i18n="required">(required)</span></label>
+      <input id="sName" name="name" type="text" required autocomplete="organization" aria-describedby="sNameErr">
+      <p class="err" id="sNameErr" hidden></p>
+    </div>
+    <div class="field">
+      <label for="sType"><span data-i18n="sType">Type of help</span> <span class="req" data-i18n="required">(required)</span></label>
+      <select id="sType" name="type" required aria-describedby="sTypeErr"></select>
+      <p class="err" id="sTypeErr" hidden></p>
+    </div>
+    <div class="field">
+      <label for="sHood" data-i18n="sHood">Neighborhood</label>
+      <input id="sHood" name="hood" type="text" autocomplete="address-level2">
+    </div>
+    <div class="field">
+      <label for="sEmail"><span data-i18n="sEmail">Your email</span> <span class="req" data-i18n="required">(required)</span></label>
+      <input id="sEmail" name="email" type="email" required autocomplete="email" aria-describedby="sEmailHint sEmailErr">
+      <p class="hint" id="sEmailHint" data-i18n="sEmailHint">So we can ask a follow-up question. Example: name@example.org</p>
+      <p class="err" id="sEmailErr" hidden></p>
+    </div>
+    <div class="modal__foot">
+      <button type="button" class="btn btn--ghost" id="suggestCancel" data-i18n="cancel">Cancel</button>
+      <button type="submit" class="btn btn--solid" id="suggestSend" data-i18n="send">Send suggestion</button>
+    </div>
+    <p class="modal__status" id="sugStatus" role="status" aria-live="polite"></p>
+  </form>
+</dialog>
+
+<script src="assets/leaflet/leaflet.js"></script>
+<script src="assets/leaflet/leaflet.markercluster.js"></script>
+<script src="assets/maplibre/maplibre-gl.js"></script>
+<script src="assets/maplibre/leaflet-maplibre-gl.js"></script>
+<script src="js/data.js"></script>
+<script src="js/i18n-extra.js"></script>
+<script src="js/deck.js"></script>
+<script src="js/app.js"></script>
+<script src="js/motion.js"></script>
+</body>
+</html>

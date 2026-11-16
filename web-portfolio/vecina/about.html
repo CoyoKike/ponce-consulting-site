@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About us · Vecina</title>
+<meta name="description" content="Vecina is a concept Boston nonprofit that keeps a free, accessible map of community resources in six languages.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/dmsans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="about">
+<a class="skip" href="#main" data-i18n="skipMain">Skip to the main content</a>
+
+<header class="top">
+  <div class="wrap top__bar">
+    <a class="brand" href="./" aria-label="Vecina, home">
+      <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M20 9c-5 0-9 4-9 9 0 7 9 13 9 13s9-6 9-13c0-5-4-9-9-9Zm0 12.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" fill="currentColor"/></svg>
+      <span class="brand__name">Vecina</span>
+    </a>
+    <nav aria-label="Main" data-i18n-label="navLabel">
+      <ul class="nav">
+        <li><a href="./#finder" data-i18n="navFind">Find help</a></li>
+        <li><a href="about.html" aria-current="page" data-i18n="navAbout">About us</a></li>
+        <li><a href="./#access" data-i18n="navAccess">Accessibility</a></li>
+      </ul>
+    </nav>
+    <div class="langsel">
+      <label for="langSel" class="sr-only" data-i18n="langLabel">Language</label>
+      <svg class="langsel__ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21M12 3C9.5 5.6 8.2 8.6 8.2 12s1.3 6.4 3.8 9" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+      <select id="langSel">
+        <option value="en" lang="en">English</option>
+        <option value="es" lang="es">Español</option>
+        <option value="ht" lang="ht">Kreyòl ayisyen</option>
+        <option value="pt" lang="pt-BR">Português</option>
+        <option value="zh" lang="zh-Hans">中文（简体）</option>
+        <option value="vi" lang="vi">Tiếng Việt</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <section class="hero hero--about" aria-labelledby="heroTitle">
+    <div class="hero__bg" aria-hidden="true">
+      <img class="hero__photo" data-px="0.3" src="assets/img/backbay-1200.webp" srcset="assets/img/backbay-700.webp 700w, assets/img/backbay-1200.webp 1200w" sizes="100vw" alt="" fetchpriority="high" decoding="async">
+      <div class="hero__scrim"></div>
+    </div>
+    <div class="wrap hero__inner hero__inner--one">
+      <div class="hero__main">
+        <p class="eyebrow" data-i18n="aEyebrow">About us</p>
+        <h1 id="heroTitle" class="rise"><span data-i18n="aH1a">Neighbors helping</span> <em data-i18n="aH1b">neighbors find help.</em></h1>
+        <p class="lede" data-i18n="aLede">Vecina is a small Boston nonprofit. We keep a free, up-to-date map of community programs, in the languages our neighbors speak, and we build it so everyone can use it.</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="wrap langnote" id="langNote"></p>
+
+  <section class="story wrap" aria-labelledby="storyTitle">
+    <div class="story__text about-reveal">
+      <p class="eyebrow eyebrow--dark" data-i18n="sEyebrow">Our story</p>
+      <h2 id="storyTitle" data-i18n="sTitle">It started with a stack of flyers.</h2>
+      <p data-i18n="s1">In 2019, a librarian and two community health workers compared notes. Each of them kept a folder of flyers, phone numbers and sticky notes to help people find food, a clinic or rent help. Half of the numbers were out of date, and almost none of it was in Haitian Creole, Chinese or Vietnamese.</p>
+      <p data-i18n="s2">They put the folders together into one shared list, then into a map. Today Vecina is run by a team of five and a group of volunteers who call every program on the map twice a year to check that it is still open.</p>
+    </div>
+    <figure class="story__photo about-reveal" data-px="0.12"><img src="assets/img/northend-600.webp" srcset="assets/img/northend-600.webp 600w, assets/img/northend-1000.webp 1000w" sizes="(max-width: 960px) 90vw, 440px" alt="" loading="lazy" decoding="async"></figure>
+  </section>
+
+  <section class="pillars" aria-labelledby="doTitle">
+    <div class="wrap">
+      <h2 id="doTitle" class="about-reveal" data-i18n="doTitle">What we do</h2>
+      <ul class="pillars__grid">
+        <li class="about-reveal"><span class="pillars__n" aria-hidden="true">01</span><h3 data-i18n="d1t">Keep the map current</h3><p data-i18n="d1">Volunteers check every listing twice a year. Programs can send updates any time, and we confirm them by phone.</p></li>
+        <li class="about-reveal"><span class="pillars__n" aria-hidden="true">02</span><h3 data-i18n="d2t">Speak your language</h3><p data-i18n="d2">The map works in six languages today. Community members review the wording so it sounds natural, not machine-made.</p></li>
+        <li class="about-reveal"><span class="pillars__n" aria-hidden="true">03</span><h3 data-i18n="d3t">Build for everyone</h3><p data-i18n="d3">The site is built to meet WCAG 2.1 AA, so it works with a keyboard, a screen reader, a small phone or large text.</p></li>
+        <li class="about-reveal"><span class="pillars__n" aria-hidden="true">04</span><h3 data-i18n="d4t">Train front-line staff</h3><p data-i18n="d4">We run short trainings for library, clinic and school staff on how to use the map with the people they serve.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band band--about" aria-labelledby="bandTitle">
+    <div class="band__bg" aria-hidden="true"><img class="band__photo" data-px="0.5" src="assets/img/brownstones-1000.webp" alt="" loading="lazy" decoding="async"></div>
+    <div class="wrap band__inner">
+      <h2 id="bandTitle" class="band__title"><span data-i18n="qA">“Help should be easy to find,</span> <em data-i18n="qB">in any language.”</em></h2>
+      <p class="band__by" data-i18n="qBy">From the Vecina mission statement</p>
+    </div>
+  </section>
+
+  <section class="team wrap" aria-labelledby="teamTitle">
+    <h2 id="teamTitle" class="about-reveal" data-i18n="teamTitle">The team</h2>
+    <ul class="team__grid">
+      <li class="about-reveal"><span class="avatar" style="--c:#a63f22" aria-hidden="true">MA</span><h3>Marisol Arce</h3><p data-i18n="r1">Executive director</p></li>
+      <li class="about-reveal"><span class="avatar" style="--c:#1d5f80" aria-hidden="true">TB</span><h3>Theo Baptiste</h3><p data-i18n="r2">Community partnerships</p></li>
+      <li class="about-reveal"><span class="avatar" style="--c:#6a3d8f" aria-hidden="true">LN</span><h3>Linh Nguyen</h3><p data-i18n="r3">Languages and translation</p></li>
+      <li class="about-reveal"><span class="avatar" style="--c:#1f6b4f" aria-hidden="true">JW</span><h3>Jordan Walsh</h3><p data-i18n="r4">Data and accessibility</p></li>
+    </ul>
+  </section>
+
+  <section class="contact" aria-labelledby="contactTitle">
+    <div class="wrap contact__inner about-reveal">
+      <h2 id="contactTitle" data-i18n="cTitle">Work with us</h2>
+      <p data-i18n="cText">Run a program that should be on the map, or want a training for your staff? Write to us.</p>
+      <p class="contact__links"><a class="btn btn--solid" href="mailto:hello@vecina.example" data-i18n="cMail">Email hello@vecina.example</a> <a class="btn btn--ghost btn--light" href="./#finder" data-i18n="cMap">Open the map</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner foot__row">
+    <a class="brand brand--foot" href="./"><svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M20 9c-5 0-9 4-9 9 0 7 9 13 9 13s9-6 9-13c0-5-4-9-9-9Zm0 12.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" fill="currentColor"/></svg><span class="brand__name">Vecina</span></a>
+    <p class="foot__copy">© 2026 Vecina · Boston</p>
+  </div>
+</footer>
+
+<script src="js/i18n-extra.js"></script>
+<script src="js/about.js"></script>
+<script src="js/motion.js"></script>
+</body>
+</html>
