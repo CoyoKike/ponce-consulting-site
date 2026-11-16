@@ -8,7 +8,7 @@ window.VECINA_I18N = {
     days: { wk: 'Lendi rive vandredi', ws: 'Lendi rive samdi', tt: 'Madi ak jedi', mw: 'Lendi, mèkredi ak vandredi', sa: 'Samdi', ev: 'Chak jou' },
     t: {
       skipResults: 'Ale nan lis rezilta yo', skipAccess: 'Ale nan deklarasyon aksesiblite a', navLabel: 'Prensipal',
-      navFind: 'Jwenn èd', navAbout: 'Sou nou', navAccess: 'Aksesiblite', navSuggest: 'Sijere yon pwogram', langLabel: 'Lang',
+      navFind: 'Jwenn èd', navAbout: 'Sou nou', navMap: 'Kat distri yo', navAccess: 'Aksesiblite', navSuggest: 'Sijere yon pwogram', langLabel: 'Lang',
       eyebrow: 'Resous kominotè nan Boston', h1a: 'Èd la pi pre', h1b: 'pase sa ou panse.',
       lede: 'Manje, swen sante, lojman, pwogram kominotè, èd legal ak travay toupre w. Gratis, an sis lang.',
       searchLabel: 'Katye oswa kòd postal', searchGo: 'Chèche',
@@ -46,7 +46,7 @@ window.VECINA_I18N = {
     days: { wk: 'Segunda a sexta', ws: 'Segunda a sábado', tt: 'Terça e quinta', mw: 'Segunda, quarta e sexta', sa: 'Sábado', ev: 'Todos os dias' },
     t: {
       skipResults: 'Ir para a lista de resultados', skipAccess: 'Ir para a declaração de acessibilidade', navLabel: 'Principal',
-      navFind: 'Buscar ajuda', navAbout: 'Quem somos', navAccess: 'Acessibilidade', navSuggest: 'Sugerir um programa', langLabel: 'Idioma',
+      navFind: 'Buscar ajuda', navAbout: 'Quem somos', navMap: 'Mapa de distritos', navAccess: 'Acessibilidade', navSuggest: 'Sugerir um programa', langLabel: 'Idioma',
       eyebrow: 'Recursos comunitários em Boston', h1a: 'A ajuda está', h1b: 'mais perto do que você imagina.',
       lede: 'Alimentação, saúde, moradia, programas comunitários, ajuda jurídica e emprego perto de você. Gratuito, em seis idiomas.',
       searchLabel: 'Bairro ou CEP', searchGo: 'Buscar',
@@ -84,7 +84,7 @@ window.VECINA_I18N = {
     days: { wk: '周一至周五', ws: '周一至周六', tt: '周二和周四', mw: '周一、周三和周五', sa: '周六', ev: '每天' },
     t: {
       skipResults: '跳到结果列表', skipAccess: '跳到无障碍声明', navLabel: '主导航',
-      navFind: '寻找帮助', navAbout: '关于我们', navAccess: '无障碍', navSuggest: '推荐一个项目', langLabel: '语言',
+      navFind: '寻找帮助', navAbout: '关于我们', navMap: '选区地图', navAccess: '无障碍', navSuggest: '推荐一个项目', langLabel: '语言',
       eyebrow: '波士顿社区资源', h1a: '帮助就在', h1b: '你身边。',
       lede: '在你附近找到食物、医疗、住房、社区项目、法律帮助和工作。免费使用，提供六种语言。',
       searchLabel: '社区或邮政编码', searchGo: '搜索',
@@ -122,7 +122,7 @@ window.VECINA_I18N = {
     days: { wk: 'Thứ Hai đến Thứ Sáu', ws: 'Thứ Hai đến Thứ Bảy', tt: 'Thứ Ba và Thứ Năm', mw: 'Thứ Hai, Thứ Tư và Thứ Sáu', sa: 'Thứ Bảy', ev: 'Hằng ngày' },
     t: {
       skipResults: 'Đến danh sách kết quả', skipAccess: 'Đến tuyên bố về khả năng tiếp cận', navLabel: 'Chính',
-      navFind: 'Tìm trợ giúp', navAbout: 'Về chúng tôi', navAccess: 'Khả năng tiếp cận', navSuggest: 'Đề xuất chương trình', langLabel: 'Ngôn ngữ',
+      navFind: 'Tìm trợ giúp', navAbout: 'Về chúng tôi', navMap: 'Bản đồ khu vực', navAccess: 'Khả năng tiếp cận', navSuggest: 'Đề xuất chương trình', langLabel: 'Ngôn ngữ',
       eyebrow: 'Nguồn trợ giúp cộng đồng ở Boston', h1a: 'Trợ giúp ở gần', h1b: 'hơn bạn nghĩ.',
       lede: 'Thực phẩm, y tế, nhà ở, chương trình cộng đồng, trợ giúp pháp lý và việc làm gần bạn. Miễn phí, bằng sáu ngôn ngữ.',
       searchLabel: 'Khu phố hoặc mã bưu chính', searchGo: 'Tìm',

@@ -3,7 +3,7 @@
 (() => {
   'use strict';
   const EN = {
-    skipMain: 'Skip to the main content', navLabel: 'Main', navFind: 'Find help', navAbout: 'About us', navAccess: 'Accessibility', langLabel: 'Language',
+    skipMain: 'Skip to the main content', navLabel: 'Main', navFind: 'Find help', navAbout: 'About us', navMap: 'District map', navAccess: 'Accessibility', langLabel: 'Language',
     aEyebrow: 'About us', aH1a: 'Neighbors helping', aH1b: 'neighbors find help.',
     aLede: 'Vecina is a small Boston nonprofit. We keep a free, up-to-date map of community programs, in the languages our neighbors speak, and we build it so everyone can use it.',
     sEyebrow: 'Our story', sTitle: 'It started with a stack of flyers.',
@@ -22,7 +22,7 @@
     brandHome: 'Vecina, home', note: ''
   };
   const ES = {
-    skipMain: 'Ir al contenido principal', navLabel: 'Principal', navFind: 'Buscar ayuda', navAbout: 'Quiénes somos', navAccess: 'Accesibilidad', langLabel: 'Idioma',
+    skipMain: 'Ir al contenido principal', navLabel: 'Principal', navFind: 'Buscar ayuda', navAbout: 'Quiénes somos', navMap: 'Mapa de distritos', navAccess: 'Accesibilidad', langLabel: 'Idioma',
     aEyebrow: 'Quiénes somos', aH1a: 'Vecinos que ayudan', aH1b: 'a sus vecinos a encontrar ayuda.',
     aLede: 'Vecina es una pequeña organización sin fines de lucro de Boston. Mantenemos un mapa gratis y actualizado de programas comunitarios, en los idiomas de nuestros vecinos, hecho para que todos lo puedan usar.',
     sEyebrow: 'Nuestra historia', sTitle: 'Todo empezó con una pila de volantes.',
@@ -42,7 +42,7 @@
   };
   const X = window.VECINA_I18N || {};
   const NOTE = { ht: 'Paj sa a disponib an angle ak an panyòl.', pt: 'Esta página está disponível em inglês e espanhol.', zh: '本页目前只有英文和西班牙文版。', vi: 'Trang này hiện chỉ có bằng tiếng Anh và tiếng Tây Ban Nha.' };
-  const UI = ['navLabel', 'navFind', 'navAbout', 'navAccess', 'langLabel', 'brandHome'];
+  const UI = ['navLabel', 'navFind', 'navAbout', 'navMap', 'navAccess', 'langLabel', 'brandHome'];
 
   function apply(l) {
     const own = l === 'en' || l === 'es';

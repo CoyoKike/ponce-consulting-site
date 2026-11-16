@@ -37,7 +37,7 @@
   const T = {
     en: {
       skipResults: 'Skip to the results list', skipAccess: 'Skip to the accessibility statement', navLabel: 'Main',
-      navFind: 'Find help', navAbout: 'About us', navAccess: 'Accessibility', navSuggest: 'Suggest a listing', langLabel: 'Language',
+      navFind: 'Find help', navAbout: 'About us', navMap: 'District map', navAccess: 'Accessibility', navSuggest: 'Suggest a listing', langLabel: 'Language',
       brandHome: 'Vecina, home', zoomIn: 'Zoom in', zoomOut: 'Zoom out', cluster: n => `${n} resources in this area. Zoom in`, stmtNote: '',
       bandA: 'Every neighborhood.', bandB: 'One search.', statPrograms: 'programs on the map', statHoods: 'Boston neighborhoods', statLangs: 'languages',
       eyebrow: 'Boston community resources', h1a: 'Help is closer', h1b: 'than you think.',
@@ -86,7 +86,7 @@
     },
     es: {
       skipResults: 'Ir a la lista de resultados', skipAccess: 'Ir a la declaración de accesibilidad', navLabel: 'Principal',
-      navFind: 'Buscar ayuda', navAbout: 'Quiénes somos', navAccess: 'Accesibilidad', navSuggest: 'Sugerir un programa', langLabel: 'Idioma',
+      navFind: 'Buscar ayuda', navAbout: 'Quiénes somos', navMap: 'Mapa de distritos', navAccess: 'Accesibilidad', navSuggest: 'Sugerir un programa', langLabel: 'Idioma',
       brandHome: 'Vecina, inicio', zoomIn: 'Acercar', zoomOut: 'Alejar', cluster: n => `${n} recursos en esta zona. Acercar el mapa`, stmtNote: '',
       bandA: 'Cada vecindario.', bandB: 'Una búsqueda.', statPrograms: 'programas en el mapa', statHoods: 'vecindarios de Boston', statLangs: 'idiomas',
       eyebrow: 'Recursos comunitarios en Boston', h1a: 'La ayuda está', h1b: 'más cerca de lo que crees.',

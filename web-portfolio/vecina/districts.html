@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>District briefings · Vecina</title>
+<meta name="description" content="Public-data briefings for every Boston City Council, State Senate and State House district: who lives there, languages, health and housing, with a 3D map.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/dmsans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/maplibre/maplibre-gl.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/districts.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="db">
+<a class="skip" href="#main">Skip to the main content</a>
+
+<header class="top">
+  <div class="wrap top__bar">
+    <a class="brand" href="./" aria-label="Vecina, home">
+      <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M20 9c-5 0-9 4-9 9 0 7 9 13 9 13s9-6 9-13c0-5-4-9-9-9Zm0 12.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" fill="currentColor"/></svg>
+      <span class="brand__name">Vecina</span>
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="./#finder">Find help</a></li>
+        <li><a href="atlas.html">District map</a></li>
+        <li><a href="districts.html" aria-current="page">District briefings</a></li>
+        <li><a href="about.html">About us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <!-- index: every official -->
+  <section class="dbx" id="index" aria-labelledby="ixTitle">
+    <div class="wrap">
+      <p class="eyebrow eyebrow--dark">District briefings · Public data</p>
+      <h1 id="ixTitle" class="dbx__title">Every Boston district, <em>in numbers.</em></h1>
+      <p class="dbx__lede">One briefing for each City Councilor, State Senator and State Representative who serves Boston: who lives in the district, the languages spoken at home, health and housing, compared with the city as a whole.</p>
+      <div class="dbx__tabs" role="group" aria-label="Show">
+        <button type="button" class="pill" data-ch="all" aria-pressed="true">All</button>
+        <button type="button" class="pill" data-ch="City Council" aria-pressed="false">City Council</button>
+        <button type="button" class="pill" data-ch="State Senate" aria-pressed="false">State Senate</button>
+        <button type="button" class="pill" data-ch="State House" aria-pressed="false">State House</button>
+      </div>
+      <p class="dbx__count" id="ixCount" role="status" aria-live="polite"></p>
+      <ul class="dbx__grid" id="ixGrid"></ul>
+    </div>
+  </section>
+
+  <!-- one briefing -->
+  <article class="brief" id="brief" hidden aria-labelledby="bName">
+    <div class="brief__bg" aria-hidden="true"></div>
+    <div class="wrap brief__grid">
+      <div class="brief__who">
+        <a class="brief__back" href="#"><span aria-hidden="true">←</span> All districts</a>
+        <div class="seal" aria-hidden="true"><span id="bInit"></span></div>
+        <p class="brief__role"><span class="tag" id="bParty"></span><span id="bTitle"></span></p>
+        <h1 id="bName" tabindex="-1"></h1>
+        <p class="brief__dist"><span aria-hidden="true">—</span> <span id="bDist"></span></p>
+        <a class="btn btn--ghost" id="bUrl" href="#" rel="noopener">Official page <span aria-hidden="true">↗</span></a>
+        <div class="brief__nav">
+          <button type="button" class="iconbtn" id="bPrev" aria-label="Previous district"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <span id="bPos"></span>
+          <button type="button" class="iconbtn" id="bNext" aria-label="Next district"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+
+      <div class="brief__body">
+        <div class="brief__tabs" role="tablist" aria-label="Briefing sections">
+          <button role="tab" type="button" id="t-map" aria-controls="p-map" aria-selected="true">The district</button>
+          <button role="tab" type="button" id="t-people" aria-controls="p-people" aria-selected="false" tabindex="-1">Who lives here</button>
+          <button role="tab" type="button" id="t-lang" aria-controls="p-lang" aria-selected="false" tabindex="-1">Languages</button>
+          <button role="tab" type="button" id="t-health" aria-controls="p-health" aria-selected="false" tabindex="-1">Health</button>
+          <button role="tab" type="button" id="t-home" aria-controls="p-home" aria-selected="false" tabindex="-1">Housing and money</button>
+        </div>
+
+        <section role="tabpanel" id="p-map" aria-labelledby="t-map" class="panel2">
+          <p class="eyebrow eyebrow--dark">The district</p>
+          <h2 class="panel2__h" id="mapHead"></h2>
+          <div class="mapwrap">
+            <div class="mchips" role="group" aria-label="Map shows" id="mChips"></div>
+            <p class="sr-only" id="dmapDesc"></p>
+            <div id="dmap"></div>
+            <div class="mstat" id="mStat" aria-hidden="true"></div>
+            <p class="mhint" aria-hidden="true">Drag to rotate · scroll to zoom</p>
+          </div>
+          <p class="mapnote" id="mapNote"></p>
+        </section>
+
+        <section role="tabpanel" id="p-people" aria-labelledby="t-people" class="panel2" hidden>
+          <p class="eyebrow eyebrow--dark">Who lives here</p>
+          <h2 class="panel2__h" id="peopleHead"></h2>
+          <ul class="kpis" id="kPeople"></ul>
+        </section>
+
+        <section role="tabpanel" id="p-lang" aria-labelledby="t-lang" class="panel2" hidden>
+          <p class="eyebrow eyebrow--dark">Languages at home</p>
+          <h2 class="panel2__h" id="langHead"></h2>
+          <div id="langChart"></div>
+        </section>
+
+        <section role="tabpanel" id="p-health" aria-labelledby="t-health" class="panel2" hidden>
+          <p class="eyebrow eyebrow--dark">Health, adults</p>
+          <h2 class="panel2__h" id="healthHead"></h2>
+          <div id="healthChart"></div>
+        </section>
+
+        <section role="tabpanel" id="p-home" aria-labelledby="t-home" class="panel2" hidden>
+          <p class="eyebrow eyebrow--dark">Housing and money</p>
+          <h2 class="panel2__h" id="homeHead"></h2>
+          <ul class="kpis" id="kHome"></ul>
+        </section>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner foot__row">
+    <a class="brand brand--foot" href="./"><svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M20 9c-5 0-9 4-9 9 0 7 9 13 9 13s9-6 9-13c0-5-4-9-9-9Zm0 12.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" fill="currentColor"/></svg><span class="brand__name">Vecina</span></a>
+    <p class="foot__copy" id="srcLine">Sources: U.S. Census Bureau ACS 2019–2023 · CDC PLACES · City of Boston · Massachusetts Legislature · map © OpenFreeMap, OpenMapTiles, OpenStreetMap contributors</p>
+  </div>
+</footer>
+
+<script src="assets/maplibre/maplibre-gl.js"></script>
+<script src="js/districts.js"></script>
+</body>
+</html>
