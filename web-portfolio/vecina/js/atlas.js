@@ -69,6 +69,7 @@
     const ph = $('#acPhoto');
     if (d.photo) { ph.src = d.photo; ph.alt = `Portrait of ${d.official}`; ph.hidden = false; } else { ph.hidden = true; }
     $('#acLvl').textContent = d.party ? `${d.title} · ${d.party.startsWith('Dem') ? 'Democrat' : d.party}` : d.title;
+    $('#acOpen').href = `districts.html#d=${d.id}`;
     $('#acName').textContent = d.official || 'Vacant seat'; $('#acDist').textContent = d.district;
     const langs = Object.entries(s.langs).filter(([k]) => k !== 'Other').concat(s.langs.Other ? [['Other', s.langs.Other]] : []).sort((x, y) => (x[0] === 'Other') - (y[0] === 'Other') || y[1] - x[1]).filter(([k]) => k !== 'Other').concat([]); const otherSrc = s.langs.Other || 0; const top = langs.slice(0, 5).map(([k, v]) => ({ label: k.replace(/ \(.*\)/, ''), value: v }));
     const rest = langs.slice(5).reduce((a, [, v]) => a + v, 0) + otherSrc; if (rest) top.push({ label: 'Other languages', value: rest, color: '#b8ada0' });
