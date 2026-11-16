@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-es="Marejada Studio · Fuerza, reformer y ciclo · St. Petersburg, FL">Marejada Studio · Strength, reformer and ride · St. Petersburg, FL</title>
+  <meta name="description" content="Strength, reformer, ride and mobility classes for fourteen people at a time on Central Avenue in St. Petersburg, Florida. Your first class is free." data-es-content="Clases de fuerza, reformer, ciclo y movilidad para catorce personas a la vez en Central Avenue, St. Petersburg, Florida. Tu primera clase es gratis.">
+  <meta name="theme-color" content="#0b0c0f">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">{ "imports": { "three": "./js/vendor/three.module.min.js" } }</script>
+</head>
+<body>
+  <a class="skip" href="#main" data-es="Saltar al contenido">Skip to content</a>
+
+  <div class="loader" aria-hidden="true">
+    <div class="loader__word">Marejada</div>
+    <svg class="loader__wave" viewBox="0 0 240 24"><path d="M0 12 Q 15 0 30 12 T 60 12 T 90 12 T 120 12 T 150 12 T 180 12 T 210 12 T 240 12"/></svg>
+  </div>
+
+  <header class="nav" id="top">
+    <a href="#top" class="nav__logo" aria-label="Marejada Studio, back to top" data-es-aria-label="Marejada Studio, volver arriba">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 20c4 0 4-6 8-6s4 6 8 6 4-6 8-6 4 6 4 6" /><path d="M2 26c4 0 4-4 8-4s4 4 8 4 4-4 8-4 4 4 4 4" opacity=".5"/></svg>
+      <span>Marejada</span>
+    </a>
+    <nav class="nav__links" aria-label="Main" data-es-aria-label="Principal">
+      <a href="#classes" data-es="Clases">Classes</a>
+      <a href="#schedule" data-es="Horario">Schedule</a>
+      <a href="#coaches" data-es="Coaches">Coaches</a>
+      <a href="#pricing" data-es="Precios">Pricing</a>
+      <a href="#visit" data-es="Visítanos">Visit</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language" data-es-aria-label="Idioma">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </div>
+    <a href="#book" class="btn btn--accent nav__cta" data-es="Primera clase gratis">Book a free class</a>
+    <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu" data-es-aria-label="Menú"><span></span><span></span></button>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <nav aria-label="Menu" data-es-aria-label="Menú">
+      <a href="#classes" data-es="Clases">Classes</a>
+      <a href="#schedule" data-es="Horario">Schedule</a>
+      <a href="#coaches" data-es="Coaches">Coaches</a>
+      <a href="#pricing" data-es="Precios">Pricing</a>
+      <a href="#visit" data-es="Visítanos">Visit</a>
+    </nav>
+    <a href="#book" class="btn btn--accent btn--big" data-es="Reserva tu clase gratis">Book a free class</a>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__stage">
+        <canvas class="hero__canvas" aria-hidden="true"></canvas>
+        <div class="hero__shade" aria-hidden="true"></div>
+        <div class="hero__copy">
+          <p class="eyebrow mono"><span data-es="Grand Central District · St. Petersburg, FL">Grand Central District · St. Petersburg, FL</span></p>
+          <h1 class="hero__title" id="hero-title">
+            <span class="line"><span data-es="Levanta">Build</span></span>
+            <span class="line"><span data-es="la <em>marejada.</em>">the <em>swell.</em></span></span>
+          </h1>
+          <p class="hero__lede" data-es="Clases de fuerza, reformer, ciclo y movilidad para catorce personas a la vez, en Central Avenue. Tu primera clase es gratis.">Strength, reformer, ride and mobility classes for fourteen people at a time, on Central Avenue. Your first class is free.</p>
+          <div class="hero__actions">
+            <a href="#book" class="btn btn--accent btn--big" data-es="Reserva tu clase gratis">Book a free class</a>
+            <a href="#schedule" class="btn btn--ghost btn--big" data-es="Ver el horario">See the schedule</a>
+          </div>
+        </div>
+        <p class="hero__more" aria-hidden="true"><span data-es="Catorce personas.">Fourteen people.</span> <span data-es="Un coach.">One coach.</span> <em data-es="Cada serie, vista.">Every set seen.</em></p>
+        <a class="next" href="#schedule">
+          <span class="next__k mono" data-es="Próxima clase">Next up</span>
+          <span class="next__t" data-next-title>Ride · The Climb</span>
+          <span class="next__m" data-next-meta>6:45 pm · Darío</span>
+          <span class="next__s mono" data-next-spots></span>
+        </a>
+        <div class="hero__beat mono" aria-hidden="true"><i></i><span>118 BPM</span></div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span data-es="Fuerza <i>✶</i> Reformer <i>✶</i> Ciclo <i>✶</i> Movilidad <i>✶</i> ">Strength <i>✶</i> Reformer <i>✶</i> Ride <i>✶</i> Mobility <i>✶</i> </span>
+        <span data-es="Fuerza <i>✶</i> Reformer <i>✶</i> Ciclo <i>✶</i> Movilidad <i>✶</i> ">Strength <i>✶</i> Reformer <i>✶</i> Ride <i>✶</i> Mobility <i>✶</i> </span>
+      </div>
+    </div>
+
+    <!-- ============ CLASSES ============ -->
+    <section class="classes" id="classes" aria-labelledby="classes-title">
+      <div class="classes__head wrap">
+        <p class="eyebrow mono"><span data-es="01 · Clases">01 · Classes</span></p>
+        <h2 class="h2 reveal" id="classes-title" data-es="Cuatro clases. <em>Todas con coach.</em>">Four classes. <em>Every one coached.</em></h2>
+        <p class="lede reveal" data-es="Ningún salón pasa de catorce personas, así que el coach ve tu técnica en cada serie. Combina las cuatro y tu semana queda completa.">No room holds more than fourteen people, so your coach sees your form on every set. Mix all four and your week is covered.</p>
+      </div>
+      <div class="classes__rail">
+        <div class="classes__track">
+          <article class="klass" style="--k: var(--coral)">
+            <figure class="klass__img"><img src="assets/img/strength-800.webp" srcset="assets/img/strength-800.webp 800w, assets/img/strength.webp 1600w" sizes="(max-width: 900px) 92vw, 34vw" alt="Athlete squatting with a loaded barbell in front of a coral wall" data-es-alt="Atleta haciendo una sentadilla con barra cargada frente a una pared coral" loading="lazy" width="800" height="1000"></figure>
+            <div class="klass__body">
+              <p class="klass__n mono">01</p>
+              <h3 class="klass__t" data-es="Fuerza">Strength</h3>
+              <p class="klass__meta mono"><span>50 min</span><span data-es="Todos los niveles">All levels</span></p>
+              <p data-es="Barras, kettlebells y mancuernas con un plan escrito en bloques de seis semanas, para que veas subir el peso.">Barbells, kettlebells and dumbbells on a written plan that runs in six-week blocks, so you watch the weight go up.</p>
+            </div>
+          </article>
+          <article class="klass" style="--k: var(--bone)">
+            <figure class="klass__img"><img src="assets/img/reformer-800.webp" srcset="assets/img/reformer-800.webp 800w, assets/img/reformer.webp 1600w" sizes="(max-width: 900px) 92vw, 34vw" alt="Row of wooden reformers in a bright studio" data-es-alt="Fila de reformers de madera en un estudio luminoso" loading="lazy" width="800" height="1000"></figure>
+            <div class="klass__body">
+              <p class="klass__n mono">02</p>
+              <h3 class="klass__t">Reformer</h3>
+              <p class="klass__meta mono"><span>50 min</span><span data-es="Todos los niveles">All levels</span></p>
+              <p data-es="Resortes, tempo lento y trabajo duro. Construye el core profundo y las caderas que te sostienen al levantar y al correr.">Springs, slow tempo, hard work. Builds the deep core and hips that hold you up when you lift and when you run.</p>
+            </div>
+          </article>
+          <article class="klass" style="--k: var(--sea)">
+            <figure class="klass__img"><img src="assets/img/ride-800.webp" srcset="assets/img/ride-800.webp 800w, assets/img/ride.webp 1600w" sizes="(max-width: 900px) 92vw, 34vw" alt="Indoor cycling room in low colored light" data-es-alt="Sala de ciclismo bajo luz tenue de colores" loading="lazy" width="800" height="1000"></figure>
+            <div class="klass__body">
+              <p class="klass__n mono">03</p>
+              <h3 class="klass__t" data-es="Ciclo">Ride</h3>
+              <p class="klass__meta mono"><span>45 min</span><span data-es="Abierta">Open</span></p>
+              <p data-es="Luz baja y una lista armada para la subida. Cada bici tiene su pantalla con tus vatios, no los del salón.">Low light and a playlist built for the climb. Every bike has its own screen with your watts, not the room's.</p>
+            </div>
+          </article>
+          <article class="klass" style="--k: #c9b8ff">
+            <figure class="klass__img"><img src="assets/img/mobility-800.webp" srcset="assets/img/mobility-800.webp 800w, assets/img/mobility.webp 1600w" sizes="(max-width: 900px) 92vw, 34vw" alt="Woman in a deep hip stretch on a mat" data-es-alt="Mujer en un estiramiento profundo de cadera sobre un tapete" loading="lazy" width="800" height="1000"></figure>
+            <div class="klass__body">
+              <p class="klass__n mono">04</p>
+              <h3 class="klass__t" data-es="Movilidad">Mobility</h3>
+              <p class="klass__meta mono"><span>40 min</span><span data-es="Todos los niveles">All levels</span></p>
+              <p data-es="Caderas, columna y hombros. La clase que hace que las otras tres se sientan mejor, y la que nadie se salta.">Hips, spine and shoulders. The class that makes the other three feel better, and the one regulars never skip.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FIRST VISIT ============ -->
+    <section class="first wrap" aria-labelledby="first-title">
+      <figure class="first__img par-wrap"><img class="par" src="assets/img/studio.webp" srcset="assets/img/studio-800.webp 800w, assets/img/studio.webp 1600w" sizes="(max-width: 900px) 100vw, 50vw" alt="Coach adjusting a member's form during a strength class" data-es-alt="Coach corrigiendo la técnica de una alumna durante una clase de fuerza" loading="lazy" width="1600" height="1067"></figure>
+      <div class="first__copy">
+        <p class="eyebrow mono"><span data-es="02 · Tu primera vez">02 · Your first time</span></p>
+        <h2 class="h2 reveal" id="first-title" data-es="Llega quince minutos antes. <em>Nosotros hacemos el resto.</em>">Come fifteen minutes early. <em>We'll handle the rest.</em></h2>
+        <ol class="steps">
+          <li class="reveal"><span class="mono">01</span><div><h3 data-es="Elige cualquier clase">Pick any class</h3><p data-es="Reserva abajo o escríbenos. La primera va por nuestra cuenta, sin tarjeta.">Book below or text us. The first one is on us, no card needed.</p></div></li>
+          <li class="reveal"><span class="mono">02</span><div><h3 data-es="Te preparamos">We set you up</h3><p data-es="Ajustamos tu bici o tu reformer y te preguntamos por lesiones antes de empezar.">We fit your bike or reformer and ask about injuries before you start.</p></div></li>
+          <li class="reveal"><span class="mono">03</span><div><h3 data-es="Entrena">Train</h3><p data-es="Tu coach te da opciones para cada ejercicio. Nadie te va a gritar.">Your coach gives you an option for every move. Nobody will yell at you.</p></div></li>
+          <li class="reveal"><span class="mono">04</span><div><h3 data-es="Dúchate y sigue tu día">Shower and go</h3><p data-es="Toallas, duchas, secadores y calcetines antideslizantes, todo incluido.">Towels, showers, hair dryers and grip socks, all included.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ SCHEDULE ============ -->
+    <section class="schedule" id="schedule" aria-labelledby="schedule-title">
+      <div class="wrap">
+        <div class="schedule__head">
+          <div>
+            <p class="eyebrow mono"><span data-es="03 · Horario">03 · Schedule</span></p>
+            <h2 class="h2 reveal" id="schedule-title" data-es="Esta semana <em>en el estudio.</em>">This week <em>on the floor.</em></h2>
+          </div>
+          <div class="filters" role="group" aria-label="Filter by class" data-es-aria-label="Filtrar por clase">
+            <button type="button" class="chip" data-type="all" aria-pressed="true" data-es="Todas">All</button>
+            <button type="button" class="chip" data-type="strength" aria-pressed="false" data-es="Fuerza">Strength</button>
+            <button type="button" class="chip" data-type="reformer" aria-pressed="false">Reformer</button>
+            <button type="button" class="chip" data-type="ride" aria-pressed="false" data-es="Ciclo">Ride</button>
+            <button type="button" class="chip" data-type="mobility" aria-pressed="false" data-es="Movilidad">Mobility</button>
+          </div>
+        </div>
+        <div class="days" role="tablist" aria-label="Day of the week" data-es-aria-label="Día de la semana"></div>
+        <div class="slots" role="tabpanel" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ============ COACHES ============ -->
+    <section class="coaches wrap" id="coaches" aria-labelledby="coaches-title">
+      <p class="eyebrow mono"><span data-es="04 · Coaches">04 · Coaches</span></p>
+      <h2 class="h2 reveal" id="coaches-title" data-es="Coaches, <em>no animadores.</em>">Coaches, <em>not cheerleaders.</em></h2>
+      <div class="coaches__grid">
+        <article class="coach">
+          <figure><img src="assets/img/coach-ines-800.webp" alt="Inés, head of strength, in the studio" data-es-alt="Inés, jefa de fuerza, en el estudio" loading="lazy" width="800" height="1000"></figure>
+          <h3>Inés Valcárcel</h3>
+          <p class="coach__r mono" data-es="Jefa de fuerza">Head of strength</p>
+          <p data-es="Fue remera universitaria. Escribe cada bloque de fuerza y te corrige la bisagra de cadera antes de que preguntes.">Former college rower. Writes every strength block and will fix your hip hinge before you ask.</p>
+        </article>
+        <article class="coach">
+          <figure><img src="assets/img/coach-dario-800.webp" alt="Darío, ride lead, smiling between classes" data-es-alt="Darío, líder de ciclo, sonriendo entre clases" loading="lazy" width="800" height="1000"></figure>
+          <h3>Darío Okafor</h3>
+          <p class="coach__r mono" data-es="Líder de ciclo">Ride lead</p>
+          <p data-es="Arma cada lista por tempo. Pregúntale por la subida del martes a las 5:45 am.">Builds every playlist by tempo. Ask him about the 5:45 am Tuesday climb.</p>
+        </article>
+        <article class="coach">
+          <figure><img src="assets/img/coach-tamsin-800.webp" alt="Tamsin, reformer coach, at a reformer" data-es-alt="Tamsin, coach de reformer, junto a un reformer" loading="lazy" width="800" height="1000"></figure>
+          <h3>Tamsin Reyes</h3>
+          <p class="coach__r mono">Reformer</p>
+          <p data-es="Viene de la fisioterapia. Lenta, precisa, y la razón por la que dejó de dolerte la espalda.">Physical therapy background. Slow, precise, and the reason your back stopped hurting.</p>
+        </article>
+        <article class="coach">
+          <figure><img src="assets/img/coach-mateo-800.webp" alt="Mateo, mobility and strength coach" data-es-alt="Mateo, coach de movilidad y fuerza" loading="lazy" width="800" height="1000"></figure>
+          <h3>Mateo Lindqvist</h3>
+          <p class="coach__r mono" data-es="Movilidad y fuerza">Mobility &amp; strength</p>
+          <p data-es="Surfista de Pass-a-Grille. Da el Movilidad Reset del domingo con las puertas abiertas.">Surfer from Pass-a-Grille. Teaches the Sunday Mobility Reset with the doors open.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ BAND ============ -->
+    <section class="band" aria-label="Ride class" data-es-aria-label="Clase de ciclo">
+      <figure class="band__img par-wrap" aria-hidden="true"><img class="par" src="assets/img/band.webp" srcset="assets/img/band-800.webp 800w, assets/img/band.webp 2000w" sizes="100vw" alt="" loading="lazy" width="2000" height="1334"></figure>
+      <p class="band__t reveal" data-es="Catorce bicis.<br><em>Una sola subida.</em>">Fourteen bikes.<br><em>One climb.</em></p>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <p class="eyebrow mono"><span data-es="05 · Precios">05 · Pricing</span></p>
+        <h2 class="h2 reveal" id="pricing-title" data-es="Empieza gratis. <em>Quédate por la ola.</em>">Start free. <em>Stay for the swell.</em></h2>
+        <div class="plans">
+          <article class="plan plan--free">
+            <h3 data-es="Primera clase">First class</h3>
+            <p class="plan__p">$0</p>
+            <p data-es="Cualquier clase, cualquier día. Calcetines antideslizantes y toalla de regalo.">Any class, any day. Grip socks and a towel on us.</p>
+            <a href="#book" class="btn btn--accent" data-es="Reservar">Book it</a>
+          </article>
+          <article class="plan">
+            <h3 data-es="Intro 21 días">21-day intro</h3>
+            <p class="plan__p">$79</p>
+            <p data-es="Clases ilimitadas por tres semanas. Una sola vez, para nuevos alumnos.">Unlimited classes for three weeks. Once, for new members.</p>
+            <a href="#book" class="btn btn--ghost-dark" data-es="Empezar">Start</a>
+          </article>
+          <article class="plan plan--main">
+            <p class="plan__tag mono" data-es="El favorito">Most members</p>
+            <h3 data-es="Ilimitado">Unlimited</h3>
+            <p class="plan__p">$189<small data-es="/mes">/mo</small></p>
+            <p data-es="Todas las clases, reservas con ocho días de anticipación y dos pases para invitados al mes.">Every class, booking eight days ahead and two guest passes a month.</p>
+            <a href="#book" class="btn btn--accent" data-es="Empezar">Start</a>
+          </article>
+          <article class="plan">
+            <h3 data-es="8 clases">8 classes</h3>
+            <p class="plan__p">$152<small data-es="/mes">/mo</small></p>
+            <p data-es="Dos clases por semana. Una clase sin usar pasa al mes siguiente.">Twice a week. One unused class rolls into next month.</p>
+            <a href="#book" class="btn btn--ghost-dark" data-es="Empezar">Start</a>
+          </article>
+        </div>
+        <p class="plans__drop"><span data-es="Clase suelta $32 · Paquete de 10 clases $260 · Sin contrato, cancela con 30 días de aviso">Drop-in $32 · 10-class pack $260 · No contract, cancel with 30 days' notice</span></p>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section class="reviews wrap" aria-labelledby="reviews-title">
+      <p class="eyebrow mono"><span data-es="06 · Reseñas">06 · Reviews</span></p>
+      <h2 class="h2 reveal" id="reviews-title" data-es="Lo que se oye <em>en el estudio.</em>">Heard <em>on the floor.</em></h2>
+      <div class="reviews__grid">
+        <figure class="quote quote--big">
+          <blockquote data-es="“Vine por el ciclo gratis y me quedé por la fuerza de Inés los jueves. Ocho meses después mi peso muerto se duplicó y espero con ganas las 5:45 am.”">“I came for the free ride and stayed for Inés's Thursday strength. Eight months in, my deadlift has doubled and I actually look forward to 5:45 am.”</blockquote>
+          <figcaption><span class="stars" aria-label="5 out of 5" data-es-aria-label="5 de 5">★★★★★</span> Carla M. · Kenwood</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote data-es="“Los coaches se aprenden tu nombre el primer día y se acuerdan de tu hombro malo el día treinta.”">“The coaches learn your name on day one and remember your bad shoulder on day thirty.”</blockquote>
+          <figcaption><span class="stars" aria-label="5 out of 5" data-es-aria-label="5 de 5">★★★★★</span> Devon R. · Old Northeast</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote data-es="“Por fin un estudio donde las clases son en inglés y en español sin que sea raro. El Reformer Flow de Tamsin es la mejor hora de mi semana.”">“Finally a studio where class runs in English and Spanish without it being a thing. Tamsin's Reformer Flow is the best hour of my week.”</blockquote>
+          <figcaption><span class="stars" aria-label="5 out of 5" data-es-aria-label="5 de 5">★★★★★</span> Lucía P. · Gulfport</figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote data-es="“Tengo 58 años y una rodilla operada. Mateo me armó una versión de cada ejercicio y nunca me sentí la más lenta del salón.”">“I'm 58 with a rebuilt knee. Mateo gave me a version of every move and I never once felt like the slow one in the room.”</blockquote>
+          <figcaption><span class="stars" aria-label="5 out of 5" data-es-aria-label="5 de 5">★★★★★</span> Renée T. · Disston Heights</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ VISIT ============ -->
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div class="wrap visit__grid">
+        <div>
+          <p class="eyebrow mono"><span data-es="07 · Visítanos">07 · Visit</span></p>
+          <h2 class="h2 reveal" id="visit-title" data-es="En Central, <em>en el Grand Central District.</em>">On Central, <em>in the Grand Central District.</em></h2>
+          <address class="visit__addr">
+            2418 Central Ave<br>St. Petersburg, FL 33713<br>
+            <a href="tel:+17275550142">(727) 555-0142</a><br>
+            <a href="mailto:hola@marejadastudio.com">hola@marejadastudio.com</a>
+          </address>
+          <p class="visit__note" data-es="Estacionamiento gratis detrás del estudio, entrando por 1st Ave S. Bicicleteros al frente.">Free parking behind the studio off 1st Ave S. Bike racks out front.</p>
+          <p class="open mono" data-open></p>
+          <table class="hours">
+            <caption class="sr-only" data-es="Horario del estudio">Studio hours</caption>
+            <tbody>
+              <tr data-day="1"><th scope="row" data-es="Lunes">Monday</th><td>5:30 am – 8:30 pm</td></tr>
+              <tr data-day="2"><th scope="row" data-es="Martes">Tuesday</th><td>5:30 am – 8:30 pm</td></tr>
+              <tr data-day="3"><th scope="row" data-es="Miércoles">Wednesday</th><td>5:30 am – 8:30 pm</td></tr>
+              <tr data-day="4"><th scope="row" data-es="Jueves">Thursday</th><td>5:30 am – 8:30 pm</td></tr>
+              <tr data-day="5"><th scope="row" data-es="Viernes">Friday</th><td>5:30 am – 7:00 pm</td></tr>
+              <tr data-day="6"><th scope="row" data-es="Sábado">Saturday</th><td>7:00 am – 1:00 pm</td></tr>
+              <tr data-day="0"><th scope="row" data-es="Domingo">Sunday</th><td>8:00 am – 12:00 pm</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure class="map" aria-label="Map: Marejada Studio on Central Ave between 24th and 25th Street North" data-es-aria-label="Mapa: Marejada Studio en Central Ave entre las calles 24 y 25 Norte" role="img">
+          <svg viewBox="0 0 600 600" aria-hidden="true">
+            <defs>
+              <pattern id="blk" width="100" height="70" patternUnits="userSpaceOnUse"><rect x="8" y="8" width="84" height="54" rx="3" fill="#15171c"/></pattern>
+              <radialGradient id="ping"><stop offset="0" stop-color="#ff4f2e" stop-opacity=".5"/><stop offset="1" stop-color="#ff4f2e" stop-opacity="0"/></radialGradient>
+            </defs>
+            <rect width="600" height="600" fill="#0e1014"/>
+            <rect width="600" height="600" fill="url(#blk)"/>
+            <path d="M0 288 H600" stroke="#ff4f2e" stroke-width="10" opacity=".9"/>
+            <path d="M0 218 H600 M0 358 H600" stroke="#2a2e37" stroke-width="7"/>
+            <path d="M300 0 V600 M400 0 V600 M200 0 V600" stroke="#2a2e37" stroke-width="7"/>
+            <path d="M0 560 C150 520 260 600 420 548 S560 520 600 540 V600 H0Z" fill="#12343a"/>
+            <circle class="map__ping" cx="352" cy="288" r="60" fill="url(#ping)"/>
+            <circle cx="352" cy="288" r="11" fill="#ff4f2e" stroke="#0b0c0f" stroke-width="4"/>
+            <text x="20" y="278" class="map__st map__st--main">CENTRAL AVE</text>
+            <text x="20" y="208" class="map__st">1ST AVE N</text>
+            <text x="20" y="348" class="map__st">1ST AVE S</text>
+            <text x="208" y="40" class="map__st" transform="rotate(90 208 40)">24TH ST N</text>
+            <text x="408" y="40" class="map__st" transform="rotate(90 408 40)">25TH ST N</text>
+            <text x="372" y="318" class="map__lbl">MAREJADA</text>
+            <text x="372" y="402" class="map__p">P</text>
+            <rect x="360" y="380" width="30" height="30" rx="4" fill="none" stroke="#3ce0c6" stroke-width="2"/>
+          </svg>
+          <a class="map__link mono" href="https://maps.google.com/?q=2418+Central+Ave+St.+Petersburg+FL+33713" target="_blank" rel="noopener" data-es="Cómo llegar ↗">Get directions ↗</a>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ BOOK ============ -->
+    <section class="book" id="book" aria-labelledby="book-title">
+      <div class="wrap book__grid">
+        <div class="book__copy">
+          <p class="eyebrow mono"><span data-es="08 · Reserva">08 · Book</span></p>
+          <h2 class="h2 book__title reveal" id="book-title" data-es="Tu primera clase <em>va por nuestra cuenta.</em>">Your first class <em>is on us.</em></h2>
+          <p class="lede" data-es="Dinos qué te llama la atención y te guardamos un lugar. Te escribimos el mismo día para confirmar.">Tell us what you're curious about and we'll hold a spot. We text you the same day to confirm.</p>
+        </div>
+        <form class="form" novalidate>
+          <div class="form__row">
+            <label class="field"><span class="label" data-es="Nombre">Name</span><input name="name" autocomplete="name" required></label>
+            <label class="field"><span class="label" data-es="Teléfono">Phone</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+          </div>
+          <label class="field"><span class="label" data-es="Correo electrónico">Email</span><input name="email" type="email" autocomplete="email" required></label>
+          <fieldset class="field field--pick">
+            <legend class="label" data-es="Clase">Class</legend>
+            <div class="pick">
+              <label><input type="radio" name="type" value="strength" checked><span data-es="Fuerza">Strength</span></label>
+              <label><input type="radio" name="type" value="reformer"><span>Reformer</span></label>
+              <label><input type="radio" name="type" value="ride"><span data-es="Ciclo">Ride</span></label>
+              <label><input type="radio" name="type" value="mobility"><span data-es="Movilidad">Mobility</span></label>
+            </div>
+          </fieldset>
+          <label class="field"><span class="label" data-es="Día y hora">Day and time</span>
+            <select name="slot" required></select>
+          </label>
+          <label class="field"><span class="label" data-es="¿Alguna lesión o algo que debamos saber? (opcional)">Any injuries or anything we should know? (optional)</span><textarea name="note" rows="3"></textarea></label>
+          <div class="form__end">
+            <button class="btn btn--accent btn--big" type="submit" data-es="Guardar mi lugar">Hold my spot</button>
+            <p class="form__msg" role="alert"></p>
+          </div>
+          <div class="form__done" hidden tabindex="-1">
+            <p class="mono" data-es="Lugar reservado">Spot held</p>
+            <h3><span data-es="Nos vemos en el estudio,">See you on the floor,</span> <span class="form__who"></span>.</h3>
+            <p><span data-es="Tu clase:">Your class:</span> <b class="form__what"></b>. <span data-es="Te escribimos hoy para confirmar.">We'll text you today to confirm.</span></p>
+            <button type="button" class="btn btn--ghost form__again" data-es="Reservar otra">Book another</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p class="foot__word" aria-hidden="true">Marejada</p>
+      <div class="foot__cols">
+        <div><p class="mono" data-es="Estudio">Studio</p><p>2418 Central Ave<br>St. Petersburg, FL 33713</p></div>
+        <div><p class="mono" data-es="Contacto">Contact</p><p><a href="tel:+17275550142">(727) 555-0142</a><br><a href="mailto:hola@marejadastudio.com">hola@marejadastudio.com</a></p></div>
+        <div><p class="mono" data-es="Horario">Hours</p><p data-es="Lun–Jue 5:30 am–8:30 pm<br>Vie 5:30 am–7 pm · Sáb 7 am–1 pm<br>Dom 8 am–12 pm">Mon–Thu 5:30 am–8:30 pm<br>Fri 5:30 am–7 pm · Sat 7 am–1 pm<br>Sun 8 am–12 pm</p></div>
+        <div><p class="mono" data-es="Síguenos">Follow</p><p><a href="#" aria-label="Marejada Studio on Instagram" data-es-aria-label="Marejada Studio en Instagram">Instagram</a><br><a href="#" aria-label="Marejada Studio on Strava" data-es-aria-label="Marejada Studio en Strava">Strava club</a></p></div>
+      </div>
+      <div class="foot__bar">
+        <p>© 2026 Marejada Studio</p>
+        <a href="#top" data-es="Volver arriba ↑">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
