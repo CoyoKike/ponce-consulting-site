@@ -1,0 +1,199 @@
+{
+  "listings": [
+    {
+      "id": "lakefront-miami-lakes",
+      "status": "for-sale",
+      "agent": "marisela",
+      "price": 1395000,
+      "beds": 5,
+      "baths": 4,
+      "sqft": 3920,
+      "year": 2006,
+      "lot": { "en": "On the lake, 0.31 acre", "es": "Frente al lago, 0.31 acres" },
+      "address": "Lake Patricia Drive",
+      "neighborhood": "Miami Lakes",
+      "map": [-46, -44],
+      "title": { "en": "The Lake Patricia House", "es": "La casa de Lake Patricia" },
+      "summary": {
+        "en": "A Mediterranean pool home right on the water, with arched loggias, a spa that spills into the pool and a dock for the paddleboards. Morning light over the lake from the primary suite.",
+        "es": "Una casa mediterránea con piscina justo sobre el agua, con logias de arcos, un spa que cae a la piscina y un muelle para las tablas de remo. Luz de la mañana sobre el lago desde la habitación principal."
+      },
+      "features": {
+        "en": ["Saltwater pool and spa", "Private dock on the lake", "Impact windows and a whole-house generator", "Walk to Main Street"],
+        "es": ["Piscina de agua salada y spa", "Muelle privado en el lago", "Ventanas de impacto y planta eléctrica para toda la casa", "A pie de Main Street"]
+      },
+      "photos": ["assets/img/l1a.webp", "assets/img/l1b.webp", "assets/img/l1c.webp"],
+      "thumb": "assets/img/l1a-s.webp"
+    },
+    {
+      "id": "royal-oaks-pool-home",
+      "status": "new",
+      "agent": "marisela",
+      "price": 989000,
+      "beds": 4,
+      "baths": 3,
+      "sqft": 2740,
+      "year": 1998,
+      "address": "NW 87th Court",
+      "neighborhood": "Miami Lakes",
+      "map": [-16, -54],
+      "title": { "en": "Royal Oaks Pool Home", "es": "Casa con piscina en Royal Oaks" },
+      "summary": {
+        "en": "A four-bedroom on a quiet cul-de-sac with a screened pool under the palms and a new roof. Zoned for the schools families in Miami Lakes ask for first.",
+        "es": "Cuatro cuartos en un cul-de-sac tranquilo, con piscina bajo las palmas y techo nuevo. En la zona de las escuelas que las familias de Miami Lakes piden primero."
+      },
+      "features": {
+        "en": ["Roof replaced 2023", "Heated pool with summer kitchen", "Two-car garage", "Cul-de-sac lot"],
+        "es": ["Techo nuevo en 2023", "Piscina climatizada con cocina de verano", "Garaje para dos carros", "Lote en cul-de-sac"]
+      },
+      "photos": ["assets/img/l2a.webp", "assets/img/l2b.webp", "assets/img/l2c.webp"],
+      "thumb": "assets/img/l2a-s.webp"
+    },
+    {
+      "id": "downtown-doral-condo",
+      "status": "for-sale",
+      "agent": "daniel",
+      "price": 529000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1180,
+      "year": 2018,
+      "address": "NW 53rd Terrace, Unit 607",
+      "neighborhood": "Downtown Doral",
+      "map": [-14, 4],
+      "title": { "en": "Residence 607", "es": "Residencia 607" },
+      "summary": {
+        "en": "A corner two-bedroom over the palms of Downtown Doral, steps from the park, the charter school and the cafés. Low HOA, pool and gym, and an easy rental if you're still abroad.",
+        "es": "Un dos cuartos de esquina sobre las palmas de Downtown Doral, a pasos del parque, la escuela charter y los cafés. Mantenimiento bajo, piscina y gimnasio, y fácil de alquilar si todavía vive fuera."
+      },
+      "features": {
+        "en": ["Corner unit with wraparound balcony", "Walk to Downtown Doral Park", "Rentals allowed after 12 months", "Two assigned parking spaces"],
+        "es": ["Unidad de esquina con balcón corrido", "A pie del Downtown Doral Park", "Se permite alquilar después de 12 meses", "Dos estacionamientos asignados"]
+      },
+      "photos": ["assets/img/l3a.webp", "assets/img/l3b.webp", "assets/img/l3c.webp"],
+      "thumb": "assets/img/l3a-s.webp"
+    },
+    {
+      "id": "palm-avenue-eight",
+      "status": "pending",
+      "agent": "andres",
+      "price": 2350000,
+      "beds": 12,
+      "baths": 8,
+      "sqft": 7800,
+      "year": 1985,
+      "lot": { "en": "Eight units, fully rented", "es": "Ocho unidades, todas alquiladas" },
+      "address": "East 9th Street",
+      "neighborhood": "Hialeah",
+      "map": [26, -30],
+      "title": { "en": "Eight Units off Palm Avenue", "es": "Ocho unidades junto a Palm Avenue" },
+      "summary": {
+        "en": "An eight-unit building two blocks from Palm Avenue, fully rented with long-term tenants. Roof and electrical are recent; the rent roll and insurance quote are ready before you tour.",
+        "es": "Un edificio de ocho unidades a dos cuadras de Palm Avenue, todo alquilado con inquilinos de largo plazo. El techo y la parte eléctrica son recientes; la lista de rentas y la cotización del seguro están listas antes de la visita."
+      },
+      "features": {
+        "en": ["Fully occupied, long-term leases", "Roof 2021, electrical 2022", "On-site laundry income", "Rent roll available on request"],
+        "es": ["Ocupado al 100%, contratos largos", "Techo 2021, eléctrico 2022", "Ingreso por lavandería", "Lista de rentas disponible a solicitud"]
+      },
+      "photos": ["assets/img/l4a.webp", "assets/img/l4b.webp", "assets/img/l4c.webp"],
+      "thumb": "assets/img/l4a-s.webp"
+    },
+    {
+      "id": "westchester-new-build",
+      "status": "new",
+      "agent": "yanelis",
+      "price": 689000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1860,
+      "year": 2024,
+      "address": "SW 82nd Avenue",
+      "neighborhood": "Westchester",
+      "map": [-30, 50],
+      "title": { "en": "New Build on 82nd", "es": "Construcción nueva en la 82" },
+      "summary": {
+        "en": "A newly built three-bedroom with a deep backyard, ten minutes from FIU. FHA-eligible, with a seller credit toward closing costs.",
+        "es": "Una casa de tres cuartos recién construida con patio profundo, a diez minutos de FIU. Califica para FHA, con crédito del vendedor para los gastos de cierre."
+      },
+      "features": {
+        "en": ["FHA-eligible", "Seller credit toward closing", "Lower insurance on new construction", "Big yard, room for a pool"],
+        "es": ["Califica para FHA", "Crédito del vendedor para el cierre", "Seguro más bajo por ser nueva", "Patio grande, espacio para piscina"]
+      },
+      "photos": ["assets/img/l5a.webp", "assets/img/l5b.webp", "assets/img/l5c.webp"],
+      "thumb": "assets/img/l5a-s.webp"
+    },
+    {
+      "id": "miami-springs-two-story",
+      "status": "sold",
+      "agent": "yanelis",
+      "price": 735000,
+      "beds": 3,
+      "baths": 2.5,
+      "sqft": 2150,
+      "year": 1952,
+      "address": "Curtiss Parkway",
+      "neighborhood": "Miami Springs",
+      "map": [48, 8],
+      "title": { "en": "Curtiss Parkway House", "es": "La casa de Curtiss Parkway" },
+      "summary": {
+        "en": "A two-story with a covered terrace and a tiled sunroom under old oaks. Sold to first-time buyers using a county down-payment program, with three offers in the first week.",
+        "es": "Una casa de dos pisos con terraza techada y un solario de losas bajo robles viejos. Se vendió a compradores de primera vivienda con un programa de ayuda del condado, con tres ofertas la primera semana."
+      },
+      "features": {
+        "en": ["Sold to first-time buyers", "County down-payment assistance", "Three offers in week one"],
+        "es": ["Vendida a compradores de primera vivienda", "Ayuda del condado para el pago inicial", "Tres ofertas la primera semana"]
+      },
+      "photos": ["assets/img/l6a.webp", "assets/img/l6b.webp", "assets/img/l6c.webp"],
+      "thumb": "assets/img/l6a-s.webp"
+    },
+    {
+      "id": "midtown-doral-1408",
+      "status": "for-rent",
+      "agent": "daniel",
+      "price": 3200,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1095,
+      "year": 2020,
+      "address": "NW 107th Avenue, Unit 1408",
+      "neighborhood": "Doral",
+      "map": [-22, 14],
+      "title": { "en": "Unit 1408, for lease", "es": "Unidad 1408, en alquiler" },
+      "summary": {
+        "en": "A bright two-bedroom on the 14th floor with sunset views over the golf courses. A good first lease for families just arriving: we accept foreign income documentation.",
+        "es": "Un dos cuartos luminoso en el piso 14 con vista al atardecer sobre los campos de golf. Un buen primer alquiler para familias recién llegadas: aceptamos documentos de ingresos del exterior."
+      },
+      "features": {
+        "en": ["Foreign income accepted", "12-month lease, furnished option", "Pool, gym, co-working room", "Doral school zone"],
+        "es": ["Se aceptan ingresos del exterior", "Contrato de 12 meses, opción amueblada", "Piscina, gimnasio, sala de trabajo", "Zona escolar de Doral"]
+      },
+      "photos": ["assets/img/l7a.webp", "assets/img/l7b.webp", "assets/img/l7c.webp"],
+      "thumb": "assets/img/l7a-s.webp"
+    },
+    {
+      "id": "hialeah-gardens-townhome",
+      "status": "for-sale",
+      "agent": "andres",
+      "price": 545000,
+      "beds": 3,
+      "baths": 2.5,
+      "sqft": 1640,
+      "year": 2016,
+      "address": "NW 97th Place",
+      "neighborhood": "Hialeah Gardens",
+      "map": [44, -56],
+      "title": { "en": "Townhome on 97th Place", "es": "Townhouse en la 97 Place" },
+      "summary": {
+        "en": "A three-story townhome with a garage, a small fenced patio and low association fees. Live in it or rent it: comparable units on the street lease quickly.",
+        "es": "Un townhouse de tres pisos con garaje, patio cercado y cuota baja de asociación. Para vivir o para alquilar: las unidades de la misma calle se alquilan rápido."
+      },
+      "features": {
+        "en": ["Garage plus driveway", "Low HOA, pets allowed", "Strong rental demand on the street", "Near the Palmetto and the Turnpike"],
+        "es": ["Garaje y entrada", "Asociación baja, se permiten mascotas", "Mucha demanda de alquiler en la calle", "Cerca de la 826 y el Turnpike"]
+      },
+      "photos": ["assets/img/l8a.webp", "assets/img/l8b.webp", "assets/img/l8c.webp"],
+      "thumb": "assets/img/l8a-s.webp",
+      "focus": "50% 25%"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "listings": [
+    {
+      "id": "shell-house",
+      "status": "for-sale",
+      "price": 6850000,
+      "beds": 4,
+      "baths": 4.5,
+      "sqft": 3960,
+      "year": 2021,
+      "lot": { "en": "Gulf-front, 75 ft of beach", "es": "Frente al Golfo, 75 pies de playa" },
+      "address": "Gulf Shore Boulevard North",
+      "neighborhood": "Naples",
+      "title": { "en": "Shell House", "es": "Casa Concha" },
+      "summary": {
+        "en": "A raised beach house with a wraparound porch, a standing-seam roof and a lookout room for watching the sunset. Built above flood elevation in 2021, a short walk from the pier.",
+        "es": "Una casa de playa elevada con porche alrededor, techo de metal y un mirador para ver el atardecer. Construida en 2021 por encima de la cota de inundación, a pocos pasos del muelle."
+      },
+      "season": { "en": "Rentals allowed: 30-day minimum, up to three times a year.", "es": "Se permite rentar: mínimo 30 días, hasta tres veces al año." },
+      "features": {
+        "en": ["Private dune walkover to the beach", "Impact windows and whole-house generator", "Elevator from the garage level", "Outdoor shower and kayak storage"],
+        "es": ["Pasarela privada sobre la duna hasta la playa", "Ventanas de impacto y generador para toda la casa", "Ascensor desde el nivel del garaje", "Ducha exterior y espacio para kayaks"]
+      },
+      "photos": ["assets/img/l1a.webp", "assets/img/l1b.webp", "assets/img/l1c.webp"],
+      "thumb": "assets/img/l1a-s.webp"
+    },
+    {
+      "id": "pelican-bay-1104",
+      "status": "new",
+      "price": 2395000,
+      "beds": 3,
+      "baths": 3,
+      "sqft": 2480,
+      "year": 2009,
+      "lot": { "en": "11th floor, Gulf view", "es": "Piso 11, vista al Golfo" },
+      "address": "Pelican Bay Boulevard, Residence 1104",
+      "neighborhood": "Pelican Bay, Naples",
+      "title": { "en": "Residence 1104", "es": "Residencia 1104" },
+      "summary": {
+        "en": "A corner condo with the Gulf on one side and the mangroves on the other. Lock it in April, come back in January: the building handles the rest.",
+        "es": "Un condominio en esquina con el Golfo de un lado y los manglares del otro. Ciérrelo en abril y vuelva en enero: el edificio se encarga del resto."
+      },
+      "season": { "en": "Leasing: 90-day minimum, once a year. Beach tram and beach club included.", "es": "Alquiler: mínimo 90 días, una vez al año. Incluye tranvía y club de playa." },
+      "features": {
+        "en": ["Wraparound balcony facing west", "Two covered parking spaces", "Concierge and on-site manager", "Pet-friendly building"],
+        "es": ["Balcón envolvente hacia el oeste", "Dos estacionamientos techados", "Conserje y administrador en el edificio", "Edificio que acepta mascotas"]
+      },
+      "photos": ["assets/img/l2a.webp", "assets/img/l2b.webp", "assets/img/l2c.webp"],
+      "thumb": "assets/img/l2a-s.webp"
+    },
+    {
+      "id": "beach-road-cottage",
+      "status": "for-sale",
+      "price": 1875000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1720,
+      "year": 1958,
+      "lot": { "en": "Two blocks to the sand", "es": "A dos cuadras de la arena" },
+      "address": "Beach Road",
+      "neighborhood": "Siesta Key",
+      "title": { "en": "Beach Road Cottage", "es": "Cabaña Beach Road" },
+      "summary": {
+        "en": "A 1950s Siesta Key cottage, carefully restored, with heart-pine floors, a new roof and a garden of sea grape and coontie. Bikes in the shed, two blocks to the quartz sand.",
+        "es": "Una cabaña de los años cincuenta en Siesta Key, restaurada con cuidado: pisos de pino, techo nuevo y un jardín de uva de mar. Bicicletas en el cobertizo y la arena de cuarzo a dos cuadras."
+      },
+      "season": { "en": "Vacation rentals allowed in this zone; summer weeks book early.", "es": "Se permiten rentas vacacionales en esta zona; las semanas de verano se reservan pronto." },
+      "features": {
+        "en": ["Roof replaced 2023", "Heated plunge pool", "Screened porch", "Walk to Siesta Village"],
+        "es": ["Techo nuevo en 2023", "Piscina pequeña climatizada", "Porche con mosquitero", "A pie de Siesta Village"]
+      },
+      "photos": ["assets/img/l3a.webp", "assets/img/l3b.webp", "assets/img/l3c.webp"],
+      "thumb": "assets/img/l3a-s.webp"
+    },
+    {
+      "id": "fairway-villa",
+      "status": "pending",
+      "price": 849000,
+      "beds": 3,
+      "baths": 3,
+      "sqft": 2310,
+      "year": 2017,
+      "lot": { "en": "On the 14th fairway", "es": "Sobre el hoyo 14" },
+      "address": "Country Club East",
+      "neighborhood": "Lakewood Ranch",
+      "title": { "en": "Fairway Villa", "es": "Villa del Fairway" },
+      "summary": {
+        "en": "A single-level villa with a screened pool lanai looking down the 14th fairway to the lake. No stairs, no surprises, and the clubhouse a golf-cart ride away.",
+        "es": "Una villa de un solo nivel con piscina bajo mosquitero que mira al hoyo 14 y al lago. Sin escaleras, sin sorpresas, y el club a un paseo en carrito de golf."
+      },
+      "season": { "en": "Seasonal leasing: one-month minimum. Golf membership transfers with the sale.", "es": "Alquiler de temporada: mínimo un mes. La membresía de golf se transfiere con la venta." },
+      "features": {
+        "en": ["Screened pool and lanai", "Outside the coastal evacuation zone", "Single level, wide doorways", "Golf-cart garage"],
+        "es": ["Piscina y terraza con mosquitero", "Fuera de la zona de evacuación costera", "Un solo nivel, puertas anchas", "Garaje para carrito de golf"]
+      },
+      "photos": ["assets/img/l4a.webp", "assets/img/l4b.webp", "assets/img/l4c.webp"],
+      "thumb": "assets/img/l4a-s.webp"
+    },
+    {
+      "id": "bird-key-bayfront",
+      "status": "sold",
+      "price": 4200000,
+      "beds": 4,
+      "baths": 4,
+      "sqft": 3880,
+      "year": 2015,
+      "lot": { "en": "Bayfront with deep-water dock", "es": "Frente a la bahía, muelle de agua profunda" },
+      "address": "Bird Key Drive",
+      "neighborhood": "Sarasota",
+      "title": { "en": "Bird Key Bayfront", "es": "Bird Key frente a la bahía" },
+      "summary": {
+        "en": "A white modern house on Sarasota Bay with a deep-water dock and the city lights across the water. Sold before it reached the MLS to a family relocating from Toronto.",
+        "es": "Una casa moderna y blanca sobre la bahía de Sarasota, con muelle de agua profunda y las luces de la ciudad al otro lado. Vendida antes de llegar al MLS a una familia que se mudó desde Toronto."
+      },
+      "season": { "en": "Sold off-market, represented by Tomás.", "es": "Vendida fuera de mercado, con Tomás como agente." },
+      "features": {
+        "en": ["Deep-water dock with lift", "Pool and spa facing west", "Ten minutes to the opera house"],
+        "es": ["Muelle de agua profunda con elevador", "Piscina y spa hacia el oeste", "A diez minutos de la ópera"]
+      },
+      "photos": ["assets/img/l5a.webp", "assets/img/l5b.webp", "assets/img/l5c.webp"],
+      "thumb": "assets/img/l5a-s.webp"
+    },
+    {
+      "id": "manasota-beach-house",
+      "status": "coming-soon",
+      "price": 2950000,
+      "beds": 4,
+      "baths": 3.5,
+      "sqft": 2940,
+      "year": 2018,
+      "lot": { "en": "Gulf to bay, 100 ft wide", "es": "Del Golfo a la bahía, 100 pies de ancho" },
+      "address": "Manasota Key Road",
+      "neighborhood": "Venice · Manasota Key",
+      "title": { "en": "Manasota Beach House", "es": "Casa de playa Manasota" },
+      "summary": {
+        "en": "A lot that runs from the Gulf beach to the bay, with a raised house built to current code in between. Sunrise over the water at breakfast, sunset over the Gulf at dinner.",
+        "es": "Un terreno que va de la playa del Golfo a la bahía, con una casa elevada construida bajo el código actual en medio. Amanecer sobre el agua en el desayuno y atardecer sobre el Golfo en la cena."
+      },
+      "season": { "en": "Rentals: 7-night minimum. Private preview before it lists.", "es": "Rentas: mínimo 7 noches. Visita privada antes de que salga al mercado." },
+      "features": {
+        "en": ["Built above base flood elevation", "Gulf beach and bay dock on one lot", "Rooftop deck", "Quiet end of the key"],
+        "es": ["Construida por encima de la cota de inundación", "Playa en el Golfo y muelle en la bahía en un mismo terreno", "Terraza en la azotea", "En el extremo tranquilo de la isla"]
+      },
+      "photos": ["assets/img/l6a.webp", "assets/img/l6b.webp", "assets/img/l6c.webp"],
+      "thumb": "assets/img/l6a-s.webp"
+    }
+  ]
+}

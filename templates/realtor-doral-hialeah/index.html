@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casa Solana Realty · Doral, Hialeah &amp; Miami Lakes</title>
+<meta name="description" content="Casa Solana Realty is a family brokerage in Doral. Four agents for Hialeah, Doral, Miami Lakes, Miami Springs and Westchester, in Spanish and English." data-es-content="Casa Solana Realty es una agencia familiar en Doral. Cuatro agentes para Hialeah, Doral, Miami Lakes, Miami Springs y Westchester, en español e inglés.">
+<meta name="theme-color" content="#10302a">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('js');window.SITE={key:'casasolana',defaultLang:'en',titles:{en:'Casa Solana Realty · Doral, Hialeah & Miami Lakes',es:'Casa Solana Realty · Doral, Hialeah y Miami Lakes'}};</script>
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js" } }</script>
+</head>
+<body>
+<a class="skip" href="#main" data-es="Saltar al contenido">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="#top" aria-label="Casa Solana Realty, back to top" data-es-aria-label="Casa Solana Realty, volver arriba">
+    <svg class="brand__tile" viewBox="0 0 40 40" aria-hidden="true"><rect x="1" y="1" width="38" height="38" rx="2"/><path d="M20 4 L36 20 L20 36 L4 20 Z"/><circle cx="20" cy="20" r="6.5"/><path d="M1 1 L9 9 M39 1 L31 9 M1 39 L9 31 M39 39 L31 31"/></svg>
+    <span class="brand__name">Casa Solana<small>Realty · Doral</small></span>
+  </a>
+  <nav class="nav__links" aria-label="Main" data-es-aria-label="Principal">
+    <a href="#listings" data-es="Propiedades">Listings</a>
+    <a href="#areas" data-es="Barrios">Neighborhoods</a>
+    <a href="#team" data-es="Equipo">Team</a>
+    <a href="#services" data-es="Servicios">Services</a>
+    <a href="#about" data-es="Nosotros">About</a>
+  </nav>
+  <div class="nav__end">
+    <div class="lang" role="group" aria-label="Language" data-es-aria-label="Idioma">
+      <button type="button" data-lang-btn="es" aria-pressed="false">ES</button><button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+    </div>
+    <a class="btn btn--solid btn--sm nav__cta" href="#contact" data-intent-link="valuation"><span data-es="¿Cuánto vale mi casa?">What's my home worth?</span><i aria-hidden="true"></i></a>
+    <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu" data-es-aria-label="Menú"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <nav aria-label="Mobile" data-es-aria-label="Móvil">
+    <a href="#listings" data-es="Propiedades">Listings</a>
+    <a href="#areas" data-es="Barrios">Neighborhoods</a>
+    <a href="#team" data-es="Equipo">Team</a>
+    <a href="#services" data-es="Servicios">Services</a>
+    <a href="#about" data-es="Nosotros">About</a>
+    <a href="#contact" data-es="Contacto">Contact</a>
+  </nav>
+  <p class="menu__foot"><a href="tel:+13055550100">(305) 555-0100</a> · <span data-es="NW 41st Street, Doral">NW 41st Street, Doral</span></p>
+</div>
+
+<main id="main">
+  <!-- HERO: west Miami-Dade as a model; scroll walks through the team -->
+  <section class="hero" data-hero id="top" aria-labelledby="hero-title">
+    <div class="hero__stage">
+      <img class="hero__fallback" src="assets/img/e-aerial.webp" alt="" aria-hidden="true">
+      <canvas class="hero__canvas" data-hero-canvas aria-hidden="true"></canvas>
+      <div class="hero__labels" data-map-labels aria-hidden="true"></div>
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="hero__copy">
+        <p class="eyebrow hero__eyebrow" data-es="Hialeah · Doral · Miami Lakes · Westchester · Miami Springs">Hialeah · Doral · Miami Lakes · Westchester · Miami Springs</p>
+        <h1 class="hero__title" id="hero-title" data-split data-es-html="Los vecinos que venden <em>tu barrio.</em>">The neighbors who sell <em>your neighborhood.</em></h1>
+        <p class="hero__lede" data-es="Una agencia familiar en Doral desde 2004. Cada agente tiene un pedazo del oeste de Miami-Dade que conoce calle por calle.">A family brokerage in Doral since 2004. Each of our agents has a part of west Miami-Dade they know street by street.</p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="#contact" data-intent-link="showing"><span data-es="Agendar una visita">Book a showing</span><i aria-hidden="true"></i></a>
+          <a class="btn btn--ghost" href="#contact" data-intent-link="valuation"><span data-es="Valorar mi casa">Get a home valuation</span><i aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <aside class="hero__agent" data-hero-agent aria-live="polite"></aside>
+      <div class="hero__team">
+        <p class="hero__teamlabel" data-es="Conozca al equipo · desplácese para recorrer el mapa">Meet the team · scroll to travel the map</p>
+        <ul class="chips" data-team-chips></ul>
+      </div>
+      <span class="hero__progress" aria-hidden="true"><i></i></span>
+    </div>
+  </section>
+
+  <!-- LISTINGS -->
+  <section class="listings" id="listings" aria-labelledby="ls-title">
+    <div class="tile-rule" aria-hidden="true"></div>
+    <header class="sec-head">
+      <p class="eyebrow" data-es="Propiedades destacadas">Featured listings</p>
+      <h2 class="sec-title" id="ls-title" data-split data-es-html="Casas que conocemos <em>por dentro.</em>">Homes we know <em>from the inside.</em></h2>
+      <div class="filters" role="group" aria-label="Filter listings" data-es-aria-label="Filtrar propiedades">
+        <button type="button" data-filter="all" aria-pressed="true" data-es="Todas">All</button>
+        <span class="filters__agents" data-agent-filters></span>
+      </div>
+    </header>
+    <div class="grid" data-listings aria-live="polite"></div>
+  </section>
+
+  <!-- NEIGHBORHOODS -->
+  <section class="areas" id="areas" aria-labelledby="ar-title">
+    <header class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow" data-es="Los barrios">Neighborhoods</p>
+        <h2 class="sec-title" id="ar-title" data-split data-es-html="Cinco barrios, <em>contados por quien vive en ellos.</em>">Five neighborhoods, <em>told by people who live in them.</em></h2>
+      </div>
+      <p class="sec-lede" data-reveal data-es="Del tráfico de la 826 a qué escuela le toca a cada cuadra: lo que no sale en el anuncio.">From Palmetto traffic to which school each block is zoned for: what never makes the listing.</p>
+    </header>
+    <ol class="hoods">
+      <li class="hood hood--wide" data-reveal>
+        <figure><img src="assets/img/n-hialeah.webp" alt="Aerial view of a green Miami-Dade neighborhood of single-family homes with pools" data-es-alt="Vista aérea de un barrio verde de Miami-Dade con casas unifamiliares y piscinas" loading="lazy" width="1200" height="675" data-parallax="8"></figure>
+        <div class="hood__body">
+          <h3>Hialeah</h3>
+          <p data-es="La ciudad que nunca dejó de hablar español. Casas de bloque de los 50 y 60, dúplex que se pagan solos y una cafetería en cada esquina. Buena para invertir y para la primera casa.">The city that never stopped speaking Spanish. Concrete-block houses from the 50s and 60s, duplexes that pay for themselves and a ventanita on every corner. Good for investors and first homes alike.</p>
+          <p class="hood__price" data-es="Casas desde los $500 mil · dúplex desde los $700 mil">Houses from the $500s · duplexes from the $700s</p>
+        </div>
+      </li>
+      <li class="hood" data-reveal="1">
+        <figure><img src="assets/img/n-doral.webp" alt="A golf course lake lined with palms under a blue sky" data-es-alt="Un lago de campo de golf rodeado de palmas bajo un cielo azul" loading="lazy" width="1200" height="1800" data-parallax="8"></figure>
+        <div class="hood__body">
+          <h3>Doral</h3>
+          <p data-es="Campos de golf, condominios nuevos en Downtown Doral y las escuelas más pedidas del oeste. Aquí llegan muchas familias de Venezuela y Colombia.">Golf courses, new condos in Downtown Doral and some of the most requested schools in the west. Many families from Venezuela and Colombia land here first.</p>
+          <p class="hood__price" data-es="Condos desde los $400 mil · casas desde $1 millón">Condos from the $400s · houses from $1M</p>
+        </div>
+      </li>
+      <li class="hood" data-reveal="2">
+        <figure><img src="assets/img/n-lakes.webp" alt="Aerial view of homes curving around lakes and a golf course" data-es-alt="Vista aérea de casas alrededor de lagos y un campo de golf" loading="lazy" width="1200" height="1600" data-parallax="8"></figure>
+        <div class="hood__body">
+          <h3>Miami Lakes</h3>
+          <p data-es="Una ciudad planificada alrededor de sus lagos, con calles curvas, árboles maduros y Main Street a pie. Las casas frente al lago se venden casi sin cartel.">A town planned around lakes, with curving streets, mature trees and Main Street within walking distance. Lakefront houses tend to sell before a sign goes up.</p>
+          <p class="hood__price" data-es="Casas desde los $800 mil · frente al lago desde $1.2 millones">Houses from the $800s · lakefront from $1.2M</p>
+        </div>
+      </li>
+      <li class="hood" data-reveal="1">
+        <figure><img src="assets/img/n-springs.webp" alt="A white Florida house with a vintage car in the driveway" data-es-alt="Una casa blanca de Florida con un carro clásico en la entrada" loading="lazy" width="1200" height="675" data-parallax="8"></figure>
+        <div class="hood__body">
+          <h3>Miami Springs</h3>
+          <p data-es="Casas estilo Pueblo y Mission de los años 20 bajo robles enormes, junto al aeropuerto pero con alma de pueblo. Poco inventario y mucha lealtad.">1920s Pueblo and Mission-style houses under huge oaks, next to the airport but with a small-town soul. Little inventory, a lot of loyalty.</p>
+          <p class="hood__price" data-es="Casas desde los $650 mil">Houses from the $650s</p>
+        </div>
+      </li>
+      <li class="hood" data-reveal="2">
+        <figure><img src="assets/img/n-west.webp" alt="Aerial view of a tree-lined neighborhood with a park" data-es-alt="Vista aérea de un barrio arbolado con un parque" loading="lazy" width="1200" height="675" data-parallax="8"></figure>
+        <div class="hood__body">
+          <h3>Westchester</h3>
+          <p data-es="Casas de un piso con patio grande, cerca de FIU y del Tropical Park. El lugar donde muchas familias compran su primera casa y se quedan treinta años.">Single-story houses with big yards, close to FIU and Tropical Park. Where many families buy a first house and stay thirty years.</p>
+          <p class="hood__price" data-es="Casas desde los $550 mil">Houses from the $550s</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about" aria-labelledby="ab-title">
+    <div class="about__media">
+      <figure class="about__a" data-clip><img src="assets/img/e-agent.webp" alt="An agent holding the keys to a new home over a small wooden house model" data-es-alt="Una agente sostiene las llaves de una casa nueva sobre una pequeña maqueta de madera" loading="lazy" width="1400" height="2100"></figure>
+      <figure class="about__b" data-reveal="2"><img src="assets/img/e-keys.webp" alt="Two hands exchanging house keys" data-es-alt="Dos manos intercambiando las llaves de una casa" loading="lazy" width="1400" height="2100"></figure>
+    </div>
+    <div class="about__copy">
+      <p class="eyebrow" data-es="Nosotros">About us</p>
+      <h2 class="sec-title" id="ab-title" data-split data-es-html="Una agencia de familia, <em>con la puerta abierta.</em>">A family brokerage, <em>with the door open.</em></h2>
+      <p data-reveal data-es="Marisela Solana abrió Casa Solana en 2004 en un local pequeño de la calle 41 en Doral, con un escritorio, una cafetera y la lista de clientes que la seguían desde el banco. Hoy somos cuatro, todavía en la misma calle, y todavía con café.">Marisela Solana opened Casa Solana in 2004 in a small storefront on 41st Street in Doral, with one desk, a coffee maker and the clients who followed her from the bank. Today there are four of us, still on the same street, still with coffee.</p>
+      <p data-reveal="1" data-es="Trabajamos como trabaja una familia: cada uno tiene su especialidad, pero todos conocen a todos los clientes. Si su agente está en un cierre, alguien más en la oficina sabe exactamente dónde está su contrato.">We work the way a family does: each of us has a specialty, but everyone knows every client. If your agent is at a closing, someone else in the office knows exactly where your contract stands.</p>
+      <ul class="values" data-reveal="2">
+        <li><b data-es="Contratos explicados en español">Contracts explained in Spanish</b><span data-es="Línea por línea, antes de firmar.">Line by line, before you sign.</span></li>
+        <li><b data-es="WhatsApp también el domingo">WhatsApp on Sundays too</b><span data-es="Las casas no esperan al lunes.">Houses don't wait for Monday.</span></li>
+        <li><b data-es="Prestamistas que entienden su historia">Lenders who understand your story</b><span data-es="Ingresos propios, del exterior o recién llegados.">Self-employed, foreign income or newly arrived.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team" id="team" aria-labelledby="tm-title">
+    <div class="tile-rule tile-rule--light" aria-hidden="true"></div>
+    <header class="sec-head">
+      <p class="eyebrow" data-es="El equipo">The team</p>
+      <h2 class="sec-title" id="tm-title" data-split data-es-html="Cuatro agentes, <em>un solo apellido en la puerta.</em>">Four agents, <em>one name on the door.</em></h2>
+    </header>
+    <div class="agents" data-team></div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services" aria-labelledby="sv-title">
+    <header class="sec-head sec-head--center">
+      <p class="eyebrow" data-es="Servicios">Services</p>
+      <h2 class="sec-title" id="sv-title" data-split data-es-html="Comprar, vender <em>o poner a producir.</em>">Buy, sell, <em>or put it to work.</em></h2>
+    </header>
+    <div class="svc">
+      <article class="svc__card" data-reveal>
+        <p class="svc__k">01</p>
+        <h3 data-es="Para compradores">For buyers</h3>
+        <ul>
+          <li data-es="Pre-aprobación con prestamistas que trabajan con FHA, ITIN e ingresos propios">Pre-approval with lenders who handle FHA, ITIN and self-employed income</li>
+          <li data-es="Programas de ayuda para el pago inicial del condado y del estado">County and state down-payment assistance programs</li>
+          <li data-es="Visitas en la tarde y los fines de semana">Evening and weekend showings</li>
+          <li data-es="Inspección, seguro y cierre explicados en su idioma">Inspection, insurance and closing explained in your language</li>
+        </ul>
+        <a class="btn btn--line" href="#contact" data-intent-link="showing"><span data-es="Agendar una visita">Book a showing</span><i aria-hidden="true"></i></a>
+      </article>
+      <article class="svc__card svc__card--feature" data-reveal="1">
+        <p class="svc__k">02</p>
+        <h3 data-es="Para vendedores">For sellers</h3>
+        <ul>
+          <li data-es="Valoración por escrito con ventas reales de su misma cuadra">A written valuation with real sales from your own block</li>
+          <li data-es="Fotos y video profesionales, anuncio en inglés y español">Professional photos and video, listing copy in English and Spanish</li>
+          <li data-es="Compradores ya calificados de nuestra propia lista">Pre-qualified buyers from our own list</li>
+          <li data-es="Un solo agente de principio a fin, con la oficina detrás">One agent from start to finish, with the office behind them</li>
+        </ul>
+        <a class="btn btn--solid" href="#contact" data-intent-link="valuation"><span data-es="Valorar mi casa">Get a home valuation</span><i aria-hidden="true"></i></a>
+      </article>
+      <article class="svc__card" data-reveal="2">
+        <p class="svc__k">03</p>
+        <h3 data-es="Para inversionistas">For investors</h3>
+        <ul>
+          <li data-es="Dúplex y cuádruplex en Hialeah con las cuentas hechas">Duplexes and fourplexes in Hialeah with the numbers already run</li>
+          <li data-es="Estimados de renta, seguro y reparaciones antes de ofertar">Rent, insurance and repair estimates before you offer</li>
+          <li data-es="Intercambios 1031 coordinados con su contador">1031 exchanges coordinated with your accountant</li>
+          <li data-es="Locales pequeños y oficinas en Doral y Medley">Small retail and office space in Doral and Medley</li>
+        </ul>
+        <a class="btn btn--line" href="#contact" data-intent-link="showing"><span data-es="Hablar con Andrés">Talk to Andrés</span><i aria-hidden="true"></i></a>
+      </article>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="words" aria-labelledby="wd-title">
+    <h2 class="eyebrow words__label" id="wd-title" data-es="Lo que dicen nuestros clientes">What our clients say</h2>
+    <div class="words__track">
+      <figure class="word" data-reveal>
+        <blockquote data-es="Yanelis nos explicó el préstamo FHA como si fuéramos familia. Compramos en Westchester a dos cuadras de la escuela de los niños, y la ayuda del condado cubrió casi todo el pago inicial.">Yanelis explained the FHA loan like we were family. We bought in Westchester two blocks from the kids' school, and the county assistance covered almost all of the down payment.</blockquote>
+        <figcaption><span class="dot" style="--ac:#1f8a7a" aria-hidden="true"></span><b>Lisandra &amp; Yoel M.</b><span data-es="Primera casa, Westchester">First home, Westchester</span></figcaption>
+      </figure>
+      <figure class="word" data-reveal="1">
+        <blockquote data-es="Andrés me mandó la hoja de cálculo antes de ver el dúplex. Tenía razón con el techo y con la renta. Ya vamos por el segundo.">Andrés sent me the spreadsheet before I even saw the duplex. He was right about the roof and right about the rent. We're on our second one now.</blockquote>
+        <figcaption><span class="dot" style="--ac:#c99232" aria-hidden="true"></span><b>Rogelio P.</b><span data-es="Inversionista, Hialeah">Investor, Hialeah</span></figcaption>
+      </figure>
+      <figure class="word" data-reveal="2">
+        <blockquote data-es="Llegamos de Valencia con dos maletas. Daniel nos consiguió un alquiler en Doral, la escuela y, dos años después, la casa. Todo en ese orden, como nos dijo.">We arrived from Valencia, Venezuela with two suitcases. Daniel found us a rental in Doral, then the school, and two years later the house. All in that order, just like he said.</blockquote>
+        <figcaption><span class="dot" style="--ac:#3f63c4" aria-hidden="true"></span><b>Familia Bracho</b><span data-es="De Venezuela a Doral">From Venezuela to Doral</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" aria-labelledby="cta-title">
+    <img class="cta__bg" src="assets/img/e-aerial.webp" alt="" loading="lazy" data-parallax="12">
+    <div class="cta__inner">
+      <h2 class="cta__title" id="cta-title" data-split data-es-html="Pase por la oficina. <em>El café va por nosotros.</em>">Stop by the office. <em>The coffee's on us.</em></h2>
+      <div class="cta__cards">
+        <a class="cta__card" href="#contact" data-intent-link="showing">
+          <span class="eyebrow" data-es="Comprar">Buy</span>
+          <b data-es="Agendar una visita">Book a showing</b>
+          <span data-es="Esta semana, en la tarde o el sábado.">This week, after work or on Saturday.</span>
+          <i aria-hidden="true"></i>
+        </a>
+        <a class="cta__card" href="#contact" data-intent-link="valuation">
+          <span class="eyebrow" data-es="Vender">Sell</span>
+          <b data-es="¿Cuánto vale mi casa?">What's my home worth?</b>
+          <span data-es="Una valoración por escrito en 48 horas, sin compromiso.">A written valuation in 48 hours, no strings.</span>
+          <i aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" aria-labelledby="ct-title">
+    <div class="contact__intro">
+      <p class="eyebrow" data-es="Contacto">Contact</p>
+      <h2 class="sec-title" id="ct-title" data-split data-es-html="Cuéntenos <em>qué está buscando.</em>">Tell us <em>what you're looking for.</em></h2>
+      <dl class="contact__direct">
+        <div><dt data-es="Oficina">Office</dt><dd><a href="tel:+13055550100">(305) 555-0100</a></dd></div>
+        <div><dt data-es="Correo">Email</dt><dd><a href="mailto:hola@casasolana.com">hola@casasolana.com</a></dd></div>
+        <div><dt data-es="Dirección">Address</dt><dd>NW 41st Street, Doral, FL</dd></div>
+        <div><dt data-es="Horario">Hours</dt><dd data-es="Lun–Sáb 9–7 · Dom con cita">Mon–Sat 9–7 · Sun by appointment</dd></div>
+      </dl>
+    </div>
+    <div class="contact__formwrap">
+      <form class="form" data-lead novalidate>
+        <fieldset class="seg">
+          <legend class="visually-hidden" data-es="¿Qué necesita?">What do you need?</legend>
+          <label><input type="radio" name="intent" value="showing" checked><span data-es="Agendar una visita">Book a showing</span></label>
+          <label><input type="radio" name="intent" value="valuation"><span data-es="Valorar mi casa">Home valuation</span></label>
+        </fieldset>
+        <div class="form__row">
+          <label class="field"><span data-es="Nombre completo">Full name</span><input name="name" autocomplete="name" required></label>
+          <label class="field"><span data-es="Teléfono o WhatsApp">Phone or WhatsApp</span><input name="phone" type="tel" autocomplete="tel" required></label>
+        </div>
+        <div class="form__row">
+          <label class="field"><span data-es="Correo">Email</span><input name="email" type="email" autocomplete="email"></label>
+          <label class="field"><span data-es="Agente">Agent</span><select name="agent" data-agent-select></select></label>
+        </div>
+        <div data-intent="showing" class="form__group">
+          <div class="form__row">
+            <label class="field"><span data-es="Propiedad">Home</span><select name="home" data-showing-select></select></label>
+            <label class="field"><span data-es="Día preferido">Preferred day</span><input name="date" type="date"></label>
+          </div>
+        </div>
+        <div data-intent="valuation" class="form__group" hidden>
+          <label class="field"><span data-es="Dirección de su casa">Your home's address</span><input name="address" autocomplete="street-address" required></label>
+          <div class="form__row">
+            <label class="field"><span data-es="Tipo">Type</span><select name="type"><option data-es="Casa">House</option><option data-es="Townhouse">Townhouse</option><option data-es="Condo">Condo</option><option data-es="Dúplex o multifamiliar">Duplex or multifamily</option></select></label>
+            <label class="field"><span data-es="¿Cuándo piensa vender?">When might you sell?</span><select name="timeline"><option data-es="Solo quiero saber el valor">Just want to know the value</option><option data-es="En los próximos 3 meses">In the next 3 months</option><option data-es="Este año">This year</option></select></label>
+          </div>
+        </div>
+        <label class="field"><span data-es="Mensaje">Message</span><textarea name="message" rows="3" placeholder="Bedrooms, school zone, budget, anything." data-es-placeholder="Cuartos, zona escolar, presupuesto, lo que sea."></textarea></label>
+        <button class="btn btn--solid form__send" type="submit"><span data-es="Enviar">Send</span><i aria-hidden="true"></i></button>
+      </form>
+      <div class="form__done" data-done hidden tabindex="-1">
+        <p class="sec-title"><span data-es="¡Gracias,">Thank you,</span> <em data-done-name></em><span data-es="!">!</span></p>
+        <p data-es="Le escribimos por WhatsApp hoy mismo para confirmar.">We'll message you on WhatsApp today to confirm.</p>
+        <button type="button" class="link" data-reset data-es="Enviar otra solicitud">Send another request</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="tile-rule tile-rule--light" aria-hidden="true"></div>
+  <div class="foot__top">
+    <p class="foot__word">Casa <em>Solana</em></p>
+    <p class="foot__tag" data-es="Agencia familiar de bienes raíces · Doral, Florida">Family-owned real estate brokerage · Doral, Florida</p>
+  </div>
+  <div class="foot__grid">
+    <div>
+      <p class="foot__h" data-es="Oficina">Office</p>
+      <p>NW 41st Street<br>Doral, FL<br><a href="tel:+13055550100">(305) 555-0100</a><br><a href="mailto:hola@casasolana.com">hola@casasolana.com</a></p>
+    </div>
+    <nav aria-label="Footer" data-es-aria-label="Pie de página">
+      <p class="foot__h" data-es="Sitio">Site</p>
+      <a href="#listings" data-es="Propiedades">Listings</a>
+      <a href="#areas" data-es="Barrios">Neighborhoods</a>
+      <a href="#team" data-es="Equipo">Team</a>
+      <a href="#contact" data-es="Contacto">Contact</a>
+    </nav>
+    <div>
+      <p class="foot__h" data-es="Barrios">Neighborhoods</p>
+      <p>Hialeah<br>Doral<br>Miami Lakes<br>Miami Springs<br>Westchester</p>
+    </div>
+    <div>
+      <p class="foot__h" data-es="Síganos">Follow</p>
+      <p><a href="#">Instagram</a><br><a href="#">Facebook</a><br><a href="#">YouTube</a></p>
+    </div>
+  </div>
+  <p class="foot__base"><span>© <span data-year>2026</span> Casa Solana Realty</span><button type="button" class="lang-toggle link" data-es="English">Español</button></p>
+</footer>
+
+<!-- listing viewer -->
+<dialog class="rv" id="residence" aria-labelledby="rv-title">
+  <div class="rv__wrap">
+    <div class="rv__stage">
+      <div class="rv__slides" data-r="slides"></div>
+      <button type="button" class="rv__nav rv__nav--prev" data-r="prev" aria-label="Previous photo" data-es-aria-label="Foto anterior"></button>
+      <button type="button" class="rv__nav rv__nav--next" data-r="next" aria-label="Next photo" data-es-aria-label="Foto siguiente"></button>
+      <p class="rv__count" data-r="count" aria-live="polite"></p>
+      <div class="rv__thumbs" data-r="thumbs"></div>
+    </div>
+    <div class="rv__panel">
+      <button type="button" class="rv__close" data-r="close" aria-label="Close" data-es-aria-label="Cerrar"></button>
+      <p class="rv__status" data-r="status"></p>
+      <h2 class="rv__title" id="rv-title" data-r="title"></h2>
+      <p class="rv__where" data-r="where"></p>
+      <p class="rv__price" data-r="price"></p>
+      <p class="rv__specs" data-r="specs"></p>
+      <p class="rv__summary" data-r="summary"></p>
+      <ul class="rv__features" data-r="features"></ul>
+      <div class="rv__agent" data-r="agent"></div>
+      <button type="button" class="btn btn--solid" data-r="book"><span data-es="Agendar una visita">Book a showing</span><i aria-hidden="true"></i></button>
+    </div>
+  </div>
+</dialog>
+
+<!-- agent profile -->
+<dialog class="ap" id="agent" aria-labelledby="ap-name">
+  <div class="ap__card">
+    <button type="button" class="rv__close ap__close" data-a="close" aria-label="Close" data-es-aria-label="Cerrar"></button>
+    <figure class="ap__portrait" data-a="mono"></figure>
+    <div class="ap__body">
+      <p class="ap__role" data-a="role"></p>
+      <h2 class="ap__name" id="ap-name" data-a="name"></h2>
+      <p class="ap__focus" data-a="focus"></p>
+      <p class="ap__bio" data-a="bio"></p>
+      <dl class="ap__facts">
+        <div><dt data-es="Barrios">Areas</dt><dd data-a="areas"></dd></div>
+        <div><dt data-es="Idiomas">Languages</dt><dd data-a="langs"></dd></div>
+        <div><dt data-es="Teléfono">Phone</dt><dd data-a="phone"></dd></div>
+        <div><dt>WhatsApp</dt><dd data-a="wa"></dd></div>
+        <div class="ap__wide"><dt data-es="Correo">Email</dt><dd data-a="email"></dd></div>
+      </dl>
+      <div class="ap__actions">
+        <button type="button" class="btn btn--solid" data-a="book"><span data-es="Agendar con este agente">Book with this agent</span><i aria-hidden="true"></i></button>
+        <button type="button" class="btn btn--line" data-a="list"><span data-es="Ver sus propiedades">See their listings</span><i aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/lenis.min.js" defer></script>
+<script src="js/site.js" defer></script>
+<script src="js/core.js" defer></script>
+<script type="module" src="js/hero.js"></script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+{
+  "listings": [
+    {
+      "id": "casa-marea",
+      "status": "for-sale",
+      "price": 18900000,
+      "beds": 6,
+      "baths": 7.5,
+      "sqft": 9840,
+      "year": 2023,
+      "lot": {
+        "en": "210 ft of bay frontage",
+        "es": "210 pies frente a la bahía"
+      },
+      "address": "North Bay Road",
+      "neighborhood": "Miami Beach",
+      "title": {
+        "en": "Casa Marea",
+        "es": "Casa Marea"
+      },
+      "summary": {
+        "en": "A new bayfront house facing the downtown skyline across open water. The ground floor is one long glass room that opens fully to the terrace, the pool and a dock built for a 90-foot yacht with no fixed bridges to the bay.",
+        "es": "Una casa nueva frente a la bahía, con el skyline de downtown al otro lado del agua. La planta baja es una sola sala de vidrio que se abre por completo a la terraza, la piscina y un muelle para un yate de 90 pies, sin puentes fijos hasta la bahía."
+      },
+      "features": {
+        "en": [
+          "Dock for a 90 ft yacht, 8 ft depth at low tide",
+          "Infinity-edge pool facing west",
+          "Primary suite with private terrace",
+          "Elevator, wine room, summer kitchen",
+          "New seawall, 2023"
+        ],
+        "es": [
+          "Muelle para yate de 90 pies, 8 pies de profundidad con marea baja",
+          "Piscina infinita orientada al oeste",
+          "Suite principal con terraza privada",
+          "Ascensor, cava de vinos y cocina de verano",
+          "Muro de contención nuevo, 2023"
+        ]
+      },
+      "photos": [
+        "assets/img/l6a.webp",
+        "assets/img/l6b.webp",
+        "assets/img/l6c.webp"
+      ],
+      "thumb": "assets/img/l6a-s.webp"
+    },
+    {
+      "id": "grove-garden-house",
+      "status": "new",
+      "price": 7450000,
+      "beds": 5,
+      "baths": 6,
+      "sqft": 6120,
+      "year": 2019,
+      "lot": {
+        "en": "Gated canal, 95 ft dock",
+        "es": "Canal privado, muelle de 95 pies"
+      },
+      "address": "Leucadendra Drive",
+      "neighborhood": "Coconut Grove",
+      "title": {
+        "en": "The Garden House",
+        "es": "La Casa del Jardín"
+      },
+      "summary": {
+        "en": "A low, quiet house under old oaks on a gated canal, two minutes by boat from the sailing clubs. Every main room opens to the pool garden, and the evenings smell of jasmine.",
+        "es": "Una casa baja y tranquila bajo robles antiguos, en un canal privado a dos minutos en barco de los clubes de vela. Cada sala principal se abre al jardín de la piscina, y las noches huelen a jazmín."
+      },
+      "features": {
+        "en": [
+          "Heated saltwater pool with sun shelf",
+          "Chef's kitchen with marble island",
+          "Guest house over the garage",
+          "Impact glass throughout",
+          "Sailboat-friendly canal"
+        ],
+        "es": [
+          "Piscina de agua salada climatizada con zona de sol",
+          "Cocina de chef con isla de mármol",
+          "Casa de huéspedes sobre el garaje",
+          "Vidrios de impacto en toda la casa",
+          "Canal apto para veleros"
+        ]
+      },
+      "photos": [
+        "assets/img/l2a.webp",
+        "assets/img/l2b.webp",
+        "assets/img/l2c.webp"
+      ],
+      "thumb": "assets/img/l2a-s.webp"
+    },
+    {
+      "id": "harbor-drive",
+      "status": "pending",
+      "price": 11250000,
+      "beds": 6,
+      "baths": 6.5,
+      "sqft": 7300,
+      "year": 2016,
+      "lot": {
+        "en": "Bayside, 120 ft of water",
+        "es": "Lado de la bahía, 120 pies de agua"
+      },
+      "address": "Harbor Drive",
+      "neighborhood": "Key Biscayne",
+      "title": {
+        "en": "Harbor Drive Residence",
+        "es": "Residencia Harbor Drive"
+      },
+      "summary": {
+        "en": "Bayside on Key Biscayne with a long lawn to the water and a covered loggia built for family dinners. Stiltsville and the reef are a short run from the dock.",
+        "es": "Del lado de la bahía en Key Biscayne, con un jardín largo hasta el agua y una logia techada pensada para las cenas en familia. Stiltsville y el arrecife quedan a un corto trayecto desde el muelle."
+      },
+      "features": {
+        "en": [
+          "Boat lift and 60 ft dock",
+          "Pool and spa with lawn to the water",
+          "Loggia with summer kitchen",
+          "Walk to the village and K-8 school"
+        ],
+        "es": [
+          "Elevador de botes y muelle de 60 pies",
+          "Piscina y spa con jardín hasta el agua",
+          "Logia con cocina de verano",
+          "A pie del pueblo y de la escuela K-8"
+        ]
+      },
+      "photos": [
+        "assets/img/l3a.webp",
+        "assets/img/l3b.webp",
+        "assets/img/l3c.webp"
+      ],
+      "thumb": "assets/img/l3a-s.webp"
+    },
+    {
+      "id": "penthouse-4501",
+      "status": "for-sale",
+      "price": 9800000,
+      "beds": 4,
+      "baths": 5.5,
+      "sqft": 5410,
+      "year": 2021,
+      "lot": {
+        "en": "Full floor, ocean to bay",
+        "es": "Piso completo, del océano a la bahía"
+      },
+      "address": "Collins Avenue, PH 4501",
+      "neighborhood": "Sunny Isles Beach",
+      "title": {
+        "en": "Penthouse 4501",
+        "es": "Penthouse 4501"
+      },
+      "summary": {
+        "en": "A full-floor penthouse with glass on every side: sunrise over the Atlantic from the bedrooms, sunset over the bay from the living room. Private elevator, hotel service downstairs.",
+        "es": "Un penthouse de piso completo con vidrio en todos los lados: amanecer sobre el Atlántico desde los dormitorios y atardecer sobre la bahía desde la sala. Ascensor privado y servicio de hotel en la planta baja."
+      },
+      "features": {
+        "en": [
+          "Private elevator foyer",
+          "Rooftop terrace with plunge pool",
+          "Two parking spaces and a cabana",
+          "Beach service, spa and residents' restaurant"
+        ],
+        "es": [
+          "Vestíbulo con ascensor privado",
+          "Terraza en la azotea con piscina de inmersión",
+          "Dos estacionamientos y una cabaña",
+          "Servicio de playa, spa y restaurante para residentes"
+        ]
+      },
+      "photos": [
+        "assets/img/l4a.webp",
+        "assets/img/l4b.webp",
+        "assets/img/l4c.webp"
+      ],
+      "thumb": "assets/img/l4a-s.webp"
+    },
+    {
+      "id": "gables-estates",
+      "status": "sold",
+      "price": 14600000,
+      "beds": 7,
+      "baths": 8,
+      "sqft": 10200,
+      "year": 2008,
+      "lot": {
+        "en": "Deep water, 150 ft dock",
+        "es": "Agua profunda, muelle de 150 pies"
+      },
+      "address": "Old Cutler Road",
+      "neighborhood": "Coral Gables",
+      "title": {
+        "en": "Villa Cantera",
+        "es": "Villa Cantera"
+      },
+      "summary": {
+        "en": "A Mediterranean estate on deep water with direct bay access and a dock for a large yacht. Sold off-market to a family relocating from São Paulo.",
+        "es": "Una residencia mediterránea en agua profunda, con salida directa a la bahía y muelle para un yate grande. Vendida fuera de mercado a una familia que se mudó desde São Paulo."
+      },
+      "features": {
+        "en": [
+          "Sold off-market in 3 weeks",
+          "150 ft dock, no fixed bridges",
+          "Coral stone loggias",
+          "Guard-gated community"
+        ],
+        "es": [
+          "Vendida fuera de mercado en 3 semanas",
+          "Muelle de 150 pies, sin puentes fijos",
+          "Logias de piedra coralina",
+          "Comunidad con garita de seguridad"
+        ]
+      },
+      "photos": [
+        "assets/img/l5a.webp",
+        "assets/img/l5b.webp",
+        "assets/img/l5c.webp"
+      ],
+      "thumb": "assets/img/l5a-s.webp"
+    },
+    {
+      "id": "villa-lido",
+      "status": "coming-soon",
+      "price": 8950000,
+      "beds": 5,
+      "baths": 5.5,
+      "sqft": 5880,
+      "year": 2012,
+      "lot": {
+        "en": "Skyline views, 110 ft dock",
+        "es": "Vista al skyline, muelle de 110 pies"
+      },
+      "address": "Di Lido Island",
+      "neighborhood": "Venetian Islands",
+      "title": {
+        "en": "Villa Lido",
+        "es": "Villa Lido"
+      },
+      "summary": {
+        "en": "A white bayfront house with wraparound terraces on both levels and an infinity pool that runs the length of the seawall. The downtown skyline sits right across the water. Private previews begin before it reaches the MLS.",
+        "es": "Una casa blanca frente a la bahía, con terrazas envolventes en los dos niveles y una piscina infinita a lo largo de todo el muro. El skyline de downtown queda justo al otro lado del agua. Las visitas privadas empiezan antes de que llegue al MLS."
+      },
+      "features": {
+        "en": [
+          "Wraparound terraces on two levels",
+          "Infinity pool along the seawall",
+          "Solar roof and full generator",
+          "Private preview available now"
+        ],
+        "es": [
+          "Terrazas envolventes en dos niveles",
+          "Piscina infinita a lo largo del muro",
+          "Techo solar y generador completo",
+          "Visita privada disponible ya"
+        ]
+      },
+      "photos": [
+        "assets/img/l1a.webp",
+        "assets/img/l1b.webp",
+        "assets/img/l1c.webp"
+      ],
+      "thumb": "assets/img/l1a-s.webp"
+    }
+  ]
+}

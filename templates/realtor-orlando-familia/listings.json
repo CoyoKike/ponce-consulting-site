@@ -1,0 +1,142 @@
+{
+  "listings": [
+    {
+      "id": "casa-del-lago",
+      "status": "for-sale",
+      "price": 489000,
+      "beds": 4,
+      "baths": 3,
+      "sqft": 2460,
+      "year": 2017,
+      "lot": { "en": "Corner lot, fenced yard", "es": "Esquina, patio cercado" },
+      "address": "Bellalago",
+      "neighborhood": "Kissimmee",
+      "title": { "en": "Casa del Lago", "es": "Casa del Lago" },
+      "summary": {
+        "en": "A one-story pool home in Bellalago, five minutes on foot from the lake and the community clubhouse. Split bedrooms, a big kitchen that opens to the family room, and a screened lanai where the kids can swim while dinner cooks.",
+        "es": "Casa de un piso con piscina en Bellalago, a cinco minutos caminando del lago y de la casa club. Habitaciones separadas, una cocina grande abierta a la sala familiar y un lanai con tela metálica para que los niños naden mientras se cocina la cena."
+      },
+      "features": {
+        "en": ["Screened pool and covered lanai", "Kitchen island with seating for four", "Primary suite on its own wing", "Bellalago Educational Academy nearby", "Open house this Sunday, 1 to 4 pm"],
+        "es": ["Piscina con tela metálica y lanai techado", "Isla de cocina con espacio para cuatro", "Suite principal en su propia ala", "Cerca de Bellalago Educational Academy", "Casa abierta este domingo de 1 a 4"]
+      },
+      "photos": ["assets/img/l1a.webp", "assets/img/l1b.webp", "assets/img/l1c.webp"],
+      "thumb": "assets/img/l1a-s.webp"
+    },
+    {
+      "id": "casa-de-las-palmas",
+      "status": "new",
+      "price": 739000,
+      "beds": 4,
+      "baths": 3.5,
+      "sqft": 2980,
+      "year": 2004,
+      "lot": { "en": "Palm-lined drive", "es": "Entrada con palmeras" },
+      "address": "North Village",
+      "neighborhood": "Celebration",
+      "title": { "en": "Casa de las Palmas", "es": "Casa de las Palmas" },
+      "summary": {
+        "en": "A Celebration classic with a front porch, tall ceilings and a palm-lined drive. Walk to Market Street for ice cream, to the lake trails for bikes, and to the K-8 school in the morning.",
+        "es": "Un clásico de Celebration con portal al frente, techos altos y una entrada con palmeras. Se camina a Market Street por un helado, a los senderos del lago en bicicleta y a la escuela K-8 por la mañana."
+      },
+      "features": {
+        "en": ["Walk to the K-8 school and downtown", "Two-story family room", "Bunk room the kids will fight over", "Detached two-car garage"],
+        "es": ["A pie de la escuela K-8 y del centro", "Sala familiar de doble altura", "Cuarto con literas que los niños se van a pelear", "Garaje separado para dos autos"]
+      },
+      "photos": ["assets/img/l2a.webp", "assets/img/l2b.webp", "assets/img/l2c.webp"],
+      "thumb": "assets/img/l2a-s.webp"
+    },
+    {
+      "id": "casa-laureate",
+      "status": "for-sale",
+      "price": 825000,
+      "beds": 5,
+      "baths": 4,
+      "sqft": 3410,
+      "year": 2022,
+      "lot": { "en": "Pool and summer kitchen", "es": "Piscina y cocina de verano" },
+      "address": "Laureate Park",
+      "neighborhood": "Lake Nona",
+      "title": { "en": "Casa Laureate", "es": "Casa Laureate" },
+      "summary": {
+        "en": "Almost new, with a guest suite downstairs for the grandparents and a backyard made for parties. Ten minutes to Medical City and fifteen to the airport.",
+        "es": "Casi nueva, con una suite de huéspedes en la planta baja para los abuelos y un patio hecho para fiestas. A diez minutos de Medical City y a quince del aeropuerto."
+      },
+      "features": {
+        "en": ["Guest suite on the ground floor", "Saltwater pool with sun shelf", "Solar panels, owned", "Lake Nona school zone"],
+        "es": ["Suite de huéspedes en la planta baja", "Piscina de agua salada con zona de sol", "Paneles solares propios", "Zona escolar de Lake Nona"]
+      },
+      "photos": ["assets/img/l3a.webp", "assets/img/l3b.webp", "assets/img/l3c.webp"],
+      "thumb": "assets/img/l3a-s.webp"
+    },
+    {
+      "id": "casa-del-canal",
+      "status": "pending",
+      "price": 415000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1840,
+      "year": 2009,
+      "lot": { "en": "On a canal to East Lake Toho", "es": "En un canal hacia East Lake Toho" },
+      "address": "Narcoossee Road",
+      "neighborhood": "St. Cloud",
+      "title": { "en": "Casa del Canal", "es": "Casa del Canal" },
+      "summary": {
+        "en": "A quiet house on a canal with room for a kayak and a fishing rod. The first home for a young family from Bayamón, under contract after one video showing.",
+        "es": "Una casa tranquila en un canal, con espacio para un kayak y una caña de pescar. La primera casa de una familia joven de Bayamón, bajo contrato después de una sola visita por video."
+      },
+      "features": {
+        "en": ["Canal access to East Lake Toho", "Screened pool", "New roof", "FHA buyers, down-payment assistance"],
+        "es": ["Acceso por canal a East Lake Toho", "Piscina con tela metálica", "Techo nuevo", "Compradores FHA con ayuda para el pago inicial"]
+      },
+      "photos": ["assets/img/l4a.webp", "assets/img/l4b.webp", "assets/img/l4c.webp"],
+      "thumb": "assets/img/l4a-s.webp"
+    },
+    {
+      "id": "casa-plant-street",
+      "status": "sold",
+      "price": 649000,
+      "beds": 4,
+      "baths": 3,
+      "sqft": 2720,
+      "year": 2014,
+      "lot": { "en": "Near the West Orange Trail", "es": "Cerca del West Orange Trail" },
+      "address": "Oakland Avenue",
+      "neighborhood": "Winter Garden",
+      "title": { "en": "Casa Plant Street", "es": "Casa Plant Street" },
+      "summary": {
+        "en": "Two stories with a covered balcony, a block from the trail and a short bike ride to the Saturday market. Sold in eleven days with three offers.",
+        "es": "Dos pisos con balcón techado, a una cuadra del sendero y a un paseo corto en bicicleta del mercado de los sábados. Vendida en once días con tres ofertas."
+      },
+      "features": {
+        "en": ["Sold in 11 days", "Three offers, above asking", "Covered balcony and patio", "Bike to Plant Street"],
+        "es": ["Vendida en 11 días", "Tres ofertas, sobre el precio", "Balcón y patio techados", "En bicicleta a Plant Street"]
+      },
+      "photos": ["assets/img/l5a.webp", "assets/img/l5b.webp", "assets/img/l5c.webp"],
+      "thumb": "assets/img/l5a-s.webp"
+    },
+    {
+      "id": "casa-solana",
+      "status": "coming-soon",
+      "price": 339000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1690,
+      "year": 2019,
+      "lot": { "en": "Backyard with screened porch", "es": "Patio con portal de tela metálica" },
+      "address": "Poinciana Village",
+      "neighborhood": "Poinciana",
+      "title": { "en": "Casa Solana", "es": "Casa Solana" },
+      "summary": {
+        "en": "A bright, easy first home with a screened back porch and a yard big enough for a swing set. Coming to market soon: our buyers see it first.",
+        "es": "Una primera casa luminosa y fácil, con portal trasero de tela metálica y un patio con espacio para columpios. Sale al mercado pronto: nuestros compradores la ven primero."
+      },
+      "features": {
+        "en": ["Ideal first home", "Screened back porch", "Near the SunRail station", "Preview before it is listed"],
+        "es": ["Ideal como primera casa", "Portal trasero con tela metálica", "Cerca de la estación de SunRail", "Visita antes de que salga al mercado"]
+      },
+      "photos": ["assets/img/l6a.webp", "assets/img/l6b.webp", "assets/img/l6c.webp"],
+      "thumb": "assets/img/l6a-s.webp"
+    }
+  ]
+}

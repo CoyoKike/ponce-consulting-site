@@ -1,0 +1,184 @@
+{
+  "listings": [
+    {
+      "id": "water-street-3104",
+      "status": "for-sale",
+      "price": 2395000,
+      "beds": 3,
+      "baths": 3.5,
+      "sqft": 2480,
+      "floor": 31,
+      "floors": 40,
+      "hoa": 1640,
+      "year": 2023,
+      "address": "#3104",
+      "neighborhood": "Water Street",
+      "building": { "en": "Riverline Residences, 2023", "es": "Riverline Residences, 2023" },
+      "parking": { "en": "2 assigned spaces + EV charger", "es": "2 espacios asignados + cargador eléctrico" },
+      "pets": { "en": "2 pets, no weight limit", "es": "2 mascotas, sin límite de peso" },
+      "rentals": { "en": "Minimum 6-month lease", "es": "Alquiler mínimo de 6 meses" },
+      "milestone": { "en": "Not due until 2053 (new building)", "es": "No corresponde hasta 2053 (edificio nuevo)" },
+      "title": { "en": "Riverline 3104", "es": "Riverline 3104" },
+      "summary": {
+        "en": "A corner residence on the 31st floor with glass on two sides: the river and the arena to the west, the channel and the cruise port to the south. Ten-foot ceilings and a wraparound terrace you can actually furnish.",
+        "es": "Una residencia en esquina en el piso 31 con vidrio en dos lados: el río y el estadio al oeste, el canal y el puerto de cruceros al sur. Techos de diez pies y una terraza envolvente que de verdad se puede amueblar."
+      },
+      "features": {
+        "en": ["Wraparound terrace, 410 sq ft", "Chef's kitchen with Italian cabinetry", "Primary suite facing the river", "Resort pool deck and fitness on 9"],
+        "es": ["Terraza envolvente de 410 pies²", "Cocina de chef con gabinetes italianos", "Suite principal con vista al río", "Piscina tipo resort y gimnasio en el piso 9"]
+      },
+      "photos": ["assets/img/l1a.webp", "assets/img/l1b.webp", "assets/img/l1c.webp"],
+      "thumb": "assets/img/l1a-s.webp"
+    },
+    {
+      "id": "harbour-island-1802",
+      "status": "new",
+      "price": 1185000,
+      "beds": 2,
+      "baths": 2.5,
+      "sqft": 1720,
+      "floor": 18,
+      "floors": 28,
+      "hoa": 1190,
+      "year": 2008,
+      "address": "#1802",
+      "neighborhood": "Harbour Island",
+      "building": { "en": "Isla Quay, 2008", "es": "Isla Quay, 2008" },
+      "parking": { "en": "2 covered spaces", "es": "2 espacios techados" },
+      "pets": { "en": "1 dog up to 40 lb", "es": "1 perro de hasta 40 libras" },
+      "rentals": { "en": "12-month minimum, twice a year", "es": "Mínimo 12 meses, dos veces al año" },
+      "milestone": { "en": "Completed 2024, no assessment", "es": "Completada en 2024, sin derrama" },
+      "title": { "en": "Isla Quay 1802", "es": "Isla Quay 1802" },
+      "summary": {
+        "en": "A split-plan two-bedroom with sunsets over the downtown skyline and a quiet island underneath. The milestone inspection is done and the reserves are fully funded, which matters more every year.",
+        "es": "Un apartamento de dos habitaciones en planta dividida, con atardeceres sobre el skyline del centro y una isla tranquila abajo. La inspección estructural está hecha y las reservas están completas, algo que pesa más cada año."
+      },
+      "features": {
+        "en": ["Milestone inspection completed in 2024", "Fully funded reserves", "Marina slips available to residents", "Walk to downtown across the bridge"],
+        "es": ["Inspección estructural completada en 2024", "Reservas completamente financiadas", "Amarres en la marina para residentes", "Al centro caminando por el puente"]
+      },
+      "photos": ["assets/img/l2a.webp", "assets/img/l2b.webp", "assets/img/l2c.webp"],
+      "thumb": "assets/img/l2a-s.webp"
+    },
+    {
+      "id": "beach-drive-2701",
+      "status": "for-sale",
+      "price": 3450000,
+      "beds": 3,
+      "baths": 3.5,
+      "sqft": 2860,
+      "floor": 27,
+      "floors": 36,
+      "hoa": 2210,
+      "year": 2021,
+      "address": "#2701",
+      "neighborhood": "Downtown St. Pete",
+      "building": { "en": "Corsa on Beach Drive, 2021", "es": "Corsa en Beach Drive, 2021" },
+      "parking": { "en": "2 spaces + valet for guests", "es": "2 espacios + valet para invitados" },
+      "pets": { "en": "2 pets", "es": "2 mascotas" },
+      "rentals": { "en": "Minimum 3-month lease", "es": "Alquiler mínimo de 3 meses" },
+      "milestone": { "en": "Not due until 2051", "es": "No corresponde hasta 2051" },
+      "title": { "en": "Corsa 2701", "es": "Corsa 2701" },
+      "summary": {
+        "en": "Full bay views from every room, the pier straight ahead and the museums at your door. A private elevator opens into the foyer.",
+        "es": "Vista completa a la bahía desde cada habitación, el muelle de frente y los museos a la puerta. Un ascensor privado abre directamente al vestíbulo."
+      },
+      "features": {
+        "en": ["Private elevator entry", "Floor-to-ceiling glass, east and south", "Owners' lounge and wine storage", "Walk to the St. Pete Pier"],
+        "es": ["Entrada por ascensor privado", "Vidrio de piso a techo al este y al sur", "Salón de propietarios y cava", "A pie del St. Pete Pier"]
+      },
+      "photos": ["assets/img/l3a.webp", "assets/img/l3b.webp", "assets/img/l3c.webp"],
+      "thumb": "assets/img/l3a-s.webp"
+    },
+    {
+      "id": "channelside-905",
+      "status": "pending",
+      "price": 689000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1340,
+      "floor": 9,
+      "floors": 22,
+      "hoa": 845,
+      "year": 2007,
+      "address": "#905",
+      "neighborhood": "Channelside",
+      "building": { "en": "Wharf Lofts, 2007", "es": "Wharf Lofts, 2007" },
+      "parking": { "en": "1 assigned space + storage", "es": "1 espacio asignado + depósito" },
+      "pets": { "en": "2 pets up to 60 lb", "es": "2 mascotas de hasta 60 libras" },
+      "rentals": { "en": "Minimum 30 days", "es": "Mínimo 30 días" },
+      "milestone": { "en": "Phase 1 passed, 2025", "es": "Fase 1 aprobada, 2025" },
+      "title": { "en": "Wharf Lofts 905", "es": "Wharf Lofts 905" },
+      "summary": {
+        "en": "A bright two-bedroom with an open kitchen and a balcony over the channel. One of the few downtown buildings that allows 30-day rentals.",
+        "es": "Un apartamento luminoso de dos habitaciones con cocina abierta y balcón sobre el canal. Uno de los pocos edificios del centro que permite alquileres de 30 días."
+      },
+      "features": {
+        "en": ["Allows 30-day rentals", "Streetcar stop at the door", "Rooftop pool and grills", "Updated kitchen, 2023"],
+        "es": ["Permite alquileres de 30 días", "Parada del tranvía en la puerta", "Piscina y parrillas en la azotea", "Cocina renovada en 2023"]
+      },
+      "photos": ["assets/img/l4a.webp", "assets/img/l4b.webp", "assets/img/l4c.webp"],
+      "thumb": "assets/img/l4a-s.webp"
+    },
+    {
+      "id": "edge-ph3",
+      "status": "coming-soon",
+      "price": 1525000,
+      "beds": 3,
+      "baths": 2.5,
+      "sqft": 1980,
+      "floor": 12,
+      "floors": 12,
+      "hoa": 960,
+      "year": 2025,
+      "address": "PH 3",
+      "neighborhood": "Edge District",
+      "building": { "en": "Kiln House, 2025 (boutique, 42 residences)", "es": "Kiln House, 2025 (boutique, 42 residencias)" },
+      "parking": { "en": "2 spaces in a gated garage", "es": "2 espacios en garaje con portón" },
+      "pets": { "en": "Pet friendly, dog wash on site", "es": "Se aceptan mascotas, lavado de perros en el edificio" },
+      "rentals": { "en": "Minimum 6-month lease", "es": "Alquiler mínimo de 6 meses" },
+      "milestone": { "en": "New building", "es": "Edificio nuevo" },
+      "title": { "en": "Kiln House PH3", "es": "Kiln House PH3" },
+      "summary": {
+        "en": "The top floor of a 42-residence boutique building, with a private rooftop terrace and pool deck views over the Edge District to the bay.",
+        "es": "El último piso de un edificio boutique de 42 residencias, con terraza privada en la azotea y vista sobre el Edge District hasta la bahía."
+      },
+      "features": {
+        "en": ["Private rooftop terrace", "Only 42 residences", "Walk to Central Avenue", "Private preview before listing"],
+        "es": ["Terraza privada en la azotea", "Solo 42 residencias", "A pie de Central Avenue", "Visita privada antes de publicarse"]
+      },
+      "photos": ["assets/img/l5a.webp", "assets/img/l5b.webp", "assets/img/l5c.webp"],
+      "thumb": "assets/img/l5a-s.webp"
+    },
+    {
+      "id": "bayshore-1201",
+      "status": "sold",
+      "price": 1890000,
+      "beds": 3,
+      "baths": 3,
+      "sqft": 2310,
+      "floor": 12,
+      "floors": 23,
+      "hoa": 1480,
+      "year": 2001,
+      "address": "#1201",
+      "neighborhood": "Hyde Park & Bayshore",
+      "building": { "en": "Bayshore Lumen, 2001", "es": "Bayshore Lumen, 2001" },
+      "parking": { "en": "2 spaces + guest valet", "es": "2 espacios + valet para invitados" },
+      "pets": { "en": "1 pet up to 25 lb", "es": "1 mascota de hasta 25 libras" },
+      "rentals": { "en": "12-month minimum", "es": "Mínimo 12 meses" },
+      "milestone": { "en": "Phase 2 complete, assessment paid by seller", "es": "Fase 2 completa, derrama pagada por el vendedor" },
+      "title": { "en": "Lumen 1201", "es": "Lumen 1201" },
+      "summary": {
+        "en": "A full-bay residence on Bayshore Boulevard. Sold in 11 days after we negotiated the building's repair assessment into the seller's side of the closing.",
+        "es": "Una residencia con vista completa a la bahía en Bayshore Boulevard. Vendida en 11 días después de negociar la derrama por reparaciones del lado del vendedor."
+      },
+      "features": {
+        "en": ["Sold in 11 days", "Assessment settled at closing", "Direct bay views", "Steps from Hyde Park Village"],
+        "es": ["Vendida en 11 días", "Derrama resuelta en el cierre", "Vista directa a la bahía", "A pasos de Hyde Park Village"]
+      },
+      "photos": ["assets/img/l6a.webp", "assets/img/l6b.webp", "assets/img/l6c.webp"],
+      "thumb": "assets/img/l6a-s.webp"
+    }
+  ]
+}
