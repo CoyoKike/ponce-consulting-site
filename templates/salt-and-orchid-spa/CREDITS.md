@@ -3,9 +3,13 @@
 Salt & Orchid is a fictional business. Names, address, phone, reviews, prices and polish shade names are invented.
 
 ## 3D hero
-The polish bottle is built in code with three.js: an extruded rounded-square glass body (physical transmission and
-iridescence), a lacquer core, a pearl cap with a brush, floating pearls and a shader gradient backdrop that the glass
-refracts. Reflections use three.js RoomEnvironment. No model files.
+| File | Asset | Author | Source | License |
+|---|---|---|---|---|
+| assets/models/lambis-shell.glb | Lambis Shell (3D scan) | Kuutti Siitonen | [Poly Haven](https://polyhaven.com/a/lambis_shell) | CC0 |
+| assets/models/studio_small_09.hdr | Studio Small 09 (HDRI, 1k) | Sergej Majboroda | [Poly Haven](https://polyhaven.com/a/studio_small_09) | CC0 |
+
+The model was repacked as .glb with 1024 px webp textures, simplified to half its triangles and quantized, using glTF-Transform.
+CC0 needs no credit; it is given here anyway. The pearls and the moving gradient behind the shell are drawn in code.
 
 ## Photos
 All photos are from Pexels under the [Pexels license](https://www.pexels.com/license/) (free to use, no attribution required; credited anyway).
@@ -46,6 +50,6 @@ Self-hosted woff2 files (Latin subset) from Google Fonts, under the SIL Open Fon
 ## Libraries (vendored in `js/vendor/`)
 | Library | Version | License |
 |---|---|---|
-| [three.js](https://threejs.org/) (core + RoomEnvironment) | r170 | MIT |
+| [three.js](https://threejs.org/) (core, GLTFLoader, RGBELoader) | r170 | MIT |
 | [GSAP](https://gsap.com/) + ScrollTrigger | 3.x | GSAP standard "no charge" license |
 | [Lenis](https://github.com/darkroomengineering/lenis) | 1.x | MIT |

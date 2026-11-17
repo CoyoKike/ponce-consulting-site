@@ -3,9 +3,13 @@
 Casa Alba is a fictional business. Names, address, phone, reviews and prices are invented.
 
 ## 3D hero
-The fall of hair inside the arch is drawn in code with three.js: a few thousand instanced ribbons shaped in a
-custom vertex shader (sway, comb on scroll, part around the pointer) with a copper to champagne gradient and a
-moving sheen band in the fragment shader. No model or texture files.
+| File | Asset | Author | Source | License |
+|---|---|---|---|---|
+| assets/models/ornate-mirror.glb | Ornate Mirror 01 (3D model) | James Ray Cock | [Poly Haven](https://polyhaven.com/a/ornate_mirror_01) | CC0 |
+| assets/models/studio_small_03.hdr | Studio Small 03 (HDRI, 1k) | Greg Zaal | [Poly Haven](https://polyhaven.com/a/studio_small_03) | CC0 |
+
+The model was repacked as .glb with 2048 px webp textures and quantized geometry (shape unchanged), using glTF-Transform.
+A polished reflector is placed behind the frame so the glass picks up the studio light. CC0 needs no credit; it is given here anyway.
 
 ## Photos
 All photos are from Pexels under the [Pexels license](https://www.pexels.com/license/) (free to use, no attribution required; credited anyway).
@@ -46,6 +50,6 @@ Self-hosted woff2 files (Latin subset) from Google Fonts, under the SIL Open Fon
 ## Libraries (vendored in `js/vendor/`)
 | Library | Version | License |
 |---|---|---|
-| [three.js](https://threejs.org/) | r170 | MIT |
+| [three.js](https://threejs.org/) (core, GLTFLoader, RGBELoader) | r170 | MIT |
 | [GSAP](https://gsap.com/) + ScrollTrigger | 3.x | GSAP standard "no charge" license |
 | [Lenis](https://github.com/darkroomengineering/lenis) | 1.x | MIT |

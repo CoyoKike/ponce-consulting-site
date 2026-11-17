@@ -3,9 +3,13 @@
 Navaja Barber Club is a fictional business. Names, address, phone, reviews and prices are invented.
 
 ## 3D hero
-The barber pole is built in code with three.js (no model file): a turned-brass lathe base and crown, a glass tube
-(physical transmission material), a spiral stripe texture drawn on a canvas and a glowing milk-glass globe.
-Reflections use three.js RoomEnvironment.
+| File | Asset | Author | Source | License |
+|---|---|---|---|---|
+| assets/models/barber-chair.glb | Barber Shop Chair 01 (3D model) | Fernando Quinn | [Poly Haven](https://polyhaven.com/a/BarberShopChair_01) | CC0 |
+| assets/models/brown_photostudio_02.hdr | Brown Photostudio 02 (HDRI, 1k) | Sergej Majboroda | [Poly Haven](https://polyhaven.com/a/brown_photostudio_02) | CC0 |
+
+The model was repacked as .glb with 2048 px webp textures and quantized geometry (shape unchanged), using glTF-Transform.
+CC0 needs no credit; it is given here anyway. The dust and glow behind the chair are drawn in code.
 
 ## Photos
 All photos are from Pexels under the [Pexels license](https://www.pexels.com/license/) (free to use, no attribution required; credited anyway).
@@ -49,6 +53,6 @@ Self-hosted woff2 files (Latin subset) from Google Fonts, under the SIL Open Fon
 ## Libraries (vendored in `js/vendor/`)
 | Library | Version | License |
 |---|---|---|
-| [three.js](https://threejs.org/) (core + RoomEnvironment) | r170 | MIT |
+| [three.js](https://threejs.org/) (core, GLTFLoader, RGBELoader) | r170 | MIT |
 | [GSAP](https://gsap.com/) + ScrollTrigger | 3.x | GSAP standard "no charge" license |
 | [Lenis](https://github.com/darkroomengineering/lenis) | 1.x | MIT |
