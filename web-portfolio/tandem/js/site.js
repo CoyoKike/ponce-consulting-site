@@ -7,18 +7,18 @@
 
   /* ---------- hall of fame (works with or without motion) ---------- */
   const heroes = [
-    ['1975', 'Harold Jensen', 'Agriculture', 'Organized dairy farmers into one of the Midwest’s largest co-ops.'],
-    ['1979', 'Eleanor Price', 'Credit unions', 'Opened credit unions to farmworkers across the Central Valley.'],
-    ['1983', 'Ruth Abernathy', 'Agriculture', 'Founded a cotton co-op that kept Black-owned farms in families.'],
-    ['1988', 'Samuel Okafor', 'Housing', 'Pioneered limited-equity housing co-ops in Chicago.'],
-    ['1996', 'Marguerite Lewis', 'Housing', 'Helped 300 manufactured-home communities become resident-owned.'],
-    ['2004', 'Ana Lucía Torres', 'Worker-owned', 'Built the first bilingual worker co-op network in the Southwest.'],
-    ['2011', 'Ida Carver', 'Food', 'Opened 14 food co-ops in neighborhoods without a grocery store.'],
-    ['2016', 'Grace Whitehorse', 'Food', 'Led tribal food co-ops returning bison to community tables.'],
-    ['2021', 'Daniel Kim', 'Energy', 'Brought member-owned solar to 40 rural electric co-ops.'],
-    ['2027', 'Tomás Reyes', 'Worker-owned', 'Converted 60 retiring owners’ businesses to employee ownership.'],
-    ['2027', 'Joseph Nguyen', 'Credit unions', 'Grew a community credit union serving 90,000 immigrant members.'],
-    ['2027', 'Lena Fischer', 'Energy', 'Wrote the model bylaws used by community wind co-ops nationwide.'],
+    ['Detroit, MI', 'Cass Corridor Grocery', 'Food', 'A member-owned grocery in a neighborhood that lost its last supermarket.'],
+    ['Cleveland, OH', 'Lakeshore Home Care', 'Care', 'Caregiver-owned agency with 140 worker-members.'],
+    ['Milwaukee, WI', 'Riverwest Housing Co-op', 'Housing', 'Forty-two families who bought their building in 2019.'],
+    ['Toledo, OH', 'Maumee Solar Cooperative', 'Energy', 'Community solar shared by 900 member households.'],
+    ['Grand Rapids, MI', 'Westside Bakers', 'Worker-owned', 'A bakery sold to its staff when the founder retired.'],
+    ['Madison, WI', 'Driftless Growers', 'Farms', 'Thirty small farms selling under one shared label.'],
+    ['Chicago, IL', 'Pilsen Child Care Cooperative', 'Care', 'Home-based child care providers sharing training and buying power.'],
+    ['Duluth, MN', 'Harbor Credit Union', 'Credit union', 'Serving 18,000 members along the North Shore.'],
+    ['Flint, MI', 'Civic Park Tenants Co-op', 'Housing', 'Sixty units of resident-owned, permanently affordable homes.'],
+    ['Erie, PA', 'Bayfront Fish Co-op', 'Food', 'Commercial fishers sharing a dock, ice house and buyers.'],
+    ['Gary, IN', 'Steelworkers Print Shop', 'Worker-owned', 'A union print shop converted to employee ownership.'],
+    ['Ann Arbor, MI', 'Huron Valley Wind', 'Energy', 'Two community-owned turbines powering 1,100 homes.'],
   ];
   const list = $('#hofList'), q = $('#hofQ'), secWrap = $('#hofS'), cnt = $('#hofCount');
   let sector = '';
@@ -29,9 +29,9 @@
   });
   function render() {
     const t = q.value.trim().toLowerCase();
-    const r = heroes.filter(h => (!sector || h[2] === sector) && (h[1] + ' ' + h[3]).toLowerCase().includes(t));
-    list.innerHTML = r.map(h => `<li><span class="yr">${h[0]}</span><div><h3>${h[1]}</h3><p>${h[3]}</p></div><span class="sec mono">${h[2]}</span></li>`).join('');
-    cnt.textContent = `${r.length} of ${heroes.length} inductees`;
+    const r = heroes.filter(h => (!sector || h[2] === sector) && (h[0] + ' ' + h[1] + ' ' + h[3]).toLowerCase().includes(t));
+    list.innerHTML = r.map(h => `<li><span class="yr">${h[0].split(",")[1].trim()}</span><div><h3>${h[1]}</h3><p>${h[0].split(",")[0]} · ${h[3]}</p></div><span class="sec mono">${h[2]}</span></li>`).join('');
+    cnt.textContent = `${r.length} of ${heroes.length} co-ops`;
   }
   q.addEventListener('input', render); render();
 
