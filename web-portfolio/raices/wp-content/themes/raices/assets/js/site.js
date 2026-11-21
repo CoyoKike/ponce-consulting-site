@@ -58,6 +58,7 @@
         const parts = c.textContent.split(/(\s+)/); if (!c.textContent.trim()) return;
         const frag = document.createDocumentFragment();
         parts.forEach(p => { if (!p) return; if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+          const lead = p.match(/^[,.;:!?’”)]+/); if (lead) { const prev = frag.lastChild || c.previousSibling; const tgt = prev && prev.nodeType === 1 ? (prev.classList.contains('wi') ? prev : (prev.querySelectorAll('.wi').length ? [...prev.querySelectorAll('.wi')].pop() : null)) : null; if (tgt) tgt.textContent += lead[0]; else frag.appendChild(document.createTextNode(lead[0])); p = p.slice(lead[0].length); if (!p) return; }
           const w = document.createElement('span'); w.className = 'w'; const i = document.createElement('span'); i.className = 'wi'; i.textContent = p; w.appendChild(i); frag.appendChild(w); });
         c.replaceWith(frag);
       } else if (c.nodeType === 1 && !c.classList.contains('w')) walk(c);
