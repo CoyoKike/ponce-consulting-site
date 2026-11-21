@@ -136,7 +136,7 @@
     const tl = gsap.timeline({ delay: .3, onComplete: () => { endIntro(); if (lenis) lenis.start(); } });
     tl.to('.loader-inner', { autoAlpha: 0, y: -20, duration: .5, ease: 'power2.in' })
       .to(loader, { clipPath: 'inset(0 0 100% 0)', duration: 1.1, ease: 'expo.inOut' }, '-=.1')
-      .to(heroImg, { scale: 1, duration: 2.2, ease: 'expo.out' }, '-=.9')
+      .to(heroImg, { scale: 1.08, duration: 2.2, ease: 'expo.out' }, '-=.9')
       .to('.hero-title .line > span', { yPercent: 0, duration: 1.4, stagger: .1, ease: 'expo.out' }, '-=2')
       .to(['.nav', '.eyebrow', '.hero-lede', '.hero-ctas', '.hero-meta', '.scroll-cue'], { autoAlpha: 1, y: 0, duration: 1, stagger: .06, ease: 'power3.out' }, '-=1.2');
     if (reduce) tl.progress(1);
@@ -146,10 +146,24 @@
   if (reduce) return;
 
   /* ---------- hero pushes into the image ---------- */
-  gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
-    .to(heroImg, { scale: 1.25, yPercent: 14, ease: 'none' }, 0)
-    .to('.hero-copy', { yPercent: -50, autoAlpha: 0, ease: 'none' }, 0)
-    .to('.hero-meta, .scroll-cue', { autoAlpha: 0, ease: 'none', duration: .4 }, 0);
+  /* strong layered parallax: photo sinks, headline lines rise at different speeds, small text peels off first */
+  gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .6 } })
+    .to(heroImg, { yPercent: 32, scale: 1.2, ease: 'none' }, 0)
+    .to('.hero .wp-block-cover__background', { opacity: 1, backgroundColor: 'rgba(15,13,10,.55)', ease: 'none' }, 0)
+    .to('.hero .eyebrow', { y: -220, autoAlpha: 0, ease: 'none' }, 0)
+    .to('.hero-title .line:nth-child(1)', { y: -260, ease: 'none' }, 0)
+    .to('.hero-title .line:nth-child(2)', { y: -130, xPercent: 4, ease: 'none' }, 0)
+    .to(['.hero-lede', '.hero-ctas'], { y: -60, autoAlpha: 0, ease: 'none', duration: .55 }, 0)
+    .to('.hero-meta, .scroll-cue', { autoAlpha: 0, ease: 'none', duration: .3 }, 0);
+
+  /* desktop: the photo and headline lean away from the cursor */
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches && $('.hero')) {
+    const hx = gsap.quickTo(heroImg, 'xPercent', { duration: 1.4, ease: 'power3' }), hy = gsap.quickTo(heroImg, 'y', { duration: 1.4, ease: 'power3' });
+    const tx = gsap.quickTo('.hero-title', 'x', { duration: 1.2, ease: 'power3' }), ty = gsap.quickTo('.hero-title', 'y', { duration: 1.2, ease: 'power3' });
+    $('.hero').addEventListener('mousemove', e => { const r = e.currentTarget.getBoundingClientRect(), dx = (e.clientX - r.left) / r.width - .5, dy = (e.clientY - r.top) / r.height - .5;
+      hx(dx * -2.6); hy(dy * -24); tx(dx * 26); ty(dy * 14); });
+    $('.hero').addEventListener('mouseleave', () => { hx(0); hy(0); tx(0); ty(0); });
+  }
 
   /* ---------- parallax + clip reveals ---------- */
   $$('[data-speed]').forEach(el => { const s = parseFloat(el.dataset.speed);

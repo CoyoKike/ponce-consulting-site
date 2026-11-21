@@ -643,3 +643,4 @@ body.admin-bar .nav { top: 32px; }
 .people .person:nth-child(3n+2) { margin-top: clamp(50px, 9vh, 120px); }
 .board .person:nth-child(n) { margin-top: 0; }
 @media (max-width: 900px) { .people { grid-template-columns: 1fr 1fr; } .people .person:nth-child(3n+2) { margin-top: 0; } .people .person:nth-child(even) { margin-top: 40px; } }
+.hero-title .line { will-change: transform; } .hero .wp-block-cover__image-background { will-change: transform; }
