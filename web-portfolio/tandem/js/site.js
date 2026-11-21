@@ -115,7 +115,10 @@
 
   /* ---------- statement words ---------- */
   const st = $('#statementText');
-  st.innerHTML = st.textContent.trim().split(/\s+/).map(w => `<span class="w">${w}</span>`).join(' ');
+  [...st.childNodes].forEach(n => {
+    if (n.nodeType === 3) { const f = document.createDocumentFragment(); n.textContent.split(/(\s+)/).forEach(p => { if (!p) return; if (/^\s+$/.test(p)) f.append(p); else { const sp = document.createElement('span'); sp.className = 'w'; sp.textContent = p; f.append(sp); } }); n.replaceWith(f); }
+    else { n.classList.add('w'); }
+  });
 
   /* ---------- loader + intro ---------- */
   const loader = $('#loader'), bar = $('#loaderBar'), num = $('#loaderNum'), heroImg = $('.hero-img');
@@ -158,6 +161,8 @@
   $$('.sfig, .hall-fig').forEach(el => gsap.fromTo(el, { clipPath: 'inset(18% 12% 18% 12%)' }, { clipPath: 'inset(0% 0% 0% 0%)', ease: 'none', scrollTrigger: { trigger: el, start: 'top 95%', end: 'top 35%', scrub: true } }));
 
   gsap.fromTo('#statementText .w', { opacity: .12 }, { opacity: 1, stagger: .05, ease: 'none', scrollTrigger: { trigger: '#statementText', start: 'top 80%', end: 'bottom 45%', scrub: true } });
+  gsap.from('#statementText .pill', { scale: 0, rotate: -12, duration: 1, ease: 'back.out(1.8)', stagger: .15, scrollTrigger: { trigger: '#statementText', start: 'top 70%', once: true } });
+  gsap.from('.pillars li', { y: 50, autoAlpha: 0, stagger: .12, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: '.pillars', start: 'top 85%', once: true } });
   $$('.label, .h-big, .give-title').forEach(el => gsap.from(el, { y: 60, autoAlpha: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } }));
 
   /* ---------- journey ---------- */
