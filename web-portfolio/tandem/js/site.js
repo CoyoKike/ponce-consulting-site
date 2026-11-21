@@ -67,8 +67,36 @@
   /* ---------- program filters ---------- */
   const fbtns = $$('.filters button');
   fbtns.forEach(b => b.addEventListener('click', () => { fbtns.forEach(x => x.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', 'true');
-    const f = b.dataset.f; $$('.prog-grid .card').forEach(c => { c.hidden = !(f === 'all' || c.dataset.tags.split(' ').includes(f)); });
+    const f = b.dataset.f; $$('.car-track .card').forEach(c => { c.hidden = !(f === 'all' || c.dataset.tags.split(' ').includes(f)); });
     if (window.ScrollTrigger) ScrollTrigger.refresh(); }));
+
+
+  /* ---------- programs carousel ---------- */
+  (() => {
+    const tr = $('#workTrack'); if (!tr) return;
+    const slides = $$('.card', tr), bar = $('#carBar'), now = $('#carNow'), prev = $('#carPrev'), next = $('#carNext');
+    const step = () => slides[0].getBoundingClientRect().width + parseFloat(getComputedStyle(tr).columnGap || 24);
+    const upd = () => {
+      const max = tr.scrollWidth - tr.clientWidth, p = max > 0 ? tr.scrollLeft / max : 0;
+      const vis = Math.max(1, Math.round(tr.clientWidth / step()));
+      bar.style.transform = `scaleX(${Math.min(1, vis / slides.length + p * (1 - vis / slides.length))})`;
+      now.textContent = String(Math.min(slides.length, Math.round(tr.scrollLeft / step()) + 1)).padStart(2, '0');
+      prev.disabled = tr.scrollLeft < 4; next.disabled = tr.scrollLeft > max - 4;
+    };
+    prev.addEventListener('click', () => tr.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next.addEventListener('click', () => tr.scrollBy({ left: step(), behavior: 'smooth' }));
+    tr.addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); upd();
+    tr.addEventListener('keydown', e => { if (e.key === 'ArrowRight') { e.preventDefault(); next.click(); } if (e.key === 'ArrowLeft') { e.preventDefault(); prev.click(); } });
+    // drag with the mouse
+    let down = false, sx = 0, sl = 0, moved = false;
+    tr.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = tr.scrollLeft; });
+    addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - sx; if (Math.abs(dx) > 5) { moved = true; tr.classList.add('dragging'); } tr.scrollLeft = sl - dx; });
+    addEventListener('pointerup', () => { if (!down) return; down = false; tr.classList.remove('dragging');
+      if (moved) { const i = Math.round(tr.scrollLeft / step()); tr.scrollTo({ left: i * step(), behavior: 'smooth' }); } });
+    tr.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    // horizontal wheel/trackpad shouldn't be hijacked by smooth scroll
+    tr.setAttribute('data-lenis-prevent-wheel', '');
+  })();
 
   if (!window.gsap) { $('#loader').remove(); return; }
   gsap.registerPlugin(ScrollTrigger);
@@ -154,7 +182,7 @@
   gsap.from('.path-list li', { y: 50, autoAlpha: 0, stagger: .08, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.path-list', start: 'top 80%', once: true } });
 
   /* ---------- programs: cards rise in ---------- */
-  $$('.prog-grid .card').forEach(c => {
+  $$('.car-track .card').forEach(c => {
     gsap.from($('.card-media', c), { clipPath: 'inset(100% 0 0 0)', duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: c, start: 'top 90%', once: true } });
     gsap.fromTo($('img', c), { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: c, start: 'top bottom', end: 'bottom top', scrub: true } });
   });
