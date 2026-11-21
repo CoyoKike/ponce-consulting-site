@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f0d0a">
+<title>Tandem Cooperative Fund · Own it together</title>
+<meta name="description" content="Tandem is a concept site for a national cooperative development foundation: grants, leadership programs, a cooperative hall of fame and ways to give. Built to WCAG 2.2 AA.">
+<meta property="og:title" content="Tandem Cooperative Fund">
+<meta property="og:description" content="Own it together. A concept foundation site with audience pathways, grant programs and a searchable hall of fame.">
+<meta property="og:image" content="https://ponceconsulting.org/web-portfolio/_img/tandem.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f0d0a'/%3E%3Ccircle cx='26' cy='32' r='12' fill='none' stroke='%23e0a84a' stroke-width='4'/%3E%3Ccircle cx='38' cy='32' r='12' fill='none' stroke='%23efe7da' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/intertight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/hero.webp" imagesrcset="assets/img/hero-m.webp 1000w, assets/img/hero.webp 2400w" imagesizes="100vw">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <svg class="loader-mark" viewBox="0 0 120 60"><circle cx="44" cy="30" r="24"/><circle cx="76" cy="30" r="24"/></svg>
+    <span class="loader-bar"><i id="loaderBar"></i></span>
+    <span class="loader-num mono" id="loaderNum">000</span>
+  </div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Tandem Cooperative Fund, home">
+    <svg viewBox="0 0 120 60" aria-hidden="true"><circle cx="44" cy="30" r="24"/><circle cx="76" cy="30" r="24"/></svg>
+    <span>TANDEM</span>
+  </a>
+  <nav class="nav-links" aria-label="Main">
+    <a href="#paths">Find your path</a>
+    <a href="#programs">Grants &amp; programs</a>
+    <a href="#hall">Hall of Fame</a>
+    <a href="#news">News</a>
+  </nav>
+  <a class="btn btn-amber" href="#give"><span>Give</span></a>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="hero-media">
+      <img class="hero-img" src="assets/img/hero.webp" srcset="assets/img/hero-m.webp 1000w, assets/img/hero.webp 2400w" sizes="100vw" width="2400" height="1600" alt="A combine harvesting wheat at sunset in a cloud of golden dust" fetchpriority="high" decoding="async">
+      <div class="hero-shade"></div>
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow mono"><span>Cooperative Fund</span><span>Est. 1945</span><span>Grants · Leadership · Place</span></p>
+      <h1 class="hero-title">
+        <span class="line"><span>Own it</span></span>
+        <span class="line"><span><em>together.</em></span></span>
+      </h1>
+      <div class="hero-foot">
+        <p class="hero-lede">We fund and train the people building cooperatives across America, so the wealth they create stays with the people who create it.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-light" href="#programs"><span>Find funding</span></a>
+          <a class="btn btn-ghost" href="#paths"><span>I'm looking for…</span></a>
+        </div>
+      </div>
+    </div>
+    <ul class="hero-meta mono" aria-label="Sectors we fund">
+      <li>Farms</li><li>Homecare</li><li>Housing</li><li>Credit unions</li><li>Worker-owned</li>
+    </ul>
+    <div class="scroll-cue mono" aria-hidden="true"><span>Scroll</span><i></i></div>
+  </section>
+
+  <section class="statement" id="about">
+    <div class="statement-inner">
+      <p class="label mono">01 / Why cooperatives</p>
+      <p class="statement-text" id="statementText">A cooperative is a business owned by the people it serves. Farmers share an elevator. Caregivers own their agency. Tenants buy their building. We help them start, grow and lead, so more of America is owned by the people who live here.</p>
+      <div class="statement-figs">
+        <figure class="sfig sfig-a" data-speed="-0.16"><img src="assets/img/grain-m.webp" srcset="assets/img/grain-m.webp 1000w, assets/img/grain.webp 1600w" sizes="32vw" width="1600" height="1067" alt="Two hands cupping freshly harvested grain" loading="lazy" decoding="async"></figure>
+        <figure class="sfig sfig-b" data-speed="0.12"><img src="assets/img/elevator-m.webp" srcset="assets/img/elevator-m.webp 1000w, assets/img/elevator.webp 1600w" sizes="44vw" width="1600" height="1061" alt="A white grain elevator standing alone on the prairie under a blue sky" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="journey" id="how" aria-label="How a cooperative grows">
+    <div class="journey-stage">
+      <div class="journey-layer"><img src="assets/img/j-gather.webp" srcset="assets/img/j-gather-m.webp 1000w, assets/img/j-gather.webp 2400w" sizes="100vw" alt="A crowd of neighbors gathered under a timber market hall" loading="lazy" decoding="async"></div>
+      <div class="journey-layer"><img src="assets/img/j-pool.webp" srcset="assets/img/j-pool-m.webp 1000w, assets/img/j-pool.webp 2400w" sizes="100vw" alt="Weathered hands holding fresh eggs" loading="lazy" decoding="async"></div>
+      <div class="journey-layer"><img src="assets/img/j-own.webp" srcset="assets/img/j-own-m.webp 1000w, assets/img/j-own.webp 2400w" sizes="100vw" alt="A young farmer standing in front of a white barn" loading="lazy" decoding="async"></div>
+      <div class="journey-layer"><img src="assets/img/j-home.webp" srcset="assets/img/j-home-m.webp 1000w, assets/img/j-home.webp 2400w" sizes="100vw" alt="A small town main street at golden hour with a white church steeple" loading="lazy" decoding="async"></div>
+      <div class="journey-copy">
+        <div class="journey-step"><p class="label mono">02 / It starts</p><h2>With neighbors <em>who need the same thing.</em></h2><p>A fair price for their crops. A good job caring for elders. A home no landlord can sell out from under them.</p></div>
+        <div class="journey-step"><p class="label mono">03 / They pool</p><h2>What they have, <em>to do what none could alone.</em></h2><p>Our grants and advisors help them write bylaws, raise member capital and open the doors.</p></div>
+        <div class="journey-step"><p class="label mono">04 / They own</p><h2>One member, <em>one vote.</em></h2><p>Our leadership fellows learn to run the business, govern well and train the next generation.</p></div>
+        <div class="journey-step"><p class="label mono">05 / It stays</p><h2>And the wealth <em>stays home.</em></h2><p>Profits return to members and their towns, year after year, instead of leaving for good.</p></div>
+      </div>
+      <div class="gauge mono" aria-hidden="true">
+        <div class="gauge-row"><span>Stage</span><b id="gStep">01 / 04</b></div>
+        <div class="gauge-row"><span>Now</span><b id="gStage">Gather</b></div>
+        <div class="gauge-track"><i id="gTrack"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="paths" id="paths">
+    <div class="paths-head">
+      <p class="label mono">06 / Find your path</p>
+      <h2 class="h-big">I'm looking <em>for…</em></h2>
+    </div>
+    <ul class="path-list" id="pathList">
+      <li><a href="#programs" data-img="assets/img/p-grant-m.webp"><span class="mono">01</span><h3>Funding for my co-op</h3><span class="say">Open grants, deadlines and forms</span></a></li>
+      <li><a href="#programs" data-img="assets/img/p-lead-m.webp"><span class="mono">02</span><h3>Leadership programs</h3><span class="say">Fellowships for co-op leaders</span></a></li>
+      <li><a href="#give" data-img="assets/img/p-give-m.webp"><span class="mono">03</span><h3>Ways to give</h3><span class="say">Donate, sponsor or plan a legacy</span></a></li>
+      <li><a href="#about" data-img="assets/img/p-learn-m.webp"><span class="mono">04</span><h3>What a co-op is</h3><span class="say">The basics, in plain words</span></a></li>
+      <li><a href="#news" data-img="assets/img/p-media-m.webp"><span class="mono">05</span><h3>News &amp; media</h3><span class="say">Stories, reports and press</span></a></li>
+    </ul>
+    <div class="path-peek" id="pathPeek" aria-hidden="true"><img alt=""></div>
+  </section>
+
+  <section class="work" id="programs">
+    <div class="work-head">
+      <p class="label mono">07 / Grants &amp; programs</p>
+      <h2 class="h-big">Support at <em>every stage.</em></h2>
+      <p class="work-count mono"><span id="workIdx">01</span> / 06</p>
+    </div>
+    <div class="work-pin">
+      <div class="work-track" id="workTrack">
+        <article class="card"><div class="card-media"><img src="assets/img/c-rural-m.webp" srcset="assets/img/c-rural-m.webp 1000w, assets/img/c-rural.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="Golden wheat in front of an old wooden grain elevator" loading="lazy" decoding="async"><span class="tag mono"><i></i>Open · due Mar 6</span></div>
+          <div class="card-body"><span class="mono">01 · Grant · up to $50K</span><h3>Rural Cooperative Grants</h3><p>For rural co-ops starting up, converting to member ownership or growing.</p><a class="more mono" href="#programs">How to apply →</a></div></article>
+        <article class="card"><div class="card-media"><img src="assets/img/c-disaster-m.webp" srcset="assets/img/c-disaster-m.webp 1000w, assets/img/c-disaster.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="Tractors working a field at dusk under an orange sky" loading="lazy" decoding="async"><span class="tag mono"><i></i>Open year-round</span></div>
+          <div class="card-body"><span class="mono">02 · Grant · rolling</span><h3>Disaster Recovery Fund</h3><p>Fast help for co-ops and their members after floods, fires and storms.</p><a class="more mono" href="#programs">Request help →</a></div></article>
+        <article class="card"><div class="card-media"><img src="assets/img/c-homecare-m.webp" srcset="assets/img/c-homecare-m.webp 1000w, assets/img/c-homecare.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="A caregiver doing a puzzle with two older adults" loading="lazy" decoding="async"><span class="tag mono closed"><i></i>Reopens fall</span></div>
+          <div class="card-body"><span class="mono">03 · Place-based · 6 regions</span><h3>Homecare Cooperatives</h3><p>Caregiver-owned agencies that raise wages and keep elders at home.</p><a class="more mono" href="#programs">See grantees →</a></div></article>
+        <article class="card"><div class="card-media"><img src="assets/img/c-housing-m.webp" srcset="assets/img/c-housing-m.webp 1000w, assets/img/c-housing.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="A sunny apartment courtyard with gardens and brick buildings" loading="lazy" decoding="async"><span class="tag mono"><i></i>Open · due Apr 17</span></div>
+          <div class="card-body"><span class="mono">04 · Place-based · up to $75K</span><h3>Resident-Owned Housing</h3><p>Helping tenants and residents buy and run their communities together.</p><a class="more mono" href="#programs">How to apply →</a></div></article>
+        <article class="card"><div class="card-media"><img src="assets/img/c-worker-m.webp" srcset="assets/img/c-worker-m.webp 1000w, assets/img/c-worker.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="A baker pulling loaves from a brick oven" loading="lazy" decoding="async"><span class="tag mono"><i></i>Open · due May 1</span></div>
+          <div class="card-body"><span class="mono">05 · Grant · up to $40K</span><h3>Worker Ownership</h3><p>Helping retiring owners sell to the people who already run the business.</p><a class="more mono" href="#programs">How to apply →</a></div></article>
+        <article class="card"><div class="card-media"><img src="assets/img/c-lead-m.webp" srcset="assets/img/c-lead-m.webp 1000w, assets/img/c-lead.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="A group talking around a long table in a sunlit room" loading="lazy" decoding="async"><span class="tag mono closed"><i></i>Opens Sep 2027</span></div>
+          <div class="card-body"><span class="mono">06 · Leadership · 24 fellows</span><h3>Leadership Fellows</h3><p>A 12-month cohort with mentors, travel and a capstone project.</p><a class="more mono" href="#programs">Learn more →</a></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="impact" id="impact">
+    <p class="label mono">08 / Since 1945</p>
+    <div class="stats">
+      <div><b data-n="48">48</b><span class="mono">Million dollars granted</span></div>
+      <div><b data-n="1260">1,260</b><span class="mono">Co-ops supported</span></div>
+      <div><b data-n="640">640</b><span class="mono">Leaders trained</span></div>
+      <div><b data-n="38">38</b><span class="mono">States reached</span></div>
+    </div>
+  </section>
+
+  <section class="marquee" aria-hidden="true">
+    <div class="marquee-row" data-dir="-1"><span>Shared ownership · Shared wealth · </span><span>Shared ownership · Shared wealth · </span></div>
+    <div class="marquee-row outline" data-dir="1"><span>One member, one vote · One member, one vote · </span><span>One member, one vote · One member, one vote · </span></div>
+  </section>
+
+  <section class="hall" id="hall">
+    <div class="hall-grid">
+      <div class="hall-intro">
+        <p class="label mono">09 / Cooperative Hall of Fame</p>
+        <h2 class="h-big">Heroes of <em>shared ownership.</em></h2>
+        <figure class="hall-fig"><img src="assets/img/hof-m.webp" srcset="assets/img/hof-m.webp 1000w, assets/img/hof.webp 1600w" sizes="(max-width:900px) 100vw, 40vw" alt="A woman resting her hand on a fence post on her dairy farm" loading="lazy" decoding="async"></figure>
+      </div>
+      <div class="hall-list-wrap">
+        <div class="hall-bar">
+          <label class="sr" for="hofQ">Search inductees</label>
+          <input id="hofQ" type="search" placeholder="Search name or co-op" autocomplete="off">
+          <div class="sectors" role="group" aria-label="Filter by sector" id="hofS"></div>
+        </div>
+        <p class="hall-count mono" id="hofCount" aria-live="polite"></p>
+        <ol class="hall-list" id="hofList"></ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="news" id="news">
+    <div class="news-head"><p class="label mono">10 / News &amp; stories</p><h2 class="h-big">From the <em>field.</em></h2></div>
+    <ul class="news-list">
+      <li><a href="#news"><span class="mono">Feb 2027 · Story</span><h3>How 41 farm families bought their grain elevator together</h3><span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a href="#news"><span class="mono">Jan 2027 · Announcement</span><h3>A $1.2 million fund for worker-owned businesses</h3><span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a href="#news"><span class="mono">Jan 2027 · Program</span><h3>Meet the 2027 Leadership Fellows</h3><span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a href="#news"><span class="mono">Dec 2026 · Report</span><h3>Annual report: a record year for resident-owned housing</h3><span class="arrow" aria-hidden="true">→</span></a></li>
+    </ul>
+  </section>
+
+  <section class="give" id="give">
+    <div class="give-bg"><img src="assets/img/give.webp" srcset="assets/img/give-m.webp 1000w, assets/img/give.webp 2400w" sizes="100vw" alt="" loading="lazy" decoding="async"></div>
+    <div class="give-inner">
+      <p class="label mono">11 / Give</p>
+      <h2 class="give-title">Help more people <em>own what they build.</em></h2>
+      <div class="give-grid">
+        <form class="give-form" id="giveForm">
+          <div class="amounts" role="radiogroup" aria-label="Gift amount">
+            <button type="button" role="radio" aria-checked="false">$50</button>
+            <button type="button" role="radio" aria-checked="true">$100</button>
+            <button type="button" role="radio" aria-checked="false">$250</button>
+            <button type="button" role="radio" aria-checked="false">$500</button>
+          </div>
+          <p class="give-note">$100 funds a day of expert help for a new cooperative.</p>
+          <div class="freq" role="radiogroup" aria-label="Frequency"><button type="button" role="radio" aria-checked="false">Once</button><button type="button" role="radio" aria-checked="true">Monthly</button></div>
+          <button class="btn btn-amber btn-xl" type="submit" id="giveBtn"><span>Give $100 monthly</span></button>
+          <p class="form-note mono">Preview only. Nothing is charged.</p>
+        </form>
+        <ul class="give-more">
+          <li><a href="#give"><span class="mono">Jun 7 · Washington, DC</span><b>Co-op 5K</b></a></li>
+          <li><a href="#give"><span class="mono">Legacy</span><b>Planned giving</b></a></li>
+          <li><a href="#give"><span class="mono">Funders</span><b>Partner with us</b></a></li>
+          <li><a href="#give"><span class="mono">Careers</span><b>Jobs in the co-op world</b></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-big" aria-hidden="true">TANDEM</div>
+  <div class="foot-tag"><p>Own it <em>together.</em></p><p class="mono">A 501(c)(3) cooperative development foundation</p></div>
+  <div class="foot-cols">
+    <ul><li><a href="#programs">Grants &amp; programs</a></li><li><a href="#hall">Hall of Fame</a></li><li><a href="#news">News</a></li></ul>
+    <ul><li><a href="#give">Donate</a></li><li><a href="#give">Co-op 5K</a></li><li><a href="#give">Careers</a></li></ul>
+    <ul><li><a href="#about">About</a></li><li><a href="#news">Archive</a></li><li><a href="#top">Accessibility</a></li></ul>
+  </div>
+  <div class="foot-row mono"><span>Concept site by Ponce Consulting. Names, numbers and stories are illustrative.</span><a href="#top">Back to top ↑</a></div>
+  <p class="credits mono">Photos: Unsplash contributors (Unsplash License), color graded.</p>
+</footer>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
+<script src="js/site.js"></script>
+<!-- ponce-portfolio-back -->
+<a href="/web-portfolio/" id="pc-back" style="position:fixed;left:14px;bottom:14px;z-index:2147483647;display:inline-flex;align-items:center;gap:7px;padding:9px 14px 9px 11px;border-radius:999px;background:rgba(13,13,16,.78);border:1px solid rgba(232,176,75,.45);color:#f0d8a8;font:600 12px/1 Inter,system-ui,-apple-system,Segoe UI,sans-serif;letter-spacing:.01em;text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 8px 24px rgba(0,0,0,.35)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Portfolio</a>
+</body>
+</html>
