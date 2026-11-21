@@ -54,6 +54,22 @@
     });
   }
 
+  /* ---------- menu (phones) ---------- */
+  const mb = $('#menuBtn'), menu = $('#menu');
+  const setMenu = o => { mb.setAttribute('aria-expanded', String(o)); menu.hidden = !o; document.body.style.overflow = o ? 'hidden' : ''; if (window.__lenis) { o ? __lenis.stop() : __lenis.start(); } };
+  mb.addEventListener('click', () => setMenu(mb.getAttribute('aria-expanded') !== 'true'));
+  $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { setMenu(false); mb.focus(); } });
+
+  /* ---------- nav gets a solid bar once you scroll ---------- */
+  const navEl = $('#nav'); const onS = () => navEl.classList.toggle('scrolled', scrollY > 40); addEventListener('scroll', onS, { passive: true }); onS();
+
+  /* ---------- program filters ---------- */
+  const fbtns = $$('.filters button');
+  fbtns.forEach(b => b.addEventListener('click', () => { fbtns.forEach(x => x.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', 'true');
+    const f = b.dataset.f; $$('.prog-grid .card').forEach(c => { c.hidden = !(f === 'all' || c.dataset.tags.split(' ').includes(f)); });
+    if (window.ScrollTrigger) ScrollTrigger.refresh(); }));
+
   if (!window.gsap) { $('#loader').remove(); return; }
   gsap.registerPlugin(ScrollTrigger);
 
@@ -61,7 +77,7 @@
   let lenis = null;
   if (!reduce && window.Lenis) {
     lenis = new Lenis({ duration: 1.2, easing: t => 1 - Math.pow(1 - t, 4), smoothWheel: true });
-    lenis.on('scroll', ScrollTrigger.update);
+    lenis.on('scroll', ScrollTrigger.update); window.__lenis = lenis;
     gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
     $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
       const id = a.getAttribute('href'); if (id.length < 2) return; const el = $(id); if (!el) return;
@@ -129,31 +145,27 @@
       .to(steps[i - 1], { autoAlpha: 0, y: -60, duration: .25 }, t)
       .to(steps[i], { autoAlpha: 1, y: 0, duration: .3 }, t + .3); }
   at.to({}, { duration: .35 });
-  const STAGES = ['Gather', 'Pool', 'Own', 'Stay'], gStep = $('#gStep'), gStage = $('#gStage'), gTrack = $('#gTrack');
-  ScrollTrigger.create({ trigger: '.journey', start: 'top top', end: 'bottom bottom', onUpdate: s => {
-    let i = 0; const T = at.duration(); for (let k = 1; k < N; k++) if (s.progress * T >= k - .1) i = k;
-    gStep.textContent = `0${i + 1} / 0${N}`; gStage.textContent = STAGES[i]; gTrack.style.transform = `scaleX(${s.progress})`; } });
+  const dots = $$('.jdots li');
+  ScrollTrigger.create({ trigger: '.journey', start: 'top top', end: 'bottom bottom', onUpdate: st2 => {
+    let i = 0; const T = at.duration(); for (let k = 1; k < N; k++) if (st2.progress * T >= k - .1) i = k;
+    dots.forEach((d, k) => d.classList.toggle('on', k === i)); } });
 
   /* ---------- paths ---------- */
   gsap.from('.path-list li', { y: 50, autoAlpha: 0, stagger: .08, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.path-list', start: 'top 80%', once: true } });
 
-  /* ---------- programs: horizontal ---------- */
-  const track = $('#workTrack'), idx = $('#workIdx'), cards = $$('.card', track);
-  const dist = () => Math.max(0, track.scrollWidth - innerWidth);
-  const ht = gsap.to(track, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '.work-pin', start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 1, invalidateOnRefresh: true, anticipatePin: 1,
-    onUpdate: s => { idx.textContent = String(Math.min(cards.length, 1 + Math.floor(s.progress * cards.length))).padStart(2, '0'); } } });
-  cards.forEach(c => {
-    gsap.fromTo($('img', c), { xPercent: 8 }, { xPercent: -8, ease: 'none', scrollTrigger: { trigger: c, containerAnimation: ht, start: 'left right', end: 'right left', scrub: true } });
-    gsap.from($('.card-media', c), { clipPath: 'inset(100% 0 0 0)', ease: 'none', scrollTrigger: { trigger: c, containerAnimation: ht, start: 'left 105%', end: 'left 55%', scrub: true } });
+  /* ---------- programs: cards rise in ---------- */
+  $$('.prog-grid .card').forEach(c => {
+    gsap.from($('.card-media', c), { clipPath: 'inset(100% 0 0 0)', duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: c, start: 'top 90%', once: true } });
+    gsap.fromTo($('img', c), { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: c, start: 'top bottom', end: 'bottom top', scrub: true } });
   });
 
   /* ---------- impact counters ---------- */
   $$('.stats b').forEach(b => { const n = +b.dataset.n, o = { v: 0 };
     gsap.to(o, { v: n, duration: 2, ease: 'power3.out', scrollTrigger: { trigger: b, start: 'top 85%', once: true }, onUpdate: () => { b.textContent = fmt(Math.round(o.v)); } }); });
 
-  /* ---------- marquee ---------- */
-  $$('.marquee-row').forEach(row => { const d = +row.dataset.dir;
-    gsap.fromTo(row, { xPercent: d < 0 ? 0 : -50 }, { xPercent: d < 0 ? -50 : 0, ease: 'none', scrollTrigger: { trigger: '.marquee', start: 'top bottom', end: 'bottom top', scrub: .6 } }); });
+  /* ---------- quote band ---------- */
+  gsap.fromTo('.band-bg img', { scale: 1.25, yPercent: -6 }, { scale: 1, yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.band', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.from('.band-quote > *', { y: 60, autoAlpha: 0, stagger: .12, duration: 1.3, ease: 'expo.out', scrollTrigger: { trigger: '.band-quote', start: 'top 85%', once: true } });
 
   /* ---------- lists + give ---------- */
   gsap.from('.news-list li', { y: 40, autoAlpha: 0, stagger: .08, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.news-list', start: 'top 82%', once: true } });
@@ -165,11 +177,8 @@
   fb.innerHTML = [...fb.textContent].map(c => `<span style="display:inline-block">${c}</span>`).join('');
   gsap.from('.foot-big span', { yPercent: 100, stagger: .05, ease: 'none', scrollTrigger: { trigger: '.foot', start: 'top bottom', end: 'bottom bottom', scrub: true } });
 
-  /* ---------- progress + nav ---------- */
+  /* ---------- progress ---------- */
   gsap.to('#progressBar', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: .3 } });
-  const nav = $('#nav'); let lastY = 0;
-  ScrollTrigger.create({ start: 0, end: 'max', onUpdate: s => { const y = s.scroll(); if (Math.abs(y - lastY) < 6) return;
-    gsap.to(nav, { yPercent: y > lastY && y > 300 ? -110 : 0, duration: .5, ease: 'power3.out', overwrite: 'auto' }); lastY = y; } });
 
   addEventListener('load', () => ScrollTrigger.refresh());
 })();

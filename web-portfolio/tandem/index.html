@@ -39,8 +39,19 @@
     <a href="#hall">Hall of Fame</a>
     <a href="#news">News</a>
   </nav>
-  <a class="btn btn-amber" href="#give"><span>Give</span></a>
+  <a class="btn btn-amber nav-give" href="#give"><span>Give</span></a>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu"><span class="mono">Menu</span><i></i></button>
 </header>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Site menu">
+    <a href="#paths"><span class="mono">01</span>Find your path</a>
+    <a href="#programs"><span class="mono">02</span>Grants &amp; programs</a>
+    <a href="#impact"><span class="mono">03</span>Our impact</a>
+    <a href="#hall"><span class="mono">04</span>Hall of Fame</a>
+    <a href="#news"><span class="mono">05</span>News</a>
+    <a href="#give"><span class="mono">06</span>Give</a>
+  </nav>
+</div>
 
 <main id="main">
 
@@ -92,11 +103,7 @@
         <div class="journey-step"><p class="label mono">04 / They own</p><h2>One member, <em>one vote.</em></h2><p>Our leadership fellows learn to run the business, govern well and train the next generation.</p></div>
         <div class="journey-step"><p class="label mono">05 / It stays</p><h2>And the wealth <em>stays home.</em></h2><p>Profits return to members and their towns, year after year, instead of leaving for good.</p></div>
       </div>
-      <div class="gauge mono" aria-hidden="true">
-        <div class="gauge-row"><span>Stage</span><b id="gStep">01 / 04</b></div>
-        <div class="gauge-row"><span>Now</span><b id="gStage">Gather</b></div>
-        <div class="gauge-track"><i id="gTrack"></i></div>
-      </div>
+      <ol class="jdots" aria-hidden="true"><li class="on"><span class="mono">Gather</span></li><li><span class="mono">Pool</span></li><li><span class="mono">Own</span></li><li><span class="mono">Stay</span></li></ol>
     </div>
   </section>
 
@@ -106,11 +113,11 @@
       <h2 class="h-big">I'm looking <em>for…</em></h2>
     </div>
     <ul class="path-list" id="pathList">
-      <li><a href="#programs" data-img="assets/img/p-grant-m.webp"><span class="mono">01</span><h3>Funding for my co-op</h3><span class="say">Open grants, deadlines and forms</span></a></li>
-      <li><a href="#programs" data-img="assets/img/p-lead-m.webp"><span class="mono">02</span><h3>Leadership programs</h3><span class="say">Fellowships for co-op leaders</span></a></li>
-      <li><a href="#give" data-img="assets/img/p-give-m.webp"><span class="mono">03</span><h3>Ways to give</h3><span class="say">Donate, sponsor or plan a legacy</span></a></li>
-      <li><a href="#about" data-img="assets/img/p-learn-m.webp"><span class="mono">04</span><h3>What a co-op is</h3><span class="say">The basics, in plain words</span></a></li>
-      <li><a href="#news" data-img="assets/img/p-media-m.webp"><span class="mono">05</span><h3>News &amp; media</h3><span class="say">Stories, reports and press</span></a></li>
+      <li><a href="#programs" data-img="assets/img/p-grant-m.webp"><img class="thumb" src="assets/img/p-grant-m.webp" alt="" loading="lazy"><span class="mono">01</span><h3>Funding for my co-op</h3><span class="say">Open grants, deadlines and forms</span></a></li>
+      <li><a href="#programs" data-img="assets/img/p-lead-m.webp"><img class="thumb" src="assets/img/p-lead-m.webp" alt="" loading="lazy"><span class="mono">02</span><h3>Leadership programs</h3><span class="say">Fellowships for co-op leaders</span></a></li>
+      <li><a href="#give" data-img="assets/img/p-give-m.webp"><img class="thumb" src="assets/img/p-give-m.webp" alt="" loading="lazy"><span class="mono">03</span><h3>Ways to give</h3><span class="say">Donate, sponsor or plan a legacy</span></a></li>
+      <li><a href="#about" data-img="assets/img/p-learn-m.webp"><img class="thumb" src="assets/img/p-learn-m.webp" alt="" loading="lazy"><span class="mono">04</span><h3>What a co-op is</h3><span class="say">The basics, in plain words</span></a></li>
+      <li><a href="#news" data-img="assets/img/p-media-m.webp"><img class="thumb" src="assets/img/p-media-m.webp" alt="" loading="lazy"><span class="mono">05</span><h3>News &amp; media</h3><span class="say">Stories, reports and press</span></a></li>
     </ul>
     <div class="path-peek" id="pathPeek" aria-hidden="true"><img alt=""></div>
   </section>
@@ -119,21 +126,23 @@
     <div class="work-head">
       <p class="label mono">07 / Grants &amp; programs</p>
       <h2 class="h-big">Support at <em>every stage.</em></h2>
-      <p class="work-count mono"><span id="workIdx">01</span> / 06</p>
     </div>
-    <div class="work-pin">
-      <div class="work-track" id="workTrack">
-        <article class="card"><div class="card-media"><img src="assets/img/c-rural-m.webp" srcset="assets/img/c-rural-m.webp 1000w, assets/img/c-rural.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="Golden wheat in front of an old wooden grain elevator" loading="lazy" decoding="async"><span class="tag mono"><i></i>Open · due Mar 6</span></div>
+    <div class="filters" role="group" aria-label="Filter programs">
+      <button type="button" aria-pressed="true" data-f="all">All</button><button type="button" aria-pressed="false" data-f="open">Open now</button><button type="button" aria-pressed="false" data-f="grant">Grants</button><button type="button" aria-pressed="false" data-f="place">Place-based</button><button type="button" aria-pressed="false" data-f="lead">Leadership</button>
+    </div>
+    <div class="grid-wrap">
+      <div class="prog-grid" id="workTrack">
+        <article class="card" data-tags="open grant"><div class="card-media"><img src="assets/img/c-rural-m.webp" srcset="assets/img/c-rural-m.webp 1000w, assets/img/c-rural.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="Golden wheat in front of an old wooden grain elevator" loading="lazy" decoding="async"><span class="tag mono"><i></i>Open · due Mar 6</span></div>
           <div class="card-body"><span class="mono">01 · Grant · up to $50K</span><h3>Rural Cooperative Grants</h3><p>For rural co-ops starting up, converting to member ownership or growing.</p><a class="more mono" href="#programs">How to apply →</a></div></article>
-        <article class="card"><div class="card-media"><img src="assets/img/c-disaster-m.webp" srcset="assets/img/c-disaster-m.webp 1000w, assets/img/c-disaster.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="Tractors working a field at dusk under an orange sky" loading="lazy" decoding="async"><span class="tag mono"><i></i>Open year-round</span></div>
+        <article class="card" data-tags="open grant"><div class="card-media"><img src="assets/img/c-disaster-m.webp" srcset="assets/img/c-disaster-m.webp 1000w, assets/img/c-disaster.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="Tractors working a field at dusk under an orange sky" loading="lazy" decoding="async"><span class="tag mono"><i></i>Open year-round</span></div>
           <div class="card-body"><span class="mono">02 · Grant · rolling</span><h3>Disaster Recovery Fund</h3><p>Fast help for co-ops and their members after floods, fires and storms.</p><a class="more mono" href="#programs">Request help →</a></div></article>
-        <article class="card"><div class="card-media"><img src="assets/img/c-homecare-m.webp" srcset="assets/img/c-homecare-m.webp 1000w, assets/img/c-homecare.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="A caregiver doing a puzzle with two older adults" loading="lazy" decoding="async"><span class="tag mono closed"><i></i>Reopens fall</span></div>
+        <article class="card" data-tags="place"><div class="card-media"><img src="assets/img/c-homecare-m.webp" srcset="assets/img/c-homecare-m.webp 1000w, assets/img/c-homecare.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="A caregiver doing a puzzle with two older adults" loading="lazy" decoding="async"><span class="tag mono closed"><i></i>Reopens fall</span></div>
           <div class="card-body"><span class="mono">03 · Place-based · 6 regions</span><h3>Homecare Cooperatives</h3><p>Caregiver-owned agencies that raise wages and keep elders at home.</p><a class="more mono" href="#programs">See grantees →</a></div></article>
-        <article class="card"><div class="card-media"><img src="assets/img/c-housing-m.webp" srcset="assets/img/c-housing-m.webp 1000w, assets/img/c-housing.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="A sunny apartment courtyard with gardens and brick buildings" loading="lazy" decoding="async"><span class="tag mono"><i></i>Open · due Apr 17</span></div>
+        <article class="card" data-tags="open place"><div class="card-media"><img src="assets/img/c-housing-m.webp" srcset="assets/img/c-housing-m.webp 1000w, assets/img/c-housing.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="A sunny apartment courtyard with gardens and brick buildings" loading="lazy" decoding="async"><span class="tag mono"><i></i>Open · due Apr 17</span></div>
           <div class="card-body"><span class="mono">04 · Place-based · up to $75K</span><h3>Resident-Owned Housing</h3><p>Helping tenants and residents buy and run their communities together.</p><a class="more mono" href="#programs">How to apply →</a></div></article>
-        <article class="card"><div class="card-media"><img src="assets/img/c-worker-m.webp" srcset="assets/img/c-worker-m.webp 1000w, assets/img/c-worker.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="A baker pulling loaves from a brick oven" loading="lazy" decoding="async"><span class="tag mono"><i></i>Open · due May 1</span></div>
+        <article class="card" data-tags="open grant"><div class="card-media"><img src="assets/img/c-worker-m.webp" srcset="assets/img/c-worker-m.webp 1000w, assets/img/c-worker.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="A baker pulling loaves from a brick oven" loading="lazy" decoding="async"><span class="tag mono"><i></i>Open · due May 1</span></div>
           <div class="card-body"><span class="mono">05 · Grant · up to $40K</span><h3>Worker Ownership</h3><p>Helping retiring owners sell to the people who already run the business.</p><a class="more mono" href="#programs">How to apply →</a></div></article>
-        <article class="card"><div class="card-media"><img src="assets/img/c-lead-m.webp" srcset="assets/img/c-lead-m.webp 1000w, assets/img/c-lead.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="A group talking around a long table in a sunlit room" loading="lazy" decoding="async"><span class="tag mono closed"><i></i>Opens Sep 2027</span></div>
+        <article class="card" data-tags="lead"><div class="card-media"><img src="assets/img/c-lead-m.webp" srcset="assets/img/c-lead-m.webp 1000w, assets/img/c-lead.webp 1600w" sizes="(max-width:900px) 80vw, 32vw" alt="A group talking around a long table in a sunlit room" loading="lazy" decoding="async"><span class="tag mono closed"><i></i>Opens Sep 2027</span></div>
           <div class="card-body"><span class="mono">06 · Leadership · 24 fellows</span><h3>Leadership Fellows</h3><p>A 12-month cohort with mentors, travel and a capstone project.</p><a class="more mono" href="#programs">Learn more →</a></div></article>
       </div>
     </div>
@@ -149,9 +158,9 @@
     </div>
   </section>
 
-  <section class="marquee" aria-hidden="true">
-    <div class="marquee-row" data-dir="-1"><span>Shared ownership · Shared wealth · </span><span>Shared ownership · Shared wealth · </span></div>
-    <div class="marquee-row outline" data-dir="1"><span>One member, one vote · One member, one vote · </span><span>One member, one vote · One member, one vote · </span></div>
+  <section class="band" aria-label="Member story">
+    <div class="band-bg"><img src="assets/img/p-grant.webp" srcset="assets/img/p-grant-m.webp 1000w, assets/img/p-grant.webp 1600w" sizes="100vw" alt="Three women farmers standing together" loading="lazy" decoding="async"></div>
+    <blockquote class="band-quote"><p>“None of us could afford the equipment alone. <em>Together, we own it outright.”</em></p><footer class="mono">June Whitfield · Ridge Valley Growers · Tennessee</footer></blockquote>
   </section>
 
   <section class="hall" id="hall">
