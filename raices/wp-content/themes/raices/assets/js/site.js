@@ -119,8 +119,8 @@
 
   /* ---------- loader + intro ---------- */
   const loader = $('#loader') || document.createElement('div'), bar = $('#loaderBar'), num = $('#loaderNum'), heroImg = $('.hero .wp-block-cover__image-background');
-  const prog = { v: 0 }, show = () => { bar.style.transform = `scaleX(${prog.v / 100})`; num.textContent = String(Math.round(prog.v)).padStart(3, '0'); };
-  gsap.to(prog, { v: 80, duration: 1.1, ease: 'power2.out', onUpdate: show });
+  const prog = { v: 0 }; let shown = 0; const show = () => { if (!bar || !num) return; shown = Math.max(shown, prog.v); bar.style.transform = `scaleX(${shown / 100})`; num.textContent = String(Math.round(shown)).padStart(3, '0'); };
+  const toEighty = gsap.to(prog, { v: 80, duration: 1.1, ease: 'power2.out', onUpdate: show });
   const ready = Promise.all([
     heroImg.complete ? Promise.resolve() : new Promise(r => { heroImg.onload = heroImg.onerror = r; }),
     document.fonts ? document.fonts.ready : Promise.resolve(),
@@ -132,7 +132,7 @@
   gsap.set(heroImg, { scale: 1.3 });
   gsap.from('.loader-mark circle', { attr: { r: 0 }, duration: 1, stagger: .15, ease: 'expo.out' });
   Promise.race([ready, new Promise(r => setTimeout(r, 6000))]).then(() => {
-    gsap.to(prog, { v: 100, duration: .3, onUpdate: show });
+    toEighty.kill(); gsap.to(prog, { v: 100, duration: .35, ease: 'power1.out', onUpdate: show });
     const tl = gsap.timeline({ delay: .3, onComplete: () => { endIntro(); if (lenis) lenis.start(); } });
     tl.to('.loader-inner', { autoAlpha: 0, y: -20, duration: .5, ease: 'power2.in' })
       .to(loader, { clipPath: 'inset(0 0 100% 0)', duration: 1.1, ease: 'expo.inOut' }, '-=.1')
