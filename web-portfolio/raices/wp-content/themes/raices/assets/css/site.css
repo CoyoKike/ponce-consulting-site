@@ -192,3 +192,7 @@ h1 em, h2 em, .r-quote em { color:var(--terra); }
   .r-hero { min-height:92vh !important; }
 }
 .r-hero .wp-block-cover__inner-container > * { margin-left:0 !important; margin-right:auto !important; }
+
+/* logged-in admin bar */
+body.admin-bar .r-nav { top:32px; }
+@media (max-width:782px){ body.admin-bar .r-nav { top:46px; } }
