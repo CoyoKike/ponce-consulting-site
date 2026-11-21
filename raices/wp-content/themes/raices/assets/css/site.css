@@ -644,3 +644,9 @@ body.admin-bar .nav { top: 32px; }
 .board .person:nth-child(n) { margin-top: 0; }
 @media (max-width: 900px) { .people { grid-template-columns: 1fr 1fr; } .people .person:nth-child(3n+2) { margin-top: 0; } .people .person:nth-child(even) { margin-top: 40px; } }
 .hero-title .line { will-change: transform; } .hero .wp-block-cover__image-background { will-change: transform; }
+/* EN / ES switch */
+.lang-btn { display: inline-flex; align-items: center; gap: 6px; height: 42px; padding: 0 14px; border: 1px solid rgba(247,242,234,.35); background: transparent; color: rgba(247,242,234,.55); cursor: pointer; font-size: 11px; transition: border-color .3s, color .3s; }
+.lang-btn:hover { border-color: var(--amber); }
+.lang-btn i { font-style: normal; opacity: .4; }
+.lang-btn span.on { color: var(--cream); border-bottom: 1px solid var(--amber); padding-bottom: 2px; }
+@media (max-width: 900px) { .lang-btn { height: 42px; padding: 0 10px; } .nav { gap: 8px; } }

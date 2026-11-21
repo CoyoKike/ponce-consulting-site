@@ -12,11 +12,11 @@
     const render = () => {
       const t = q.value.trim().toLowerCase(); let n = 0;
       cards.forEach(c => { const ok = (!sector || c.dataset.status === sector) && c.textContent.toLowerCase().includes(t); c.hidden = !ok; if (ok) n++; });
-      cnt.textContent = `${n} of ${cards.length} buildings`;
+      cnt.textContent = window.RAICES_LANG === 'es' ? `${n} de ${cards.length} edificios` : `${n} of ${cards.length} buildings`;
       if (window.ScrollTrigger) ScrollTrigger.refresh();
     };
     ['All', 'Open', 'Coming soon', 'Closed'].forEach((s, i) => {
-      const b = document.createElement('button'); b.type = 'button'; b.textContent = s; b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+      const b = document.createElement('button'); b.type = 'button'; b.textContent = window.RAICES_LANG === 'es' ? ({ All: 'Todos', Open: 'Abiertos', 'Coming soon': 'Muy pronto', Closed: 'Cerrados' })[s] : s; b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
       b.addEventListener('click', () => { $$('button', secWrap).forEach(x => x.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', 'true'); sector = s === 'All' ? '' : s; render(); });
       secWrap.appendChild(b);
     });
@@ -26,10 +26,10 @@
   /* ---------- give form ---------- */
   const amts = $$('.amounts button'), freqs = $$('.freq button'), gb = $('#giveBtn span');
   const sel = (group, b) => { group.forEach(x => x.setAttribute('aria-checked', 'false')); b.setAttribute('aria-checked', 'true'); upd(); };
-  const upd = () => { const a = amts.find(x => x.getAttribute('aria-checked') === 'true').textContent; const f = freqs.find(x => x.getAttribute('aria-checked') === 'true').textContent; gb.textContent = `Give ${a}${f === 'Monthly' ? ' monthly' : ''}`; };
+  const upd = () => { const a = amts.find(x => x.getAttribute('aria-checked') === 'true').textContent; const f = freqs.find(x => x.getAttribute('aria-checked') === 'true').textContent; gb.textContent = window.RAICES_LANG === 'es' ? `Donar ${a}${f === 'Mensual' ? ' al mes' : ''}` : `Give ${a}${f === 'Monthly' ? ' monthly' : ''}`; };
   amts.forEach(b => b.addEventListener('click', () => sel(amts, b)));
   freqs.forEach(b => b.addEventListener('click', () => sel(freqs, b)));
-  $('#giveForm') && $('#giveForm').addEventListener('submit', e => { e.preventDefault(); gb.textContent = 'Thank you (preview)'; });
+  $('#giveForm') && $('#giveForm').addEventListener('submit', e => { e.preventDefault(); gb.textContent = window.RAICES_LANG === 'es' ? '¡Gracias!' : 'Thank you!'; });
 
   /* ---------- path list: photo follows the cursor ---------- */
   const peek = $('#pathPeek'), pimg = peek && $('img', peek);
@@ -91,7 +91,7 @@
 
   /* ---------- contact form (preview) ---------- */
   const cf = $('#contactForm');
-  if (cf) cf.addEventListener('submit', e => { e.preventDefault(); $('#cfNote').textContent = 'Thanks. We will get back to you within one business day.'; });
+  if (cf) cf.addEventListener('submit', e => { e.preventDefault(); $('#cfNote').textContent = window.RAICES_LANG === 'es' ? 'Gracias. Te respondemos en un día hábil.' : 'Thanks. We will get back to you within one business day.'; });
 
   const root = document.documentElement;
   const endIntro = () => { root.classList.remove('r-intro'); const l = $('#loader'); if (l) l.remove(); };
