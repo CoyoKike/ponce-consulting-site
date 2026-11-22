@@ -184,8 +184,8 @@
 <script>
 (() => {
   const S = [
-    { id:'raices', href:'/raices/', wp:true, name:'Raíces', en:{sub:'Community development nonprofit', d:'A neighborhood nonprofit for homes, jobs and small business help, with a layered photo hero and a full English/Spanish switch.'}, es:{sub:'Organización comunitaria sin fines de lucro', d:'Una organización de barrio para vivienda, empleo y apoyo a negocios, con portada de fotos en capas y cambio completo entre inglés y español.'} },
-    { id:'tandem', wp:true, name:'Tandem', en:{sub:'Cooperative loan fund', d:'Cobalt and ink, like an annual report. A public loan ledger with animated charts drawn from it.'}, es:{sub:'Fondo cooperativo de préstamos', d:'Cobalto y tinta, como un informe anual. Un registro público de préstamos con gráficas animadas hechas a partir de él.'} },
+    { id:'raices', href:'/raices/', wp:true, name:'Raíces', en:{sub:'Community development nonprofit', d:'A WordPress website for a neighborhood nonprofit that helps with homes, jobs and small business, with a layered photo hero and a full English/Spanish switch.'}, es:{sub:'Organización comunitaria sin fines de lucro', d:'Un sitio en WordPress para una organización de barrio que ayuda con vivienda, empleo y negocios, con portada de fotos en capas y cambio completo entre inglés y español.'} },
+    { id:'tandem', wp:true, name:'Tandem', en:{sub:'Cooperative loan fund', d:'A WordPress website for a cooperative loan fund. Cobalt and ink, like an annual report, with a public loan ledger and animated charts drawn from it.'}, es:{sub:'Fondo cooperativo de préstamos', d:'Un sitio en WordPress para un fondo cooperativo de préstamos. Cobalto y tinta, como un informe anual, con un registro público de préstamos y gráficas animadas hechas a partir de él.'} },
     { id:'ceniza', name:'Ceniza', en:{sub:'Restaurant · Mexico City', d:'A wood-fire kitchen told in scroll: a 3D stone comal, smoke, and a menu that reads like a story.'}, es:{sub:'Restaurante · Ciudad de México', d:'Una cocina de leña contada con el scroll: un comal de piedra en 3D, humo y un menú que se lee como historia.'} },
     { id:'tezontle', name:'Tezontle <em>Builders</em>', en:{sub:'General contractor · Houston', d:'A tower rises floor by floor as you scroll, with the crane working above it.'}, es:{sub:'Constructora · Houston', d:'Una torre se levanta piso por piso mientras haces scroll, con la grúa trabajando arriba.'} },
     { id:'quintero', name:'Adela <em>Quintero</em>', en:{sub:'Real estate agent · Boston', d:'A walk up a 3D Beacon Hill street at dusk. The windows light up at each home for sale, and at the end a front door opens.'}, es:{sub:'Agente inmobiliaria · Boston', d:'Un paseo por una calle de Beacon Hill en 3D al atardecer. Las ventanas se encienden en cada casa en venta y al final se abre una puerta.'} },
@@ -213,7 +213,6 @@
           <div>
             <h2><span class="num">${String(i + 1).padStart(2, '0')}</span>${s.name}</h2>
             <div class="sub"><span class="en">${s.en.sub}</span><span class="es">${s.es.sub}</span></div>
-            ${s.wp ? '<span class="tag wp"><span class="en">Built in WordPress</span><span class="es">Hecho en WordPress</span></span>' : ''}
             <p><span class="en">${s.en.d}</span><span class="es">${s.es.d}</span></p>
           </div>
         </div>
