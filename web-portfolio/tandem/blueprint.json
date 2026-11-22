@@ -1,0 +1,10 @@
+{
+ "landingPage": "/",
+ "preferredVersions": { "php": "8.2", "wp": "latest" },
+ "steps": [
+  { "step": "login", "username": "admin", "password": "password" },
+  { "step": "installTheme", "themeData": { "resource": "url", "url": "https://raw.githubusercontent.com/CoyoKike/ponce-consulting-site/main/wp-themes/tandem-theme.zip" }, "options": { "activate": true } },
+  { "step": "setSiteOptions", "options": { "blogname": "Tandem Cooperative Fund", "blogdescription": "Ours to build" } },
+  { "step": "runPHP", "code": "<?php require '/wordpress/wp-load.php'; global $wp_rewrite; $wp_rewrite->set_permalink_structure('/%postname%/'); $wp_rewrite->flush_rules(true);" }
+ ]
+}

@@ -4,7 +4,7 @@ Tandem Cooperative Fund is a concept site. The organization, people, quotes, num
 
 | What | Source | License |
 |---|---|---|
-| Fonts | Fraunces and DM Sans (same files as the Vecina site) | SIL Open Font License |
+| Fonts | Archivo and Source Serif 4 | SIL Open Font License |
 
 ## Photos
 From Wikimedia Commons, resized to WebP in `assets/img`.
