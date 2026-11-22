@@ -184,6 +184,8 @@
 <script>
 (() => {
   const S = [
+    { id:'raices', href:'/raices/', name:'Raíces', en:{sub:'Community development nonprofit · WordPress', d:'A neighborhood nonprofit for homes, jobs and small business help, with a layered photo hero and a full English/Spanish switch.'}, es:{sub:'Organización comunitaria sin fines de lucro · WordPress', d:'Una organización de barrio para vivienda, empleo y apoyo a negocios, con portada de fotos en capas y cambio completo entre inglés y español.'} },
+    { id:'tandem', name:'Tandem', en:{sub:'Cooperative loan fund · WordPress', d:'Cobalt and ink, like an annual report. A public loan ledger with animated charts drawn from it.'}, es:{sub:'Fondo cooperativo de préstamos · WordPress', d:'Cobalto y tinta, como un informe anual. Un registro público de préstamos con gráficas animadas hechas a partir de él.'} },
     { id:'ceniza', name:'Ceniza', en:{sub:'Restaurant · Mexico City', d:'A wood-fire kitchen told in scroll: a 3D stone comal, smoke, and a menu that reads like a story.'}, es:{sub:'Restaurante · Ciudad de México', d:'Una cocina de leña contada con el scroll: un comal de piedra en 3D, humo y un menú que se lee como historia.'} },
     { id:'tezontle', name:'Tezontle <em>Builders</em>', en:{sub:'General contractor · Houston', d:'A tower rises floor by floor as you scroll, with the crane working above it.'}, es:{sub:'Constructora · Houston', d:'Una torre se levanta piso por piso mientras haces scroll, con la grúa trabajando arriba.'} },
     { id:'quintero', name:'Adela <em>Quintero</em>', en:{sub:'Real estate agent · Boston', d:'A walk up a 3D Beacon Hill street at dusk. The windows light up at each home for sale, and at the end a front door opens.'}, es:{sub:'Agente inmobiliaria · Boston', d:'Un paseo por una calle de Beacon Hill en 3D al atardecer. Las ventanas se encienden en cada casa en venta y al final se abre una puerta.'} },
@@ -201,7 +203,7 @@
   const arrow = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>';
   root.innerHTML = S.map((s, i) => `
     <article class="card">
-      <a href="/web-portfolio/${s.id}/" data-name="${s.name.replace(/<[^>]+>/g,'')}" aria-label="Open the ${s.name.replace(/<[^>]+>/g,'')} website">
+      <a href="${s.href || `/web-portfolio/${s.id}/`}" data-name="${s.name.replace(/<[^>]+>/g,'')}" aria-label="Open the ${s.name.replace(/<[^>]+>/g,'')} website">
         <div class="frame">
           <div class="bar-dots" aria-hidden="true"><i></i><i></i><i></i></div>
           <img src="/web-portfolio/_img/${s.id}.jpg" alt="" loading="${i < 2 ? 'eager' : 'lazy'}" decoding="async">
