@@ -74,7 +74,7 @@
   .card { --o:1; --y:0px; --s:1; --py:0%; opacity:var(--o); transform:translate3d(0,var(--y),0) scale(var(--s)); will-change:transform, opacity; }
   .card a { display:block; outline:none; }
   .frame { position:relative; overflow:hidden; border-radius:18px; aspect-ratio:1440/760; background:#16161b; box-shadow:0 30px 80px rgba(0,0,0,.45), 0 0 0 1px var(--line); transition:box-shadow .5s ease; isolation:isolate; }
-  .frame img { position:absolute; left:0; top:0; width:100%; height:auto; transform:translate3d(0,calc(-5.7% + var(--py)),0); transition:scale .9s cubic-bezier(.2,.7,.1,1), filter .9s ease; filter:saturate(.92); }
+  .frame img { position:absolute; left:0; top:-12.5%; width:100%; height:125%; object-fit:cover; transform:translate3d(0,var(--py),0); transition:scale .9s cubic-bezier(.2,.7,.1,1), filter .9s ease; filter:saturate(.92); }
   .frame::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,13,16,0) 45%, rgba(13,13,16,.78) 100%); z-index:1; }
   .frame .bar-dots { position:absolute; top:14px; left:16px; z-index:2; display:flex; gap:6px; }
   .frame .bar-dots i { width:8px; height:8px; border-radius:50%; background:rgba(245,241,234,.35); }
@@ -232,6 +232,7 @@
   // parallax inside each frame, and each card fades in and out as it crosses the screen
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const cards = [...document.querySelectorAll('.card')];
+  cards.forEach((c, i) => c.dataset.k = i);
   const head = document.getElementById('top');
   let ticking = false;
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
@@ -248,9 +249,9 @@
       const o = Math.min(enter, leave);
       c.style.setProperty('--o', (o * o * (3 - 2 * o)).toFixed(3));
       if (reduce) continue;
-      c.style.setProperty('--y', (p * 60).toFixed(1) + 'px');
+      c.style.setProperty('--y', (p * (c.dataset.k % 2 ? 150 : 90)).toFixed(1) + 'px');   // right column drifts more, so the two columns slide past each other
       c.style.setProperty('--s', (.94 + .06 * o).toFixed(4));
-      c.style.setProperty('--py', (p * -5.4).toFixed(2) + '%');
+      c.style.setProperty('--py', (p * -9.5).toFixed(2) + '%');   // the photo moves inside its frame
     }
   };
   const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
