@@ -130,7 +130,7 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation:none !important; transition:none !important; }
     h1 .w, .lede, .stats { opacity:1; transform:none; filter:none; }
-    .card { --o:1 !important; --y:0px !important; --s:1 !important; --py:0% !important; }
+    .card { --y:0px !important; --s:1 !important; --py:0% !important; }
   }
 </style>
 </head>
@@ -239,15 +239,15 @@
     ticking = false;
     const vh = innerHeight;
     head.classList.toggle('solid', scrollY > 40);
-    if (reduce) return;
     for (const c of cards) {
       const r = c.getBoundingClientRect();
       if (r.bottom < -200 || r.top > vh + 200) continue;
       const p = clamp(((r.top + r.height / 2) - vh / 2) / (vh / 2 + r.height / 2), -1, 1); // -1 leaving top, 1 entering bottom
-      const enter = clamp((1 - p) / .55, 0, 1);    // fades in from the bottom
+      const enter = clamp((vh - r.top) / (vh * .5), 0, 1);    // fades in from nothing as it comes up the screen
       const leave = clamp((1 + p) / .5, 0, 1);     // fades out at the top
       const o = Math.min(enter, leave);
       c.style.setProperty('--o', (o * o * (3 - 2 * o)).toFixed(3));
+      if (reduce) continue;
       c.style.setProperty('--y', (p * 60).toFixed(1) + 'px');
       c.style.setProperty('--s', (.94 + .06 * o).toFixed(4));
       c.style.setProperty('--py', (p * -5.4).toFixed(2) + '%');
