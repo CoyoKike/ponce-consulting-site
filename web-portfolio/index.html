@@ -86,7 +86,7 @@
   .card a:hover .open svg { transform:translate(3px,-3px); }
   @media (hover:none) { .frame .open { opacity:1; transform:none; } }
 
-  .meta { display:grid; grid-template-columns:auto 1fr; align-items:start; gap:16px; margin-top:22px; }
+  .meta { display:grid; grid-template-columns:1fr; align-items:start; gap:16px; margin-top:22px; }
   .icon { width:52px; height:52px; border-radius:50%; display:grid; place-items:center; background:none; box-shadow:inset 0 0 0 1px rgba(232,176,75,.4); color:var(--gold-l); font:italic 500 28px/1 var(--serif); padding-bottom:3px; transition:transform .5s cubic-bezier(.2,.7,.1,1), background .5s ease; }
   .card a:hover .icon { background:rgba(232,176,75,.12); }
   .meta h2 { margin:0; font:500 clamp(28px, 2.8vw, 40px)/1 var(--serif); letter-spacing:-.01em; }
@@ -94,6 +94,7 @@
   .meta .sub { margin:8px 0 0; font:600 10.5px var(--sans); letter-spacing:.2em; text-transform:uppercase; color:var(--mute); }
   .meta p { margin:12px 0 0; max-width:46ch; font:400 15px/1.6 var(--sans); color:rgba(245,241,234,.74); }
   .tag { font:600 10px var(--sans); letter-spacing:.18em; text-transform:uppercase; padding:7px 11px; border-radius:999px; white-space:nowrap; border:1px solid rgba(245,241,234,.2); color:var(--mute); }
+  .tag.wp { display:inline-block; margin-top:12px; border-color:rgba(232,176,75,.5); color:var(--gold-l); }
   .tag.client { border-color:rgba(127,174,143,.55); color:#a9d3b6; }
   .num { font:500 14px var(--serif); font-style:italic; color:var(--gold); margin-right:6px; }
 
@@ -123,8 +124,7 @@
     .pill.ghost { display:none; }
   }
   @media (max-width:520px) {
-    .meta { grid-template-columns:auto 1fr; }
-    .meta .tag { grid-column:2; justify-self:start; }
+    .meta { grid-template-columns:1fr; }
     .icon { width:44px; height:44px; font-size:24px; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -184,8 +184,8 @@
 <script>
 (() => {
   const S = [
-    { id:'raices', href:'/raices/', name:'Raíces', en:{sub:'Community development nonprofit · WordPress', d:'A neighborhood nonprofit for homes, jobs and small business help, with a layered photo hero and a full English/Spanish switch.'}, es:{sub:'Organización comunitaria sin fines de lucro · WordPress', d:'Una organización de barrio para vivienda, empleo y apoyo a negocios, con portada de fotos en capas y cambio completo entre inglés y español.'} },
-    { id:'tandem', name:'Tandem', en:{sub:'Cooperative loan fund · WordPress', d:'Cobalt and ink, like an annual report. A public loan ledger with animated charts drawn from it.'}, es:{sub:'Fondo cooperativo de préstamos · WordPress', d:'Cobalto y tinta, como un informe anual. Un registro público de préstamos con gráficas animadas hechas a partir de él.'} },
+    { id:'raices', href:'/raices/', wp:true, name:'Raíces', en:{sub:'Community development nonprofit', d:'A neighborhood nonprofit for homes, jobs and small business help, with a layered photo hero and a full English/Spanish switch.'}, es:{sub:'Organización comunitaria sin fines de lucro', d:'Una organización de barrio para vivienda, empleo y apoyo a negocios, con portada de fotos en capas y cambio completo entre inglés y español.'} },
+    { id:'tandem', wp:true, name:'Tandem', en:{sub:'Cooperative loan fund', d:'Cobalt and ink, like an annual report. A public loan ledger with animated charts drawn from it.'}, es:{sub:'Fondo cooperativo de préstamos', d:'Cobalto y tinta, como un informe anual. Un registro público de préstamos con gráficas animadas hechas a partir de él.'} },
     { id:'ceniza', name:'Ceniza', en:{sub:'Restaurant · Mexico City', d:'A wood-fire kitchen told in scroll: a 3D stone comal, smoke, and a menu that reads like a story.'}, es:{sub:'Restaurante · Ciudad de México', d:'Una cocina de leña contada con el scroll: un comal de piedra en 3D, humo y un menú que se lee como historia.'} },
     { id:'tezontle', name:'Tezontle <em>Builders</em>', en:{sub:'General contractor · Houston', d:'A tower rises floor by floor as you scroll, with the crane working above it.'}, es:{sub:'Constructora · Houston', d:'Una torre se levanta piso por piso mientras haces scroll, con la grúa trabajando arriba.'} },
     { id:'quintero', name:'Adela <em>Quintero</em>', en:{sub:'Real estate agent · Boston', d:'A walk up a 3D Beacon Hill street at dusk. The windows light up at each home for sale, and at the end a front door opens.'}, es:{sub:'Agente inmobiliaria · Boston', d:'Un paseo por una calle de Beacon Hill en 3D al atardecer. Las ventanas se encienden en cada casa en venta y al final se abre una puerta.'} },
@@ -210,10 +210,10 @@
           <span class="open"><span class="en">Open site</span><span class="es">Abrir sitio</span>${arrow}</span>
         </div>
         <div class="meta">
-          <div class="icon" aria-hidden="true">${s.name.replace(/<[^>]+>/g,'').trim()[0]}</div>
           <div>
             <h2><span class="num">${String(i + 1).padStart(2, '0')}</span>${s.name}</h2>
             <div class="sub"><span class="en">${s.en.sub}</span><span class="es">${s.es.sub}</span></div>
+            ${s.wp ? '<span class="tag wp"><span class="en">Built in WordPress</span><span class="es">Hecho en WordPress</span></span>' : ''}
             <p><span class="en">${s.en.d}</span><span class="es">${s.es.d}</span></p>
           </div>
         </div>
