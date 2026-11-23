@@ -189,6 +189,12 @@
   if ($('.lead')) gsap.from('.lead-quote, .lead-meta', { y: 50, autoAlpha: 0, stagger: .12, duration: 1.3, ease: 'expo.out', scrollTrigger: { trigger: '.lead', start: 'top 75%', once: true } });
 
 
+  /* ---------- home about intro + program pages ---------- */
+  if ($('.who-copy')) gsap.from('.who-copy > *', { y: 40, autoAlpha: 0, stagger: .09, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.who-sec', start: 'top 70%', once: true } });
+  if ($('.pg-intro')) gsap.from('.pg-intro > div > *, .pg-facts > *', { y: 40, autoAlpha: 0, stagger: .08, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.pg-intro', start: 'top 80%', once: true } });
+  $$('.pg-gets, .pg-steps, .pg-more, .pg-sched, .pg-check').forEach(l => gsap.from(l.children, { y: 40, autoAlpha: 0, stagger: .08, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: l, start: 'top 85%', once: true } }));
+  $$('.pg-table tbody tr').forEach((r, i) => gsap.from(r, { y: 24, autoAlpha: 0, duration: .9, delay: i * .06, ease: 'expo.out', scrollTrigger: { trigger: r.closest('table'), start: 'top 85%', once: true } }));
+
   /* ---------- contact page ---------- */
   if ($('.info-grid')) gsap.from('.info-col', { y: 50, autoAlpha: 0, stagger: .1, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.info-grid', start: 'top 85%', once: true } });
   if ($('.contact-grid')) gsap.from('.contact-form > *, .faq details', { y: 30, autoAlpha: 0, stagger: .06, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.contact-grid', start: 'top 85%', once: true } });
